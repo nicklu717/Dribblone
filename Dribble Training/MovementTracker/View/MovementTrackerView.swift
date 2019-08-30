@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-protocol MovementTrackerViewDelegate: AnyObject, AVCaptureVideoDataOutputSampleBufferDelegate {}
+protocol MovementTrackerViewDelegate: AnyObject {}
 
 class MovementTrackerView: UIView {
     
@@ -17,34 +17,5 @@ class MovementTrackerView: UIView {
     
     weak var delegate: MovementTrackerViewDelegate?
     
-    private let captureSession = AVCaptureSession()
-    
-    // MARK: - Private Method
-    
-    private func setUpCaptureSession() {
-        
-        // Set Session Input
-        
-        guard
-            let camera = AVCaptureDevice.default(.builtInWideAngleCamera,
-                                                   for: .video,
-                                                   position: .back),
-            let cameraInput = try? AVCaptureDeviceInput(device: camera)
-        else {
-            print("Couldn't Set Up Camera Input")
-            return
-        }
-        
-        captureSession.addInput(cameraInput)
-        
-        // Set Session Output
-
-        let videoDataOutput = AVCaptureVideoDataOutput()
-
-        let videoDataOutputQueue = DispatchQueue(label: "Video Data Output")
-
-        videoDataOutput.setSampleBufferDelegate(self.delegate, queue: videoDataOutputQueue)
-
-        captureSession.addOutput(videoDataOutput)
-    }
+    let captureSession = AVCaptureSession()
 }
