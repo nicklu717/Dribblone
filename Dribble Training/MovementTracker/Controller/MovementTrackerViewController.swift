@@ -10,4 +10,13 @@ import UIKit
 
 class MovementTrackerViewController: UIViewController {
     
+    @IBOutlet var movementTrackerView: MovementTrackerView! {
+        
+        didSet {
+            
+            movementTrackerView.delegate = self
+        }
+    }
 }
+
+extension MovementTrackerViewController: MovementTrackerViewDelegate {}

@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol MovementTrackerViewDelegate: AnyObject {}
+
 class MovementTrackerView: UIView {
     
+    weak var delegate: MovementTrackerViewDelegate?
 }

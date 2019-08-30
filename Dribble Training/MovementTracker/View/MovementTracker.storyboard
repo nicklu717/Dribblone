@@ -20,6 +20,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Inj-0m-eLA"/>
                     </view>
+                    <connections>
+                        <outlet property="movementTrackerView" destination="Jie-qZ-3Je" id="8v2-0u-ZXc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qT3-9h-6m0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
