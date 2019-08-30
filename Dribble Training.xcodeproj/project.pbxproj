@@ -60,13 +60,9 @@
 		5AD862AD231913C80036EFFF /* Dribble Training */ = {
 			isa = PBXGroup;
 			children = (
+				5AD862CA231920B80036EFFF /* Resource */,
+				5AD862CB231920D40036EFFF /* Common */,
 				5AD862C2231915DA0036EFFF /* MovementTracker */,
-				5AD862B5231913CB0036EFFF /* Assets.xcassets */,
-				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
-				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
-				5AD862B2231913C80036EFFF /* Main.storyboard */,
-				5AD862B0231913C80036EFFF /* ViewController.swift */,
-				5AD862BA231913CB0036EFFF /* Info.plist */,
 			);
 			path = "Dribble Training";
 			sourceTree = "<group>";
@@ -99,6 +95,50 @@
 			sourceTree = "<group>";
 		};
 		5AD862C5231915FD0036EFFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5AD862CA231920B80036EFFF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862B5231913CB0036EFFF /* Assets.xcassets */,
+				5AD862BA231913CB0036EFFF /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		5AD862CB231920D40036EFFF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862CE231920F50036EFFF /* Model */,
+				5AD862CD231920EE0036EFFF /* Controller */,
+				5AD862CC231920E80036EFFF /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5AD862CC231920E80036EFFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
+				5AD862B2231913C80036EFFF /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5AD862CD231920EE0036EFFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
+				5AD862B0231913C80036EFFF /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5AD862CE231920F50036EFFF /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -328,7 +368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
-				INFOPLIST_FILE = "Dribble Training/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,7 +386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
-				INFOPLIST_FILE = "Dribble Training/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
