@@ -13,8 +13,6 @@ protocol MovementTrackerViewDelegate: AnyObject {}
 
 class MovementTrackerView: UIView {
     
-    // MARK: - Property Declaration
-    
     weak var delegate: MovementTrackerViewDelegate?
     
     let captureSession = AVCaptureSession()
