@@ -21,14 +21,28 @@ class MovementTrackerViewController: UIViewController {
         }
     }
     
-//    // MARK: - View Life Cycle
-//
-//    override func viewDidLoad() {
-//
-//        super.viewDidLoad()
-//
-//
-//    }
+    // MARK: - View Life Cycle
+
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+
+        setUpCaptureSession()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        movementTrackerView.captureSession.startRunning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        movementTrackerView.captureSession.stopRunning()
+    }
     
     // MARK: - Private Method
     
