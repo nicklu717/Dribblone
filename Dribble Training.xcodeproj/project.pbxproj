@@ -12,6 +12,9 @@
 		5AD862B4231913C80036EFFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B2231913C80036EFFF /* Main.storyboard */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
+		5AD862C1231915C30036EFFF /* MovementTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* MovementTrackerViewController.swift */; };
+		5AD862C7231917A10036EFFF /* MovementTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* MovementTrackerView.swift */; };
+		5AD862C9231919F70036EFFF /* MovementTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* MovementTracker.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD862B8231913CB0036EFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD862BA231913CB0036EFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AD862C0231915C30036EFFF /* MovementTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementTrackerViewController.swift; sourceTree = "<group>"; };
+		5AD862C6231917A10036EFFF /* MovementTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementTrackerView.swift; sourceTree = "<group>"; };
+		5AD862C8231919F70036EFFF /* MovementTracker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovementTracker.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		5AD862AD231913C80036EFFF /* Dribble Training */ = {
 			isa = PBXGroup;
 			children = (
+				5AD862C2231915DA0036EFFF /* MovementTracker */,
 				5AD862B5231913CB0036EFFF /* Assets.xcassets */,
 				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
 				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
@@ -62,6 +69,40 @@
 				5AD862BA231913CB0036EFFF /* Info.plist */,
 			);
 			path = "Dribble Training";
+			sourceTree = "<group>";
+		};
+		5AD862C2231915DA0036EFFF /* MovementTracker */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862C5231915FD0036EFFF /* Model */,
+				5AD862C4231915F70036EFFF /* Controller */,
+				5AD862C3231915EA0036EFFF /* View */,
+			);
+			path = MovementTracker;
+			sourceTree = "<group>";
+		};
+		5AD862C3231915EA0036EFFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862C8231919F70036EFFF /* MovementTracker.storyboard */,
+				5AD862C6231917A10036EFFF /* MovementTrackerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5AD862C4231915F70036EFFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862C0231915C30036EFFF /* MovementTrackerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5AD862C5231915FD0036EFFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD862C9231919F70036EFFF /* MovementTracker.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5AD862B4231913C80036EFFF /* Main.storyboard in Resources */,
@@ -136,6 +178,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD862B1231913C80036EFFF /* ViewController.swift in Sources */,
+				5AD862C1231915C30036EFFF /* MovementTrackerViewController.swift in Sources */,
+				5AD862C7231917A10036EFFF /* MovementTrackerView.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
