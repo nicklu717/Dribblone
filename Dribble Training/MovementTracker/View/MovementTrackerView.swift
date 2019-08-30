@@ -37,14 +37,14 @@ class MovementTrackerView: UIView {
         
         captureSession.addInput(cameraInput)
         
-//        // Set Session Output
-//
-//        let videoDataOutput = AVCaptureVideoDataOutput()
-//
-//        let videoDataOutputQueue = DispatchQueue(label: "Video Data Output")
-//
-//        videoDataOutput.setSampleBufferDelegate(self.delegate, queue: videoDataOutputQueue)
-//
-//        captureSession.addOutput(videoDataOutput)
+        // Set Session Output
+
+        let videoDataOutput = AVCaptureVideoDataOutput()
+
+        let videoDataOutputQueue = DispatchQueue(label: "Video Data Output")
+
+        videoDataOutput.setSampleBufferDelegate(self.delegate, queue: videoDataOutputQueue)
+
+        captureSession.addOutput(videoDataOutput)
     }
 }
