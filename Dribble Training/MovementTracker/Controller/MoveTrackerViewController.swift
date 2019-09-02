@@ -31,7 +31,7 @@ class MoveTrackerViewController: UIViewController {
         
         setUpCameraLayer()
         
-//        layoutCameraView()
+        layoutCameraView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,14 +86,14 @@ class MoveTrackerViewController: UIViewController {
         moveTrackerView.addSubview(moveTrackerView.cameraView)
     }
     
-//    private func layoutCameraView() {
-//
-//        moveTrackerView.cameraView.frame = moveTrackerView.bounds
-//
-//        moveTrackerView.cameraLayer.frame = moveTrackerView.cameraView.bounds
-//
-//        moveTrackerView.cameraLayer.videoGravity = .resizeAspectFill
-//    }
+    private func layoutCameraView() {
+
+        moveTrackerView.cameraView.frame = moveTrackerView.bounds
+
+        moveTrackerView.cameraLayer.frame = moveTrackerView.cameraView.bounds
+
+        moveTrackerView.cameraLayer.videoGravity = .resizeAspectFill
+    }
 }
 
 extension MoveTrackerViewController: MoveTrackerViewDelegate {}
