@@ -17,7 +17,7 @@ class MoveTrackerViewController: UIViewController {
         
         didSet {
             
-            moveTrackerView.delegate = self
+            moveTrackerView.videoOutputDelegate = self
         }
     }
     
@@ -38,22 +38,10 @@ class MoveTrackerViewController: UIViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-
-        setUpCaptureSession()
-        
-        moveTrackerView.setUpCameraLayer()
-        
-        moveTrackerView.layoutCameraView()
-        
-        moveTrackerView.addCancelButton()
-        
-        moveTrackerView.addStartButton()
         
         moveTrackerView.startButton.addTarget(self,
                                               action: #selector(startTimer),
                                               for: .touchUpInside)
-        
-        moveTrackerView.addTimerLabel()
         
         setTimer()
     }
@@ -91,35 +79,6 @@ class MoveTrackerViewController: UIViewController {
                                      repeats: true)
     }
     
-    // MARK: - Private Method
-    
-    private func setUpCaptureSession() {
-        
-        // Set Session Input
-        
-        guard
-            let camera = AVCaptureDevice.default(.builtInWideAngleCamera,
-                                                 for: .video,
-                                                 position: .back),
-            let cameraInput = try? AVCaptureDeviceInput(device: camera)
-        else {
-            print("Couldn't Set Up Camera Input")
-            return
-        }
-        
-        moveTrackerView.captureSession.addInput(cameraInput)
-        
-        // Set Session Output
-        
-        let videoDataOutput = AVCaptureVideoDataOutput()
-        
-        let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput")
-        
-        videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
-        
-        moveTrackerView.captureSession.addOutput(videoDataOutput)
-    }
-    
     @objc func countDown() {
         
         if second == 0 {
@@ -142,7 +101,5 @@ class MoveTrackerViewController: UIViewController {
         second -= 1
     }
 }
-
-extension MoveTrackerViewController: MoveTrackerViewDelegate {}
 
 extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {}
