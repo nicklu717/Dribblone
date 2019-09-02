@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B1231913C80036EFFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862B0231913C80036EFFF /* ViewController.swift */; };
 		5AD862B4231913C80036EFFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B2231913C80036EFFF /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD862B0231913C80036EFFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		5AD862C5231915FD0036EFFF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD862B1231913C80036EFFF /* ViewController.swift in Sources */,
+				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				5AD862C1231915C30036EFFF /* MoveTrackerViewController.swift in Sources */,
 				5AD862C7231917A10036EFFF /* MoveTrackerView.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,

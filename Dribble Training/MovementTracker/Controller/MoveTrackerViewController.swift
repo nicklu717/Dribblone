@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Vision
 
 class MoveTrackerViewController: UIViewController {
     
@@ -37,11 +38,21 @@ class MoveTrackerViewController: UIViewController {
         return .landscapeRight
     }
     
+    var coreMLModel: VNCoreMLModel!
+    
+    let sequenceRequestHandler = VNSequenceRequestHandler()
+    
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        
+        do {
+            coreMLModel = try VNCoreMLModel(for: MobileNetV2_SSDLite().model)
+        } catch {
+            print(error)
+        }
         
         moveTrackerView.startButton.addTarget(self,
                                               action: #selector(startTimer),
@@ -113,4 +124,22 @@ class MoveTrackerViewController: UIViewController {
     }
 }
 
-extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {}
+extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+//    func captureOutput(_ output: AVCaptureOutput,
+//                       didOutput sampleBuffer: CMSampleBuffer,
+//                       from connection: AVCaptureConnection) {
+//
+//        guard
+//
+//            let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+//
+//        else {
+//
+//            print("Sample Buffer Convert Failure")
+//            return
+//        }
+//
+//        let coreMLRequest = VNCoreMLRequest(model: <#T##VNCoreMLModel#>)
+//    }
+}
