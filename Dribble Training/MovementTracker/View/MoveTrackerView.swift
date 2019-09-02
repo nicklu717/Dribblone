@@ -21,6 +21,24 @@ class MoveTrackerView: UIView {
     
     let cameraLayer = AVCaptureVideoPreviewLayer()
     
+    func setUpCameraLayer() {
+        
+        cameraLayer.session = captureSession
+        
+        cameraView.layer.addSublayer(cameraLayer)
+        
+        addSubview(cameraView)
+    }
+    
+    func layoutCameraView() {
+        
+        cameraView.frame = bounds
+        
+        cameraLayer.frame = cameraView.bounds
+        
+        cameraLayer.videoGravity = .resizeAspectFill
+    }
+    
     func addCancelButton() {
         
         let button = UIButton()

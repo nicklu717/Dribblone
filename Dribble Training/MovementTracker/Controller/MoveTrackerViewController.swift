@@ -29,9 +29,11 @@ class MoveTrackerViewController: UIViewController {
 
         setUpCaptureSession()
         
-        setUpCameraLayer()
+        moveTrackerView.setUpCameraLayer()
         
-        layoutCameraView()
+        moveTrackerView.layoutCameraView()
+        
+        moveTrackerView.addCancelButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,13 +48,6 @@ class MoveTrackerViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         moveTrackerView.captureSession.stopRunning()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
-        super.viewDidLayoutSubviews()
-        
-        moveTrackerView.addCancelButton()
     }
     
     // MARK: - Private Method
@@ -82,24 +77,6 @@ class MoveTrackerViewController: UIViewController {
         videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
         
         moveTrackerView.captureSession.addOutput(videoDataOutput)
-    }
-    
-    private func setUpCameraLayer() {
-        
-        moveTrackerView.cameraLayer.session = moveTrackerView.captureSession
-        
-        moveTrackerView.cameraView.layer.addSublayer(moveTrackerView.cameraLayer)
-        
-        moveTrackerView.addSubview(moveTrackerView.cameraView)
-    }
-    
-    private func layoutCameraView() {
-
-        moveTrackerView.cameraView.frame = moveTrackerView.bounds
-
-        moveTrackerView.cameraLayer.frame = moveTrackerView.cameraView.bounds
-
-        moveTrackerView.cameraLayer.videoGravity = .resizeAspectFill
     }
 }
 
