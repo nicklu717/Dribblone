@@ -1,5 +1,5 @@
 //
-//  MovementTrackerViewController.swift
+//  MoveTrackerViewController.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/8/30.
@@ -9,15 +9,15 @@
 import UIKit
 import AVFoundation
 
-class MovementTrackerViewController: UIViewController {
+class MoveTrackerViewController: UIViewController {
     
     // MARK: - Property Declaration
     
-    @IBOutlet var movementTrackerView: MovementTrackerView! {
+    @IBOutlet var moveTrackerView: MoveTrackerView! {
         
         didSet {
             
-            movementTrackerView.delegate = self
+            moveTrackerView.delegate = self
         }
     }
     
@@ -34,14 +34,14 @@ class MovementTrackerViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-        movementTrackerView.captureSession.startRunning()
+        moveTrackerView.captureSession.startRunning()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
         
-        movementTrackerView.captureSession.stopRunning()
+        moveTrackerView.captureSession.stopRunning()
     }
     
     // MARK: - Private Method
@@ -59,7 +59,7 @@ class MovementTrackerViewController: UIViewController {
                 return
         }
         
-        movementTrackerView.captureSession.addInput(cameraInput)
+        moveTrackerView.captureSession.addInput(cameraInput)
         
         // Set Session Output
         let videoDataOutput = AVCaptureVideoDataOutput()
@@ -68,10 +68,10 @@ class MovementTrackerViewController: UIViewController {
         
         videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
         
-        movementTrackerView.captureSession.addOutput(videoDataOutput)
+        moveTrackerView.captureSession.addOutput(videoDataOutput)
     }
 }
 
-extension MovementTrackerViewController: MovementTrackerViewDelegate {}
+extension MoveTrackerViewController: MoveTrackerViewDelegate {}
 
-extension MovementTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {}
+extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {}

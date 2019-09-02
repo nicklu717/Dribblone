@@ -1,5 +1,5 @@
 //
-//  MovementTrackerView.swift
+//  MoveTrackerView.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/8/30.
@@ -9,11 +9,11 @@
 import UIKit
 import AVFoundation
 
-protocol MovementTrackerViewDelegate: AnyObject {}
+protocol MoveTrackerViewDelegate: AnyObject {}
 
-class MovementTrackerView: UIView {
+class MoveTrackerView: UIView {
     
-    weak var delegate: MovementTrackerViewDelegate?
+    weak var delegate: MoveTrackerViewDelegate?
     
     let captureSession = AVCaptureSession()
 }

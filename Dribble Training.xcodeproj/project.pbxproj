@@ -12,9 +12,9 @@
 		5AD862B4231913C80036EFFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B2231913C80036EFFF /* Main.storyboard */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
-		5AD862C1231915C30036EFFF /* MovementTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* MovementTrackerViewController.swift */; };
-		5AD862C7231917A10036EFFF /* MovementTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* MovementTrackerView.swift */; };
-		5AD862C9231919F70036EFFF /* MovementTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* MovementTracker.storyboard */; };
+		5AD862C1231915C30036EFFF /* MoveTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* MoveTrackerViewController.swift */; };
+		5AD862C7231917A10036EFFF /* MoveTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* MoveTrackerView.swift */; };
+		5AD862C9231919F70036EFFF /* MoveTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* MoveTracker.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +25,9 @@
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD862B8231913CB0036EFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD862BA231913CB0036EFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AD862C0231915C30036EFFF /* MovementTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementTrackerViewController.swift; sourceTree = "<group>"; };
-		5AD862C6231917A10036EFFF /* MovementTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementTrackerView.swift; sourceTree = "<group>"; };
-		5AD862C8231919F70036EFFF /* MovementTracker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovementTracker.storyboard; sourceTree = "<group>"; };
+		5AD862C0231915C30036EFFF /* MoveTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTrackerViewController.swift; sourceTree = "<group>"; };
+		5AD862C6231917A10036EFFF /* MoveTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTrackerView.swift; sourceTree = "<group>"; };
+		5AD862C8231919F70036EFFF /* MoveTracker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoveTracker.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +80,8 @@
 		5AD862C3231915EA0036EFFF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862C8231919F70036EFFF /* MovementTracker.storyboard */,
-				5AD862C6231917A10036EFFF /* MovementTrackerView.swift */,
+				5AD862C8231919F70036EFFF /* MoveTracker.storyboard */,
+				5AD862C6231917A10036EFFF /* MoveTrackerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,7 +89,7 @@
 		5AD862C4231915F70036EFFF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862C0231915C30036EFFF /* MovementTrackerViewController.swift */,
+				5AD862C0231915C30036EFFF /* MoveTrackerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD862C9231919F70036EFFF /* MovementTracker.storyboard in Resources */,
+				5AD862C9231919F70036EFFF /* MoveTracker.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5AD862B4231913C80036EFFF /* Main.storyboard in Resources */,
@@ -218,8 +218,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD862B1231913C80036EFFF /* ViewController.swift in Sources */,
-				5AD862C1231915C30036EFFF /* MovementTrackerViewController.swift in Sources */,
-				5AD862C7231917A10036EFFF /* MovementTrackerView.swift in Sources */,
+				5AD862C1231915C30036EFFF /* MoveTrackerViewController.swift in Sources */,
+				5AD862C7231917A10036EFFF /* MoveTrackerView.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
