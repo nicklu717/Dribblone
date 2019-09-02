@@ -64,7 +64,7 @@ class MovementTrackerViewController: UIViewController {
         // Set Session Output
         let videoDataOutput = AVCaptureVideoDataOutput()
         
-        let videoDataOutputQueue = DispatchQueue(label: "Video Data Output")
+        let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput")
         
         videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
         
