@@ -23,8 +23,6 @@ class MoveTrackerView: UIView {
         
         didSet {
             
-            cameraView.frame = bounds
-            
             addSubview(cameraView)
         }
     }
@@ -125,6 +123,13 @@ class MoveTrackerView: UIView {
         setUpCameraLayer()
     }
     
+    func layoutCameraView() {
+        
+        cameraView.frame = bounds
+        
+        cameraLayer.frame = cameraView.bounds
+    }
+    
     private func setUpCaptureSession() {
         
         // Set Session Input
@@ -157,9 +162,9 @@ class MoveTrackerView: UIView {
         
         cameraLayer.session = captureSession
         
-        cameraLayer.frame = cameraView.bounds
-        
         cameraLayer.videoGravity = .resizeAspectFill
+        
+        cameraLayer.connection?.videoOrientation = .landscapeRight
         
         cameraView.layer.addSublayer(cameraLayer)
     }

@@ -33,6 +33,10 @@ class MoveTrackerViewController: UIViewController {
     
     var timer: Timer?
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscapeRight
+    }
+    
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -58,6 +62,13 @@ class MoveTrackerViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         moveTrackerView.captureSession.stopRunning()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        moveTrackerView.layoutCameraView()
     }
     
     // MARK: - Method
