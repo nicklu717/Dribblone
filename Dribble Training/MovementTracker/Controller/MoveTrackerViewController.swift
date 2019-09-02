@@ -21,22 +21,15 @@ class MoveTrackerViewController: UIViewController {
         }
     }
     
-//    var minute: Int! {
-//
-//        didSet {
-//
-//            moveTrackerView.timerLabel.text = String(format: "%02d:%02d",
-//                                                     minute, second)
-//        }
-//    }
-//    var second: Int! {
-//        
-//        didSet {
-//
-//            moveTrackerView.timerLabel.text = String(format: "%02d:%02d",
-//                                                     minute, second)
-//        }
-//    }
+    var minute: Int!
+    var second: Int! {
+        
+        didSet {
+
+            moveTrackerView.timerLabel.text = String(format: "%02d:%02d",
+                                                     minute, second)
+        }
+    }
     
     // MARK: - View Life Cycle
 
@@ -55,6 +48,8 @@ class MoveTrackerViewController: UIViewController {
         moveTrackerView.addStartButton()
         
         moveTrackerView.addTimerLabel()
+        
+        setTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +64,14 @@ class MoveTrackerViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         moveTrackerView.captureSession.stopRunning()
+    }
+    
+    // MARK: - Method
+    
+    func setTimer(minute: Int = 0, second: Int = 10) {
+        
+        self.minute = minute
+        self.second = second
     }
     
     // MARK: - Private Method

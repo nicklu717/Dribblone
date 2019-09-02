@@ -21,6 +21,8 @@ class MoveTrackerView: UIView {
     
     let cameraLayer = AVCaptureVideoPreviewLayer()
     
+    let timerLabel = UILabel()
+    
     func setUpCameraLayer() {
         
         cameraLayer.session = captureSession
@@ -83,9 +85,6 @@ class MoveTrackerView: UIView {
     
     func addTimerLabel() {
         
-        let timerLabel = UILabel()
-        
-        timerLabel.text = "00:00"
         timerLabel.textColor = UIColor(white: 0.8, alpha: 1)
         timerLabel.font = UIFont(name: "Helvetica Neue", size: 55)
         
