@@ -55,4 +55,29 @@ class MoveTrackerView: UIView {
         
         addSubview(button)
     }
+    
+    func addStartButton() {
+        
+        let startButton = UIButton()
+        
+        startButton.setTitle("START", for: .normal)
+        startButton.setTitleColor(UIColor(white: 0.8, alpha: 1), for: .normal)
+        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 55)
+        
+        startButton.backgroundColor = UIColor(white: 0.2, alpha: 1)
+        
+        startButton.layer.cornerRadius = 10
+        startButton.clipsToBounds = true
+        
+//        startButton.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
+        
+        addSubview(startButton)
+        
+        startButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            startButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            startButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
+        ])
+    }
 }

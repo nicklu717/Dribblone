@@ -34,6 +34,8 @@ class MoveTrackerViewController: UIViewController {
         moveTrackerView.layoutCameraView()
         
         moveTrackerView.addCancelButton()
+        
+        moveTrackerView.addStartButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
