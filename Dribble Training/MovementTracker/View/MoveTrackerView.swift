@@ -20,4 +20,21 @@ class MoveTrackerView: UIView {
     let cameraView = UIView()
     
     let cameraLayer = AVCaptureVideoPreviewLayer()
+    
+    func addCancelButton() {
+        
+        let button = UIButton()
+        
+        button.setImage(UIImage(named: "close"), for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        
+        button.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+        
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        
+        button.frame = CGRect(x: 55, y: 25, width: 45, height: 45)
+        
+        addSubview(button)
+    }
 }

@@ -48,6 +48,13 @@ class MoveTrackerViewController: UIViewController {
         moveTrackerView.captureSession.stopRunning()
     }
     
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        moveTrackerView.addCancelButton()
+    }
+    
     // MARK: - Private Method
     
     private func setUpCaptureSession() {
