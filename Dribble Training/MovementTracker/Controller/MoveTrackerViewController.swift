@@ -35,7 +35,7 @@ class MoveTrackerViewController: UIViewController {
     var timer: Timer?
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscapeRight
+        return .landscapeLeft
     }
     
     var coreMLModel: VNCoreMLModel!

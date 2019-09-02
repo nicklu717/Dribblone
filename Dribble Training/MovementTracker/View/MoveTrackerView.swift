@@ -169,7 +169,7 @@ class MoveTrackerView: UIView {
         
         cameraLayer.videoGravity = .resizeAspectFill
         
-        cameraLayer.connection?.videoOrientation = .landscapeRight
+        cameraLayer.connection?.videoOrientation = .landscapeLeft
         
         cameraView.layer.addSublayer(cameraLayer)
     }
