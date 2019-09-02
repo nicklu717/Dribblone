@@ -49,19 +49,21 @@ class MoveTrackerViewController: UIViewController {
     private func setUpCaptureSession() {
         
         // Set Session Input
+        
         guard
             let camera = AVCaptureDevice.default(.builtInWideAngleCamera,
                                                  for: .video,
                                                  position: .back),
             let cameraInput = try? AVCaptureDeviceInput(device: camera)
-            else {
-                print("Couldn't Set Up Camera Input")
-                return
+        else {
+            print("Couldn't Set Up Camera Input")
+            return
         }
         
         moveTrackerView.captureSession.addInput(cameraInput)
         
         // Set Session Output
+        
         let videoDataOutput = AVCaptureVideoDataOutput()
         
         let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput")
