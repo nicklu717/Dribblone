@@ -13,7 +13,14 @@ class MoveTrackerView: UIView {
     
     // MARK: - Property Declaration
     
-    weak var videoOutputDelegate: AVCaptureVideoDataOutputSampleBufferDelegate?
+    weak var videoOutputDelegate: AVCaptureVideoDataOutputSampleBufferDelegate? {
+        
+        didSet {
+            
+            setUpCaptureSession()
+            setUpCameraLayer()
+        }
+    }
    
     let cameraLayer = AVCaptureVideoPreviewLayer()
     
@@ -117,10 +124,6 @@ class MoveTrackerView: UIView {
         cancelButton = UIButton()
         startButton = UIButton()
         timerLabel = UILabel()
-        
-        setUpCaptureSession()
-        
-        setUpCameraLayer()
     }
     
     func layoutCameraView() {
@@ -130,7 +133,9 @@ class MoveTrackerView: UIView {
         cameraLayer.frame = cameraView.bounds
     }
     
-    private func setUpCaptureSession() {
+    func setUpCaptureSession() {
+        
+        captureSession.sessionPreset = .photo
         
         // Set Session Input
         
@@ -139,9 +144,9 @@ class MoveTrackerView: UIView {
                                                  for: .video,
                                                  position: .back),
             let cameraInput = try? AVCaptureDeviceInput(device: camera)
-            else {
-                print("Couldn't Set Up Camera Input")
-                return
+        else {
+            print("Couldn't Set Up Camera Input")
+            return
         }
         
         captureSession.addInput(cameraInput)

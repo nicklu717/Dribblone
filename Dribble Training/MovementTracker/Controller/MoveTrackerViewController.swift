@@ -123,7 +123,67 @@ class MoveTrackerViewController: UIViewController {
         second -= 1
     }
     
-    private func coreMLRequestCompletion(request: VNRequest, error: Error?) {}
+    private func coreMLRequestCompletion(request: VNRequest, error: Error?) {
+        
+        DispatchQueue.main.async {
+            
+            self.moveTrackerView.cameraView.subviews.forEach({ $0.removeFromSuperview() })
+        }
+        
+        guard
+            
+            let observations = request.results as? [VNRecognizedObjectObservation],
+            
+            observations.count > 0
+            
+        else {
+            
+            print("Invalid Observation")
+            
+            return
+        }
+
+        for observation in observations {
+            
+            let visionRect = observation.boundingBox
+            
+            var avFoundationRect = visionRect
+            
+            avFoundationRect.origin.y = 1 - (visionRect.origin.y)
+            
+            let layerRect
+                = moveTrackerView.cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
+            
+            guard
+                
+                let firstLabel = observation.labels.first
+                
+            else {
+                
+                print("First Label Not Exist")
+                
+                return
+            }
+            
+            let objectLabel = firstLabel.identifier
+            
+            DispatchQueue.main.async {
+                
+                let highlightView = UIView(frame: layerRect)
+                
+                highlightView.layer.borderColor = UIColor.red.cgColor
+                highlightView.layer.borderWidth = 2
+                
+                let label = UILabel()
+                label.text = objectLabel
+                label.sizeToFit()
+                
+                highlightView.addSubview(label)
+                
+                self.moveTrackerView.cameraView.addSubview(highlightView)
+            }
+        }
+    }
 }
 
 extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -139,6 +199,7 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
         else {
 
             print("Sample Buffer Convert Failure")
+            
             return
         }
 
