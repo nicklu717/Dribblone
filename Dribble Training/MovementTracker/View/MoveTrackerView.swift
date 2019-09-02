@@ -16,4 +16,8 @@ class MoveTrackerView: UIView {
     weak var delegate: MoveTrackerViewDelegate?
     
     let captureSession = AVCaptureSession()
+    
+    let cameraView = UIView()
+    
+    let cameraLayer = AVCaptureVideoPreviewLayer()
 }
