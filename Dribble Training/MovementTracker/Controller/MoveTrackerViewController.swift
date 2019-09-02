@@ -21,6 +21,23 @@ class MoveTrackerViewController: UIViewController {
         }
     }
     
+//    var minute: Int! {
+//
+//        didSet {
+//
+//            moveTrackerView.timerLabel.text = String(format: "%02d:%02d",
+//                                                     minute, second)
+//        }
+//    }
+//    var second: Int! {
+//        
+//        didSet {
+//
+//            moveTrackerView.timerLabel.text = String(format: "%02d:%02d",
+//                                                     minute, second)
+//        }
+//    }
+    
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -36,6 +53,8 @@ class MoveTrackerViewController: UIViewController {
         moveTrackerView.addCancelButton()
         
         moveTrackerView.addStartButton()
+        
+        moveTrackerView.addTimerLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -80,4 +80,27 @@ class MoveTrackerView: UIView {
             startButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
         ])
     }
+    
+    func addTimerLabel() {
+        
+        let timerLabel = UILabel()
+        
+        timerLabel.text = "00:00"
+        timerLabel.textColor = UIColor(white: 0.8, alpha: 1)
+        timerLabel.font = UIFont(name: "Helvetica Neue", size: 55)
+        
+        timerLabel.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+        
+        timerLabel.layer.cornerRadius = 10
+        timerLabel.clipsToBounds = true
+        
+        addSubview(timerLabel)
+        
+        timerLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            timerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25),
+            timerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -55)
+        ])
+    }
 }
