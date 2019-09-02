@@ -11,6 +11,8 @@ import AVFoundation
 
 class MoveTrackerView: UIView {
     
+    // MARK: - Property Declaration
+    
     weak var videoOutputDelegate: AVCaptureVideoDataOutputSampleBufferDelegate?
    
     let cameraLayer = AVCaptureVideoPreviewLayer()
@@ -92,6 +94,8 @@ class MoveTrackerView: UIView {
         }
     }
     
+    // MARK: - Initialize Method
+    
     override init(frame: CGRect = .zero) {
         
         super.init(frame: frame)
@@ -105,6 +109,8 @@ class MoveTrackerView: UIView {
         
         initializeSubviews()
     }
+    
+    // MARK: - Class Method
     
     func initializeSubviews() {
         
