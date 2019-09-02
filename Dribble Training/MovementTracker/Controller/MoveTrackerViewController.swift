@@ -122,24 +122,36 @@ class MoveTrackerViewController: UIViewController {
         
         second -= 1
     }
+    
+    private func coreMLRequestCompletion(request: VNRequest, error: Error?) {}
 }
 
 extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
-//    func captureOutput(_ output: AVCaptureOutput,
-//                       didOutput sampleBuffer: CMSampleBuffer,
-//                       from connection: AVCaptureConnection) {
-//
-//        guard
-//
-//            let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-//
-//        else {
-//
-//            print("Sample Buffer Convert Failure")
-//            return
-//        }
-//
-//        let coreMLRequest = VNCoreMLRequest(model: <#T##VNCoreMLModel#>)
-//    }
+    func captureOutput(_ output: AVCaptureOutput,
+                       didOutput sampleBuffer: CMSampleBuffer,
+                       from connection: AVCaptureConnection) {
+
+        guard
+
+            let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+
+        else {
+
+            print("Sample Buffer Convert Failure")
+            return
+        }
+
+        let coreMLRequest = VNCoreMLRequest(model: coreMLModel,
+                                            completionHandler: coreMLRequestCompletion(request:error:))
+        
+        do {
+            
+            try sequenceRequestHandler.perform([coreMLRequest], on: pixelBuffer)
+            
+        } catch {
+            
+            print(error)
+        }
+    }
 }
