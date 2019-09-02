@@ -149,7 +149,7 @@ class MoveTrackerViewController: UIViewController {
             
             var avFoundationRect = visionRect
             
-            avFoundationRect.origin.y = 1 - (visionRect.origin.y)
+            avFoundationRect.origin.y = 1 - (visionRect.origin.y + visionRect.height)
             
             let layerRect
                 = moveTrackerView.cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
@@ -205,6 +205,8 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
 
         let coreMLRequest = VNCoreMLRequest(model: coreMLModel,
                                             completionHandler: coreMLRequestCompletion(request:error:))
+        
+        coreMLRequest.imageCropAndScaleOption = .scaleFill
         
         do {
             
