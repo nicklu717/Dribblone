@@ -21,6 +21,8 @@ class MoveTrackerView: UIView {
     
     let cameraLayer = AVCaptureVideoPreviewLayer()
     
+    let startButton = UIButton()
+    
     let timerLabel = UILabel()
     
     func setUpCameraLayer() {
@@ -60,8 +62,6 @@ class MoveTrackerView: UIView {
     
     func addStartButton() {
         
-        let startButton = UIButton()
-        
         startButton.setTitle("START", for: .normal)
         startButton.setTitleColor(UIColor(white: 0.8, alpha: 1), for: .normal)
         startButton.titleLabel?.font = UIFont.systemFont(ofSize: 55)
@@ -70,8 +70,6 @@ class MoveTrackerView: UIView {
         
         startButton.layer.cornerRadius = 10
         startButton.clipsToBounds = true
-        
-//        startButton.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
         
         addSubview(startButton)
         

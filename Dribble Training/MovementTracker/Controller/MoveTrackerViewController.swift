@@ -31,6 +31,8 @@ class MoveTrackerViewController: UIViewController {
         }
     }
     
+    var timer: Timer?
+    
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -46,6 +48,10 @@ class MoveTrackerViewController: UIViewController {
         moveTrackerView.addCancelButton()
         
         moveTrackerView.addStartButton()
+        
+        moveTrackerView.startButton.addTarget(self,
+                                              action: #selector(startTimer),
+                                              for: .touchUpInside)
         
         moveTrackerView.addTimerLabel()
         
@@ -72,6 +78,17 @@ class MoveTrackerViewController: UIViewController {
         
         self.minute = minute
         self.second = second
+    }
+    
+    @objc func startTimer() {
+        
+        moveTrackerView.startButton.isHidden = true
+        
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                                     target: self,
+                                     selector: #selector(countDown),
+                                     userInfo: nil,
+                                     repeats: true)
     }
     
     // MARK: - Private Method
@@ -101,6 +118,28 @@ class MoveTrackerViewController: UIViewController {
         videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
         
         moveTrackerView.captureSession.addOutput(videoDataOutput)
+    }
+    
+    @objc func countDown() {
+        
+        if second == 0 {
+            
+            if minute > 0 {
+                
+                minute -= 1
+                second = 60
+                
+            } else {
+                
+                print("Time's Up")
+                
+                timer?.invalidate()
+                
+                return
+            }
+        }
+        
+        second -= 1
     }
 }
 
