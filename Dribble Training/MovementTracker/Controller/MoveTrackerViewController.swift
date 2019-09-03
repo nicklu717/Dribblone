@@ -9,8 +9,13 @@
 import UIKit
 import AVFoundation
 import Vision
+import ReplayKit
 
 class MoveTrackerViewController: UIViewController {
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscapeLeft
+    }
     
     // MARK: - Property Declaration
     
@@ -34,13 +39,11 @@ class MoveTrackerViewController: UIViewController {
     
     var timer: Timer?
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscapeLeft
-    }
-    
     var coreMLModel: VNCoreMLModel!
     
     let sequenceRequestHandler = VNSequenceRequestHandler()
+    
+    let recorder = RPScreenRecorder.shared()
     
     // MARK: - View Life Cycle
 
@@ -55,7 +58,7 @@ class MoveTrackerViewController: UIViewController {
         }
         
         moveTrackerView.startButton.addTarget(self,
-                                              action: #selector(startTimer),
+                                              action: #selector(startTraining),
                                               for: .touchUpInside)
         
         setTimer()
@@ -78,7 +81,7 @@ class MoveTrackerViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-        
+        print("View Did Layout")
         moveTrackerView.layoutCameraView()
     }
     
@@ -90,7 +93,7 @@ class MoveTrackerViewController: UIViewController {
         self.second = second
     }
     
-    @objc func startTimer() {
+    @objc func startTraining() {
         
         moveTrackerView.startButton.isHidden = true
         
@@ -99,6 +102,16 @@ class MoveTrackerViewController: UIViewController {
                                      selector: #selector(countDown),
                                      userInfo: nil,
                                      repeats: true)
+        
+        recorder.startRecording { error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print("Start Recording")
+        }
     }
     
     @objc func countDown() {
@@ -112,15 +125,12 @@ class MoveTrackerViewController: UIViewController {
                 
             } else {
                 
-                print("Time's Up")
-                
-                timer?.invalidate()
-                
-                return
+                timesUp()
             }
+        } else {
+            
+            second -= 1
         }
-        
-        second -= 1
     }
     
     private func coreMLRequestCompletion(request: VNRequest, error: Error?) {
@@ -184,6 +194,29 @@ class MoveTrackerViewController: UIViewController {
             }
         }
     }
+    
+    private func timesUp() {
+        
+        print("Time's Up")
+        
+        timer?.invalidate()
+        
+        recorder.stopRecording { [unowned self] (previewViewController, error) in
+            
+            print("Stop Recording")
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let previewViewController = previewViewController else { return }
+            
+            previewViewController.previewControllerDelegate = self
+            
+            self.present(previewViewController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -215,6 +248,17 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
         } catch {
             
             print(error)
+        }
+    }
+}
+
+extension MoveTrackerViewController: RPPreviewViewControllerDelegate {
+    
+    func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
+        
+        previewController.dismiss(animated: true) {
+            
+            print("Video End Editing")
         }
     }
 }
