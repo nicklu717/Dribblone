@@ -81,7 +81,7 @@ class MoveTrackerViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
-        print("View Did Layout")
+
         moveTrackerView.layoutCameraView()
     }
     
@@ -141,15 +141,9 @@ class MoveTrackerViewController: UIViewController {
         }
         
         guard
-            
             let observations = request.results as? [VNRecognizedObjectObservation],
-            
             observations.count > 0
-            
         else {
-            
-            print("Invalid Observation")
-            
             return
         }
 

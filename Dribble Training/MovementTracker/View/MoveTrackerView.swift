@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
+import SpriteKit
 
-class MoveTrackerView: UIView {
+class MoveTrackerView: SKView {
     
     // MARK: - Property Declaration
     
@@ -172,5 +173,14 @@ class MoveTrackerView: UIView {
         cameraLayer.connection?.videoOrientation = .landscapeLeft
         
         cameraView.layer.addSublayer(cameraLayer)
+    }
+    
+    func setUpTrainingScene() {
+        
+        let trainingScene = TrainingScene()
+        
+        trainingScene.scaleMode = .resizeFill
+        
+        presentScene(trainingScene)
     }
 }
