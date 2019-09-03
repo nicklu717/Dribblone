@@ -8,4 +8,14 @@
 
 import SpriteKit
 
-class TrainingScene: SKScene {}
+class TrainingScene: SKScene {
+    
+    private func randomPosition() -> CGPoint {
+        
+        let xScale = CGFloat(Double.random(in: 0.2...0.8))
+        let yScale = CGFloat(Double.random(in: 0.2...0.6))
+        
+        return CGPoint(x: size.width * xScale,
+                       y: size.height * yScale)
+    }
+}
