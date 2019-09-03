@@ -85,6 +85,11 @@ class MoveTrackerViewController: UIViewController {
         moveTrackerView.layoutCameraView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        moveTrackerView.setUpTrainingScene()
+    }
+    
     // MARK: - Method
     
     func setTimer(minute: Int = 0, second: Int = 10) {

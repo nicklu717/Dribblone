@@ -182,5 +182,7 @@ class MoveTrackerView: SKView {
         trainingScene.scaleMode = .resizeFill
         
         presentScene(trainingScene)
+        
+        trainingScene.addTargetCoin()
     }
 }

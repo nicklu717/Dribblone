@@ -10,6 +10,20 @@ import SpriteKit
 
 class TrainingScene: SKScene {
     
+    func addTargetCoin() {
+        
+        let coin = SKSpriteNode(imageNamed: "coin")
+        
+        coin.position = randomPosition()
+        coin.size = CGSize(width: 80, height: 80)
+        
+        coin.name = "coin"
+        
+        addChild(coin)
+        
+        print("coin")
+    }
+    
     private func randomPosition() -> CGPoint {
         
         let xScale = CGFloat(Double.random(in: 0.2...0.8))
