@@ -27,24 +27,73 @@ class TraingingView: SKView {
         }
     }
     
-    var cancelButton: UIButton! {
+    // Points
+    var pointsLabel: UILabel! {
         
         didSet {
             
-            cancelButton.setImage(UIImage(named: "close"), for: .normal)
-            cancelButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            pointsLabel.text = "00"
+            pointsLabel.textColor = UIColor(white: 0.8, alpha: 1)
+            pointsLabel.font = UIFont(name: "Helvetica Neue", size: 55)
             
-            cancelButton.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+            pointsLabel.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
             
-            cancelButton.layer.cornerRadius = 10
-            cancelButton.clipsToBounds = true
+            pointsLabel.layer.cornerRadius = 10
+            pointsLabel.clipsToBounds = true
             
-            cancelButton.frame = CGRect(x: 55, y: 25, width: 45, height: 45)
+            addSubview(pointsLabel)
             
-            addSubview(cancelButton)
+            pointsLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                pointsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
+                pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25)
+            ])
         }
     }
     
+    private var points: Int! {
+        didSet {
+            pointsLabel.text = String(format: "%02d", points)
+        }
+    }
+    
+    // Timer
+    var timerLabel: UILabel! {
+        
+        didSet {
+            
+            timerLabel.text = "00:00"
+            timerLabel.textColor = UIColor(white: 0.8, alpha: 1)
+            timerLabel.font = UIFont(name: "Helvetica Neue", size: 55)
+            
+            timerLabel.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+            
+            timerLabel.layer.cornerRadius = 10
+            timerLabel.clipsToBounds = true
+            
+            addSubview(timerLabel)
+            
+            timerLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                timerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -55),
+                timerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25)
+            ])
+        }
+    }
+    
+    var timer: Timer?
+    
+    private var minute: Int!
+    
+    private var second: Int! {
+        didSet {
+            timerLabel.text = String(format: "%02d:%02d", minute, second)
+        }
+    }
+    
+    // Start
     var startButton: UIButton! {
         
         didSet {
@@ -73,45 +122,14 @@ class TraingingView: SKView {
         }
     }
     
-    var timerLabel: UILabel! {
-        
-        didSet {
-            
-            timerLabel.textColor = UIColor(white: 0.8, alpha: 1)
-            timerLabel.font = UIFont(name: "Helvetica Neue", size: 55)
-            
-            timerLabel.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
-            
-            timerLabel.layer.cornerRadius = 10
-            timerLabel.clipsToBounds = true
-            
-            addSubview(timerLabel)
-            
-            timerLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                timerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25),
-                timerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -55)
-            ])
-        }
-    }
-    
-    var timer: Timer?
-    
-    private var minute: Int!
-    
-    private var second: Int! {
-        didSet {
-            timerLabel.text = String(format: "%02d:%02d", minute, second)
-        }
-    }
-    
     // MARK: - Instance Method
     
-    func setTimer(minute: Int = 0, second: Int = 5) {
+    func setTimer(minute: Int = 0, second: Int = 10) {
         
         self.minute = minute
         self.second = second
+        
+        self.points = 0
     }
     
     // MARK: - Private Method
@@ -120,7 +138,7 @@ class TraingingView: SKView {
         
         backgroundColor = .clear
         
-        cancelButton = UIButton()
+        pointsLabel = UILabel()
         
         startButton = UIButton()
         

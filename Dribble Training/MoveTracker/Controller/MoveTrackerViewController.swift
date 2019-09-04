@@ -204,6 +204,9 @@ extension MoveTrackerViewController: MoveTrackerViewDelegate {
 extension MoveTrackerViewController: RPPreviewViewControllerDelegate {
     
     func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
+        
+        moveTrackerView.trainingView.startButton.isHidden = false
+        
         previewController.dismiss(animated: true) {
             print("Video End Editing")
         }
