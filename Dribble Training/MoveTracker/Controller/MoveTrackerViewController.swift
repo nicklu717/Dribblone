@@ -19,25 +19,7 @@ class MoveTrackerViewController: UIViewController {
     
     // MARK: - Property Declaration
     
-    @IBOutlet var moveTrackerView: MoveTrackerView! {
-        
-        didSet {
-            
-            moveTrackerView.videoOutputDelegate = self
-        }
-    }
-    
-    var minute: Int!
-    var second: Int! {
-        
-        didSet {
-
-            moveTrackerView.timerLabel.text = String(format: "%02d:%02d",
-                                                     minute, second)
-        }
-    }
-    
-    var timer: Timer?
+    @IBOutlet var moveTrackerView: MoveTrackerView!
     
     var coreMLModel: VNCoreMLModel!
     
@@ -57,88 +39,33 @@ class MoveTrackerViewController: UIViewController {
             print(error)
         }
         
-        moveTrackerView.startButton.addTarget(self,
-                                              action: #selector(startTraining),
-                                              for: .touchUpInside)
-        
-        setTimer()
+        moveTrackerView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        moveTrackerView.captureSession.startRunning()
+        moveTrackerView.cameraView.captureSession.startRunning()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
         
-        moveTrackerView.captureSession.stopRunning()
+        moveTrackerView.cameraView.captureSession.stopRunning()
     }
     
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
 
-        moveTrackerView.layoutCameraView()
+        moveTrackerView.cameraView.layoutCameraLayer()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        moveTrackerView.setUpTrainingScene()
-    }
+    // MARK: - Instance Method
     
-    // MARK: - Method
-    
-    func setTimer(minute: Int = 0, second: Int = 10) {
-        
-        self.minute = minute
-        self.second = second
-    }
-    
-    @objc func startTraining() {
-        
-        moveTrackerView.startButton.isHidden = true
-        
-        timer = Timer.scheduledTimer(timeInterval: 1,
-                                     target: self,
-                                     selector: #selector(countDown),
-                                     userInfo: nil,
-                                     repeats: true)
-        
-        recorder.startRecording { error in
-            
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            print("Start Recording")
-        }
-    }
-    
-    @objc func countDown() {
-        
-        if second == 0 {
-            
-            if minute > 0 {
-                
-                minute -= 1
-                second = 60
-                
-            } else {
-                
-                timesUp()
-            }
-        } else {
-            
-            second -= 1
-        }
-    }
-    
-    private func coreMLRequestCompletion(request: VNRequest, error: Error?) {
+    func coreMLRequestCompletion(request: VNRequest, error: Error?) {
         
         DispatchQueue.main.async {
             
@@ -161,7 +88,7 @@ class MoveTrackerViewController: UIViewController {
             avFoundationRect.origin.y = 1 - (visionRect.origin.y + visionRect.height)
             
             let layerRect
-                = moveTrackerView.cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
+                = moveTrackerView.cameraView.cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
             
             guard
                 
@@ -191,29 +118,6 @@ class MoveTrackerViewController: UIViewController {
                 
                 self.moveTrackerView.cameraView.addSubview(highlightView)
             }
-        }
-    }
-    
-    private func timesUp() {
-        
-        print("Time's Up")
-        
-        timer?.invalidate()
-        
-        recorder.stopRecording { [unowned self] (previewViewController, error) in
-            
-            print("Stop Recording")
-            
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            guard let previewViewController = previewViewController else { return }
-            
-            previewViewController.previewControllerDelegate = self
-            
-            self.present(previewViewController, animated: true, completion: nil)
         }
     }
 }
@@ -247,6 +151,46 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
         } catch {
             
             print(error)
+        }
+    }
+}
+
+extension MoveTrackerViewController: MoveTrackerViewDelegate {
+    
+    func startScreenRecording() {
+        
+        recorder.startRecording { error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print("Start Recording")
+        }
+    }
+    
+    func stopScreenRecording() {
+        
+        recorder.stopRecording { [unowned self] (previewViewController, error) in
+            
+            print("Stop Recording")
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard
+                let previewViewController = previewViewController
+            else {
+                print("Preview View Controller Not Exist")
+                return
+            }
+            
+            previewViewController.previewControllerDelegate = self
+            
+            self.present(previewViewController, animated: true, completion: nil)
         }
     }
 }

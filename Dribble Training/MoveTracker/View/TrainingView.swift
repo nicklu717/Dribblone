@@ -1,42 +1,32 @@
 //
-//  MoveTrackerView.swift
+//  TrainingView.swift
 //  Dribble Training
 //
-//  Created by 陸瑋恩 on 2019/8/30.
+//  Created by 陸瑋恩 on 2019/9/3.
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
-import UIKit
-import AVFoundation
 import SpriteKit
 
-class MoveTrackerView: SKView {
+protocol TrainingViewDelegate: AnyObject {
+    
+    func startScreenRecording()
+    
+    func stopScreenRecording()
+}
+
+class TraingingView: SKView {
     
     // MARK: - Property Declaration
     
-    weak var videoOutputDelegate: AVCaptureVideoDataOutputSampleBufferDelegate? {
-        
+    weak var replayDelegate: TrainingViewDelegate? {
         didSet {
-            
-            setUpCaptureSession()
-            setUpCameraLayer()
-        }
-    }
-   
-    let cameraLayer = AVCaptureVideoPreviewLayer()
-    
-    let captureSession = AVCaptureSession()
-    
-    var cameraView: UIView! {
-        
-        didSet {
-            
-            addSubview(cameraView)
+            initialize()
         }
     }
     
     var cancelButton: UIButton! {
-    
+        
         didSet {
             
             cancelButton.setImage(UIImage(named: "close"), for: .normal)
@@ -65,6 +55,10 @@ class MoveTrackerView: SKView {
             
             startButton.layer.cornerRadius = 10
             startButton.clipsToBounds = true
+            
+            startButton.addTarget(self,
+                                  action: #selector(startTraining),
+                                  for: .touchUpInside)
             
             addSubview(startButton)
             
@@ -100,89 +94,94 @@ class MoveTrackerView: SKView {
         }
     }
     
-    // MARK: - Initialize Method
+    var timer: Timer?
     
-    override init(frame: CGRect = .zero) {
-        
-        super.init(frame: frame)
-        
-        initializeSubviews()
+    private var minute: Int!
+    
+    private var second: Int! {
+        didSet {
+            timerLabel.text = String(format: "%02d:%02d", minute, second)
+        }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    // MARK: - Instance Method
+    
+    func setTimer(minute: Int = 0, second: Int = 10) {
         
-        super.init(coder: aDecoder)
-        
-        initializeSubviews()
+        self.minute = minute
+        self.second = second
     }
     
-    // MARK: - Class Method
+    // MARK: - Private Method
     
-    func initializeSubviews() {
+    private func initialize() {
         
-        cameraView = UIView()
+        backgroundColor = .clear
         
         cancelButton = UIButton()
+        
         startButton = UIButton()
+        
         timerLabel = UILabel()
+        
+        setTimer()
+        
+        setUpTrainingScene()
     }
     
-    func layoutCameraView() {
-        
-        cameraView.frame = bounds
-        
-        cameraLayer.frame = cameraView.bounds
-    }
-    
-    func setUpCaptureSession() {
-        
-        captureSession.sessionPreset = .photo
-        
-        // Set Session Input
-        
-        guard
-            let camera = AVCaptureDevice.default(.builtInWideAngleCamera,
-                                                 for: .video,
-                                                 position: .back),
-            let cameraInput = try? AVCaptureDeviceInput(device: camera)
-        else {
-            print("Couldn't Set Up Camera Input")
-            return
-        }
-        
-        captureSession.addInput(cameraInput)
-        
-        // Set Session Output
-        
-        let videoDataOutput = AVCaptureVideoDataOutput()
-        
-        let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput")
-        
-        videoDataOutput.setSampleBufferDelegate(self.videoOutputDelegate,
-                                                queue: videoDataOutputQueue)
-        
-        captureSession.addOutput(videoDataOutput)
-    }
-    
-    private func setUpCameraLayer() {
-        
-        cameraLayer.session = captureSession
-        
-        cameraLayer.videoGravity = .resizeAspectFill
-        
-        cameraLayer.connection?.videoOrientation = .landscapeLeft
-        
-        cameraView.layer.addSublayer(cameraLayer)
-    }
-    
-    func setUpTrainingScene() {
+    private func setUpTrainingScene() {
         
         let trainingScene = TrainingScene()
         
         trainingScene.scaleMode = .resizeFill
         
+        trainingScene.backgroundColor = .clear
+        
         presentScene(trainingScene)
         
         trainingScene.addTargetCoin()
+        trainingScene.addTargetCoin()
+        trainingScene.addTargetCoin()
+    }
+    
+    @objc private func startTraining() {
+        
+        startButton.isHidden = true
+        
+        replayDelegate?.startScreenRecording()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                                     target: self,
+                                     selector: #selector(countdown),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    @objc private func countdown() {
+        
+        if second <= 0 {
+            
+            if minute > 0 {
+                
+                endTraining()
+                return
+                
+            } else {
+                
+                minute -= 1
+                second = 60
+            }
+        }
+        
+        second -= 1
+    }
+    
+    private func endTraining() {
+        
+        print("Time's Up")
+        
+        timer?.invalidate()
+        
+        replayDelegate?.stopScreenRecording()
     }
 }
