@@ -14,9 +14,26 @@ class TrainingScene: SKScene {
     
     let coinNode = SKSpriteNode(imageNamed: "coin")
     
+    var leftPosition = true
+    
     func setTargetCoinWithRandomPosition() {
         
         coinNode.position = randomPosition()
+        
+        addChild(coinNode)
+    }
+    
+    func setTargetCoinWithCrossover() {
+        
+        coinNode.position.y = size.height * 0.6
+        
+        leftPosition = !leftPosition
+        
+        if leftPosition {
+            coinNode.position.x = size.width * 0.2
+        } else {
+            coinNode.position.x = size.width * 0.8
+        }
         
         addChild(coinNode)
     }

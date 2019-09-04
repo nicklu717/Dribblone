@@ -224,6 +224,6 @@ extension MoveTrackerViewController: SKPhysicsContactDelegate {
         
         moveTrackerView.trainingView.getPoint()
         
-        moveTrackerView.trainingView.trainingScene?.setTargetCoinWithRandomPosition()
+        moveTrackerView.trainingView.trainingScene?.setTargetCoinWithCrossover()
     }
 }

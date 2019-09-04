@@ -8,6 +8,15 @@
 
 import Foundation
 
+//enum TrainingMode {
+//    
+//    case random
+//    
+//    case crossover
+//    
+//    case low
+//}
+
 enum TrainingNode {
     
     case ball
