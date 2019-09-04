@@ -10,6 +10,8 @@ import SpriteKit
 
 class TrainingScene: SKScene {
     
+    let ballNode = SKShapeNode(circleOfRadius: 30)
+    
     func addTargetCoin() {
         
         let coin = SKSpriteNode(imageNamed: "coin")

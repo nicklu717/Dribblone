@@ -27,6 +27,7 @@ class MoveTrackerViewController: UIViewController {
     
     let recorder = RPScreenRecorder.shared()
     
+    var detectionStatistic: [String: Int] = [:]
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -83,45 +84,55 @@ class MoveTrackerViewController: UIViewController {
 
         for observation in observations {
             
-            let visionRect = observation.boundingBox
-            
-            var avFoundationRect = visionRect
-            
-            avFoundationRect.origin.y = 1 - (visionRect.origin.y + visionRect.height)
-            
-            let layerRect
-                = moveTrackerView.cameraView.cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
-            
             guard
-                
-                let firstLabel = observation.labels.first
-                
+                let objectID = observation.labels.first?.identifier
             else {
-                
                 print("First Label Not Exist")
-                
                 return
             }
             
-            let objectLabel = firstLabel.identifier
+            detectionStatistic[objectID] = (detectionStatistic[objectID] ?? 0) + 1
             
-            DispatchQueue.main.async {
+            switch objectID {
+
+            case "sports ball", "mouse", "clock", "donut", "kite":
                 
-                let highlightView = UIView(frame: layerRect)
+                // Get Detected Object Position
                 
-                highlightView.layer.borderColor = UIColor.red.cgColor
-                highlightView.layer.borderWidth = 2
+                let visionRect = observation.boundingBox
                 
-                let label = UILabel()
-                label.text = objectLabel
-                label.sizeToFit()
+                var avFoundationRect = visionRect
                 
-                highlightView.addSubview(label)
+                avFoundationRect.origin.y = 1 - (visionRect.origin.y + visionRect.height)
                 
-                self.moveTrackerView.cameraView.addSubview(highlightView)
+                let cameraLayer = moveTrackerView.cameraView.cameraLayer
+                
+                let layerRect = cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
+                
+                // Add Scene Node on Ball
+                
+                DispatchQueue.main.async {
+                    
+                    guard
+                        let trainingScene = self.moveTrackerView.trainingView.trainingScene
+                    else {
+                        print("Training Scene Not Exist")
+                        return
+                    }
+                    
+                    let center = trainingScene.convertPoint(fromView: layerRect.center())
+                    
+                    trainingScene.ballNode.position = center
+                }
+                
+            default: return
             }
         }
     }
+        
+    // MARK: - Private Method
+    
+    
 }
 
 extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {

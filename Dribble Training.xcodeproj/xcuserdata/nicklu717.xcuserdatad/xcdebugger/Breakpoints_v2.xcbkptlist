@@ -9,13 +9,125 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Dribble Training/MoveTracker/View/TrainingScene.swift"
-            timestampString = "589272922.911821"
+            filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
+            timestampString = "589280013.02316"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "randomPosition()"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "coreMLRequestCompletion(request:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
+            timestampString = "589280013.023903"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "coreMLRequestCompletion(request:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
+            timestampString = "589280013.024313"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "coreMLRequestCompletion(request:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dribble Training/MoveTracker/View/TrainingView.swift"
+            timestampString = "589280013.024637"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "endTraining()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
+            timestampString = "589280013.025206"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "stopScreenRecording()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dribble_Training.MoveTrackerViewController.stopScreenRecording() -&gt; ()"
+                  moduleName = "Dribble Training"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicklu717/Desktop/Programming/AppWorks%20School/Dribble%20Training/Dribble%20Training/MoveTracker/Controller/MoveTrackerViewController.swift"
+                  timestampString = "589279814.575469"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.RPPreviewViewController&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Dribble_Training.MoveTrackerViewController.stopScreenRecording() -&gt; ()"
+                  moduleName = "Dribble Training"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicklu717/Desktop/Programming/AppWorks%20School/Dribble%20Training/Dribble%20Training/MoveTracker/Controller/MoveTrackerViewController.swift"
+                  timestampString = "589279814.579664"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "194"
+                  endingLineNumber = "194"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
+            timestampString = "589280013.025488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "stopScreenRecording()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

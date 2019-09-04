@@ -137,6 +137,12 @@ class TraingingView: SKView {
         
         trainingScene?.backgroundColor = .clear
         
+        trainingScene?.ballNode.position = CGPoint(x: -100, y: -100)
+        trainingScene?.ballNode.name = "ball"
+        trainingScene?.ballNode.fillColor = .red
+        
+        trainingScene?.addChild(trainingScene!.ballNode)
+        
         presentScene(trainingScene)
     }
     
