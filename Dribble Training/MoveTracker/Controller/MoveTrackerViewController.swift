@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import Vision
 import ReplayKit
+import SpriteKit
 
 class MoveTrackerViewController: UIViewController {
     
@@ -210,5 +211,19 @@ extension MoveTrackerViewController: RPPreviewViewControllerDelegate {
         previewController.dismiss(animated: true) {
             print("Video End Editing")
         }
+    }
+}
+
+extension MoveTrackerViewController: SKPhysicsContactDelegate {
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        print("Physics Body Contact")
+        
+        moveTrackerView.trainingView.getPoint()
+        
+        moveTrackerView.trainingView.trainingScene?.setTargetCoin()
+        
+        print(moveTrackerView.trainingView.trainingScene?.ballNode.position)
     }
 }

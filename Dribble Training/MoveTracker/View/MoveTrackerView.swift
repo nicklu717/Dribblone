@@ -8,9 +8,11 @@
 
 import UIKit
 import AVFoundation
+import SpriteKit
 
-protocol MoveTrackerViewDelegate: AVCaptureVideoDataOutputSampleBufferDelegate,
-                                TrainingViewDelegate {}
+protocol MoveTrackerViewDelegate: TrainingViewDelegate,
+                                SKPhysicsContactDelegate,
+                                AVCaptureVideoDataOutputSampleBufferDelegate {}
 
 class MoveTrackerView: UIView {
     
@@ -21,6 +23,8 @@ class MoveTrackerView: UIView {
             cameraView.videoOutputDelegate = self.delegate
             
             trainingView.replayDelegate = self.delegate
+            
+            trainingView.contactDelegate = self.delegate
         }
     }
     

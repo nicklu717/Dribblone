@@ -10,6 +10,7 @@
 		5A0A92F4231EB83900B5C977 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingView.swift */; };
 		5A0A92F8231F5D4700B5C977 /* MoveTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F7231F5D4700B5C977 /* MoveTrackerView.swift */; };
 		5A7E901E231FA22B00EE0BEF /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901D231FA22B00EE0BEF /* CGRect.swift */; };
+		5A7E9020231FEF3700EE0BEF /* TrainingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901F231FEF3700EE0BEF /* TrainingNode.swift */; };
 		5AA31FD1231EAA0C00956660 /* TrainingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA31FD0231EAA0C00956660 /* TrainingScene.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		5A0A92F3231EB83900B5C977 /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
 		5A0A92F7231F5D4700B5C977 /* MoveTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTrackerView.swift; sourceTree = "<group>"; };
 		5A7E901D231FA22B00EE0BEF /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		5A7E901F231FEF3700EE0BEF /* TrainingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingNode.swift; sourceTree = "<group>"; };
 		5AA31FD0231EAA0C00956660 /* TrainingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingScene.swift; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */,
+				5A7E901F231FEF3700EE0BEF /* TrainingNode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				5AD862C7231917A10036EFFF /* CameraView.swift in Sources */,
 				5A0A92F4231EB83900B5C977 /* TrainingView.swift in Sources */,
 				5A0A92F8231F5D4700B5C977 /* MoveTrackerView.swift in Sources */,
+				5A7E9020231FEF3700EE0BEF /* TrainingNode.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 			);

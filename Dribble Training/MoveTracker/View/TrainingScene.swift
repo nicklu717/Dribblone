@@ -15,7 +15,10 @@ class TrainingScene: SKScene {
     let coinNode = SKSpriteNode(imageNamed: "coin")
     
     func setTargetCoin() {
+        
         coinNode.position = randomPosition()
+        
+        addChild(coinNode)
     }
     
     private func randomPosition() -> CGPoint {

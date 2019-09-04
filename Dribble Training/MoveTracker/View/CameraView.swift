@@ -46,7 +46,7 @@ class CameraView: UIView {
         guard
             let camera = AVCaptureDevice.default(.builtInWideAngleCamera,
                                                  for: .video,
-                                                 position: .back),
+                                                 position: .front),
             let cameraInput = try? AVCaptureDeviceInput(device: camera)
             else {
                 print("Couldn't Set Up Camera Input")

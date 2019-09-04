@@ -27,6 +27,8 @@ class TraingingView: SKView {
         }
     }
     
+    weak var contactDelegate: SKPhysicsContactDelegate?
+    
     // Points
     var pointsLabel: UILabel! {
         
@@ -153,24 +155,44 @@ class TraingingView: SKView {
         
         guard let trainingScene = trainingScene else { return }
         
+        // Set Up Scene
         trainingScene.scaleMode = .resizeFill
         trainingScene.backgroundColor = .clear
         
+        trainingScene.physicsWorld.contactDelegate = contactDelegate
+        
+        presentScene(trainingScene)
+        
+        // Set Up Ball Node
         trainingScene.ballNode.name = "ball"
         trainingScene.ballNode.position = CGPoint(x: -100, y: -100)
         trainingScene.ballNode.fillColor = .red
+        
         trainingScene.ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        trainingScene.ballNode.physicsBody?.affectedByGravity = false
+        trainingScene.ballNode.physicsBody?.categoryBitMask = TrainingNode.ball.categoryMask
+        
         trainingScene.addChild(trainingScene.ballNode)
         
+        // Set Up Coin Node
         trainingScene.coinNode.name = "coin"
         trainingScene.coinNode.size = CGSize(width: 50, height: 50)
-        trainingScene.coinNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
-        trainingScene.addChild(trainingScene.coinNode)
         
-        presentScene(trainingScene)
+        trainingScene.coinNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
+        trainingScene.coinNode.physicsBody?.affectedByGravity = false
+        trainingScene.coinNode.physicsBody?.categoryBitMask = TrainingNode.coin.categoryMask
+        trainingScene.coinNode.physicsBody?.contactTestBitMask =
+            TrainingNode.ball.categoryMask | TrainingNode.coin.categoryMask
+    }
+    
+    func getPoint() {
+        trainingScene?.coinNode.removeFromParent()
+        points += 3
     }
     
     @objc private func startTraining() {
+        
+        setTimer()
         
         startButton.isHidden = true
         
