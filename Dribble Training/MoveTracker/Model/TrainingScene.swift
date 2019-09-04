@@ -1,5 +1,5 @@
 //
-//  TrainingNode.swift
+//  TrainingScene.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/4.
