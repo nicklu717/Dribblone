@@ -159,10 +159,12 @@ class TraingingView: SKView {
         trainingScene.ballNode.name = "ball"
         trainingScene.ballNode.position = CGPoint(x: -100, y: -100)
         trainingScene.ballNode.fillColor = .red
+        trainingScene.ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
         trainingScene.addChild(trainingScene.ballNode)
         
         trainingScene.coinNode.name = "coin"
         trainingScene.coinNode.size = CGSize(width: 50, height: 50)
+        trainingScene.coinNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         trainingScene.addChild(trainingScene.coinNode)
         
         presentScene(trainingScene)
