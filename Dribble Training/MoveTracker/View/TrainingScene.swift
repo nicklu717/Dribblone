@@ -14,48 +14,43 @@ class TrainingScene: SKScene {
     
     let coinNode = SKSpriteNode(imageNamed: "coin")
     
-    // Training Mode
-    var leftPosition = true
+    var trainingMode: TrainingMode = .crossover
     
-    func setTargetCoinWithRandomPosition() {
-        
-        coinNode.position = randomPosition()
+    // Training Mode
+    
+    private var leftPosition = true
+    
+    func setTargetPoint() {
+
+        coinNode.position = coinPosition()
         
         addChild(coinNode)
     }
     
-    func setTargetCoinWithCrossover() {
+    private func coinPosition() -> CGPoint {
         
-        coinNode.position.y = size.height * 0.6
+        var xScale: CGFloat!
+        var yScale: CGFloat!
         
-        leftPosition = !leftPosition
+        switch trainingMode {
         
-        if leftPosition {
-            coinNode.position.x = size.width * 0.2
-        } else {
-            coinNode.position.x = size.width * 0.8
+        case .crossover:
+            
+            leftPosition = !leftPosition
+            xScale = leftPosition ? 0.2 : 0.8
+            yScale = 0.6
+            
+        case .low:
+            
+            xScale = CGFloat(Double.random(in: 0.2...0.8))
+            yScale = 0.25
+            
+        case .random:
+            
+            xScale = CGFloat(Double.random(in: 0.2...0.8))
+            yScale = CGFloat(Double.random(in: 0.2...0.5))
         }
         
-        addChild(coinNode)
-    }
-    
-    func setTargetCoinWithLow() {
-        
-        coinNode.position.y = size.height * 0.25
-        
-        let xScale = CGFloat(Double.random(in: 0.2...0.8))
-        
-        coinNode.position.x = size.width * xScale
-        
-        addChild(coinNode)
-    }
-    
-    private func randomPosition() -> CGPoint {
-        
-        let xScale = CGFloat(Double.random(in: 0.2...0.8))
-        let yScale = CGFloat(Double.random(in: 0.2...0.5))
-        
-        return CGPoint(x: size.width * xScale,
-                       y: size.height * yScale)
+        return CGPoint(x: size.width * xScale, y: size.height * yScale)
     }
 }

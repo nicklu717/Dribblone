@@ -164,7 +164,6 @@ class TraingingView: SKView {
         presentScene(trainingScene)
         
         // Set Up Ball Node
-        trainingScene.ballNode.name = "ball"
         trainingScene.ballNode.position = CGPoint(x: -100, y: -100)
         trainingScene.ballNode.fillColor = .red
         
@@ -175,7 +174,6 @@ class TraingingView: SKView {
         trainingScene.addChild(trainingScene.ballNode)
         
         // Set Up Coin Node
-        trainingScene.coinNode.name = "coin"
         trainingScene.coinNode.size = CGSize(width: 50, height: 50)
         
         trainingScene.coinNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
@@ -204,7 +202,7 @@ class TraingingView: SKView {
                                      userInfo: nil,
                                      repeats: true)
         
-        trainingScene?.setTargetCoinWithLow()
+        trainingScene?.setTargetPoint()
     }
     
     @objc private func countdown() {
