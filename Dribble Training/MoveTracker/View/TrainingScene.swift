@@ -15,7 +15,7 @@ class TrainingScene: SKScene {
         let coin = SKSpriteNode(imageNamed: "coin")
         
         coin.position = randomPosition()
-        coin.size = CGSize(width: 80, height: 80)
+        coin.size = CGSize(width: 50, height: 50)
         
         coin.name = "coin"
         
@@ -27,7 +27,7 @@ class TrainingScene: SKScene {
     private func randomPosition() -> CGPoint {
         
         let xScale = CGFloat(Double.random(in: 0.2...0.8))
-        let yScale = CGFloat(Double.random(in: 0.2...0.6))
+        let yScale = CGFloat(Double.random(in: 0.2...0.5))
         
         return CGPoint(x: size.width * xScale,
                        y: size.height * yScale)

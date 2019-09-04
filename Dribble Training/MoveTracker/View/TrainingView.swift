@@ -19,6 +19,8 @@ class TraingingView: SKView {
     
     // MARK: - Property Declaration
     
+    var trainingScene: TrainingScene?
+    
     weak var replayDelegate: TrainingViewDelegate? {
         didSet {
             initialize()
@@ -125,23 +127,17 @@ class TraingingView: SKView {
         timerLabel = UILabel()
         
         setTimer()
-        
-        setUpTrainingScene()
     }
     
-    private func setUpTrainingScene() {
+    func setUpTrainingScene() {
         
-        let trainingScene = TrainingScene()
+        trainingScene = TrainingScene()
         
-        trainingScene.scaleMode = .resizeFill
+        trainingScene?.scaleMode = .resizeFill
         
-        trainingScene.backgroundColor = .clear
+        trainingScene?.backgroundColor = .clear
         
         presentScene(trainingScene)
-        
-        trainingScene.addTargetCoin()
-        trainingScene.addTargetCoin()
-        trainingScene.addTargetCoin()
     }
     
     @objc private func startTraining() {

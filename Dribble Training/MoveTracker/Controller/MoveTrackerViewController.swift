@@ -61,6 +61,8 @@ class MoveTrackerViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         moveTrackerView.cameraView.layoutCameraLayer()
+        
+        moveTrackerView.trainingView.setUpTrainingScene()
     }
     
     // MARK: - Instance Method
