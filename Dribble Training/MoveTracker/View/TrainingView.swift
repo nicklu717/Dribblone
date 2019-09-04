@@ -126,7 +126,7 @@ class TraingingView: SKView {
     
     // MARK: - Instance Method
     
-    func setTimer(minute: Int = 0, second: Int = 10) {
+    func setTimer(minute: Int = 0, second: Int = 20) {
         
         self.minute = minute
         self.second = second
@@ -204,7 +204,7 @@ class TraingingView: SKView {
                                      userInfo: nil,
                                      repeats: true)
         
-        trainingScene?.setTargetCoin()
+        trainingScene?.setTargetCoinWithRandomPosition()
     }
     
     @objc private func countdown() {

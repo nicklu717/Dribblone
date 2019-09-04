@@ -14,7 +14,7 @@ class TrainingScene: SKScene {
     
     let coinNode = SKSpriteNode(imageNamed: "coin")
     
-    func setTargetCoin() {
+    func setTargetCoinWithRandomPosition() {
         
         coinNode.position = randomPosition()
         

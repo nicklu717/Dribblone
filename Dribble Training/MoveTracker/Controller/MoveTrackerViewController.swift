@@ -121,9 +121,11 @@ class MoveTrackerViewController: UIViewController {
                         return
                     }
                     
-                    let center = trainingScene.convertPoint(fromView: layerRect.center())
+                    let rectCenter = trainingScene.convertPoint(fromView: layerRect.center())
                     
-                    trainingScene.ballNode.position = center
+//                    trainingScene.ballNode.position = rectCenter
+                    let moveAction = SKAction.move(to: rectCenter, duration: 1/30)
+                    trainingScene.ballNode.run(moveAction)
                 }
                 
             default: return
@@ -222,8 +224,6 @@ extension MoveTrackerViewController: SKPhysicsContactDelegate {
         
         moveTrackerView.trainingView.getPoint()
         
-        moveTrackerView.trainingView.trainingScene?.setTargetCoin()
-        
-        print(moveTrackerView.trainingView.trainingScene?.ballNode.position)
+        moveTrackerView.trainingView.trainingScene?.setTargetCoinWithRandomPosition()
     }
 }
