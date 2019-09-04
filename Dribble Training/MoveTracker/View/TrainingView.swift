@@ -163,13 +163,13 @@ class TraingingView: SKView {
             
             if minute > 0 {
                 
-                endTraining()
-                return
+                minute -= 1
+                second = 60
                 
             } else {
                 
-                minute -= 1
-                second = 60
+                endTraining()
+                return
             }
         }
         
