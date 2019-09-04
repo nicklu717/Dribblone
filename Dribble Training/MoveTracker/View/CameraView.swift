@@ -39,7 +39,7 @@ class CameraView: UIView {
     
     private func setUpCaptureSession() {
         
-        captureSession.sessionPreset = .photo
+        captureSession.sessionPreset = .high
         
         // Set Session Input
         
@@ -48,9 +48,9 @@ class CameraView: UIView {
                                                  for: .video,
                                                  position: .front),
             let cameraInput = try? AVCaptureDeviceInput(device: camera)
-            else {
-                print("Couldn't Set Up Camera Input")
-                return
+        else {
+            print("Couldn't Set Up Camera Input")
+            return
         }
         
         captureSession.addInput(cameraInput)

@@ -16,8 +16,6 @@ class TrainingScene: SKScene {
     
     var trainingMode: TrainingMode = .crossover
     
-    // Training Mode
-    
     private var leftPosition = true
     
     func setTargetPoint() {
