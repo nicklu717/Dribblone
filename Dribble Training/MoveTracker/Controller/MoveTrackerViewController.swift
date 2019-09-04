@@ -62,6 +62,11 @@ class MoveTrackerViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         moveTrackerView.cameraView.layoutCameraLayer()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
         
         moveTrackerView.trainingView.setUpTrainingScene()
     }
@@ -69,11 +74,6 @@ class MoveTrackerViewController: UIViewController {
     // MARK: - Instance Method
     
     func coreMLRequestCompletion(request: VNRequest, error: Error?) {
-        
-        DispatchQueue.main.async {
-            
-            self.moveTrackerView.cameraView.subviews.forEach({ $0.removeFromSuperview() })
-        }
         
         guard
             let observations = request.results as? [VNRecognizedObjectObservation],

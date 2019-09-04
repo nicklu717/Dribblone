@@ -108,7 +108,7 @@ class TraingingView: SKView {
     
     // MARK: - Instance Method
     
-    func setTimer(minute: Int = 0, second: Int = 10) {
+    func setTimer(minute: Int = 0, second: Int = 5) {
         
         self.minute = minute
         self.second = second
@@ -133,15 +133,19 @@ class TraingingView: SKView {
         
         trainingScene = TrainingScene()
         
-        trainingScene?.scaleMode = .resizeFill
+        guard let trainingScene = trainingScene else { return }
         
-        trainingScene?.backgroundColor = .clear
+        trainingScene.scaleMode = .resizeFill
+        trainingScene.backgroundColor = .clear
         
-        trainingScene?.ballNode.position = CGPoint(x: -100, y: -100)
-        trainingScene?.ballNode.name = "ball"
-        trainingScene?.ballNode.fillColor = .red
+        trainingScene.ballNode.name = "ball"
+        trainingScene.ballNode.position = CGPoint(x: -100, y: -100)
+        trainingScene.ballNode.fillColor = .red
+        trainingScene.addChild(trainingScene.ballNode)
         
-        trainingScene?.addChild(trainingScene!.ballNode)
+        trainingScene.coinNode.name = "coin"
+        trainingScene.coinNode.size = CGSize(width: 50, height: 50)
+        trainingScene.addChild(trainingScene.coinNode)
         
         presentScene(trainingScene)
     }
@@ -157,6 +161,8 @@ class TraingingView: SKView {
                                      selector: #selector(countdown),
                                      userInfo: nil,
                                      repeats: true)
+        
+        trainingScene?.setTargetCoin()
     }
     
     @objc private func countdown() {

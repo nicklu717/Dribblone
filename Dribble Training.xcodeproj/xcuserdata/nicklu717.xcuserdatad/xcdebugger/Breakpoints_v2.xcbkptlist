@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
-            timestampString = "589280013.02316"
+            timestampString = "589282336.0104721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "coreMLRequestCompletion(request:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
-            timestampString = "589280013.023903"
+            timestampString = "589282336.011212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "coreMLRequestCompletion(request:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
-            timestampString = "589280013.024313"
+            timestampString = "589282336.0116071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "coreMLRequestCompletion(request:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dribble Training/MoveTracker/View/TrainingView.swift"
-            timestampString = "589280013.024637"
+            timestampString = "589282336.011904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "endTraining()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
-            timestampString = "589280013.025206"
+            timestampString = "589282336.012604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "stopScreenRecording()"
             landmarkType = "7">
             <Locations>
@@ -122,12 +122,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dribble Training/MoveTracker/Controller/MoveTrackerViewController.swift"
-            timestampString = "589280013.025488"
+            timestampString = "589282336.01293"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "stopScreenRecording()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dribble Training/MoveTracker/View/TrainingView.swift"
+            timestampString = "589282336.0132281"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "countdown()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

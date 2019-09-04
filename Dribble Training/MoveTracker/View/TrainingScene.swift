@@ -12,18 +12,10 @@ class TrainingScene: SKScene {
     
     let ballNode = SKShapeNode(circleOfRadius: 30)
     
-    func addTargetCoin() {
-        
-        let coin = SKSpriteNode(imageNamed: "coin")
-        
-        coin.position = randomPosition()
-        coin.size = CGSize(width: 50, height: 50)
-        
-        coin.name = "coin"
-        
-        addChild(coin)
-        
-        print("coin")
+    let coinNode = SKSpriteNode(imageNamed: "coin")
+    
+    func setTargetCoin() {
+        coinNode.position = randomPosition()
     }
     
     private func randomPosition() -> CGPoint {
