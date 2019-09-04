@@ -142,13 +142,9 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
                        from connection: AVCaptureConnection) {
 
         guard
-
             let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-
         else {
-
             print("Sample Buffer Convert Failure")
-            
             return
         }
 
@@ -158,11 +154,8 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
         coreMLRequest.imageCropAndScaleOption = .scaleFill
         
         do {
-            
             try sequenceRequestHandler.perform([coreMLRequest], on: pixelBuffer)
-            
         } catch {
-            
             print(error)
         }
     }
@@ -211,9 +204,7 @@ extension MoveTrackerViewController: MoveTrackerViewDelegate {
 extension MoveTrackerViewController: RPPreviewViewControllerDelegate {
     
     func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
-        
         previewController.dismiss(animated: true) {
-            
             print("Video End Editing")
         }
     }
