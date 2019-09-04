@@ -123,7 +123,6 @@ class MoveTrackerViewController: UIViewController {
                     
                     let rectCenter = trainingScene.convertPoint(fromView: layerRect.center())
                     
-//                    trainingScene.ballNode.position = rectCenter
                     let moveAction = SKAction.move(to: rectCenter, duration: 1/30)
                     trainingScene.ballNode.run(moveAction)
                 }
@@ -224,6 +223,6 @@ extension MoveTrackerViewController: SKPhysicsContactDelegate {
         
         moveTrackerView.trainingView.getPoint()
         
-        moveTrackerView.trainingView.trainingScene?.setTargetCoinWithCrossover()
+        moveTrackerView.trainingView.trainingScene?.setTargetCoinWithLow()
     }
 }

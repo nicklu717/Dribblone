@@ -14,6 +14,7 @@ class TrainingScene: SKScene {
     
     let coinNode = SKSpriteNode(imageNamed: "coin")
     
+    // Training Mode
     var leftPosition = true
     
     func setTargetCoinWithRandomPosition() {
@@ -34,6 +35,17 @@ class TrainingScene: SKScene {
         } else {
             coinNode.position.x = size.width * 0.8
         }
+        
+        addChild(coinNode)
+    }
+    
+    func setTargetCoinWithLow() {
+        
+        coinNode.position.y = size.height * 0.25
+        
+        let xScale = CGFloat(Double.random(in: 0.2...0.8))
+        
+        coinNode.position.x = size.width * xScale
         
         addChild(coinNode)
     }

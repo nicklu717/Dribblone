@@ -204,7 +204,7 @@ class TraingingView: SKView {
                                      userInfo: nil,
                                      repeats: true)
         
-        trainingScene?.setTargetCoinWithCrossover()
+        trainingScene?.setTargetCoinWithLow()
     }
     
     @objc private func countdown() {
