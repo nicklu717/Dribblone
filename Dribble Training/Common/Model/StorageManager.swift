@@ -14,7 +14,7 @@ class StorageManager {
     
     lazy var persistentContainer: NSPersistentContainer = {
         
-        let container = NSPersistentContainer(name: "Dribble Training")
+        let container = NSPersistentContainer(name: "DribbleTraining")
         
         container.loadPersistentStores { (_, error) in
             
