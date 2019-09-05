@@ -165,7 +165,7 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
 
 extension MoveTrackerViewController: TrainingViewDelegate {
     
-    func startScreenRecording() {
+    func startTraining() {
         
         recorder.startRecording { error in
             
@@ -178,7 +178,7 @@ extension MoveTrackerViewController: TrainingViewDelegate {
         }
     }
     
-    func stopScreenRecording() {
+    func endTraining() {
         
         recorder.stopRecording { [unowned self] (previewViewController, error) in
             

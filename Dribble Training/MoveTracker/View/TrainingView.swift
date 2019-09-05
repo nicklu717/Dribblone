@@ -10,9 +10,9 @@ import SpriteKit
 
 protocol TrainingViewDelegate: SKPhysicsContactDelegate {
     
-    func startScreenRecording()
+    func startTraining()
     
-    func stopScreenRecording()
+    func endTraining()
 }
 
 class TraingingView: SKView {
@@ -192,7 +192,7 @@ class TraingingView: SKView {
         
         startButton.isHidden = true
         
-        trainingViewDelegate?.startScreenRecording()
+        trainingViewDelegate?.startTraining()
         
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
@@ -228,6 +228,6 @@ class TraingingView: SKView {
         
         timer?.invalidate()
         
-        trainingViewDelegate?.stopScreenRecording()
+        trainingViewDelegate?.endTraining()
     }
 }
