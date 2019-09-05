@@ -30,4 +30,16 @@ class StorageManager {
         
         return persistentContainer.viewContext
     }
+    
+    func saveContext() {
+        
+        if viewContext.hasChanges {
+            
+            do {
+                try viewContext.save()
+            } catch {
+                fatalError("Unresolve Error: \(error), \(error.localizedDescription)")
+            }
+        }
+    }
 }
