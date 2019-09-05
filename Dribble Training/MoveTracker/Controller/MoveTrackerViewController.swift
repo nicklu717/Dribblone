@@ -163,7 +163,7 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
     }
 }
 
-extension MoveTrackerViewController: MoveTrackerViewDelegate {
+extension MoveTrackerViewController: TrainingViewDelegate {
     
     func startScreenRecording() {
         

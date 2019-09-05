@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-protocol TrainingViewDelegate: AnyObject {
+protocol TrainingViewDelegate: SKPhysicsContactDelegate {
     
     func startScreenRecording()
     
@@ -21,13 +21,11 @@ class TraingingView: SKView {
     
     var trainingScene: TrainingScene?
     
-    weak var replayDelegate: TrainingViewDelegate? {
+    weak var trainingViewDelegate: TrainingViewDelegate? {
         didSet {
             initialize()
         }
     }
-    
-    weak var contactDelegate: SKPhysicsContactDelegate?
     
     // Points
     var pointsLabel: UILabel! {
@@ -159,7 +157,7 @@ class TraingingView: SKView {
         trainingScene.scaleMode = .resizeFill
         trainingScene.backgroundColor = .clear
         
-        trainingScene.physicsWorld.contactDelegate = contactDelegate
+        trainingScene.physicsWorld.contactDelegate = trainingViewDelegate
         
         presentScene(trainingScene)
         
@@ -194,7 +192,7 @@ class TraingingView: SKView {
         
         startButton.isHidden = true
         
-        replayDelegate?.startScreenRecording()
+        trainingViewDelegate?.startScreenRecording()
         
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
@@ -230,6 +228,6 @@ class TraingingView: SKView {
         
         timer?.invalidate()
         
-        replayDelegate?.stopScreenRecording()
+        trainingViewDelegate?.stopScreenRecording()
     }
 }
