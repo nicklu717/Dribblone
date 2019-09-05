@@ -20,59 +20,73 @@ class MoveTrackerViewController: UIViewController {
     
     // MARK: - Property Declaration
     
-    @IBOutlet var moveTrackerView: MoveTrackerView!
+    @IBOutlet var cameraView: CameraView! {
+        didSet {
+            cameraView.videoOutputDelegate = self
+        }
+    }
+    
+    var trainingViewController: TrainingViewController! {
+        didSet {
+            trainingViewController.setDelegate(self)
+        }
+    }
     
     var coreMLModel: VNCoreMLModel!
     
     let sequenceRequestHandler = VNSequenceRequestHandler()
     
-    let recorder = RPScreenRecorder.shared()
+    let screenRecorder = RPScreenRecorder.shared()
     
-    var detectionStatistic: [String: Int] = [:]
+//    var detectionStatistic: [String: Int] = [:]
+    
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
         
         do {
             coreMLModel = try VNCoreMLModel(for: MobileNetV2_SSDLite().model)
         } catch {
-            print(error)
+            fatalError("Unresolve Error: \(error), \(error.localizedDescription)")
         }
         
-        moveTrackerView.delegate = self
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(startTraining),
+                                               name: .startTraining,
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         
-        moveTrackerView.cameraView.captureSession.startRunning()
+        cameraView.captureSession.startRunning()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
         
-        moveTrackerView.cameraView.captureSession.stopRunning()
+        cameraView.captureSession.stopRunning()
     }
     
     override func viewDidLayoutSubviews() {
-        
         super.viewDidLayoutSubviews()
 
-        moveTrackerView.cameraView.layoutCameraLayer()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        
-        moveTrackerView.trainingView.setUpTrainingScene()
+        cameraView.layoutCameraLayer()
     }
     
     // MARK: - Instance Method
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "TrainingViewControllerSegue" {
+            
+            if let trainingViewController = segue.destination as? TrainingViewController {
+                
+                self.trainingViewController = trainingViewController
+            }
+        }
+    }
     
     func coreMLRequestCompletion(request: VNRequest, error: Error?) {
         
@@ -92,7 +106,7 @@ class MoveTrackerViewController: UIViewController {
                 return
             }
             
-            detectionStatistic[objectID] = (detectionStatistic[objectID] ?? 0) + 1
+//            detectionStatistic[objectID] = (detectionStatistic[objectID] ?? 0) + 1
             
             switch objectID {
 
@@ -106,7 +120,7 @@ class MoveTrackerViewController: UIViewController {
                 
                 avFoundationRect.origin.y = 1 - (visionRect.origin.y + visionRect.height)
                 
-                let cameraLayer = moveTrackerView.cameraView.cameraLayer
+                let cameraLayer = cameraView.cameraLayer
                 
                 let layerRect = cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
                 
@@ -114,27 +128,26 @@ class MoveTrackerViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     
-                    guard
-                        let trainingScene = self.moveTrackerView.trainingView.trainingScene
-                    else {
-                        print("Training Scene Not Exist")
-                        return
-                    }
-                    
-                    let rectCenter = trainingScene.convertPoint(fromView: layerRect.center())
-                    
-                    let moveAction = SKAction.move(to: rectCenter, duration: 1/30)
-                    trainingScene.ballNode.run(moveAction)
+                    self.trainingViewController.setBallNode(to: layerRect.center())
                 }
                 
             default: return
             }
         }
     }
+    
+    @objc func startTraining() {
         
-    // MARK: - Private Method
-    
-    
+        screenRecorder.startRecording { error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print("Start Recording")
+        }
+    }
 }
 
 extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -163,24 +176,11 @@ extension MoveTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
     }
 }
 
-extension MoveTrackerViewController: TrainingViewDelegate {
+extension MoveTrackerViewController: TrainingViewControllerDelegate {
     
-    func startTraining() {
+    func endTraining(points: Int, trainingMode: TrainingMode) {
         
-        recorder.startRecording { error in
-            
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            print("Start Recording")
-        }
-    }
-    
-    func endTraining() {
-        
-        recorder.stopRecording { [unowned self] (previewViewController, error) in
+        screenRecorder.stopRecording { [unowned self] (previewViewController, error) in
             
             print("Stop Recording")
             
@@ -207,22 +207,8 @@ extension MoveTrackerViewController: RPPreviewViewControllerDelegate {
     
     func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
         
-        moveTrackerView.trainingView.startButton.isHidden = false
-        
         previewController.dismiss(animated: true) {
             print("Video End Editing")
         }
-    }
-}
-
-extension MoveTrackerViewController: SKPhysicsContactDelegate {
-    
-    func didBegin(_ contact: SKPhysicsContact) {
-        
-        print("Physics Body Contact")
-        
-        moveTrackerView.trainingView.getPoint()
-        
-        moveTrackerView.trainingView.trainingScene?.setTargetPoint()
     }
 }

@@ -14,42 +14,51 @@
         <scene sceneID="zvl-z9-3no">
             <objects>
                 <viewController id="LPB-8K-44y" customClass="MoveTrackerViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Jie-qZ-3Je" customClass="MoveTrackerView" customModule="Dribble_Training" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="Jie-qZ-3Je" customClass="CameraView" customModule="Dribble_Training" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdV-eQ-fux" customClass="CameraView" customModule="Dribble_Training" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AL0-5C-yVh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oP-xc-1T8" customClass="TraingingView" customModule="Dribble_Training" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </view>
+                                <connections>
+                                    <segue destination="2Mf-5e-YYU" kind="embed" identifier="TrainingViewControllerSegue" id="HF5-mt-isI"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7oP-xc-1T8" firstAttribute="trailing" secondItem="Jie-qZ-3Je" secondAttribute="trailing" id="Fc8-Kx-XzJ"/>
-                            <constraint firstAttribute="trailing" secondItem="xdV-eQ-fux" secondAttribute="trailing" id="I1X-Tm-W21"/>
-                            <constraint firstItem="xdV-eQ-fux" firstAttribute="leading" secondItem="Jie-qZ-3Je" secondAttribute="leading" id="Xad-xD-agq"/>
-                            <constraint firstItem="xdV-eQ-fux" firstAttribute="top" secondItem="Jie-qZ-3Je" secondAttribute="top" id="bhZ-XI-EDl"/>
-                            <constraint firstAttribute="bottom" secondItem="xdV-eQ-fux" secondAttribute="bottom" id="cbJ-Go-OSq"/>
-                            <constraint firstAttribute="bottom" secondItem="7oP-xc-1T8" secondAttribute="bottom" id="lP3-qt-c2K"/>
-                            <constraint firstItem="7oP-xc-1T8" firstAttribute="leading" secondItem="Jie-qZ-3Je" secondAttribute="leading" id="smi-wI-GcJ"/>
-                            <constraint firstItem="7oP-xc-1T8" firstAttribute="top" secondItem="Jie-qZ-3Je" secondAttribute="top" id="xom-Q4-wIN"/>
+                            <constraint firstItem="AL0-5C-yVh" firstAttribute="leading" secondItem="Jie-qZ-3Je" secondAttribute="leading" id="EQH-f9-hcG"/>
+                            <constraint firstAttribute="trailing" secondItem="AL0-5C-yVh" secondAttribute="trailing" id="IdZ-FU-Ag4"/>
+                            <constraint firstItem="AL0-5C-yVh" firstAttribute="top" secondItem="Jie-qZ-3Je" secondAttribute="top" id="LFq-aD-hZG"/>
+                            <constraint firstAttribute="bottom" secondItem="AL0-5C-yVh" secondAttribute="bottom" id="ewk-hE-fT5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Inj-0m-eLA"/>
-                        <connections>
-                            <outlet property="cameraView" destination="xdV-eQ-fux" id="wIg-sh-0IL"/>
-                            <outlet property="trainingView" destination="7oP-xc-1T8" id="aa9-gM-EVK"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="moveTrackerView" destination="Jie-qZ-3Je" id="ayQ-dq-HKO"/>
+                        <outlet property="cameraView" destination="Jie-qZ-3Je" id="IEp-fW-8zp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qT3-9h-6m0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-475.36231884057975" y="-928.125"/>
+            <point key="canvasLocation" x="222" y="-936"/>
+        </scene>
+        <!--Training View Controller-->
+        <scene sceneID="oD3-6Y-e2e">
+            <objects>
+                <viewController id="2Mf-5e-YYU" customClass="TrainingViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9HP-66-eAc" customClass="TraingingView" customModule="Dribble_Training" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9QT-xW-cjB"/>
+                    </view>
+                    <connections>
+                        <outlet property="trainingView" destination="9HP-66-eAc" id="C1A-T8-xfB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rf5-QC-eTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="-937"/>
         </scene>
     </scenes>
 </document>

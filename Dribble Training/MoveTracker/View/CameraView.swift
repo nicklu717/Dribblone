@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import SpriteKit
 
 class CameraView: UIView {
     

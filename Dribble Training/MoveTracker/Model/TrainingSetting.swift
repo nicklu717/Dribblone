@@ -6,8 +6,6 @@
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
-import Foundation
-
 enum TrainingMode {
     
     case random
