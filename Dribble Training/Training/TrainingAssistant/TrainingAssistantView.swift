@@ -1,5 +1,5 @@
 //
-//  TrainingView.swift
+//  TrainingAssistantView.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/3.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class TraingingView: SKView {
+class TrainingAssistantView: SKView {
     
     // MARK: - Property Declaration
     
@@ -129,7 +129,11 @@ class TraingingView: SKView {
     
     func moveBallNode(to position: CGPoint) {
         
-        let moveAction = SKAction.move(to: position, duration: 1/30)
+        guard let scene = scene else { return }
+        
+        let convertedPosition = scene.convertPoint(fromView: position)
+        
+        let moveAction = SKAction.move(to: convertedPosition, duration: 1/30)
         
         ballNode.run(moveAction)
     }
@@ -137,8 +141,6 @@ class TraingingView: SKView {
     // MARK: - Private Method
     
     private func setUpUI() {
-        
-        backgroundColor = .clear
         
         pointsLabel = UILabel()
         
@@ -150,10 +152,15 @@ class TraingingView: SKView {
     private func setUpScene() {
         
         // Set Up Scene
-        scene?.scaleMode = .resizeFill
-        scene?.backgroundColor = .clear
         
-        scene?.physicsWorld.contactDelegate = physicsContactDelegate
+        let scene = SKScene()
+        
+        scene.scaleMode = .resizeFill
+        scene.backgroundColor = .clear
+        
+        scene.physicsWorld.contactDelegate = physicsContactDelegate
+        
+        presentScene(scene)
         
         // Set Up Ball Node
         ballNode.position = CGPoint(x: -100, y: -100)
@@ -161,18 +168,18 @@ class TraingingView: SKView {
         
         ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
         ballNode.physicsBody?.affectedByGravity = false
-        ballNode.physicsBody?.categoryBitMask = TrainingNode.ball.categoryMask
+        ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
         
-        scene?.addChild(ballNode)
+        scene.addChild(ballNode)
         
         // Set Up Coin Node
         coinNode.size = CGSize(width: 50, height: 50)
         
         coinNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         coinNode.physicsBody?.affectedByGravity = false
-        coinNode.physicsBody?.categoryBitMask = TrainingNode.coin.categoryMask
+        coinNode.physicsBody?.categoryBitMask = SceneNode.coin.categoryMask
         coinNode.physicsBody?.contactTestBitMask =
-            TrainingNode.ball.categoryMask | TrainingNode.coin.categoryMask
+            SceneNode.ball.categoryMask | SceneNode.coin.categoryMask
     }
     
     @objc private func startTraining() {

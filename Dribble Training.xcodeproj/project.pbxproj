@@ -7,43 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A0A92F4231EB83900B5C977 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingView.swift */; };
+		5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */; };
 		5A0F35C92320FBA800EFB13F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35C82320FBA800EFB13F /* StorageManager.swift */; };
 		5A0F35CC2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CA2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld */; };
-		5A0F35CE2321296B00EFB13F /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingViewController.swift */; };
+		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CF2321675900EFB13F /* Notification+Extension.swift */; };
 		5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */; };
 		5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */; };
+		5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
-		5AD862B1231913C80036EFFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862B0231913C80036EFFF /* ViewController.swift */; };
-		5AD862B4231913C80036EFFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B2231913C80036EFFF /* Main.storyboard */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
-		5AD862C1231915C30036EFFF /* MoveTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* MoveTrackerViewController.swift */; };
-		5AD862C7231917A10036EFFF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* CameraView.swift */; };
-		5AD862C9231919F70036EFFF /* MoveTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* MoveTracker.storyboard */; };
+		5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* TrainingManagerViewController.swift */; };
+		5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* BallTrackerView.swift */; };
+		5AD862C9231919F70036EFFF /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* Training.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A0A92F3231EB83900B5C977 /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
+		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
 		5A0F35C82320FBA800EFB13F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5A0F35CB2320FE6B00EFB13F /* Dribble Training.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dribble Training.xcdatamodel"; sourceTree = "<group>"; };
-		5A0F35CD2321296B00EFB13F /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A0F35CF2321675900EFB13F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSetting.swift; sourceTree = "<group>"; };
+		5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerViewController.swift; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5AD862B0231913C80036EFFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5AD862B3231913C80036EFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD862B8231913CB0036EFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD862BA231913CB0036EFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AD862C0231915C30036EFFF /* MoveTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTrackerViewController.swift; sourceTree = "<group>"; };
-		5AD862C6231917A10036EFFF /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		5AD862C8231919F70036EFFF /* MoveTracker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoveTracker.storyboard; sourceTree = "<group>"; };
+		5AD862C0231915C30036EFFF /* TrainingManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingManagerViewController.swift; sourceTree = "<group>"; };
+		5AD862C6231917A10036EFFF /* BallTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerView.swift; sourceTree = "<group>"; };
+		5AD862C8231919F70036EFFF /* Training.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +55,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A4E2154232238F400F91012 /* TrainingManager */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862C0231915C30036EFFF /* TrainingManagerViewController.swift */,
+			);
+			path = TrainingManager;
+			sourceTree = "<group>";
+		};
+		5A4E21552322390200F91012 /* BallTracker */ = {
+			isa = PBXGroup;
+			children = (
+				5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */,
+				5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */,
+				5AD862C6231917A10036EFFF /* BallTrackerView.swift */,
+			);
+			path = BallTracker;
+			sourceTree = "<group>";
+		};
+		5A4E21562322390A00F91012 /* TrainingAssistant */ = {
+			isa = PBXGroup;
+			children = (
+				5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */,
+				5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */,
+			);
+			path = TrainingAssistant;
+			sourceTree = "<group>";
+		};
+		5A4E215D23223A0F00F91012 /* Local Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5A0F35C82320FBA800EFB13F /* StorageManager.swift */,
+				5A0F35CA2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld */,
+			);
+			path = "Local Storage";
+			sourceTree = "<group>";
+		};
 		5A7E901C231FA21500EE0BEF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,48 +121,23 @@
 			children = (
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
+				5A4E215D23223A0F00F91012 /* Local Storage */,
 				5AD862CB231920D40036EFFF /* Common */,
-				5AD862C2231915DA0036EFFF /* MoveTracker */,
+				5AD862C2231915DA0036EFFF /* Training */,
 			);
 			path = "Dribble Training";
 			sourceTree = "<group>";
 		};
-		5AD862C2231915DA0036EFFF /* MoveTracker */ = {
+		5AD862C2231915DA0036EFFF /* Training */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862C5231915FD0036EFFF /* Model */,
-				5AD862C4231915F70036EFFF /* Controller */,
-				5AD862C3231915EA0036EFFF /* View */,
-			);
-			path = MoveTracker;
-			sourceTree = "<group>";
-		};
-		5AD862C3231915EA0036EFFF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5AD862C8231919F70036EFFF /* MoveTracker.storyboard */,
-				5AD862C6231917A10036EFFF /* CameraView.swift */,
-				5A0A92F3231EB83900B5C977 /* TrainingView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		5AD862C4231915F70036EFFF /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				5AD862C0231915C30036EFFF /* MoveTrackerViewController.swift */,
-				5A0F35CD2321296B00EFB13F /* TrainingViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		5AD862C5231915FD0036EFFF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */,
 				5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */,
+				5AD862C8231919F70036EFFF /* Training.storyboard */,
+				5A4E2154232238F400F91012 /* TrainingManager */,
+				5A4E21552322390200F91012 /* BallTracker */,
+				5A4E21562322390A00F91012 /* TrainingAssistant */,
 			);
-			path = Model;
+			path = Training;
 			sourceTree = "<group>";
 		};
 		5AD862CA231920B80036EFFF /* Resource */ = {
@@ -143,38 +152,10 @@
 		5AD862CB231920D40036EFFF /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862CE231920F50036EFFF /* Model */,
-				5AD862CD231920EE0036EFFF /* Controller */,
-				5AD862CC231920E80036EFFF /* View */,
+				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
+				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		5AD862CC231920E80036EFFF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
-				5AD862B2231913C80036EFFF /* Main.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		5AD862CD231920EE0036EFFF /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
-				5AD862B0231913C80036EFFF /* ViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		5AD862CE231920F50036EFFF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5A0F35C82320FBA800EFB13F /* StorageManager.swift */,
-				5A0F35CA2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,10 +216,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD862C9231919F70036EFFF /* MoveTracker.storyboard in Resources */,
+				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
-				5AD862B4231913C80036EFFF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,32 +229,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD862B1231913C80036EFFF /* ViewController.swift in Sources */,
 				5A0F35C92320FBA800EFB13F /* StorageManager.swift in Sources */,
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
-				5AD862C1231915C30036EFFF /* MoveTrackerViewController.swift in Sources */,
+				5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */,
 				5A0F35CC2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld in Sources */,
-				5AD862C7231917A10036EFFF /* CameraView.swift in Sources */,
-				5A0F35CE2321296B00EFB13F /* TrainingViewController.swift in Sources */,
-				5A0A92F4231EB83900B5C977 /* TrainingView.swift in Sources */,
+				5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */,
+				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
+				5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */,
 				5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */,
 				5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
+				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5AD862B2231913C80036EFFF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5AD862B3231913C80036EFFF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

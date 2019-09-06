@@ -1,5 +1,5 @@
 //
-//  TrainingViewController.swift
+//  TrainingAssistantViewController.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/5.
@@ -9,32 +9,31 @@
 import UIKit
 import SpriteKit
 
-protocol TrainingViewControllerDelegate: AnyObject {
+protocol TrainingAssistantViewControllerDelegate: AnyObject {
     
     func endTraining(points: Int, trainingMode: TrainingMode)
 }
 
-class TrainingViewController: UIViewController {
+class TrainingAssistantViewController: UIViewController {
     
-    private weak var delegate: TrainingViewControllerDelegate?
+    weak var delegate: TrainingAssistantViewControllerDelegate?
     
-    @IBOutlet var trainingView: TraingingView! {
+    @IBOutlet var trainingAssistantView: TrainingAssistantView! {
         didSet {
-            trainingView.setPhysicsContactDelegate(self)
+            trainingAssistantView.physicsContactDelegate = self
         }
     }
     
-    private var points: Int! {
+    private var points: Int = 0 {
         didSet {
-            trainingView.setPointsLabel(points)
-            
+            trainingAssistantView.setPointsLabel(points)
         }
     }
     
-    private var minute: Int!
-    private var second: Int! {
+    private var minute: Int = 0
+    private var second: Int = 0 {
         didSet {
-            trainingView.setTimerLabel(minute: minute, second: second)
+            trainingAssistantView.setTimerLabel(minute: minute, second: second)
         }
     }
     
@@ -73,14 +72,14 @@ class TrainingViewController: UIViewController {
                                      userInfo: nil,
                                      repeats: true)
         
-        trainingView.resetTargetNode(mode: trainingMode)
+        trainingAssistantView.resetTargetNode(mode: trainingMode)
     }
     
     func setBallNode(to position: CGPoint) {
-        trainingView.moveBallNode(to: position)
+        trainingAssistantView.moveBallNode(to: position)
     }
     
-    func setDelegate(_ delegate: TrainingViewControllerDelegate) {
+    func setDelegate(_ delegate: TrainingAssistantViewControllerDelegate) {
         self.delegate = delegate
     }
     
@@ -90,7 +89,7 @@ class TrainingViewController: UIViewController {
         
         points += 3
         
-        trainingView.resetTargetNode(mode: trainingMode)
+        trainingAssistantView.resetTargetNode(mode: trainingMode)
     }
     
     @objc private func countdown() {
@@ -120,13 +119,15 @@ class TrainingViewController: UIViewController {
         
         resetTimer()
         
-        trainingView.startButton.isHidden = false
+        trainingAssistantView.startButton.isHidden = false
+        
+        trainingAssistantView.coinNode.removeFromParent()
         
         delegate?.endTraining(points: points, trainingMode: trainingMode)
     }
 }
 
-extension TrainingViewController: SKPhysicsContactDelegate {
+extension TrainingAssistantViewController: SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         

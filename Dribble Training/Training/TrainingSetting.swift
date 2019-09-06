@@ -6,6 +6,13 @@
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
+struct TrainingViewControllerSegue {
+    
+    static let ballTracker = "BallTracker"
+    
+    static let trainingAssistant = "TrainingAssistant"
+}
+
 enum TrainingMode {
     
     case random
@@ -15,7 +22,7 @@ enum TrainingMode {
     case low
 }
 
-enum TrainingNode {
+enum SceneNode {
     
     case ball
     
