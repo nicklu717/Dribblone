@@ -48,10 +48,13 @@ class TrainingAssistantViewController: UIViewController {
         
         resetTimer()
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(startTraining),
-                                               name: .startTraining,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(startTraining),
+            name: .startTraining,
+            object: nil)
+        
+        trainingAssistantView.backgroundColor = .clear
     }
     
     // MARK: - Instance Method

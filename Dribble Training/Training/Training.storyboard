@@ -74,7 +74,7 @@
                     <view key="view" contentMode="scaleToFill" id="gdt-Xo-epj" customClass="TrainingAssistantView" customModule="Dribble_Training">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="v0V-Wc-DPx"/>
                     </view>
                     <connections>
