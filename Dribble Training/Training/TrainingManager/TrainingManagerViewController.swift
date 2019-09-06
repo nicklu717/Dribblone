@@ -8,6 +8,7 @@
 
 import UIKit
 import ReplayKit
+import Photos
 
 class TrainingManagerViewController: UIViewController {
     
@@ -32,6 +33,8 @@ class TrainingManagerViewController: UIViewController {
     }
     
     let screenRecorder = RPScreenRecorder.shared()
+    
+    let imageManager = PHImageManager.default()
     
     // MARK: - View Life Cycle
 
@@ -121,6 +124,23 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
     func previewController(_ previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>) {
         
         // TODO: Get Video ID & Save Result into CoreData
+        
+        let fetchOptions = PHFetchOptions()
+        
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+        
+        let fetchResult = PHAsset.fetchAssets(with: .video, options: fetchOptions)
+        
+        guard
+            let video = fetchResult.firstObject
+        else {
+            print("Video Fetching Failure")
+            return
+        }
+        
+        print(video.localIdentifier)
+        
         previewController.dismiss(animated: true, completion: nil)
     }
     

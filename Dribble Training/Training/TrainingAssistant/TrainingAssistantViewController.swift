@@ -130,9 +130,6 @@ class TrainingAssistantViewController: UIViewController {
 extension TrainingAssistantViewController: SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
-        print("Physics Body Contact")
-        
         getPoint()
     }
 }
