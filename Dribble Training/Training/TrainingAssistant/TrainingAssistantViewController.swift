@@ -121,7 +121,7 @@ class TrainingAssistantViewController: UIViewController {
         
         trainingAssistantView.startButton.isHidden = false
         
-        trainingAssistantView.coinNode.removeFromParent()
+        trainingAssistantView.targetNode.removeFromParent()
         
         delegate?.endTraining(points: points, trainingMode: trainingMode)
     }

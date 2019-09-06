@@ -26,14 +26,14 @@ enum SceneNode {
     
     case ball
     
-    case coin
+    case target
     
     var categoryMask: UInt32 {
         
         switch self {
         
         case .ball: return 0001
-        case .coin: return 0010
+        case .target: return 0010
         }
     }
 }

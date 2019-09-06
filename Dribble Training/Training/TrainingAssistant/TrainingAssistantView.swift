@@ -24,7 +24,7 @@ class TrainingAssistantView: SKView {
     
     let ballNode = SKShapeNode(circleOfRadius: 30)
     
-    let coinNode = SKSpriteNode(imageNamed: "coin")
+    let targetNode = SKShapeNode(circleOfRadius: 30)
     
     var pointsLabel: UILabel! {
         
@@ -120,11 +120,11 @@ class TrainingAssistantView: SKView {
     
     func resetTargetNode(mode: TrainingMode) {
         
-        coinNode.removeFromParent()
+        targetNode.removeFromParent()
         
-        coinNode.position = targetNodePosition(mode: mode)
+        targetNode.position = targetNodePosition(mode: mode)
         
-        scene?.addChild(coinNode)
+        scene?.addChild(targetNode)
     }
     
     func moveBallNode(to position: CGPoint) {
@@ -163,8 +163,8 @@ class TrainingAssistantView: SKView {
         presentScene(scene)
         
         // Set Up Ball Node
+        
         ballNode.position = CGPoint(x: -100, y: -100)
-        ballNode.fillColor = .red
         
         ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
         ballNode.physicsBody?.affectedByGravity = false
@@ -173,13 +173,14 @@ class TrainingAssistantView: SKView {
         scene.addChild(ballNode)
         
         // Set Up Coin Node
-        coinNode.size = CGSize(width: 50, height: 50)
         
-        coinNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
-        coinNode.physicsBody?.affectedByGravity = false
-        coinNode.physicsBody?.categoryBitMask = SceneNode.coin.categoryMask
-        coinNode.physicsBody?.contactTestBitMask =
-            SceneNode.ball.categoryMask | SceneNode.coin.categoryMask
+        targetNode.fillColor = .red
+        
+        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
+        targetNode.physicsBody?.affectedByGravity = false
+        targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
+        targetNode.physicsBody?.contactTestBitMask =
+            SceneNode.ball.categoryMask | SceneNode.target.categoryMask
     }
     
     @objc private func startTraining() {
