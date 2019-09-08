@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LPB-8K-44y">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Training Manager View Controller-->
+        <scene sceneID="zvl-z9-3no">
+            <objects>
+                <viewController id="LPB-8K-44y" customClass="TrainingManagerViewController" customModule="Dribble_Training" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jie-qZ-3Je">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AL0-5C-yVh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="2Mf-5e-YYU" kind="embed" identifier="BallTracker" id="76T-IF-mMh"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDT-gi-7YR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="PrH-wI-fKD" kind="embed" identifier="TrainingAssistant" id="jfg-6p-RJQ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AL0-5C-yVh" firstAttribute="leading" secondItem="Jie-qZ-3Je" secondAttribute="leading" id="EQH-f9-hcG"/>
+                            <constraint firstAttribute="trailing" secondItem="AL0-5C-yVh" secondAttribute="trailing" id="IdZ-FU-Ag4"/>
+                            <constraint firstItem="AL0-5C-yVh" firstAttribute="top" secondItem="Jie-qZ-3Je" secondAttribute="top" id="LFq-aD-hZG"/>
+                            <constraint firstAttribute="bottom" secondItem="QDT-gi-7YR" secondAttribute="bottom" id="SlT-vR-QV8"/>
+                            <constraint firstAttribute="bottom" secondItem="AL0-5C-yVh" secondAttribute="bottom" id="ewk-hE-fT5"/>
+                            <constraint firstItem="QDT-gi-7YR" firstAttribute="top" secondItem="Jie-qZ-3Je" secondAttribute="top" id="idA-j6-bcI"/>
+                            <constraint firstItem="QDT-gi-7YR" firstAttribute="leading" secondItem="Jie-qZ-3Je" secondAttribute="leading" id="ycv-nu-pnI"/>
+                            <constraint firstAttribute="trailing" secondItem="QDT-gi-7YR" secondAttribute="trailing" id="ywZ-3F-zCm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Inj-0m-eLA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qT3-9h-6m0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="222" y="-936"/>
+        </scene>
+        <!--Ball Tracker View Controller-->
+        <scene sceneID="oD3-6Y-e2e">
+            <objects>
+                <viewController id="2Mf-5e-YYU" customClass="BallTrackerViewController" customModule="Dribble_Training" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9HP-66-eAc" customClass="BallTrackerView" customModule="Dribble_Training">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9QT-xW-cjB"/>
+                    </view>
+                    <connections>
+                        <outlet property="ballTrackerView" destination="9HP-66-eAc" id="9ph-Fz-457"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rf5-QC-eTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-504" y="-151"/>
+        </scene>
+        <!--Training Assistant View Controller-->
+        <scene sceneID="g84-Cz-8Cu">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="PrH-wI-fKD" customClass="TrainingAssistantViewController" customModule="Dribble_Training" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gdt-Xo-epj" customClass="TrainingAssistantView" customModule="Dribble_Training">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="v0V-Wc-DPx"/>
+                    </view>
+                    <connections>
+                        <outlet property="trainingAssistantView" destination="gdt-Xo-epj" id="wo4-7R-9yH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBC-QQ-wXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="-151"/>
+        </scene>
+    </scenes>
+</document>

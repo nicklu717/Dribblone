@@ -1,5 +1,5 @@
 //
-//  TrainingView.swift
+//  TrainingAssistantView.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/3.
@@ -8,28 +8,24 @@
 
 import SpriteKit
 
-protocol TrainingViewDelegate: AnyObject {
-    
-    func startScreenRecording()
-    
-    func stopScreenRecording()
-}
-
-class TraingingView: SKView {
+class TrainingAssistantView: SKView {
     
     // MARK: - Property Declaration
     
-    var trainingScene: TrainingScene?
-    
-    weak var replayDelegate: TrainingViewDelegate? {
+    weak var physicsContactDelegate: SKPhysicsContactDelegate? {
+        
         didSet {
-            initialize()
+            
+            setUpUI()
+            
+            setUpScene()
         }
     }
     
-    weak var contactDelegate: SKPhysicsContactDelegate?
+    let ballNode = SKShapeNode(circleOfRadius: 30)
     
-    // Points
+    let targetNode = SKShapeNode(circleOfRadius: 30)
+    
     var pointsLabel: UILabel! {
         
         didSet {
@@ -54,13 +50,6 @@ class TraingingView: SKView {
         }
     }
     
-    private var points: Int! {
-        didSet {
-            pointsLabel.text = String(format: "%02d", points)
-        }
-    }
-    
-    // Timer
     var timerLabel: UILabel! {
         
         didSet {
@@ -85,17 +74,6 @@ class TraingingView: SKView {
         }
     }
     
-    var timer: Timer?
-    
-    private var minute: Int!
-    
-    private var second: Int! {
-        didSet {
-            timerLabel.text = String(format: "%02d:%02d", minute, second)
-        }
-    }
-    
-    // Start
     var startButton: UIButton! {
         
         didSet {
@@ -124,112 +102,118 @@ class TraingingView: SKView {
         }
     }
     
+    private var leftPosition = true
+    
     // MARK: - Instance Method
     
-    func setTimer(minute: Int = 0, second: Int = 20) {
+    func setPhysicsContactDelegate(_ delegate: SKPhysicsContactDelegate?) {
+        physicsContactDelegate = delegate
+    }
+    
+    func setPointsLabel(_ points: Int) {
+        pointsLabel.text = String(format: "%02d", points)
+    }
+    
+    func setTimerLabel(minute: Int, second: Int) {
+        timerLabel.text = String(format: "%02d:%02d", minute, second)
+    }
+    
+    func resetTargetNode(mode: TrainingMode) {
         
-        self.minute = minute
-        self.second = second
+        targetNode.removeFromParent()
         
-        self.points = 0
+        targetNode.position = targetNodePosition(mode: mode)
+        
+        scene?.addChild(targetNode)
+    }
+    
+    func moveBallNode(to position: CGPoint) {
+        
+        guard let scene = scene else { return }
+        
+        let convertedPosition = scene.convertPoint(fromView: position)
+        
+        let moveAction = SKAction.move(to: convertedPosition, duration: 1/30)
+        
+        ballNode.run(moveAction)
     }
     
     // MARK: - Private Method
     
-    private func initialize() {
-        
-        backgroundColor = .clear
+    private func setUpUI() {
         
         pointsLabel = UILabel()
         
         startButton = UIButton()
         
         timerLabel = UILabel()
-        
-        setTimer()
     }
     
-    func setUpTrainingScene() {
-        
-        trainingScene = TrainingScene()
-        
-        guard let trainingScene = trainingScene else { return }
+    private func setUpScene() {
         
         // Set Up Scene
-        trainingScene.scaleMode = .resizeFill
-        trainingScene.backgroundColor = .clear
         
-        trainingScene.physicsWorld.contactDelegate = contactDelegate
+        let scene = SKScene()
         
-        presentScene(trainingScene)
+        scene.scaleMode = .resizeFill
+        scene.backgroundColor = .clear
+        
+        scene.physicsWorld.contactDelegate = physicsContactDelegate
+        
+        presentScene(scene)
         
         // Set Up Ball Node
-        trainingScene.ballNode.position = CGPoint(x: -100, y: -100)
-        trainingScene.ballNode.fillColor = .red
         
-        trainingScene.ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
-        trainingScene.ballNode.physicsBody?.affectedByGravity = false
-        trainingScene.ballNode.physicsBody?.categoryBitMask = TrainingNode.ball.categoryMask
+        ballNode.position = CGPoint(x: -100, y: -100)
         
-        trainingScene.addChild(trainingScene.ballNode)
+        ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        ballNode.physicsBody?.affectedByGravity = false
+        ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
+        
+        scene.addChild(ballNode)
         
         // Set Up Coin Node
-        trainingScene.coinNode.size = CGSize(width: 50, height: 50)
         
-        trainingScene.coinNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
-        trainingScene.coinNode.physicsBody?.affectedByGravity = false
-        trainingScene.coinNode.physicsBody?.categoryBitMask = TrainingNode.coin.categoryMask
-        trainingScene.coinNode.physicsBody?.contactTestBitMask =
-            TrainingNode.ball.categoryMask | TrainingNode.coin.categoryMask
-    }
-    
-    func getPoint() {
-        trainingScene?.coinNode.removeFromParent()
-        points += 3
+        targetNode.fillColor = .red
+        
+        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
+        targetNode.physicsBody?.affectedByGravity = false
+        targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
+        targetNode.physicsBody?.contactTestBitMask =
+            SceneNode.ball.categoryMask | SceneNode.target.categoryMask
     }
     
     @objc private func startTraining() {
         
-        setTimer()
-        
         startButton.isHidden = true
         
-        replayDelegate?.startScreenRecording()
-        
-        timer = Timer.scheduledTimer(timeInterval: 1,
-                                     target: self,
-                                     selector: #selector(countdown),
-                                     userInfo: nil,
-                                     repeats: true)
-        
-        trainingScene?.setTargetPoint()
+        NotificationCenter.default.post(Notification(name: .startTraining))
     }
     
-    @objc private func countdown() {
+    private func targetNodePosition(mode: TrainingMode) -> CGPoint {
         
-        if second <= 0 {
+        var xScale: CGFloat!
+        var yScale: CGFloat!
+        
+        switch mode {
             
-            if minute > 0 {
-                
-                minute -= 1
-                second = 60
-                
-            } else {
-                
-                endTraining()
-                return
-            }
+        case .crossover:
+            
+            leftPosition = !leftPosition
+            xScale = leftPosition ? 0.2 : 0.8
+            yScale = 0.6
+            
+        case .low:
+            
+            xScale = CGFloat(Double.random(in: 0.2...0.8))
+            yScale = 0.25
+            
+        case .random:
+            
+            xScale = CGFloat(Double.random(in: 0.2...0.8))
+            yScale = CGFloat(Double.random(in: 0.2...0.5))
         }
         
-        second -= 1
-    }
-    
-    private func endTraining() {
-        
-        print("Time's Up")
-        
-        timer?.invalidate()
-        
-        replayDelegate?.stopScreenRecording()
+        return CGPoint(x: bounds.width * xScale, y: bounds.height * yScale)
     }
 }

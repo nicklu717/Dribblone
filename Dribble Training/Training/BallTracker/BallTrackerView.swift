@@ -1,5 +1,5 @@
 //
-//  CameraView.swift
+//  BallTrackerView.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/8/30.
@@ -8,9 +8,8 @@
 
 import UIKit
 import AVFoundation
-import SpriteKit
 
-class CameraView: UIView {
+class BallTrackerView: UIView {
     
     // MARK: - Property Declaration
     
@@ -74,6 +73,8 @@ class CameraView: UIView {
         cameraLayer.videoGravity = .resizeAspectFill
         
         cameraLayer.connection?.videoOrientation = .landscapeLeft
+        
+//        layer.insertSublayer(cameraLayer, at: 0)
         
         layer.addSublayer(cameraLayer)
     }

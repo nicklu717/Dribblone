@@ -6,9 +6,14 @@
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
-import Foundation
+struct TrainingViewControllerSegue {
+    
+    static let ballTracker = "BallTracker"
+    
+    static let trainingAssistant = "TrainingAssistant"
+}
 
-enum TrainingMode {
+enum TrainingMode: String {
     
     case random
     
@@ -17,18 +22,18 @@ enum TrainingMode {
     case low
 }
 
-enum TrainingNode {
+enum SceneNode {
     
     case ball
     
-    case coin
+    case target
     
     var categoryMask: UInt32 {
         
         switch self {
         
         case .ball: return 0001
-        case .coin: return 0010
+        case .target: return 0010
         }
     }
 }
