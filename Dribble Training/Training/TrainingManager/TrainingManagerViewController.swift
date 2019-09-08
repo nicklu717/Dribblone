@@ -88,6 +88,10 @@ class TrainingManagerViewController: UIViewController {
             print("Start Recording")
         }
     }
+    
+    func setTrainingMode(to mode: TrainingMode) {
+        trainingAssistantViewController.trainingMode = mode
+    }
 }
 
 extension TrainingManagerViewController: BallTrackerViewControllerDelegate {

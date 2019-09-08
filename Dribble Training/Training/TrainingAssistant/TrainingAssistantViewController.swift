@@ -39,7 +39,7 @@ class TrainingAssistantViewController: UIViewController {
     
     private var timer: Timer?
     
-    private var trainingMode: TrainingMode = .crossover
+    var trainingMode: TrainingMode = .crossover
     
     // MARK: - Life Cycle
     
