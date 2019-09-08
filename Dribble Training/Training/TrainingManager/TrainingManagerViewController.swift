@@ -21,15 +21,15 @@ class TrainingManagerViewController: UIViewController {
     
     // MARK: - Property Declaration
     
-    var ballTracker: BallTrackerViewController! {
+    var ballTrackerPage: BallTrackerViewController! {
         didSet {
-            ballTracker.delegate = self
+            ballTrackerPage.delegate = self
         }
     }
     
-    var trainingAssistant: TrainingAssistantViewController! {
+    var trainingAssistantPage: TrainingAssistantViewController! {
         didSet {
-            trainingAssistant.delegate = self
+            trainingAssistantPage.delegate = self
         }
     }
     
@@ -40,6 +40,8 @@ class TrainingManagerViewController: UIViewController {
     let storageManager = StorageManager.shared
     
     var trainingResult: TrainingResult?
+    
+    var trainingCompletion: (() -> ())?
     
     // MARK: - View Life Cycle
 
@@ -64,11 +66,11 @@ class TrainingManagerViewController: UIViewController {
 
         case is BallTrackerViewController:
             
-            ballTracker = destination as? BallTrackerViewController
+            ballTrackerPage = destination as? BallTrackerViewController
             
         case is TrainingAssistantViewController:
             
-            trainingAssistant = destination as? TrainingAssistantViewController
+            trainingAssistantPage = destination as? TrainingAssistantViewController
             
         default: return
         }
@@ -88,14 +90,14 @@ class TrainingManagerViewController: UIViewController {
     }
     
     func setTrainingMode(to mode: TrainingMode) {
-        trainingAssistant.trainingMode = mode
+        trainingAssistantPage.trainingMode = mode
     }
 }
 
 extension TrainingManagerViewController: BallTrackerViewControllerDelegate {
     
     func didGetBallPosition(_ position: CGPoint) {
-        trainingAssistant.setBallNode(to: position)
+        trainingAssistantPage.setBallNode(to: position)
     }
 }
 
@@ -162,9 +164,8 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         storageManager.saveContext()
         
-        previewController.dismiss(animated: true) {
-            self.dismiss(animated: true, completion: nil)
-        }
-        // TODO: Show Result Page & Pop Training Page
+        previewController.dismiss(animated: true)
+        
+        dismiss(animated: true, completion: trainingCompletion)
     }
 }
