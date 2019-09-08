@@ -124,6 +124,7 @@
 				5A4E215D23223A0F00F91012 /* Local Storage */,
 				5AD862CB231920D40036EFFF /* Common */,
 				5AD862C2231915DA0036EFFF /* Training */,
+				5AD91EED2324DE19000E2BB4 /* Training Result */,
 			);
 			path = "Dribble Training";
 			sourceTree = "<group>";
@@ -156,6 +157,13 @@
 				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		5AD91EED2324DE19000E2BB4 /* Training Result */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Training Result";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

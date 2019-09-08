@@ -82,10 +82,6 @@ class TrainingAssistantViewController: UIViewController {
         trainingAssistantView.moveBallNode(to: position)
     }
     
-    func setDelegate(_ delegate: TrainingAssistantViewControllerDelegate) {
-        self.delegate = delegate
-    }
-    
     // MARK: - Private Method
     
     private func getPoint() {
