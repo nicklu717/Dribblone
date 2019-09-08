@@ -20,7 +20,7 @@ class TrainingAssistantViewController: UIViewController {
     
     @IBOutlet var trainingAssistantView: TrainingAssistantView! {
         didSet {
-            trainingAssistantView.physicsContactDelegate = self
+            trainingAssistantView.viewDelegate = self
         }
     }
     
@@ -127,7 +127,7 @@ class TrainingAssistantViewController: UIViewController {
     }
 }
 
-extension TrainingAssistantViewController: SKPhysicsContactDelegate {
+extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         getPoint()

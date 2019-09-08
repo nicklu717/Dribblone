@@ -8,11 +8,13 @@
 
 import SpriteKit
 
+protocol TrainingAssistantViewDelegate: UIViewController, SKPhysicsContactDelegate {}
+
 class TrainingAssistantView: SKView {
     
     // MARK: - Property Declaration
     
-    weak var physicsContactDelegate: SKPhysicsContactDelegate? {
+    weak var viewDelegate: TrainingAssistantViewDelegate? {
         
         didSet {
             
@@ -118,9 +120,9 @@ class TrainingAssistantView: SKView {
                                                         bottom: 10,
                                                         right: 10)
 
-//            cancelButton.addTarget(self,
-//                                  action: #selector(cancelTraining),
-//                                  for: .touchUpInside)
+            cancelButton.addTarget(self,
+                                  action: #selector(cancelTraining),
+                                  for: .touchUpInside)
 
             addSubview(cancelButton)
 
@@ -138,10 +140,6 @@ class TrainingAssistantView: SKView {
     private var leftPosition = true
     
     // MARK: - Instance Method
-    
-    func setPhysicsContactDelegate(_ delegate: SKPhysicsContactDelegate?) {
-        physicsContactDelegate = delegate
-    }
     
     func setPointsLabel(_ points: Int) {
         pointsLabel.text = String(format: "%02d", points)
@@ -193,7 +191,7 @@ class TrainingAssistantView: SKView {
         scene.scaleMode = .resizeFill
         scene.backgroundColor = .clear
         
-        scene.physicsWorld.contactDelegate = physicsContactDelegate
+        scene.physicsWorld.contactDelegate = viewDelegate
         
         presentScene(scene)
         
@@ -223,6 +221,10 @@ class TrainingAssistantView: SKView {
         startButton.isHidden = true
         
         NotificationCenter.default.post(Notification(name: .startTraining))
+    }
+    
+    @objc private func cancelTraining() {
+        viewDelegate?.dismiss(animated: true, completion: nil)
     }
     
     private func targetNodePosition(mode: TrainingMode) -> CGPoint {
