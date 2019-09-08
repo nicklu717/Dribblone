@@ -52,7 +52,8 @@ class TrainingAssistantViewController: UIViewController {
             self,
             selector: #selector(startTraining),
             name: .startTraining,
-            object: nil)
+            object: nil
+        )
         
         trainingAssistantView.backgroundColor = .clear
     }
@@ -69,11 +70,13 @@ class TrainingAssistantViewController: UIViewController {
     
     @objc func startTraining() {
         
-        timer = Timer.scheduledTimer(timeInterval: 1,
-                                     target: self,
-                                     selector: #selector(countdown),
-                                     userInfo: nil,
-                                     repeats: true)
+        timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(countdown),
+            userInfo: nil,
+            repeats: true
+        )
         
         trainingAssistantView.resetTargetNode(mode: trainingMode)
     }
