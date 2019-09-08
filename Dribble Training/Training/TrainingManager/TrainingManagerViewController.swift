@@ -166,6 +166,8 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         previewController.dismiss(animated: true)
         
-        dismiss(animated: true, completion: trainingCompletion(trainingResult))
+        dismiss(animated: true) {
+            self.trainingCompletion?(self.trainingResult)
+        }
     }
 }
