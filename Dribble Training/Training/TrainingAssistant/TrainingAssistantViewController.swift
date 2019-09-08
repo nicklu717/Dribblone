@@ -54,8 +54,6 @@ class TrainingAssistantViewController: UIViewController {
             name: .startTraining,
             object: nil
         )
-        
-        trainingAssistantView.backgroundColor = .clear
     }
     
     // MARK: - Instance Method

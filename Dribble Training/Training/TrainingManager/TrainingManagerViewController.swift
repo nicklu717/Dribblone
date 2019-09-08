@@ -21,15 +21,15 @@ class TrainingManagerViewController: UIViewController {
     
     // MARK: - Property Declaration
     
-    var ballTrackerViewController: BallTrackerViewController! {
+    var ballTracker: BallTrackerViewController! {
         didSet {
-            ballTrackerViewController.delegate = self
+            ballTracker.delegate = self
         }
     }
     
-    var trainingAssistantViewController: TrainingAssistantViewController! {
+    var trainingAssistant: TrainingAssistantViewController! {
         didSet {
-            trainingAssistantViewController.delegate = self
+            trainingAssistant.delegate = self
         }
     }
     
@@ -64,12 +64,12 @@ class TrainingManagerViewController: UIViewController {
 
         case is BallTrackerViewController:
             
-            ballTrackerViewController =
+            ballTracker =
                 (destinationViewController as! BallTrackerViewController)
             
         case is TrainingAssistantViewController:
             
-            trainingAssistantViewController =
+            trainingAssistant =
                 (destinationViewController as! TrainingAssistantViewController)
             
         default: return
@@ -90,14 +90,14 @@ class TrainingManagerViewController: UIViewController {
     }
     
     func setTrainingMode(to mode: TrainingMode) {
-        trainingAssistantViewController.trainingMode = mode
+        trainingAssistant.trainingMode = mode
     }
 }
 
 extension TrainingManagerViewController: BallTrackerViewControllerDelegate {
     
     func didGetBallPosition(_ position: CGPoint) {
-        trainingAssistantViewController.setBallNode(to: position)
+        trainingAssistant.setBallNode(to: position)
     }
 }
 

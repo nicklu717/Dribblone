@@ -18,7 +18,7 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         }
     }
     
-    var trainingManagerViewController: TrainingManagerViewController!
+    var trainingManager: TrainingManagerViewController!
     
     // MARK: - Life Cycle
     
@@ -32,8 +32,9 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
     
     func startTraining(mode: TrainingMode) {
         
-        trainingManagerViewController.setTrainingMode(to: mode)
-        present(trainingManagerViewController, animated: true, completion: nil)
+        trainingManager.setTrainingMode(to: mode)
+        
+        present(trainingManager, animated: true, completion: nil)
     }
     
     // MARK: - Private Method
@@ -42,9 +43,10 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         
         let storyboard = UIStoryboard.training
         
-        trainingManagerViewController =
-            storyboard.instantiateInitialViewController() as? TrainingManagerViewController
+        let viewController = storyboard.instantiateInitialViewController()
         
-        trainingManagerViewController.loadViewIfNeeded()
+        trainingManager = viewController as? TrainingManagerViewController
+        
+        trainingManager.loadViewIfNeeded()
     }
 }
