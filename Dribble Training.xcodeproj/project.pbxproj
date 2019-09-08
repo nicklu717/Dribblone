@@ -25,6 +25,7 @@
 		5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */; };
 		5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */; };
 		5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */; };
+		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyViewController.swift; sourceTree = "<group>"; };
 		5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyView.swift; sourceTree = "<group>"; };
 		5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingLobby.storyboard; sourceTree = "<group>"; };
+		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */,
 				5A0F35CF2321675900EFB13F /* Notification+Extension.swift */,
+				5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,
+				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
