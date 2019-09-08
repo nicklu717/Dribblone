@@ -164,10 +164,9 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         storageManager.saveContext()
         
-//        let a = NSFetchRequest<TrainingResult>(entityName: "TrainingResult")
-//        let b = try! storageManager.viewContext.fetch(a)
-        
-        previewController.dismiss(animated: true, completion: nil)
+        previewController.dismiss(animated: true) {
+            self.dismiss(animated: true, completion: nil)
+        }
         // TODO: Show Result Page & Pop Training Page
     }
 }
