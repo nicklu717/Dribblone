@@ -9,6 +9,7 @@
 import UIKit
 import ReplayKit
 import Photos
+import CoreData
 
 class TrainingManagerViewController: UIViewController {
     
@@ -35,6 +36,10 @@ class TrainingManagerViewController: UIViewController {
     let screenRecorder = RPScreenRecorder.shared()
     
     let imageManager = PHImageManager.default()
+    
+    let storageManager = StorageManager.shared
+    
+    var trainingResult: TrainingResult?
     
     // MARK: - View Life Cycle
 
@@ -94,7 +99,21 @@ extension TrainingManagerViewController: BallTrackerViewControllerDelegate {
 
 extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate {
     
-    func endTraining(points: Int, trainingMode: TrainingMode) {
+    func endTraining(points: Int, trainingMode: String) {
+        
+        guard
+            let entity = NSEntityDescription.entity(forEntityName: "TrainingResult",
+                                                    in: storageManager.viewContext)
+        else {
+            print("Invalid Entity")
+            return
+        }
+        
+        trainingResult = TrainingResult(entity: entity, insertInto: storageManager.viewContext)
+        
+        trainingResult?.date = Date.timeIntervalBetween1970AndReferenceDate
+        trainingResult?.points = Int16(points)
+        trainingResult?.mode = trainingMode
         
         screenRecorder.stopRecording { [unowned self] (previewViewController, error) in
             
@@ -123,8 +142,6 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
     
     func previewController(_ previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>) {
         
-        // TODO: Get Video ID & Save Result into CoreData
-        
         let fetchOptions = PHFetchOptions()
         
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
@@ -139,9 +156,14 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
             return
         }
         
-        print(video.localIdentifier)
+        trainingResult?.videoLocalID = video.localIdentifier
+        
+        storageManager.saveContext()
+        
+//        let a = NSFetchRequest<TrainingResult>(entityName: "TrainingResult")
+//        let b = try! storageManager.viewContext.fetch(a)
         
         previewController.dismiss(animated: true, completion: nil)
+        // TODO: Show Result Page & Pop Training Page
     }
-    
 }

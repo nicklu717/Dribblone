@@ -13,7 +13,7 @@ struct TrainingViewControllerSegue {
     static let trainingAssistant = "TrainingAssistant"
 }
 
-enum TrainingMode {
+enum TrainingMode: String {
     
     case random
     
