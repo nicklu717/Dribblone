@@ -58,19 +58,17 @@ class TrainingManagerViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let destinationViewController = segue.destination
+        let destination = segue.destination
         
-        switch destinationViewController  {
+        switch destination  {
 
         case is BallTrackerViewController:
             
-            ballTracker =
-                (destinationViewController as! BallTrackerViewController)
+            ballTracker = destination as? BallTrackerViewController
             
         case is TrainingAssistantViewController:
             
-            trainingAssistant =
-                (destinationViewController as! TrainingAssistantViewController)
+            trainingAssistant = destination as? TrainingAssistantViewController
             
         default: return
         }
