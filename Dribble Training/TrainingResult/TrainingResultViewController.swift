@@ -11,4 +11,6 @@ import UIKit
 class TrainingResultViewController: UIViewController {
     
     @IBOutlet var trainingResultView: TrainingResultView!
+    
+    var trainingResult: TrainingResult?
 }

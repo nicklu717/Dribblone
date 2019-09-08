@@ -41,7 +41,7 @@ class TrainingManagerViewController: UIViewController {
     
     var trainingResult: TrainingResult?
     
-    var trainingCompletion: (() -> ())?
+    var trainingCompletion: ((TrainingResult?) -> ())?
     
     // MARK: - View Life Cycle
 
@@ -166,6 +166,6 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         previewController.dismiss(animated: true)
         
-        dismiss(animated: true, completion: trainingCompletion)
+        dismiss(animated: true, completion: trainingCompletion(trainingResult))
     }
 }

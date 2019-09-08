@@ -38,9 +38,13 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         
         trainingManagerPage.setTrainingMode(to: mode)
         
-        trainingManagerPage.trainingCompletion = { [weak self] in
+        trainingManagerPage.trainingCompletion = { [weak self]
+            
+            trainingResult in
             
             guard let self = self else { return }
+            
+            self.trainingResultPage.trainingResult = trainingResult
             
             self.show(self.trainingResultPage, sender: nil)
         }
