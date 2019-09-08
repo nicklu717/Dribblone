@@ -8,7 +8,16 @@
 
 import UIKit
 
-class TrainingLobbyViewController: UIViewController {
+class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
     
-    @IBOutlet var trainingLobbyView: TrainingLobbyView!
+    @IBOutlet var trainingLobbyView: TrainingLobbyView! {
+        didSet {
+            trainingLobbyView.delegate = self
+        }
+    }
+    
+    func startTraining(mode: TrainingMode) {
+        
+        
+    }
 }
