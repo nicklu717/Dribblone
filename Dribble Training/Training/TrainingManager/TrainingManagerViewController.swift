@@ -21,15 +21,15 @@ class TrainingManagerViewController: UIViewController {
     
     // MARK: - Property Declaration
     
-    var ballTrackerViewController: BallTrackerViewController! {
+    var ballTracker: BallTrackerViewController! {
         didSet {
-            ballTrackerViewController.delegate = self
+            ballTracker.delegate = self
         }
     }
     
-    var trainingAssistantViewController: TrainingAssistantViewController! {
+    var trainingAssistant: TrainingAssistantViewController! {
         didSet {
-            trainingAssistantViewController.delegate = self
+            trainingAssistant.delegate = self
         }
     }
     
@@ -58,19 +58,17 @@ class TrainingManagerViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let destinationViewController = segue.destination
+        let destination = segue.destination
         
-        switch destinationViewController  {
+        switch destination  {
 
         case is BallTrackerViewController:
             
-            ballTrackerViewController =
-                (destinationViewController as! BallTrackerViewController)
+            ballTracker = destination as? BallTrackerViewController
             
         case is TrainingAssistantViewController:
             
-            trainingAssistantViewController =
-                (destinationViewController as! TrainingAssistantViewController)
+            trainingAssistant = destination as? TrainingAssistantViewController
             
         default: return
         }
@@ -88,12 +86,16 @@ class TrainingManagerViewController: UIViewController {
             print("Start Recording")
         }
     }
+    
+    func setTrainingMode(to mode: TrainingMode) {
+        trainingAssistant.trainingMode = mode
+    }
 }
 
 extension TrainingManagerViewController: BallTrackerViewControllerDelegate {
     
     func didGetBallPosition(_ position: CGPoint) {
-        trainingAssistantViewController.setBallNode(to: position)
+        trainingAssistant.setBallNode(to: position)
     }
 }
 
@@ -160,10 +162,9 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         storageManager.saveContext()
         
-//        let a = NSFetchRequest<TrainingResult>(entityName: "TrainingResult")
-//        let b = try! storageManager.viewContext.fetch(a)
-        
-        previewController.dismiss(animated: true, completion: nil)
+        previewController.dismiss(animated: true) {
+            self.dismiss(animated: true, completion: nil)
+        }
         // TODO: Show Result Page & Pop Training Page
     }
 }

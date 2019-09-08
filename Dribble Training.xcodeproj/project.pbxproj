@@ -22,6 +22,10 @@
 		5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* TrainingManagerViewController.swift */; };
 		5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* BallTrackerView.swift */; };
 		5AD862C9231919F70036EFFF /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* Training.storyboard */; };
+		5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */; };
+		5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */; };
+		5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */; };
+		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		5AD862C0231915C30036EFFF /* TrainingManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingManagerViewController.swift; sourceTree = "<group>"; };
 		5AD862C6231917A10036EFFF /* BallTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerView.swift; sourceTree = "<group>"; };
 		5AD862C8231919F70036EFFF /* Training.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
+		5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyViewController.swift; sourceTree = "<group>"; };
+		5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyView.swift; sourceTree = "<group>"; };
+		5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingLobby.storyboard; sourceTree = "<group>"; };
+		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +90,13 @@
 			path = TrainingAssistant;
 			sourceTree = "<group>";
 		};
-		5A4E215D23223A0F00F91012 /* Local Storage */ = {
+		5A4E215D23223A0F00F91012 /* LocalStorage */ = {
 			isa = PBXGroup;
 			children = (
 				5A0F35C82320FBA800EFB13F /* StorageManager.swift */,
 				5A0F35CA2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld */,
 			);
-			path = "Local Storage";
+			path = LocalStorage;
 			sourceTree = "<group>";
 		};
 		5A7E901C231FA21500EE0BEF /* Extension */ = {
@@ -96,6 +104,7 @@
 			children = (
 				5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */,
 				5A0F35CF2321675900EFB13F /* Notification+Extension.swift */,
+				5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -121,10 +130,11 @@
 			children = (
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
-				5A4E215D23223A0F00F91012 /* Local Storage */,
+				5A4E215D23223A0F00F91012 /* LocalStorage */,
 				5AD862CB231920D40036EFFF /* Common */,
+				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
 				5AD862C2231915DA0036EFFF /* Training */,
-				5AD91EED2324DE19000E2BB4 /* Training Result */,
+				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
 			);
 			path = "Dribble Training";
 			sourceTree = "<group>";
@@ -159,11 +169,21 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		5AD91EED2324DE19000E2BB4 /* Training Result */ = {
+		5AD91EED2324DE19000E2BB4 /* TrainingResult */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "Training Result";
+			path = TrainingResult;
+			sourceTree = "<group>";
+		};
+		5AD91EEE2324E96E000E2BB4 /* TrainingLobby */ = {
+			isa = PBXGroup;
+			children = (
+				5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */,
+				5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */,
+				5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */,
+			);
+			path = TrainingLobby;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +247,7 @@
 				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
+				5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,13 +263,16 @@
 				5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */,
 				5A0F35CC2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld in Sources */,
 				5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */,
+				5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
 				5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */,
 				5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */,
 				5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */,
+				5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,
+				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

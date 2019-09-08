@@ -20,7 +20,7 @@ class TrainingAssistantViewController: UIViewController {
     
     @IBOutlet var trainingAssistantView: TrainingAssistantView! {
         didSet {
-            trainingAssistantView.physicsContactDelegate = self
+            trainingAssistantView.viewDelegate = self
         }
     }
     
@@ -39,7 +39,7 @@ class TrainingAssistantViewController: UIViewController {
     
     private var timer: Timer?
     
-    private var trainingMode: TrainingMode = .crossover
+    var trainingMode: TrainingMode = .crossover
     
     // MARK: - Life Cycle
     
@@ -54,13 +54,11 @@ class TrainingAssistantViewController: UIViewController {
             name: .startTraining,
             object: nil
         )
-        
-        trainingAssistantView.backgroundColor = .clear
     }
     
     // MARK: - Instance Method
     
-    func resetTimer(minute: Int = 0, second: Int = 5) {
+    func resetTimer(minute: Int = 0, second: Int = 20) {
         
         self.minute = minute
         self.second = second
@@ -129,7 +127,7 @@ class TrainingAssistantViewController: UIViewController {
     }
 }
 
-extension TrainingAssistantViewController: SKPhysicsContactDelegate {
+extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         getPoint()

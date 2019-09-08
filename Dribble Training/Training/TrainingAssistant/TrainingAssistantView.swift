@@ -8,11 +8,13 @@
 
 import SpriteKit
 
+protocol TrainingAssistantViewDelegate: UIViewController, SKPhysicsContactDelegate {}
+
 class TrainingAssistantView: SKView {
     
     // MARK: - Property Declaration
     
-    weak var physicsContactDelegate: SKPhysicsContactDelegate? {
+    weak var viewDelegate: TrainingAssistantViewDelegate? {
         
         didSet {
             
@@ -82,7 +84,7 @@ class TrainingAssistantView: SKView {
             startButton.setTitleColor(UIColor(white: 0.8, alpha: 1), for: .normal)
             startButton.titleLabel?.font = UIFont.systemFont(ofSize: 55)
             
-            startButton.backgroundColor = UIColor(white: 0.2, alpha: 1)
+            startButton.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
             
             startButton.layer.cornerRadius = 10
             startButton.clipsToBounds = true
@@ -102,13 +104,42 @@ class TrainingAssistantView: SKView {
         }
     }
     
+    var cancelButton: UIButton! {
+
+        didSet {
+
+            cancelButton.setImage(UIImage(named: "close"), for: .normal)
+
+            cancelButton.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+
+            cancelButton.layer.cornerRadius = 10
+            cancelButton.clipsToBounds = true
+            
+            cancelButton.imageEdgeInsets = UIEdgeInsets(top: 10,
+                                                        left: 10,
+                                                        bottom: 10,
+                                                        right: 10)
+
+            cancelButton.addTarget(self,
+                                  action: #selector(cancelTraining),
+                                  for: .touchUpInside)
+
+            addSubview(cancelButton)
+
+            cancelButton.translatesAutoresizingMaskIntoConstraints = false
+
+            NSLayoutConstraint.activate([
+                cancelButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+                cancelButton.topAnchor.constraint(equalTo: topAnchor, constant: 25),
+                cancelButton.widthAnchor.constraint(equalToConstant: 50),
+                cancelButton.heightAnchor.constraint(equalToConstant: 50)
+            ])
+        }
+    }
+    
     private var leftPosition = true
     
     // MARK: - Instance Method
-    
-    func setPhysicsContactDelegate(_ delegate: SKPhysicsContactDelegate?) {
-        physicsContactDelegate = delegate
-    }
     
     func setPointsLabel(_ points: Int) {
         pointsLabel.text = String(format: "%02d", points)
@@ -147,6 +178,8 @@ class TrainingAssistantView: SKView {
         startButton = UIButton()
         
         timerLabel = UILabel()
+        
+        cancelButton = UIButton()
     }
     
     private func setUpScene() {
@@ -158,7 +191,7 @@ class TrainingAssistantView: SKView {
         scene.scaleMode = .resizeFill
         scene.backgroundColor = .clear
         
-        scene.physicsWorld.contactDelegate = physicsContactDelegate
+        scene.physicsWorld.contactDelegate = viewDelegate
         
         presentScene(scene)
         
@@ -188,6 +221,10 @@ class TrainingAssistantView: SKView {
         startButton.isHidden = true
         
         NotificationCenter.default.post(Notification(name: .startTraining))
+    }
+    
+    @objc private func cancelTraining() {
+        viewDelegate?.dismiss(animated: true, completion: nil)
     }
     
     private func targetNodePosition(mode: TrainingMode) -> CGPoint {

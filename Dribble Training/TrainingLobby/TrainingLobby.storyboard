@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ouo-5y-2BT">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Training Lobby View Controller-->
+        <scene sceneID="6Ce-Ol-D1l">
+            <objects>
+                <viewController id="ouo-5y-2BT" customClass="TrainingLobbyViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n0t-eT-yMY" customClass="TrainingLobbyView" customModule="Dribble_Training" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xis-Fn-Z9g">
+                                <rect key="frame" x="153" y="326" width="108" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Random"/>
+                                <connections>
+                                    <action selector="startTraining:" destination="n0t-eT-yMY" eventType="touchUpInside" id="Cgt-2S-BNd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6E-0D-FS9">
+                                <rect key="frame" x="141.5" y="424" width="131" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Crossover"/>
+                                <connections>
+                                    <action selector="startTraining:" destination="n0t-eT-yMY" eventType="touchUpInside" id="4dw-SZ-ar8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmO-jI-d6q">
+                                <rect key="frame" x="180" y="522" width="54" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Low"/>
+                                <connections>
+                                    <action selector="startTraining:" destination="n0t-eT-yMY" eventType="touchUpInside" id="0H2-jK-wmJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select  Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2j-nh-yha">
+                                <rect key="frame" x="109" y="184" width="196" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="C6E-0D-FS9" firstAttribute="centerY" secondItem="n0t-eT-yMY" secondAttribute="centerY" id="01G-FV-cFv"/>
+                            <constraint firstItem="C6E-0D-FS9" firstAttribute="top" secondItem="xis-Fn-Z9g" secondAttribute="bottom" constant="50" id="E3P-bx-Tmw"/>
+                            <constraint firstItem="xis-Fn-Z9g" firstAttribute="centerX" secondItem="n0t-eT-yMY" secondAttribute="centerX" id="FTc-z9-atj"/>
+                            <constraint firstItem="qmO-jI-d6q" firstAttribute="top" secondItem="C6E-0D-FS9" secondAttribute="bottom" constant="50" id="ZXn-HG-G1F"/>
+                            <constraint firstItem="qmO-jI-d6q" firstAttribute="centerX" secondItem="n0t-eT-yMY" secondAttribute="centerX" id="and-xm-r5E"/>
+                            <constraint firstItem="C6E-0D-FS9" firstAttribute="centerX" secondItem="n0t-eT-yMY" secondAttribute="centerX" id="qGc-ar-a5V"/>
+                            <constraint firstItem="xis-Fn-Z9g" firstAttribute="top" secondItem="n2j-nh-yha" secondAttribute="bottom" constant="100" id="sd5-yy-mma"/>
+                            <constraint firstItem="n2j-nh-yha" firstAttribute="centerX" secondItem="n0t-eT-yMY" secondAttribute="centerX" id="t0n-sh-xWa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JLG-C2-oca"/>
+                        <connections>
+                            <outlet property="crossoverModeButton" destination="C6E-0D-FS9" id="xRn-YY-IP9"/>
+                            <outlet property="lowModeButton" destination="qmO-jI-d6q" id="UJr-sT-EF1"/>
+                            <outlet property="randomModeButton" destination="xis-Fn-Z9g" id="yvE-Tw-Z9M"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="trainingLobbyView" destination="n0t-eT-yMY" id="Eef-t8-XsO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WC-nT-e2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-521" y="-168"/>
+        </scene>
+    </scenes>
+</document>
