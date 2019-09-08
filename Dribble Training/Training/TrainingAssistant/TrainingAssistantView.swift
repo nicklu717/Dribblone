@@ -102,6 +102,34 @@ class TrainingAssistantView: SKView {
         }
     }
     
+//    var cancelButton: UIButton! {
+//        
+//        didSet {
+//            
+//            cancelButton.setTitle("START", for: .normal)
+//            cancelButton.setTitleColor(UIColor(white: 0.8, alpha: 1), for: .normal)
+//            cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 55)
+//            
+//            cancelButton.backgroundColor = UIColor(white: 0.2, alpha: 1)
+//            
+//            cancelButton.layer.cornerRadius = 10
+//            cancelButton.clipsToBounds = true
+//            
+//            cancelButton.addTarget(self,
+//                                  action: #selector(startTraining),
+//                                  for: .touchUpInside)
+//            
+//            addSubview(cancelButton)
+//            
+//            cancelButton.translatesAutoresizingMaskIntoConstraints = false
+//            
+//            NSLayoutConstraint.activate([
+//                cancelButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+//                cancelButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
+//                ])
+//        }
+//    }
+    
     private var leftPosition = true
     
     // MARK: - Instance Method
