@@ -8,6 +8,18 @@
 
 import UIKit
 
+protocol TrainingResultViewDelegate: UITableViewDataSource {
+    
+    var trainingResults: [TrainingResult] { get }
+}
+
 class TrainingResultView: UIView {
     
+    weak var delegate: TrainingResultViewDelegate?
+    
+    @IBOutlet var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self.delegate
+        }
+    }
 }
