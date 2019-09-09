@@ -39,8 +39,22 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bt-3c-Kas">
                         <rect key="frame" x="36" y="119" width="342" height="192.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfF-KY-vZL">
+                                <rect key="frame" x="0.0" y="0.0" width="342" height="192.5"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="play-button"/>
+                                <connections>
+                                    <action selector="playVideo" destination="My9-H5-Stv" eventType="touchUpInside" id="lvJ-eO-IZs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bfF-KY-vZL" secondAttribute="trailing" id="6Or-FV-T1g"/>
+                            <constraint firstItem="bfF-KY-vZL" firstAttribute="top" secondItem="5bt-3c-Kas" secondAttribute="top" id="Fhg-ch-UA9"/>
                             <constraint firstAttribute="width" secondItem="5bt-3c-Kas" secondAttribute="height" multiplier="16:9" id="Oai-Tj-oI5"/>
+                            <constraint firstItem="bfF-KY-vZL" firstAttribute="leading" secondItem="5bt-3c-Kas" secondAttribute="leading" id="TqW-Vd-BdY"/>
+                            <constraint firstAttribute="bottom" secondItem="bfF-KY-vZL" secondAttribute="bottom" id="VlK-60-7SB"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crossover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiL-qp-MaH">
@@ -84,6 +98,7 @@
             <connections>
                 <outlet property="dateLabel" destination="sMb-tT-saE" id="hta-DI-cEk"/>
                 <outlet property="modeLabel" destination="MiL-qp-MaH" id="Y2s-v8-N4V"/>
+                <outlet property="playVideoButton" destination="bfF-KY-vZL" id="nAx-vj-hcs"/>
                 <outlet property="pointsLabel" destination="N5s-XH-kSh" id="gE4-WO-ZR9"/>
                 <outlet property="profileImageView" destination="ADR-5x-9Mp" id="QLg-A0-oMd"/>
                 <outlet property="userIDLabel" destination="cQ5-xI-hvh" id="mfN-jo-rjn"/>
@@ -92,4 +107,7 @@
             <point key="canvasLocation" x="-10.144927536231885" y="-18.080357142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="play-button" width="170" height="170"/>
+    </resources>
 </document>

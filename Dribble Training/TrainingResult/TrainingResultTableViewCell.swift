@@ -17,6 +17,7 @@ class TrainingResultTableViewCell: UITableViewCell {
     @IBOutlet var modeLabel: UILabel!
     @IBOutlet var pointsLabel: UILabel!
     @IBOutlet var videoView: UIView!
+    @IBOutlet var playVideoButton: UIButton!
     
     let avPlayerLayer = AVPlayerLayer()
     
@@ -28,5 +29,12 @@ class TrainingResultTableViewCell: UITableViewCell {
         avPlayerLayer.videoGravity = .resizeAspect
         
         videoView.layer.addSublayer(avPlayerLayer)
+    }
+    
+    @IBAction func playVideo() {
+        
+        avPlayerLayer.player?.play()
+        
+        playVideoButton.isHidden = true
     }
 }
