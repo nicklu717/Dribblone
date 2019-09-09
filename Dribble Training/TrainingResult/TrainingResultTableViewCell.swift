@@ -10,4 +10,10 @@ import UIKit
 
 class TrainingResultTableViewCell: UITableViewCell {
     
+    @IBOutlet var profileImageView: UIImageView!
+    @IBOutlet var userIDLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var modeLabel: UILabel!
+    @IBOutlet var pointsLabel: UILabel!
+    @IBOutlet var videoView: UIView!
 }

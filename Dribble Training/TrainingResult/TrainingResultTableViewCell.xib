@@ -82,6 +82,14 @@
                     <constraint firstItem="NkH-CF-Ryg" firstAttribute="trailing" secondItem="ADR-5x-9Mp" secondAttribute="trailing" id="jp2-8L-ZLt"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="sMb-tT-saE" id="hta-DI-cEk"/>
+                <outlet property="modeLabel" destination="MiL-qp-MaH" id="Y2s-v8-N4V"/>
+                <outlet property="pointsLabel" destination="N5s-XH-kSh" id="gE4-WO-ZR9"/>
+                <outlet property="profileImageView" destination="ADR-5x-9Mp" id="QLg-A0-oMd"/>
+                <outlet property="userIDLabel" destination="cQ5-xI-hvh" id="mfN-jo-rjn"/>
+                <outlet property="videoView" destination="5bt-3c-Kas" id="Oan-Ps-fqA"/>
+            </connections>
             <point key="canvasLocation" x="-10.144927536231885" y="-18.080357142857142"/>
         </tableViewCell>
     </objects>
