@@ -62,8 +62,6 @@ class TrainingAssistantViewController: UIViewController {
         
         self.minute = minute
         self.second = second
-        
-        self.points = 0
     }
     
     @objc func startTraining() {

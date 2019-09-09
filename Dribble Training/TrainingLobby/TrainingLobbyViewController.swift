@@ -44,7 +44,7 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
             
             guard let self = self else { return }
             
-            self.trainingResultPage.trainingResult = trainingResult
+            self.trainingResultPage.trainingResults = [trainingResult]
             
             self.show(self.trainingResultPage, sender: nil)
         }

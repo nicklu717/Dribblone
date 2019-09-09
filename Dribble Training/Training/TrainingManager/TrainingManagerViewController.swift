@@ -39,9 +39,9 @@ class TrainingManagerViewController: UIViewController {
     
     let storageManager = StorageManager.shared
     
-    var trainingResult: TrainingResult?
+    var trainingResult: TrainingResult!
     
-    var trainingCompletion: ((TrainingResult?) -> ())?
+    var trainingCompletion: ((TrainingResult) -> ())?
     
     // MARK: - View Life Cycle
 
@@ -115,9 +115,9 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
         
         trainingResult = TrainingResult(entity: entity, insertInto: storageManager.viewContext)
         
-        trainingResult?.date = Date.timeIntervalBetween1970AndReferenceDate
-        trainingResult?.points = Int16(points)
-        trainingResult?.mode = trainingMode
+        trainingResult.date = Date.timeIntervalBetween1970AndReferenceDate
+        trainingResult.points = Int16(points)
+        trainingResult.mode = trainingMode
         
         screenRecorder.stopRecording { [unowned self] (previewViewController, error) in
             
@@ -160,7 +160,7 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
             return
         }
         
-        trainingResult?.videoLocalID = video.localIdentifier
+        trainingResult.videoLocalID = video.localIdentifier
         
         storageManager.saveContext()
         

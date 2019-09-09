@@ -10,24 +10,38 @@ import UIKit
 
 class TrainingResultViewController: UIViewController {
     
-//    var trainingResults: [TrainingResult] = []
+    var trainingResults: [TrainingResult] = []
     
     @IBOutlet var trainingResultView: TrainingResultView! {
         didSet {
-//            trainingResultView.delegate = self
+            trainingResultView.delegate = self
         }
     }
-    
-    var trainingResult: TrainingResult?
 }
 
-//extension TrainingResultViewController: TrainingResultViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//}
+extension TrainingResultViewController: TrainingResultViewDelegate {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return trainingResults.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingResultTableViewCell",
+                                                    for: indexPath) as? TrainingResultTableViewCell
+        else {
+            print("Invalid Training Result Table View Cell")
+            return TrainingResultTableViewCell()
+        }
+        
+        let result = trainingResults[indexPath.row]
+        
+        cell.dateLabel.text = "\(result.date)"
+        cell.modeLabel.text = result.mode
+        cell.pointsLabel.text = "\(result.points) pts"
+        
+        return cell
+    }
+}
