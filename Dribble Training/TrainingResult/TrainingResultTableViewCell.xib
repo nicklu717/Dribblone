@@ -39,7 +39,6 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bt-3c-Kas">
                         <rect key="frame" x="36" y="119" width="342" height="192.5"/>
-                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="5bt-3c-Kas" secondAttribute="height" multiplier="16:9" id="Oai-Tj-oI5"/>
                         </constraints>
