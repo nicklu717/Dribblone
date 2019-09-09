@@ -15,11 +15,11 @@ struct TrainingViewControllerSegue {
 
 enum TrainingMode: String {
     
-    case random
+    case random = "Random"
     
-    case crossover
+    case crossover = "Crossover"
     
-    case low
+    case low = "Low"
 }
 
 enum SceneNode {
