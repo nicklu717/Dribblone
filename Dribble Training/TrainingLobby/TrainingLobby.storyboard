@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ouo-5y-2BT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SIT-Xr-KSW">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Training Lobby View Controller-->
+        <!--Training-->
         <scene sceneID="6Ce-Ol-D1l">
             <objects>
                 <viewController id="ouo-5y-2BT" customClass="TrainingLobbyViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,13 +67,32 @@
                             <outlet property="randomModeButton" destination="xis-Fn-Z9g" id="yvE-Tw-Z9M"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Training" id="vNu-xE-CAm"/>
                     <connections>
                         <outlet property="trainingLobbyView" destination="n0t-eT-yMY" id="Eef-t8-XsO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WC-nT-e2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-521" y="-168"/>
+            <point key="canvasLocation" x="388.40579710144931" y="-168.08035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4ag-5R-cAR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SIT-Xr-KSW" customClass="NavigationController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JAr-IG-38Y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ouo-5y-2BT" kind="relationship" relationship="rootViewController" id="IMv-Aq-UV5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1r9-JS-RkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-521.73913043478262" y="-168.08035714285714"/>
         </scene>
     </scenes>
 </document>

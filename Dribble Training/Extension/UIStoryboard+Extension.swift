@@ -14,6 +14,8 @@ extension UIStoryboard {
     
     static var training: UIStoryboard { return storyboard("Training")}
     
+    static var trainingResult: UIStoryboard { return storyboard("TrainingResult")}
+    
     private static func storyboard(_ name: String) -> UIStoryboard {
         return UIStoryboard(name: name, bundle: nil)
     }

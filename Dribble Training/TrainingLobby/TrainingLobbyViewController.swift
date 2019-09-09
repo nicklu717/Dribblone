@@ -18,35 +18,61 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         }
     }
     
-    var trainingManager: TrainingManagerViewController!
+    var trainingManagerPage: TrainingManagerViewController!
+    
+    var trainingResultPage: TrainingResultViewController!
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTrainingManager()
+        setupTrainingManagerPage()
+        
+        setupTrainingResultPage()
     }
     
     // MARK: - Instance Method
     
     func startTraining(mode: TrainingMode) {
         
-        trainingManager.setTrainingMode(to: mode)
+        trainingManagerPage.setTrainingMode(to: mode)
         
-        present(trainingManager, animated: true, completion: nil)
+        trainingManagerPage.trainingCompletion = { [weak self]
+            
+            trainingResult in
+            
+            guard let self = self else { return }
+            
+            self.trainingResultPage.trainingResults = [trainingResult]
+            
+            self.show(self.trainingResultPage, sender: nil)
+        }
+        
+        present(trainingManagerPage, animated: true, completion: nil)
     }
     
     // MARK: - Private Method
     
-    private func setupTrainingManager() {
+    private func setupTrainingManagerPage() {
         
         let storyboard = UIStoryboard.training
         
         let viewController = storyboard.instantiateInitialViewController()
         
-        trainingManager = viewController as? TrainingManagerViewController
+        trainingManagerPage = viewController as? TrainingManagerViewController
         
-        trainingManager.loadViewIfNeeded()
+        trainingManagerPage.loadViewIfNeeded()
+    }
+    
+    private func setupTrainingResultPage() {
+        
+        let storyboard = UIStoryboard.trainingResult
+        
+        let viewController = storyboard.instantiateInitialViewController()
+        
+        trainingResultPage = viewController as? TrainingResultViewController
+        
+        trainingResultPage.loadViewIfNeeded()
     }
 }
