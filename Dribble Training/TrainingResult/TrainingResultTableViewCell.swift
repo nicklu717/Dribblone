@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TrainingResultTableViewCell: UITableViewCell {
     
@@ -16,4 +17,16 @@ class TrainingResultTableViewCell: UITableViewCell {
     @IBOutlet var modeLabel: UILabel!
     @IBOutlet var pointsLabel: UILabel!
     @IBOutlet var videoView: UIView!
+    
+    let avPlayerLayer = AVPlayerLayer()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        avPlayerLayer.frame = videoView.bounds
+        
+        avPlayerLayer.videoGravity = .resizeAspect
+        
+        videoView.layer.addSublayer(avPlayerLayer)
+    }
 }

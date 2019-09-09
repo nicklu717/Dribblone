@@ -50,19 +50,12 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
             PHImageManager.default().requestPlayerItem(
                 forVideo: fetchResult.object(at: 0),
                 options: nil) { (playerItem, _) in
-                    
+
                     let avPlayer = AVPlayer(playerItem: playerItem)
                     
-                    let avPlayerLayer = AVPlayerLayer(player: avPlayer)
+                    cell.avPlayerLayer.player = avPlayer
                     
-                    avPlayerLayer.videoGravity = .resizeAspect
-                    
-                    DispatchQueue.main.async {
-                        
-                        avPlayerLayer.frame = cell.videoView.bounds
-                        
-                        cell.videoView.layer.addSublayer(avPlayerLayer)
-                    }
+                    avPlayer.play()
             }
         }
         
