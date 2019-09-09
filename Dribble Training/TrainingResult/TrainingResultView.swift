@@ -15,11 +15,22 @@ protocol TrainingResultViewDelegate: UITableViewDataSource {
 
 class TrainingResultView: UIView {
     
-    weak var delegate: TrainingResultViewDelegate?
-    
-    @IBOutlet var tableView: UITableView! {
+    weak var delegate: TrainingResultViewDelegate? {
         didSet {
-            tableView.dataSource = self.delegate
+            setupTableView()
         }
+    }
+    
+    @IBOutlet var tableView: UITableView!
+    
+    // MARK: - Private Method
+    
+    private func setupTableView() {
+        
+        tableView.register(UINib(nibName: "TrainingResultTableViewCell",
+                                 bundle: nil),
+                           forCellReuseIdentifier: "TrainingResultTableViewCell")
+        
+        tableView.dataSource = self.delegate
     }
 }

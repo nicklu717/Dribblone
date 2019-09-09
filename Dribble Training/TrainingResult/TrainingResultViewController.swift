@@ -12,7 +12,11 @@ class TrainingResultViewController: UIViewController {
     
 //    var trainingResults: [TrainingResult] = []
     
-    @IBOutlet var trainingResultView: TrainingResultView!
+    @IBOutlet var trainingResultView: TrainingResultView! {
+        didSet {
+//            trainingResultView.delegate = self
+        }
+    }
     
     var trainingResult: TrainingResult?
 }
