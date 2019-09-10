@@ -32,7 +32,11 @@ class TabBarController: UITabBarController {
             
             switch self {
                 
+            case .home: storyboard = .home
+                
             case .training: storyboard = .trainingLobby
+                
+            case .profile: storyboard = .profile
                 
             default: break
             }
