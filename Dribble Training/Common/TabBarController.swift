@@ -61,7 +61,20 @@ class TabBarController: UITabBarController {
             case .team: storyboard = .team
             }
             
+            let controller = storyboard?.instantiateInitialViewController()
+            
+            controller?.tabBarItem = tabBarItem()
+            
             return storyboard?.instantiateInitialViewController()
+        }
+        
+        private func tabBarItem() -> UITabBarItem {
+            
+            let tabBarItem = UITabBarItem()
+            
+            // TODO: Set Tab-Bar-Item's Image
+            
+            return tabBarItem
         }
     }
 }
