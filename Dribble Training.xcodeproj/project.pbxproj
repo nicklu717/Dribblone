@@ -26,6 +26,7 @@
 		5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7E23278E9000BD23D4 /* Profile.storyboard */; };
 		5A88EC832327902000BD23D4 /* Video.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC822327902000BD23D4 /* Video.storyboard */; };
 		5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC842327902A00BD23D4 /* Team.storyboard */; };
+		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		5A88EC7E23278E9000BD23D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		5A88EC822327902000BD23D4 /* Video.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Video.storyboard; sourceTree = "<group>"; };
 		5A88EC842327902A00BD23D4 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
+		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */,
 				5A0F35CF2321675900EFB13F /* Notification+Extension.swift */,
 				5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */,
+				5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */,
 				5A0F35CC2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld in Sources */,
 				5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */,
+				5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */,
 				5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
 				5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */,
