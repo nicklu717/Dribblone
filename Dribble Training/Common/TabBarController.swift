@@ -36,7 +36,7 @@ class TabBarController: UITabBarController {
         
         case postWall
         
-        case classroom
+        case video
         
         case training
         
@@ -52,7 +52,7 @@ class TabBarController: UITabBarController {
                 
             case .postWall: storyboard = .postWall
                 
-            case .classroom: storyboard = .classroom
+            case .video: storyboard = .video
                 
             case .training: storyboard = .trainingLobby
                 

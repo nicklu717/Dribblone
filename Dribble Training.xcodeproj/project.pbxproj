@@ -24,7 +24,7 @@
 		5A88EC79232788D200BD23D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC78232788D200BD23D4 /* Main.storyboard */; };
 		5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */; };
 		5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7E23278E9000BD23D4 /* Profile.storyboard */; };
-		5A88EC832327902000BD23D4 /* Classroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC822327902000BD23D4 /* Classroom.storyboard */; };
+		5A88EC832327902000BD23D4 /* Video.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC822327902000BD23D4 /* Video.storyboard */; };
 		5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC842327902A00BD23D4 /* Team.storyboard */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
@@ -57,7 +57,7 @@
 		5A88EC78232788D200BD23D4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostWall.storyboard; sourceTree = "<group>"; };
 		5A88EC7E23278E9000BD23D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		5A88EC822327902000BD23D4 /* Classroom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Classroom.storyboard; sourceTree = "<group>"; };
+		5A88EC822327902000BD23D4 /* Video.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Video.storyboard; sourceTree = "<group>"; };
 		5A88EC842327902A00BD23D4 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,12 +147,12 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		5A88EC8023278FF700BD23D4 /* Classroom */ = {
+		5A88EC8023278FF700BD23D4 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				5A88EC822327902000BD23D4 /* Classroom.storyboard */,
+				5A88EC822327902000BD23D4 /* Video.storyboard */,
 			);
-			path = Classroom;
+			path = Video;
 			sourceTree = "<group>";
 		};
 		5A88EC812327900600BD23D4 /* Team */ = {
@@ -187,7 +187,7 @@
 				5A4E215D23223A0F00F91012 /* LocalStorage */,
 				5AD862CB231920D40036EFFF /* Common */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
-				5A88EC8023278FF700BD23D4 /* Classroom */,
+				5A88EC8023278FF700BD23D4 /* Video */,
 				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
 				5AD862C2231915DA0036EFFF /* Training */,
 				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
@@ -309,7 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A88EC832327902000BD23D4 /* Classroom.storyboard in Resources */,
+				5A88EC832327902000BD23D4 /* Video.storyboard in Resources */,
 				5A88EC79232788D200BD23D4 /* Main.storyboard in Resources */,
 				5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */,
 				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,

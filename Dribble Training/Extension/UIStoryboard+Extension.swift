@@ -12,7 +12,7 @@ extension UIStoryboard {
     
     static var postWall: UIStoryboard { return storyboard("PostWall") }
     
-    static var classroom: UIStoryboard { return storyboard("Classroom") }
+    static var video: UIStoryboard { return storyboard("Video") }
     
     static var trainingLobby: UIStoryboard { return storyboard("TrainingLobby")}
     
