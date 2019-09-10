@@ -34,11 +34,13 @@ class TabBarController: UITabBarController {
                 
             case .home: storyboard = .home
                 
+            case .classroom: storyboard = .classroom
+                
             case .training: storyboard = .trainingLobby
                 
             case .profile: storyboard = .profile
                 
-            default: break
+            case .team: storyboard = .team
             }
             
             return storyboard?.instantiateInitialViewController()
