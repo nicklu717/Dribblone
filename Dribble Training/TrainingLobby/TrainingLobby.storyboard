@@ -79,7 +79,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4ag-5R-cAR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SIT-Xr-KSW" customClass="NavigationController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SIT-Xr-KSW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JAr-IG-38Y">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

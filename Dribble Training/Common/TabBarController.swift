@@ -10,5 +10,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 }
