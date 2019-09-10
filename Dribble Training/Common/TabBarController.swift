@@ -25,5 +25,19 @@ class TabBarController: UITabBarController {
         case profile
         
         case team
+        
+        func controller() -> UIViewController? {
+            
+            var storyboard: UIStoryboard?
+            
+            switch self {
+                
+            case .training: storyboard = .trainingLobby
+                
+            default: break
+            }
+            
+            return storyboard?.instantiateInitialViewController()
+        }
     }
 }
