@@ -14,7 +14,7 @@ class TabBarController: UITabBarController {
         return .portrait
     }
     
-    private let tabs: [Tab] = [.home, .training, .profile]
+    private let tabs: [Tab] = [.postWall, .training, .profile]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class TabBarController: UITabBarController {
     
     private enum Tab {
         
-        case home
+        case postWall
         
         case classroom
         
@@ -50,7 +50,7 @@ class TabBarController: UITabBarController {
             
             switch self {
                 
-            case .home: storyboard = .home
+            case .postWall: storyboard = .postWall
                 
             case .classroom: storyboard = .classroom
                 

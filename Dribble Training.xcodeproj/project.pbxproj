@@ -22,7 +22,7 @@
 		5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */; };
 		5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC762327882F00BD23D4 /* TabBarController.swift */; };
 		5A88EC79232788D200BD23D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC78232788D200BD23D4 /* Main.storyboard */; };
-		5A88EC7D23278E8400BD23D4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7C23278E8400BD23D4 /* Home.storyboard */; };
+		5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */; };
 		5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7E23278E9000BD23D4 /* Profile.storyboard */; };
 		5A88EC832327902000BD23D4 /* Classroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC822327902000BD23D4 /* Classroom.storyboard */; };
 		5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC842327902A00BD23D4 /* Team.storyboard */; };
@@ -55,7 +55,7 @@
 		5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerViewController.swift; sourceTree = "<group>"; };
 		5A88EC762327882F00BD23D4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5A88EC78232788D200BD23D4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5A88EC7C23278E8400BD23D4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostWall.storyboard; sourceTree = "<group>"; };
 		5A88EC7E23278E9000BD23D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		5A88EC822327902000BD23D4 /* Classroom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Classroom.storyboard; sourceTree = "<group>"; };
 		5A88EC842327902A00BD23D4 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
@@ -131,12 +131,12 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		5A88EC7A23278E5F00BD23D4 /* Home */ = {
+		5A88EC7A23278E5F00BD23D4 /* PostWall */ = {
 			isa = PBXGroup;
 			children = (
-				5A88EC7C23278E8400BD23D4 /* Home.storyboard */,
+				5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */,
 			);
-			path = Home;
+			path = PostWall;
 			sourceTree = "<group>";
 		};
 		5A88EC7B23278E6600BD23D4 /* Profile */ = {
@@ -186,7 +186,7 @@
 				5A7E901C231FA21500EE0BEF /* Extension */,
 				5A4E215D23223A0F00F91012 /* LocalStorage */,
 				5AD862CB231920D40036EFFF /* Common */,
-				5A88EC7A23278E5F00BD23D4 /* Home */,
+				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Classroom */,
 				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
 				5AD862C2231915DA0036EFFF /* Training */,
@@ -319,7 +319,7 @@
 				5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */,
 				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
 				5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */,
-				5A88EC7D23278E8400BD23D4 /* Home.storyboard in Resources */,
+				5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
