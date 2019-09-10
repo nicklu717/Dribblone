@@ -14,6 +14,24 @@ class TabBarController: UITabBarController {
         return .portrait
     }
     
+    private let tabs: [Tab] = [.home, .training, .profile]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        for tab in tabs {
+            
+            guard
+                let viewController = tab.controller()
+            else {
+                print("Initial View Controller Not Exist")
+                return
+            }
+            
+            addChild(viewController)
+        }
+    }
+    
     private enum Tab {
         
         case home
