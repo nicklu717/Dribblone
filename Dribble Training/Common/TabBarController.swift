@@ -13,4 +13,17 @@ class TabBarController: UITabBarController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    
+    private enum Tab {
+        
+        case home
+        
+        case classroom
+        
+        case training
+        
+        case profile
+        
+        case team
+    }
 }
