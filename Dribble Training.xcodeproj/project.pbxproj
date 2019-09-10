@@ -22,6 +22,8 @@
 		5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */; };
 		5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC762327882F00BD23D4 /* TabBarController.swift */; };
 		5A88EC79232788D200BD23D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC78232788D200BD23D4 /* Main.storyboard */; };
+		5A88EC7D23278E8400BD23D4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7C23278E8400BD23D4 /* Home.storyboard */; };
+		5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7E23278E9000BD23D4 /* Profile.storyboard */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerViewController.swift; sourceTree = "<group>"; };
 		5A88EC762327882F00BD23D4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5A88EC78232788D200BD23D4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5A88EC7C23278E8400BD23D4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		5A88EC7E23278E9000BD23D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,22 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		5A88EC7A23278E5F00BD23D4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5A88EC7C23278E8400BD23D4 /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5A88EC7B23278E6600BD23D4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5A88EC7E23278E9000BD23D4 /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		5AD862A2231913C80036EFFF = {
 			isa = PBXGroup;
 			children = (
@@ -146,9 +166,11 @@
 				5A7E901C231FA21500EE0BEF /* Extension */,
 				5A4E215D23223A0F00F91012 /* LocalStorage */,
 				5AD862CB231920D40036EFFF /* Common */,
+				5A88EC7A23278E5F00BD23D4 /* Home */,
 				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
 				5AD862C2231915DA0036EFFF /* Training */,
 				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
+				5A88EC7B23278E6600BD23D4 /* Profile */,
 			);
 			path = "Dribble Training";
 			sourceTree = "<group>";
@@ -271,7 +293,9 @@
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */,
+				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
 				5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */,
+				5A88EC7D23278E8400BD23D4 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

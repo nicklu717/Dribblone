@@ -10,11 +10,15 @@ import UIKit
 
 extension UIStoryboard {
     
+    static var home: UIStoryboard { return storyboard("Home") }
+    
     static var trainingLobby: UIStoryboard { return storyboard("TrainingLobby")}
     
     static var training: UIStoryboard { return storyboard("Training")}
     
     static var trainingResult: UIStoryboard { return storyboard("TrainingResult")}
+    
+    static var profile: UIStoryboard { return storyboard("Profile") }
     
     private static func storyboard(_ name: String) -> UIStoryboard {
         return UIStoryboard(name: name, bundle: nil)
