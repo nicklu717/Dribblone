@@ -70,32 +70,22 @@ class TabBarController: UITabBarController {
         
         private func tabBarItem() -> UITabBarItem {
             
-            let tabBarItem = UITabBarItem()
-            
             var imageAsset: UIImage.Asset
             
             switch self {
                 
-            case .postWall:
+            case .postWall: imageAsset = .post
                 
-                imageAsset = .post
+            case .video: imageAsset = .video
                 
-            case .video:
+            case .training: imageAsset = .training
                 
-                imageAsset = .video
+            case .profile: imageAsset = .profile
                 
-            case .training:
-                
-                imageAsset = .training
-                
-            case .profile:
-                
-                imageAsset = .profile
-                
-            case .team:
-                
-                imageAsset = .team
+            case .team: imageAsset = .team
             }
+            
+            let tabBarItem = UITabBarItem()
             
             tabBarItem.image = UIImage.asset(imageAsset)
             tabBarItem.title = imageAsset.rawValue
