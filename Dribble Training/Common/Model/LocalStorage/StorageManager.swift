@@ -46,6 +46,8 @@ class StorageManager {
         
         let request = NSFetchRequest<TrainingResult>(entityName: Entity.trainingResult.rawValue)
         
+//        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        
         do {
             trainingResults = try viewContext.fetch(request)
         } catch {
