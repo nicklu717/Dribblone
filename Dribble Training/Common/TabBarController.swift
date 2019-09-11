@@ -86,20 +86,20 @@ class TabBarController: UITabBarController {
                 
             case .training:
                 
-                imageAsset = .ball
-                tabBarItem.selectedImage = UIImage.Asset.ball_selected.image()
+                imageAsset = .training
+                tabBarItem.selectedImage = UIImage.asset(.trainingSelected)
                 
             case .profile:
                 
-                imageAsset = .user
+                imageAsset = .profile
                 
             case .team:
                 
                 imageAsset = .team
             }
             
+            tabBarItem.image = UIImage.asset(imageAsset)
             tabBarItem.title = imageAsset.rawValue
-            tabBarItem.image = imageAsset.image()
             
             return tabBarItem
         }

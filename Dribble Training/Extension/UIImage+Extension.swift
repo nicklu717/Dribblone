@@ -10,19 +10,19 @@ import UIKit
 
 extension UIImage {
     
+    static func asset(_ asset: Asset) -> UIImage? {
+        return UIImage(named: asset.rawValue)
+    }
+    
     enum Asset: String {
         
-        case ball_selected
-        case ball
-        case close
-        case play
-        case post
-        case team
-        case user
-        case video
-        
-        func image() -> UIImage? {
-            return UIImage(named: self.rawValue)
-        }
+        case close = "Close"
+        case play = "Play"
+        case post = "Post"
+        case team = "Team"
+        case trainingSelected = "Training_Selected"
+        case training = "Training"
+        case profile = "Profile"
+        case video = "Video"
     }
 }
