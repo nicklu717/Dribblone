@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol ProfileViewDelegate: UIViewController {
+    
+    func showTrainingHistory()
+}
+
 class ProfileView: UIView {
     
+    weak var delegate: ProfileViewDelegate?
+    
     @IBAction func showTrainingHistory() {
+        delegate?.showTrainingHistory()
     }
 }

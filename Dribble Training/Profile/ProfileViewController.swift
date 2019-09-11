@@ -8,7 +8,40 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, ProfileViewDelegate {
     
-    @IBOutlet var profileView: ProfileView!
+    @IBOutlet var profileView: ProfileView! {
+        didSet {
+            profileView.delegate = self
+        }
+    }
+    
+    var trainingResultPage: TrainingResultViewController!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupTrainingResultPage()
+    }
+    
+    func showTrainingHistory() {
+        
+        trainingResultPage.trainingResults = StorageManager.shared.trainingResults
+        
+        show(trainingResultPage, sender: nil)
+    }
+    
+    private func setupTrainingResultPage() {
+        
+        let storyboard = UIStoryboard.trainingResult
+        
+        guard
+            let trainingResultViewController = storyboard.instantiateInitialViewController() as? TrainingResultViewController
+            else {
+                print("Training Result View Controller Not Exist")
+                return
+        }
+        
+        trainingResultPage = trainingResultViewController
+    }
 }
