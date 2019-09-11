@@ -65,14 +65,41 @@ class TabBarController: UITabBarController {
             
             controller?.tabBarItem = tabBarItem()
             
-            return storyboard?.instantiateInitialViewController()
+            return controller
         }
         
         private func tabBarItem() -> UITabBarItem {
             
             let tabBarItem = UITabBarItem()
             
-            // TODO: Set Tab-Bar-Item's Image
+            var imageAsset: UIImage.Asset
+            
+            switch self {
+                
+            case .postWall:
+                
+                imageAsset = .post
+                
+            case .video:
+                
+                imageAsset = .video
+                
+            case .training:
+                
+                imageAsset = .ball
+                tabBarItem.selectedImage = UIImage.Asset.ball_selected.image()
+                
+            case .profile:
+                
+                imageAsset = .user
+                
+            case .team:
+                
+                imageAsset = .team
+            }
+            
+            tabBarItem.title = imageAsset.rawValue
+            tabBarItem.image = imageAsset.image()
             
             return tabBarItem
         }
