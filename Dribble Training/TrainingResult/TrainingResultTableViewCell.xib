@@ -50,7 +50,7 @@
                             <constraint firstAttribute="width" constant="100" id="7bQ-AR-MKc"/>
                             <constraint firstAttribute="height" constant="100" id="UWT-z6-CyH"/>
                         </constraints>
-                        <state key="normal" image="play-button"/>
+                        <state key="normal" image="Play"/>
                         <connections>
                             <action selector="playVideo" destination="My9-H5-Stv" eventType="touchUpInside" id="lvJ-eO-IZs"/>
                         </connections>
@@ -108,6 +108,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="play-button" width="170" height="170"/>
+        <image name="Play" width="170" height="170"/>
     </resources>
 </document>
