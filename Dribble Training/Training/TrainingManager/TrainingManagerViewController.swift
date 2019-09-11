@@ -164,6 +164,8 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         storageManager.saveContext()
         
+        storageManager.fetchTrainingResult()
+        
         previewController.dismiss(animated: true)
         
         dismiss(animated: true) {

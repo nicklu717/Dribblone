@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         
+        StorageManager.shared.fetchTrainingResult()
+        
         return true
     }
 }
-

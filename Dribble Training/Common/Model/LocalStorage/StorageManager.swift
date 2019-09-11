@@ -42,19 +42,14 @@ class StorageManager {
     
     // MARK: - Instance Method
     
-    func fetchTrainingResult(completion: (Result<[TrainingResult], Error>) -> Void) {
+    func fetchTrainingResult() {
         
         let request = NSFetchRequest<TrainingResult>(entityName: Entity.trainingResult.rawValue)
         
         do {
-            
-            let trainingResults = try viewContext.fetch(request)
-            
-            completion(.success(trainingResults))
-            
+            trainingResults = try viewContext.fetch(request)
         } catch {
-            
-            completion(.failure(error))
+            print("Training Data Fetching Failure")
         }
     }
     
