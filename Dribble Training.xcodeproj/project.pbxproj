@@ -187,7 +187,6 @@
 			children = (
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
-				5A4E215D23223A0F00F91012 /* LocalStorage */,
 				5AD862CB231920D40036EFFF /* Common */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Video */,
@@ -224,10 +223,9 @@
 		5AD862CB231920D40036EFFF /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
-				5A88EC762327882F00BD23D4 /* TabBarController.swift */,
-				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
-				5A88EC78232788D200BD23D4 /* Main.storyboard */,
+				5AF65FA52328C2ED008DB713 /* Model */,
+				5AF65FA42328C2E7008DB713 /* Controller */,
+				5AF65FA32328C2DB008DB713 /* View */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -252,6 +250,32 @@
 				5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */,
 			);
 			path = TrainingLobby;
+			sourceTree = "<group>";
+		};
+		5AF65FA32328C2DB008DB713 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
+				5A88EC78232788D200BD23D4 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5AF65FA42328C2E7008DB713 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
+				5A88EC762327882F00BD23D4 /* TabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5AF65FA52328C2ED008DB713 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A4E215D23223A0F00F91012 /* LocalStorage */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
