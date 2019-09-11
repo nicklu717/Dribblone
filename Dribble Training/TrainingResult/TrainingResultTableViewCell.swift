@@ -29,6 +29,8 @@ class TrainingResultTableViewCell: UITableViewCell {
         avPlayerLayer.videoGravity = .resizeAspect
         
         videoView.layer.addSublayer(avPlayerLayer)
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width * 1/2
     }
     
     @IBAction func playVideo() {
