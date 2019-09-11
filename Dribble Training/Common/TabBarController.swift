@@ -89,12 +89,12 @@ class TabBarController: UITabBarController {
             
             tabBarItem.image = UIImage.asset(imageAsset)
             
-//            let inset: CGFloat = 3.3
-//            tabBarItem.imageInsets = UIEdgeInsets(top: inset,
-//                                                  left: inset,
-//                                                  bottom: inset,
-//                                                  right: inset)
-//            
+            let inset: CGFloat = 3.3
+            tabBarItem.imageInsets = UIEdgeInsets(top: inset,
+                                                  left: inset,
+                                                  bottom: inset,
+                                                  right: inset)
+            
             tabBarItem.title = imageAsset.rawValue
             
             return tabBarItem
