@@ -87,7 +87,6 @@ class TabBarController: UITabBarController {
             case .training:
                 
                 imageAsset = .training
-                tabBarItem.selectedImage = UIImage.asset(.trainingSelected)
                 
             case .profile:
                 

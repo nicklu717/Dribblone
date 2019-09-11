@@ -20,7 +20,6 @@ extension UIImage {
         case play = "Play"
         case post = "Post"
         case team = "Team"
-        case trainingSelected = "Training_Selected"
         case training = "Training"
         case profile = "Profile"
         case video = "Video"
