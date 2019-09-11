@@ -16,12 +16,12 @@ extension UIImage {
     
     enum Asset: String {
         
-        case close = "Close"
-        case play = "Play"
-        case post = "Post"
-        case team = "Team"
-        case training = "Training"
-        case profile = "Profile"
-        case video = "Video"
+        case close
+        case play
+        case post
+        case profile
+        case team
+        case training
+        case video
     }
 }
