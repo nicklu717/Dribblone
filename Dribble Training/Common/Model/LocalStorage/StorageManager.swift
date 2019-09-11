@@ -12,6 +12,8 @@ class StorageManager {
     
     static let shared = StorageManager()
     
+    var trainingResults: [TrainingResult] = []
+    
     lazy var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "DribbleTraining")
