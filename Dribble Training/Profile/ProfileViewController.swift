@@ -28,6 +28,8 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
         
         trainingResultPage.trainingResults = StorageManager.shared.trainingResults
         
+        trainingResultPage.navigationItem.title = "Training History"
+        
         show(trainingResultPage, sender: nil)
     }
     

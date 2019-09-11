@@ -31,7 +31,7 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingResultTableViewCell",
-                                                    for: indexPath) as? TrainingResultTableViewCell
+                                                     for: indexPath) as? TrainingResultTableViewCell
         else {
             print("Invalid Training Result Table View Cell")
             return TrainingResultTableViewCell()
