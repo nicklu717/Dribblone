@@ -108,7 +108,7 @@ class TrainingAssistantView: SKView {
 
         didSet {
 
-            cancelButton.setImage(UIImage(named: "close"), for: .normal)
+            cancelButton.setImage(UIImage.asset(.close), for: .normal)
 
             cancelButton.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
 
