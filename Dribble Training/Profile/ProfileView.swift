@@ -10,4 +10,6 @@ import UIKit
 
 class ProfileView: UIView {
     
+    @IBAction func showTrainingHistory() {
+    }
 }

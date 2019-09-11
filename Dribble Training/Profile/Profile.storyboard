@@ -17,7 +17,28 @@
                     <view key="view" contentMode="scaleToFill" id="L1g-cG-sA5" customClass="ProfileView" customModule="Dribble_Training" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bw-6F-9Ja">
+                                <rect key="frame" x="0.0" y="423" width="414" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="r0T-vN-4l0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Training History">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTrainingHistory" destination="L1g-cG-sA5" eventType="touchUpInside" id="Nbq-H3-abN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3bw-6F-9Ja" firstAttribute="leading" secondItem="RDa-K0-lRe" secondAttribute="leading" id="Iws-5f-cTm"/>
+                            <constraint firstItem="3bw-6F-9Ja" firstAttribute="centerY" secondItem="L1g-cG-sA5" secondAttribute="centerY" id="fKi-Uy-9PW"/>
+                            <constraint firstItem="3bw-6F-9Ja" firstAttribute="trailing" secondItem="RDa-K0-lRe" secondAttribute="trailing" id="gCh-rt-SWs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RDa-K0-lRe"/>
                     </view>
                     <connections>
@@ -26,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUK-cR-ABQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91" y="103"/>
+            <point key="canvasLocation" x="89.855072463768124" y="102.45535714285714"/>
         </scene>
     </scenes>
 </document>
