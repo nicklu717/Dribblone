@@ -10,9 +10,9 @@ import CoreData
 
 class StorageManager {
     
-    static let shared = StorageManager()
+    // MARK: - Property Declaration
     
-    var trainingResults: [TrainingResult] = []
+    static let shared = StorageManager()
     
     lazy var persistentContainer: NSPersistentContainer = {
         
@@ -31,6 +31,31 @@ class StorageManager {
     var viewContext: NSManagedObjectContext {
         
         return persistentContainer.viewContext
+    }
+    
+    private enum Entity: String {
+        
+        case trainingResult = "TrainingResult"
+    }
+    
+    var trainingResults: [TrainingResult] = []
+    
+    // MARK: - Instance Method
+    
+    func fetchTrainingResult(completion: (Result<[TrainingResult], Error>) -> Void) {
+        
+        let request = NSFetchRequest<TrainingResult>(entityName: Entity.trainingResult.rawValue)
+        
+        do {
+            
+            let trainingResults = try viewContext.fetch(request)
+            
+            completion(.success(trainingResults))
+            
+        } catch {
+            
+            completion(.failure(error))
+        }
     }
     
     func saveContext() {
