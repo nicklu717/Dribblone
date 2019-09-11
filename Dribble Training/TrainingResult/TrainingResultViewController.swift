@@ -39,8 +39,16 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         
         let result = trainingResults[indexPath.row]
         
-        cell.dateLabel.text = "\(result.date)"
+        let date = Date(timeIntervalSince1970: result.date)
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yy-MMM-dd HH:mm"
+        
+        cell.dateLabel.text = "\(dateFormatter.string(from: date))"
+        
         cell.modeLabel.text = result.mode
+        
         cell.pointsLabel.text = "\(result.points) pts"
         
         if let videoLocalID = result.videoLocalID {

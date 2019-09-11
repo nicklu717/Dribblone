@@ -115,7 +115,7 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
         
         trainingResult = TrainingResult(entity: entity, insertInto: storageManager.viewContext)
         
-        trainingResult.date = Int32(Date().timeIntervalSince1970)
+        trainingResult.date = Date().timeIntervalSince1970
         trainingResult.points = Int16(points)
         trainingResult.mode = trainingMode
         
