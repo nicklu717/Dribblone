@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */; };
-		5A0F35C92320FBA800EFB13F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35C82320FBA800EFB13F /* StorageManager.swift */; };
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CF2321675900EFB13F /* Notification+Extension.swift */; };
 		5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */; };
@@ -45,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
-		5A0F35C82320FBA800EFB13F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A0F35CF2321675900EFB13F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 		5A4E215D23223A0F00F91012 /* LocalStorage */ = {
 			isa = PBXGroup;
 			children = (
-				5A0F35C82320FBA800EFB13F /* StorageManager.swift */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -416,7 +413,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A0F35C92320FBA800EFB13F /* StorageManager.swift in Sources */,
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */,
 				5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */,
