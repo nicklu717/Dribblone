@@ -11,7 +11,11 @@ import Photos
 
 class TrainingResultViewController: UIViewController {
     
-    var trainingResults: [TrainingResult] = []
+    var trainingResults: [TrainingResult] = [] {
+        didSet {
+            trainingResultView.tableView.reloadData()
+        }
+    }
     
     @IBOutlet var trainingResultView: TrainingResultView! {
         didSet {
