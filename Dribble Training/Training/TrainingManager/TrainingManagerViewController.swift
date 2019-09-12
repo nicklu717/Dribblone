@@ -103,21 +103,11 @@ extension TrainingManagerViewController: BallTrackerViewControllerDelegate {
 
 extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate {
     
-    func endTraining(points: Int, trainingMode: String) {
+    func endTraining(points: Int, trainingMode mode: String) {
         
-        guard
-            let entity = NSEntityDescription.entity(forEntityName: "TrainingResult",
-                                                    in: storageManager.viewContext)
-        else {
-            print("Invalid Entity")
-            return
-        }
+        let date = Date.timeIntervalBetween1970AndReferenceDate
         
-        trainingResult = TrainingResult(entity: entity, insertInto: storageManager.viewContext)
-        
-        trainingResult.date = Date.timeIntervalBetween1970AndReferenceDate
-        trainingResult.points = Int16(points)
-        trainingResult.mode = trainingMode
+        trainingResult = TrainingResult(date: date, mode: mode, points: points, videoLocalID: nil)
         
         screenRecorder.stopRecording { [unowned self] (previewViewController, error) in
             
@@ -144,7 +134,8 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
 
 extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
     
-    func previewController(_ previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>) {
+    func previewController(_ previewController: RPPreviewViewController,
+                           didFinishWithActivityTypes activityTypes: Set<String>) {
         
         let fetchOptions = PHFetchOptions()
         
@@ -162,7 +153,7 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         trainingResult.videoLocalID = video.localIdentifier
         
-        storageManager.saveContext()
+        // TODO: Upload Training Result & Update Local User Data
         
         previewController.dismiss(animated: true)
         
