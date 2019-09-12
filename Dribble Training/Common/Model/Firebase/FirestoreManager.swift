@@ -41,5 +41,50 @@ class FirestoreManager {
         completion?(trainingResult)
     }
     
+    func fetchTrainingResult() {
+        
+        firestore
+            .collection(Collection.member)
+            .document("nicklu717")
+            .collection(Collection.trainingResults)
+            .getDocuments { (querySnapshot, error) in
+                
+                guard
+                    let querySnapshot = querySnapshot
+                    else {
+                        print(error!)
+                        return
+                }
+                
+                for document in querySnapshot.documents {
+                    
+                    guard let trainingResult = self.getTrainingResult(from: document.data())
+                        
+                        else {
+                            print("Invalid Training Result")
+                            return
+                    }
+                    
+                    self.trainingResults.append(trainingResult)
+                }
+        }
+    }
     
+    private func getTrainingResult(from dictionary: [String: Any]) -> TrainingResult? {
+        
+        do {
+            let data = try JSONSerialization.data(withJSONObject: dictionary,
+                                                  options: [])
+            
+            let trainingResult = try JSONDecoder().decode(TrainingResult.self, from: data)
+            
+            return trainingResult
+            
+        } catch {
+            
+            print(error)
+            
+            return nil
+        }
+    }
 }

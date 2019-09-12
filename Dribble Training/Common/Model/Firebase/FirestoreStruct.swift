@@ -47,7 +47,7 @@ struct TrainingResult: Codable {
         case videoLocalID = "video_local_id"
     }
     
-    func dictionary() -> Dictionary<String, Any>? {
+    func dictionary() -> [String: Any]? {
         
         var dictionary: [String: Any]? = [:]
         
