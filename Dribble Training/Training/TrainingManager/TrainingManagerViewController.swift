@@ -150,12 +150,12 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         trainingResult.videoLocalID = video.localIdentifier
         
-        // TODO: Upload Training Result & Update Local User Data
-        
         previewController.dismiss(animated: true)
         
         dismiss(animated: true) {
-            self.trainingCompletion?(self.trainingResult)
+            
+            StorageManager.shared.upload(trainingResult: self.trainingResult,
+                                         completion: self.trainingCompletion)
         }
     }
 }
