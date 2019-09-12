@@ -9,7 +9,6 @@
 import UIKit
 import ReplayKit
 import Photos
-import CoreData
 
 class TrainingManagerViewController: UIViewController {
     
