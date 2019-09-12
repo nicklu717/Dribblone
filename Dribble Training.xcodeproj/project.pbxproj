@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */; };
 		5A0F35C92320FBA800EFB13F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35C82320FBA800EFB13F /* StorageManager.swift */; };
-		5A0F35CC2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CA2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld */; };
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CF2321675900EFB13F /* Notification+Extension.swift */; };
 		5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */; };
@@ -29,6 +28,8 @@
 		5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC842327902A00BD23D4 /* Team.storyboard */; };
 		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
+		5ACBCAEF232A19FB007B0E3B /* FirestoreStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */; };
+		5ACBCAF2232A229C007B0E3B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* FirebaseManager.swift */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
@@ -45,7 +46,6 @@
 /* Begin PBXFileReference section */
 		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
 		5A0F35C82320FBA800EFB13F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		5A0F35CB2320FE6B00EFB13F /* Dribble Training.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dribble Training.xcdatamodel"; sourceTree = "<group>"; };
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A0F35CF2321675900EFB13F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +65,8 @@
 		5A88EC842327902A00BD23D4 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
+		5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreStruct.swift; sourceTree = "<group>"; };
+		5ACBCAF1232A229C007B0E3B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				5A0F35C82320FBA800EFB13F /* StorageManager.swift */,
-				5A0F35CA2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -181,6 +182,15 @@
 			path = Team;
 			sourceTree = "<group>";
 		};
+		5ACBCAF0232A2272007B0E3B /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */,
+				5ACBCAF1232A229C007B0E3B /* FirebaseManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		5AD862A2231913C80036EFFF = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 			children = (
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
+				5ACBCAF0232A2272007B0E3B /* Firebase */,
 				5A4E215D23223A0F00F91012 /* LocalStorage */,
 				5AD862CB231920D40036EFFF /* Common */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
@@ -278,7 +289,6 @@
 				66A171F80630C1F8354FD801 /* Pods-Dribble Training.debug.xcconfig */,
 				8D333BB7EFBCBE7134544BB3 /* Pods-Dribble Training.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -411,11 +421,11 @@
 				5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */,
 				5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */,
 				5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */,
-				5A0F35CC2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld in Sources */,
 				5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */,
 				5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */,
 				5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
+				5ACBCAF2232A229C007B0E3B /* FirebaseManager.swift in Sources */,
 				5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */,
 				5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */,
 				5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */,
@@ -426,6 +436,7 @@
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
+				5ACBCAEF232A19FB007B0E3B /* FirestoreStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,19 +630,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		5A0F35CA2320FE6B00EFB13F /* DribbleTraining.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5A0F35CB2320FE6B00EFB13F /* Dribble Training.xcdatamodel */,
-			);
-			currentVersion = 5A0F35CB2320FE6B00EFB13F /* Dribble Training.xcdatamodel */;
-			path = DribbleTraining.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5AD862A3231913C80036EFFF /* Project object */;
 }
