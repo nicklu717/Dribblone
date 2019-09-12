@@ -115,13 +115,15 @@ class TrainingAssistantViewController: UIViewController {
         
         timer?.invalidate()
         
+        delegate?.endTraining(points: points, trainingMode: trainingMode.rawValue)
+        
         resetTimer()
+        
+        points = 0
         
         trainingAssistantView.startButton.isHidden = false
         
         trainingAssistantView.targetNode.removeFromParent()
-        
-        delegate?.endTraining(points: points, trainingMode: trainingMode.rawValue)
     }
 }
 

@@ -9,7 +9,6 @@
 import UIKit
 import ReplayKit
 import Photos
-import CoreData
 
 class TrainingManagerViewController: UIViewController {
     
@@ -36,8 +35,6 @@ class TrainingManagerViewController: UIViewController {
     let screenRecorder = RPScreenRecorder.shared()
     
     let imageManager = PHImageManager.default()
-    
-    let storageManager = StorageManager.shared
     
     var trainingResult: TrainingResult!
     
@@ -103,21 +100,11 @@ extension TrainingManagerViewController: BallTrackerViewControllerDelegate {
 
 extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate {
     
-    func endTraining(points: Int, trainingMode: String) {
+    func endTraining(points: Int, trainingMode mode: String) {
         
-        guard
-            let entity = NSEntityDescription.entity(forEntityName: "TrainingResult",
-                                                    in: storageManager.viewContext)
-        else {
-            print("Invalid Entity")
-            return
-        }
+        let date = Date().timeIntervalSince1970
         
-        trainingResult = TrainingResult(entity: entity, insertInto: storageManager.viewContext)
-        
-        trainingResult.date = Date().timeIntervalSince1970
-        trainingResult.points = Int16(points)
-        trainingResult.mode = trainingMode
+        trainingResult = TrainingResult(date: date, mode: mode, points: points, videoLocalID: nil)
         
         screenRecorder.stopRecording { [unowned self] (previewViewController, error) in
             
@@ -144,7 +131,8 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
 
 extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
     
-    func previewController(_ previewController: RPPreviewViewController, didFinishWithActivityTypes activityTypes: Set<String>) {
+    func previewController(_ previewController: RPPreviewViewController,
+                           didFinishWithActivityTypes activityTypes: Set<String>) {
         
         let fetchOptions = PHFetchOptions()
         
@@ -162,14 +150,12 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         trainingResult.videoLocalID = video.localIdentifier
         
-        storageManager.saveContext()
-        
-        storageManager.fetchTrainingResult()
-        
         previewController.dismiss(animated: true)
         
         dismiss(animated: true) {
-            self.trainingCompletion?(self.trainingResult)
+            
+            StorageManager.shared.upload(trainingResult: self.trainingResult,
+                                         completion: self.trainingCompletion)
         }
     }
 }
