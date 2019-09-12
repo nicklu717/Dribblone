@@ -154,7 +154,7 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         dismiss(animated: true) {
             
-            StorageManager.shared.upload(trainingResult: self.trainingResult,
+            FirestoreManager.shared.upload(trainingResult: self.trainingResult,
                                          completion: self.trainingCompletion)
         }
     }

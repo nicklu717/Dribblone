@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     
     func showTrainingHistory() {
         
-        trainingResultPage.trainingResults = StorageManager.shared.trainingResults
+        trainingResultPage.trainingResults = FirestoreManager.shared.trainingResults
         
         trainingResultPage.navigationItem.title = "Training History"
         

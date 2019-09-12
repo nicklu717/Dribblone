@@ -1,5 +1,5 @@
 //
-//  StorageManager.swift
+//  FirestoreManager.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/12.
@@ -8,9 +8,9 @@
 
 import FirebaseFirestore
 
-class StorageManager {
+class FirestoreManager {
     
-    static let shared = StorageManager()
+    static let shared = FirestoreManager()
     
     var trainingResults: [TrainingResult] = []
     
