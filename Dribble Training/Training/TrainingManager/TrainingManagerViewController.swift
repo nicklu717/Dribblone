@@ -37,8 +37,6 @@ class TrainingManagerViewController: UIViewController {
     
     let imageManager = PHImageManager.default()
     
-    let storageManager = StorageManager.shared
-    
     var trainingResult: TrainingResult!
     
     var trainingCompletion: ((TrainingResult) -> ())?
