@@ -39,6 +39,8 @@ class FirestoreManager {
             .addDocument(data: data)
         
         completion?(trainingResult)
+        
+//        fetchTrainingResult()
     }
     
     func fetchTrainingResult() {
@@ -47,6 +49,7 @@ class FirestoreManager {
             .collection(Collection.member)
             .document("nicklu717")
             .collection(Collection.trainingResults)
+            .order(by: "date", descending: true)
             .getDocuments { (querySnapshot, error) in
                 
                 guard
