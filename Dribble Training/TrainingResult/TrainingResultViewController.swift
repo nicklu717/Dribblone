@@ -11,16 +11,32 @@ import Photos
 
 class TrainingResultViewController: UIViewController {
     
+    // MARK: - Property Declaration
+    
+    @IBOutlet var trainingResultView: TrainingResultView! {
+        didSet {
+            trainingResultView.delegate = self
+        }
+    }
+    
     var trainingResults: [TrainingResult] = [] {
         didSet {
             trainingResultView.tableView.reloadData()
         }
     }
     
-    @IBOutlet var trainingResultView: TrainingResultView! {
-        didSet {
-            trainingResultView.delegate = self
-        }
+    // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
     }
 }
 

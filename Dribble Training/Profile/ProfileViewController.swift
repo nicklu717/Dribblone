@@ -18,11 +18,15 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     
     var trainingResultPage: TrainingResultViewController!
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTrainingResultPage()
     }
+    
+    // MARK: - Instance Method
     
     func showTrainingHistory() {
         
@@ -32,6 +36,8 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
         
         show(trainingResultPage, sender: nil)
     }
+    
+    // MARK: - Private Method
     
     private func setupTrainingResultPage() {
         
@@ -46,5 +52,7 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
         }
         
         trainingResultPage = trainingResultViewController
+        
+        trainingResultPage.loadViewIfNeeded()
     }
 }
