@@ -8,13 +8,6 @@
 
 import Foundation
 
-struct Collection {
-    
-    static let member = "member"
-    
-    static let trainingResults = "training_results"
-}
-
 struct Member: Codable {
     
     let id: String

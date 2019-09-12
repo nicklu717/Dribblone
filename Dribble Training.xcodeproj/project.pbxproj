@@ -15,9 +15,9 @@
 		5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4523252F3E00562001 /* TrainingResult.storyboard */; };
 		5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */; };
 		5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */; };
+		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
 		5A6EF2752328F619005359C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2742328F619005359C8 /* ProfileViewController.swift */; };
 		5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2762328F624005359C8 /* ProfileView.swift */; };
-		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
 		5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */; };
 		5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */; };
 		5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */; };
@@ -53,9 +53,9 @@
 		5A64DF4523252F3E00562001 /* TrainingResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingResult.storyboard; sourceTree = "<group>"; };
 		5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultTableViewCell.swift; sourceTree = "<group>"; };
 		5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingResultTableViewCell.xib; sourceTree = "<group>"; };
+		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A6EF2742328F619005359C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5A6EF2762328F624005359C8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSetting.swift; sourceTree = "<group>"; };
 		5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerViewController.swift; sourceTree = "<group>"; };
@@ -210,7 +210,6 @@
 			children = (
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
-				5ACBCAF0232A2272007B0E3B /* Firebase */,
 				5AD862CB231920D40036EFFF /* Common */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Video */,
@@ -298,7 +297,7 @@
 		5AF65FA52328C2ED008DB713 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5A4E215D23223A0F00F91012 /* LocalStorage */,
+				5ACBCAF0232A2272007B0E3B /* Firebase */,
 			);
 			path = Model;
 			sourceTree = "<group>";

@@ -16,10 +16,17 @@ class StorageManager {
     
     let firestore = Firestore.firestore()
     
+    private struct Collection {
+        
+        static let member = "member"
+        
+        static let trainingResults = "training_results"
+    }
+    
     func upload(trainingResult: TrainingResult, completion: ((TrainingResult) -> Void)?) {
         
-        guard
-            let data = trainingResult.dictionary()
+        guard let data = trainingResult.dictionary()
+            
             else {
                 print("Invalid Training Result Dictionary")
                 return
@@ -31,7 +38,8 @@ class StorageManager {
             .collection(Collection.trainingResults)
             .addDocument(data: data)
         
-        
         completion?(trainingResult)
     }
+    
+    
 }
