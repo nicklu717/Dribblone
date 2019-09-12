@@ -5,11 +5,20 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - Firebase/Auth (6.6.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 6.2.2)
   - Firebase/CoreOnly (6.6.0):
     - FirebaseCore (= 6.2.0)
   - Firebase/Firestore (6.6.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.4.3)
+  - FirebaseAuth (6.2.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.2)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (6.2.0):
     - FirebaseCoreDiagnostics (~> 1.0)
@@ -41,9 +50,20 @@ PODS:
   - GoogleDataTransportCCTSupport (1.0.1):
     - GoogleDataTransport (~> 1.1)
     - nanopb
+  - GoogleUtilities/AppDelegateSwizzler (6.2.4):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
   - GoogleUtilities/Environment (6.2.4)
   - GoogleUtilities/Logger (6.2.4):
     - GoogleUtilities/Environment
+  - GoogleUtilities/Network (6.2.4):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.2.4)"
+  - GoogleUtilities/Reachability (6.2.4):
+    - GoogleUtilities/Logger
   - "gRPC-C++ (0.0.9)":
     - "gRPC-C++/Implementation (= 0.0.9)"
     - "gRPC-C++/Interface (= 0.0.9)"
@@ -60,6 +80,7 @@ PODS:
     - gRPC-Core/Interface (= 1.21.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.21.0)
+  - GTMSessionFetcher/Core (1.2.2)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -69,12 +90,14 @@ PODS:
   - Protobuf (3.9.0)
 
 DEPENDENCIES:
+  - Firebase/Auth
   - Firebase/Firestore
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BoringSSL-GRPC
     - Firebase
+    - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -85,6 +108,7 @@ SPEC REPOS:
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - GTMSessionFetcher
     - leveldb-library
     - nanopb
     - Protobuf
@@ -92,6 +116,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Firebase: a2b5951f30ff38fd3b3bdae9c7d340f940fd3c51
+  FirebaseAuth: 2be1924ddbc741fe2a02cb6963ca747e09a2e05c
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 8c9e08bce0c72a3affd83927d8184cf244918bc8
   FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
@@ -102,10 +127,11 @@ SPEC CHECKSUMS:
   GoogleUtilities: 64b5e3982b1b01bda26712affd5c523ef32563cf
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
 
-PODFILE CHECKSUM: 4d5314c4bf1ec241d9448c391dea51f5efaca377
+PODFILE CHECKSUM: 18900eede16c2323c86414a3e71a862e1cfdb12a
 
 COCOAPODS: 1.7.5

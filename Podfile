@@ -9,6 +9,7 @@ target 'Dribble Training' do
   use_frameworks!
 
   # Pods for Dribble Training
+  pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
 
 end
