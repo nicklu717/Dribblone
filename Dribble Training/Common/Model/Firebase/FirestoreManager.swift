@@ -36,11 +36,17 @@ class FirestoreManager {
             .collection(Collection.member)
             .document("nicklu717")
             .collection(Collection.trainingResults)
-            .addDocument(data: data)
+            .addDocument(data: data) { (error) in
+                
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                self.fetchTrainingResult()
+        }
         
         completion?(trainingResult)
-        
-//        fetchTrainingResult()
     }
     
     func fetchTrainingResult() {
@@ -58,6 +64,8 @@ class FirestoreManager {
                         print(error!)
                         return
                 }
+                
+                self.trainingResults = []
                 
                 for document in querySnapshot.documents {
                     
