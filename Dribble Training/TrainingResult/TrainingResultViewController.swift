@@ -72,33 +72,36 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         cell.pointsLabel.text = "\(result.points) pts"
             
         let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [result.videoLocalID], options: nil)
+        
+        if let asset = fetchResult.firstObject {
+        
+            PHImageManager.default().requestPlayerItem(
+                forVideo: asset,
+                options: nil) { (playerItem, _) in
+                    
+                    guard
+                        let playerItem = playerItem
+                    else {
+                        print("Player Item Not Exist")
+                        return
+                    }
 
-        PHImageManager.default().requestPlayerItem(
-            forVideo: fetchResult.object(at: 0),
-            options: nil) { (playerItem, _) in
-                
-                guard
-                    let playerItem = playerItem
-                else {
-                    print("Player Item Not Exist")
-                    return
-                }
-
-                let avPlayer = AVPlayer(playerItem: playerItem)
-                
-                cell.avPlayerLayer.player = avPlayer
-                
-                let endTime = playerItem.asset.duration
-                
-                avPlayer.addBoundaryTimeObserver(
-                    forTimes: [NSValue(time: endTime)],
-                    queue: DispatchQueue.main,
-                    using: {
-                        
-                        cell.avPlayerLayer.player?.seek(to: .zero)
-                        
-                        cell.playVideoButton.isHidden = false
-                })
+                    let avPlayer = AVPlayer(playerItem: playerItem)
+                    
+                    cell.avPlayerLayer.player = avPlayer
+                    
+                    let endTime = playerItem.asset.duration
+                    
+                    avPlayer.addBoundaryTimeObserver(
+                        forTimes: [NSValue(time: endTime)],
+                        queue: DispatchQueue.main,
+                        using: {
+                            
+                            cell.avPlayerLayer.player?.seek(to: .zero)
+                            
+                            cell.playVideoButton.isHidden = false
+                    })
+            }
         }
         
         return cell
