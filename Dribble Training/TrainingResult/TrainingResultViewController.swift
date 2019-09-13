@@ -70,6 +70,12 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         cell.modeLabel.text = result.mode
         
         cell.pointsLabel.text = "\(result.points) pts"
+        
+        cell.avPlayerLayer.player = nil
+        
+        cell.playVideoButton.isEnabled = false
+        cell.playVideoButton.setTitle("Video Not Available", for: .normal)
+        cell.playVideoButton.setImage(nil, for: .normal)
             
         let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [result.videoLocalID], options: nil)
         
@@ -89,6 +95,13 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
                     let avPlayer = AVPlayer(playerItem: playerItem)
                     
                     cell.avPlayerLayer.player = avPlayer
+                    
+                    DispatchQueue.main.async {
+                        
+                        cell.playVideoButton.isEnabled = true
+                        cell.playVideoButton.setTitle(nil, for: .normal)
+                        cell.playVideoButton.setImage(UIImage.asset(.play), for: .normal)
+                    }
                     
                     let endTime = playerItem.asset.duration
                     

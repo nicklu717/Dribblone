@@ -44,14 +44,17 @@
                             <constraint firstAttribute="width" secondItem="5bt-3c-Kas" secondAttribute="height" multiplier="16:9" id="Oai-Tj-oI5"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfF-KY-vZL">
-                        <rect key="frame" x="157" y="165.5" width="100" height="100"/>
+                    <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfF-KY-vZL">
+                        <rect key="frame" x="107" y="165.5" width="200" height="100"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="7bQ-AR-MKc"/>
+                            <constraint firstAttribute="width" constant="200" id="7bQ-AR-MKc"/>
                             <constraint firstAttribute="height" constant="100" id="UWT-z6-CyH"/>
                         </constraints>
-                        <state key="normal" image="Play"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="Video Not Available">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <connections>
                             <action selector="playVideo" destination="My9-H5-Stv" eventType="touchUpInside" id="lvJ-eO-IZs"/>
                         </connections>
@@ -108,7 +111,4 @@
             <point key="canvasLocation" x="-10.144927536231885" y="-18.080357142857142"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="Play" width="170" height="170"/>
-    </resources>
 </document>
