@@ -46,25 +46,4 @@ struct TrainingResult: Codable {
         
         case videoLocalID = "video_local_id"
     }
-    
-    func dictionary() -> [String: Any]? {
-        
-        var dictionary: [String: Any]? = [:]
-        
-        do {
-            
-            let data = try JSONEncoder().encode(self)
-            
-            dictionary = try JSONSerialization.jsonObject(
-                with: data,
-                options: .allowFragments
-            ) as? [String: Any]
-            
-        } catch {
-            
-            print(error)
-        }
-        
-        return dictionary
-    }
 }

@@ -25,7 +25,7 @@ class FirestoreManager {
     
     func upload(trainingResult: TrainingResult, completion: ((TrainingResult) -> Void)?) {
         
-        guard let data = trainingResult.dictionary()
+        guard let dictionary = getDictionary(from: trainingResult)
             
             else {
                 print("Invalid Training Result Dictionary")
@@ -36,7 +36,7 @@ class FirestoreManager {
             .collection(Collection.member)
             .document("nicklu717")
             .collection(Collection.trainingResults)
-            .addDocument(data: data) { (error) in
+            .addDocument(data: dictionary) { (error) in
                 
                 if let error = error {
                     print(error)
@@ -61,7 +61,9 @@ class FirestoreManager {
                 guard
                     let querySnapshot = querySnapshot
                     else {
-                        print(error!)
+                        if let error = error {
+                            print(error)
+                        }
                         return
                 }
                 
@@ -97,5 +99,28 @@ class FirestoreManager {
             
             return nil
         }
+    }
+    
+    private func getDictionary(from trainingResult: TrainingResult) -> [String: Any]? {
+        
+        var dictionary: [String: Any]? = [:]
+        
+        do {
+            
+            let data = try JSONEncoder().encode(trainingResult)
+            
+            dictionary = try JSONSerialization.jsonObject(
+                with: data,
+                options: .allowFragments
+                ) as? [String: Any]
+            
+        } catch {
+            
+            print(error)
+            
+            return nil
+        }
+        
+        return dictionary
     }
 }
