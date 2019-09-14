@@ -8,7 +8,6 @@
 
 import UIKit
 import ReplayKit
-import Photos
 
 class TrainingManagerViewController: UIViewController {
     
