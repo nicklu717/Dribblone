@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        member = Member(id: "wein7", email: "nick@appworks.com", followers: ["a", "b"], followings: ["c", "d", "e"], trainingResults: [TrainingResult(date: 1234567899, mode: "Test", points: 99, videoLocalID: "Null")], picture: "1234")
+        member = Member(id: "wein7", email: "nick@appworks.com", followers: ["a", "b"], followings: ["c", "d", "e"], trainingResults: [TrainingResult(id: "wein7", date: 1234567899, mode: "Test", points: 99, videoLocalID: "Null")], picture: "1234")
         
         profileView.delegate = self
     }

@@ -104,7 +104,7 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
         
         let date = Date().timeIntervalSince1970
         
-        trainingResult = TrainingResult(date: date, mode: mode, points: points, videoLocalID: nil)
+        trainingResult = TrainingResult(id: "wein7", date: date, mode: mode, points: points, videoLocalID: nil)
         
         screenRecorder.stopRecording { [unowned self] (previewViewController, error) in
             

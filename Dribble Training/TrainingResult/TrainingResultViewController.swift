@@ -52,10 +52,10 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         
         dateFormatter.dateFormat = "yy-MMM-dd HH:mm"
         
-        cell.dateLabel.text = "\(dateFormatter.string(from: date))"
+        cell.dateLabel.text = dateFormatter.string(from: date)
         
+        cell.idLabel.text = result.id
         cell.modeLabel.text = result.mode
-        
         cell.pointsLabel.text = "\(result.points) pts"
         
         cell.avPlayerLayer.player = nil

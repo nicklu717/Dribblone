@@ -32,6 +32,8 @@ struct Member: Codable {
 
 struct TrainingResult: Codable {
     
+    let id: String
+    
     let date: Double
     
     let mode: String
@@ -42,7 +44,7 @@ struct TrainingResult: Codable {
     
     enum CodingKeys: String, CodingKey {
         
-        case date, mode, points
+        case id, date, mode, points
         
         case videoLocalID = "video_local_id"
     }
