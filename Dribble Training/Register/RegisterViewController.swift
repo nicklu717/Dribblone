@@ -8,7 +8,21 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, RegisterViewDelegate {
     
-    @IBOutlet var registerView: RegisterView!
+    @IBOutlet var registerView: RegisterView! {
+        didSet {
+            registerView.delegate = self
+        }
+    }
+    
+    let memberManager = MemberManager.shared
+    
+    func logIn(withEmail email: String, password: String) {
+        
+    }
+    
+    func signUp(withEmail email: String, password: String, id: String) {
+        
+    }
 }
