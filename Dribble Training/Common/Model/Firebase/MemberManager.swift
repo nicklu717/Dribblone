@@ -18,7 +18,7 @@ class MemberManager {
     
     func logIn(withEmail: String, password: String) {}
     
-    func SignUp(withEmail: String, password: String, id: String) {}
+    func signUp(withEmail: String, password: String, id: String) {}
     
     func fetchMemberData(forID id: String) {}
 }

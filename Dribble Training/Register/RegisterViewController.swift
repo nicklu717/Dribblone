@@ -25,6 +25,6 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     func signUp(withEmail email: String, password: String, id: String) {
         
-        memberManager.SignUp(withEmail: email, password: password, id: id)
+        memberManager.signUp(withEmail: email, password: password, id: id)
     }
 }
