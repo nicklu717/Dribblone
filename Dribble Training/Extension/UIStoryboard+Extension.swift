@@ -10,6 +10,8 @@ import UIKit
 
 extension UIStoryboard {
     
+    static var logIn: UIStoryboard { return storyboard("LogIn") }
+    
     static var postWall: UIStoryboard { return storyboard("PostWall") }
     
     static var video: UIStoryboard { return storyboard("Video") }
