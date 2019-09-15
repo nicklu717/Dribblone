@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RegisterViewDelegate: AnyObject {
+protocol RegisterViewDelegate: UIViewController {
     
     func logIn(withEmail email: String, password: String)
     
@@ -25,6 +25,10 @@ class RegisterView: UIView {
 
     @IBOutlet var logInView: UIView!
     @IBOutlet var signUpView: UIView!
+    
+    @IBAction func dismiss() {
+        delegate?.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func logIn() {
         

@@ -127,6 +127,17 @@
                                     <constraint firstItem="dKs-QP-NDv" firstAttribute="top" secondItem="nWd-Ay-HMl" secondAttribute="bottom" id="ris-Su-kiE"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paa-bk-nER">
+                                <rect key="frame" x="348" y="80" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xPT-lF-6Dp"/>
+                                    <constraint firstAttribute="width" constant="30" id="zRQ-kl-Zql"/>
+                                </constraints>
+                                <state key="normal" image="Close"/>
+                                <connections>
+                                    <action selector="dismiss" destination="lib-iY-Qk8" eventType="touchUpInside" id="foA-ca-s0N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -139,8 +150,10 @@
                             <constraint firstItem="1xH-23-a1p" firstAttribute="centerX" secondItem="lib-iY-Qk8" secondAttribute="centerX" id="X07-7Z-c9F"/>
                             <constraint firstItem="8fn-3b-hED" firstAttribute="leading" secondItem="su0-MR-1vd" secondAttribute="leading" id="Xry-y0-FGQ"/>
                             <constraint firstItem="Mds-Lg-6Xa" firstAttribute="top" secondItem="hk4-tn-vQ6" secondAttribute="bottom" constant="16" id="cNH-CD-BkS"/>
+                            <constraint firstItem="paa-bk-nER" firstAttribute="top" secondItem="uzJ-Fp-v5h" secondAttribute="top" constant="36" id="fn0-36-g9u"/>
                             <constraint firstItem="su0-MR-1vd" firstAttribute="leading" secondItem="uzJ-Fp-v5h" secondAttribute="leading" constant="70" id="kpy-Q5-eyP"/>
                             <constraint firstItem="su0-MR-1vd" firstAttribute="top" secondItem="uzJ-Fp-v5h" secondAttribute="top" constant="150" id="l9P-XV-n7D"/>
+                            <constraint firstItem="uzJ-Fp-v5h" firstAttribute="trailing" secondItem="paa-bk-nER" secondAttribute="trailing" constant="36" id="o9n-li-etw"/>
                             <constraint firstItem="8fn-3b-hED" firstAttribute="centerY" secondItem="hk4-tn-vQ6" secondAttribute="centerY" id="rrz-Qs-l1w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uzJ-Fp-v5h"/>
@@ -161,4 +174,7 @@
             <point key="canvasLocation" x="40.579710144927539" y="-14.0625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Close" width="512" height="512"/>
+    </resources>
 </document>
