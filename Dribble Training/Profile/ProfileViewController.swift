@@ -10,49 +10,21 @@ import UIKit
 
 class ProfileViewController: UIViewController, ProfileViewDelegate {
     
-    @IBOutlet var profileView: ProfileView! {
-        didSet {
-            profileView.delegate = self
-        }
-    }
+    @IBOutlet var profileView: ProfileView!
     
-    var trainingResultPage: TrainingResultViewController!
+    var member: Member?
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTrainingResultPage()
-    }
-    
-    // MARK: - Instance Method
-    
-    func showTrainingHistory() {
+        member = Member(id: "wein7", email: "nick@appworks.com", followers: ["a", "b"], followings: ["c", "d", "e"], trainingResults: [TrainingResult(date: 1234567899, mode: "Test", points: 99, videoLocalID: "Null")], picture: "1234")
         
-        trainingResultPage.trainingResults = FirestoreManager.shared.trainingResults
-        
-        trainingResultPage.navigationItem.title = "Training History"
-        
-        show(trainingResultPage, sender: nil)
+        profileView.delegate = self
     }
     
     // MARK: - Private Method
     
-    private func setupTrainingResultPage() {
-        
-        let storyboard = UIStoryboard.trainingResult
-        
-        guard
-            let trainingResultViewController = storyboard.instantiateInitialViewController()
-                as? TrainingResultViewController
-            else {
-                print("Training Result View Controller Not Exist")
-                return
-        }
-        
-        trainingResultPage = trainingResultViewController
-        
-        trainingResultPage.loadViewIfNeeded()
-    }
+    
 }

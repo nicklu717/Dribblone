@@ -25,23 +25,9 @@ class TrainingResultViewController: UIViewController {
     }
     
     let photoManager = PhotoManager.shared
-    
-    // MARK: - Life Cycle
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        tabBarController?.tabBar.isHidden = false
-    }
 }
 
-extension TrainingResultViewController: TrainingResultViewDelegate {
+extension TrainingResultViewController: TrainingResultViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

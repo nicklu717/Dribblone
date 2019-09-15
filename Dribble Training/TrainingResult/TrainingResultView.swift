@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol TrainingResultViewDelegate: UITableViewDataSource {
+protocol TrainingResultViewDataSource: UITableViewDataSource {
     
     var trainingResults: [TrainingResult] { get }
 }
 
 class TrainingResultView: UIView {
     
-    weak var delegate: TrainingResultViewDelegate? {
+    weak var delegate: TrainingResultViewDataSource? {
         didSet {
             setupTableView()
         }
