@@ -21,6 +21,8 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     func logIn(withEmail email: String, password: String) {
         
         memberManager.logIn(withEmail: email, password: password)
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func signUp(withEmail email: String, password: String, id: String) {

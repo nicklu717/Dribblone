@@ -1,5 +1,5 @@
 //
-//  FirestoreStruct.swift
+//  DatabaseStructure.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/12.
@@ -16,7 +16,7 @@ struct Member: Codable {
     
     let followings: [String]
     
-    let trainingResults: [TrainingResult]
+    let trainingResults: [String]
     
     let picture: String
     
@@ -27,6 +27,7 @@ struct Member: Codable {
         case trainingResults = "training_results"
     }
 }
+
 
 struct TrainingResult: Codable {
     

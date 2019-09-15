@@ -154,8 +154,8 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         dismiss(animated: true) {
             
-            DatabaseManager.shared.upload(trainingResult: self.trainingResult,
-                                         completion: self.trainingCompletion)
+//            DatabaseManager.shared.upload(trainingResult: self.trainingResult,
+//                                          completion: self.trainingCompletion)
         }
     }
 }

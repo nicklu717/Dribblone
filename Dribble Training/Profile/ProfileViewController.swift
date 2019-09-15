@@ -12,19 +12,52 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     
     @IBOutlet var profileView: ProfileView!
     
-    var member: Member?
+    private let memberManager = MemberManager.shared
+    
+    private let databaseManager = DatabaseManager.shared
+    
+    var member: Member? {
+        didSet {
+            profileView.setupProfile(for: member)
+            fetchTrainingResult()
+        }
+    }
+    
+    var trainingResults: [TrainingResult]?
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        member = Member(id: "wein7", followers: ["a", "b"], followings: ["c", "d", "e"], trainingResults: [TrainingResult(id: "wein7", date: 1234567899, mode: "Test", points: 99, videoLocalID: "Null")], picture: "1234")
-        
         profileView.delegate = self
+        
+        member = memberManager.currentUser
     }
     
     // MARK: - Private Method
     
-    
+    private func fetchTrainingResult() {
+        
+        guard
+            let member = member
+            else {
+                print("Invalid Member")
+                return
+        }
+        
+        databaseManager.fetchTrainingResult(forMemberID: member.id) { result in
+            
+            switch result {
+                
+            case .success(let trainingResults):
+                
+                self.profileView.setupTrainingResultPage(trainingResults)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
 }
