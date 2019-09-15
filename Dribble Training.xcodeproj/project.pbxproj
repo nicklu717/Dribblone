@@ -18,9 +18,9 @@
 		5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */; };
 		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
 		5A6BA14B232E24F700E2FB48 /* MemberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA14A232E24F700E2FB48 /* MemberManager.swift */; };
-		5A6BA14E232E2C0700E2FB48 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6BA14D232E2C0700E2FB48 /* LogIn.storyboard */; };
-		5A6BA152232E2D2600E2FB48 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA151232E2D2600E2FB48 /* LogInViewController.swift */; };
-		5A6BA154232E2D3200E2FB48 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA153232E2D3200E2FB48 /* LogInView.swift */; };
+		5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6BA14D232E2C0700E2FB48 /* Register.storyboard */; };
+		5A6BA152232E2D2600E2FB48 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA151232E2D2600E2FB48 /* RegisterViewController.swift */; };
+		5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA153232E2D3200E2FB48 /* RegisterView.swift */; };
 		5A6EF2752328F619005359C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2742328F619005359C8 /* ProfileViewController.swift */; };
 		5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2762328F624005359C8 /* ProfileView.swift */; };
 		5A7808EC232B833C00B35757 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7808EB232B833C00B35757 /* PhotoManager.swift */; };
@@ -62,9 +62,9 @@
 		5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingResultTableViewCell.xib; sourceTree = "<group>"; };
 		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A6BA14A232E24F700E2FB48 /* MemberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManager.swift; sourceTree = "<group>"; };
-		5A6BA14D232E2C0700E2FB48 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
-		5A6BA151232E2D2600E2FB48 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		5A6BA153232E2D3200E2FB48 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		5A6BA14D232E2C0700E2FB48 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		5A6BA151232E2D2600E2FB48 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5A6BA153232E2D3200E2FB48 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5A6EF2742328F619005359C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5A6EF2762328F624005359C8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5A7808EB232B833C00B35757 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
@@ -145,14 +145,14 @@
 			path = TrainingAssistant;
 			sourceTree = "<group>";
 		};
-		5A6BA14C232E2B8E00E2FB48 /* LogIn */ = {
+		5A6BA14C232E2B8E00E2FB48 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				5A6BA151232E2D2600E2FB48 /* LogInViewController.swift */,
-				5A6BA14D232E2C0700E2FB48 /* LogIn.storyboard */,
-				5A6BA153232E2D3200E2FB48 /* LogInView.swift */,
+				5A6BA151232E2D2600E2FB48 /* RegisterViewController.swift */,
+				5A6BA14D232E2C0700E2FB48 /* Register.storyboard */,
+				5A6BA153232E2D3200E2FB48 /* RegisterView.swift */,
 			);
-			path = LogIn;
+			path = Register;
 			sourceTree = "<group>";
 		};
 		5A7E901C231FA21500EE0BEF /* Extension */ = {
@@ -235,7 +235,7 @@
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
 				5AD862CB231920D40036EFFF /* Common */,
-				5A6BA14C232E2B8E00E2FB48 /* LogIn */,
+				5A6BA14C232E2B8E00E2FB48 /* Register */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Video */,
 				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
@@ -401,7 +401,7 @@
 				5A88EC79232788D200BD23D4 /* Main.storyboard in Resources */,
 				5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */,
 				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
-				5A6BA14E232E2C0700E2FB48 /* LogIn.storyboard in Resources */,
+				5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
@@ -468,7 +468,7 @@
 				5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */,
 				5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */,
 				5A6BA14B232E24F700E2FB48 /* MemberManager.swift in Sources */,
-				5A6BA152232E2D2600E2FB48 /* LogInViewController.swift in Sources */,
+				5A6BA152232E2D2600E2FB48 /* RegisterViewController.swift in Sources */,
 				5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */,
 				5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
@@ -486,7 +486,7 @@
 				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,
 				5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */,
 				5A7808EC232B833C00B35757 /* PhotoManager.swift in Sources */,
-				5A6BA154232E2D3200E2FB48 /* LogInView.swift in Sources */,
+				5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
 				5ACBCAEF232A19FB007B0E3B /* DatabaseStructure.swift in Sources */,
 			);

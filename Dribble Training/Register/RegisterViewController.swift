@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  RegisterViewController.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
-    @IBOutlet var logInView: LogInView!
+    @IBOutlet var registerView: RegisterView!
 }
