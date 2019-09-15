@@ -7,20 +7,27 @@
 //
 
 import UIKit
-import Photos
 
 class TrainingResultViewController: UIViewController {
     
-    var trainingResults: [TrainingResult] = []
+    // MARK: - Property Declaration
     
     @IBOutlet var trainingResultView: TrainingResultView! {
         didSet {
             trainingResultView.delegate = self
         }
     }
+    
+    var trainingResults: [TrainingResult] = [] {
+        didSet {
+            trainingResultView.tableView.reloadData()
+        }
+    }
+    
+    let photoManager = PhotoManager.shared
 }
 
-extension TrainingResultViewController: TrainingResultViewDelegate {
+extension TrainingResultViewController: TrainingResultViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -31,7 +38,7 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingResultTableViewCell",
-                                                    for: indexPath) as? TrainingResultTableViewCell
+                                                     for: indexPath) as? TrainingResultTableViewCell
         else {
             print("Invalid Training Result Table View Cell")
             return TrainingResultTableViewCell()
@@ -39,40 +46,51 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         
         let result = trainingResults[indexPath.row]
         
-        cell.dateLabel.text = "\(result.date)"
+        let date = Date(timeIntervalSince1970: result.date)
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yy-MMM-dd HH:mm"
+        
+        cell.dateLabel.text = "\(dateFormatter.string(from: date))"
+        
         cell.modeLabel.text = result.mode
+        
         cell.pointsLabel.text = "\(result.points) pts"
+        
+        cell.avPlayerLayer.player = nil
+        
+        cell.playVideoButton.isEnabled = false
+        cell.playVideoButton.setTitle("Video Not Available", for: .normal)
+        cell.playVideoButton.setImage(nil, for: .normal)
+        
+        photoManager.requestPlayerItem(withLocalID: result.videoLocalID) { playerItem in
             
-        let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [result.videoLocalID], options: nil)
-
-        PHImageManager.default().requestPlayerItem(
-            forVideo: fetchResult.object(at: 0),
-            options: nil) { (playerItem, _) in
+            let avPlayer = self.photoManager.avPlayer(playerItem: playerItem)
+            
+            cell.avPlayerLayer.player = avPlayer
+            
+            DispatchQueue.main.async {
                 
-                guard
-                    let playerItem = playerItem
-                else {
-                    print("Player Item Not Exist")
-                    return
-                }
-
-                let avPlayer = AVPlayer(playerItem: playerItem)
-                
-                cell.avPlayerLayer.player = avPlayer
-                
-                let endTime = playerItem.asset.duration
-                
-                avPlayer.addBoundaryTimeObserver(
-                    forTimes: [NSValue(time: endTime)],
-                    queue: DispatchQueue.main,
-                    using: {
-                        
-                        cell.avPlayerLayer.player?.seek(to: .zero)
-                        
-                        cell.playVideoButton.isHidden = false
-                })
+                cell.playVideoButton.isEnabled = true
+                cell.playVideoButton.setTitle(nil, for: .normal)
+                cell.playVideoButton.setImage(UIImage.asset(.play), for: .normal)
+            }
+            
+            let endTime = playerItem.asset.duration
+            
+            avPlayer.addBoundaryTimeObserver(
+                forTimes: [NSValue(time: endTime)],
+                queue: DispatchQueue.main,
+                using: {
+                    
+                    cell.avPlayerLayer.player?.seek(to: .zero)
+                    
+                    cell.playVideoButton.isHidden = false
+            })
         }
         
         return cell
     }
 }
+

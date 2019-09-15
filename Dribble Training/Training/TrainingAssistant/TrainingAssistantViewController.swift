@@ -58,7 +58,7 @@ class TrainingAssistantViewController: UIViewController {
     
     // MARK: - Instance Method
     
-    func resetTimer(minute: Int = 0, second: Int = 5) {
+    func resetTimer(minute: Int = 0, second: Int = 10) {
         
         self.minute = minute
         self.second = second
@@ -115,13 +115,15 @@ class TrainingAssistantViewController: UIViewController {
         
         timer?.invalidate()
         
+        delegate?.endTraining(points: points, trainingMode: trainingMode.rawValue)
+        
         resetTimer()
+        
+        points = 0
         
         trainingAssistantView.startButton.isHidden = false
         
         trainingAssistantView.targetNode.removeFromParent()
-        
-        delegate?.endTraining(points: points, trainingMode: trainingMode.rawValue)
     }
 }
 

@@ -12,7 +12,7 @@ import AVFoundation
 class TrainingResultTableViewCell: UITableViewCell {
     
     @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var userIDLabel: UILabel!
+    @IBOutlet var idLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var modeLabel: UILabel!
     @IBOutlet var pointsLabel: UILabel!
@@ -29,6 +29,8 @@ class TrainingResultTableViewCell: UITableViewCell {
         avPlayerLayer.videoGravity = .resizeAspect
         
         videoView.layer.addSublayer(avPlayerLayer)
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width * 1/2
     }
     
     @IBAction func playVideo() {

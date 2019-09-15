@@ -20,6 +20,7 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ADR-5x-9Mp">
                         <rect key="frame" x="36" y="16" width="50" height="50"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Q4e-tH-mld"/>
                             <constraint firstAttribute="width" constant="50" id="mC6-kX-pgJ"/>
@@ -43,14 +44,17 @@
                             <constraint firstAttribute="width" secondItem="5bt-3c-Kas" secondAttribute="height" multiplier="16:9" id="Oai-Tj-oI5"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfF-KY-vZL">
-                        <rect key="frame" x="157" y="165.5" width="100" height="100"/>
+                    <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfF-KY-vZL">
+                        <rect key="frame" x="107" y="165.5" width="200" height="100"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="7bQ-AR-MKc"/>
+                            <constraint firstAttribute="width" constant="200" id="7bQ-AR-MKc"/>
                             <constraint firstAttribute="height" constant="100" id="UWT-z6-CyH"/>
                         </constraints>
-                        <state key="normal" image="play-button"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="Video Not Available">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <connections>
                             <action selector="playVideo" destination="My9-H5-Stv" eventType="touchUpInside" id="lvJ-eO-IZs"/>
                         </connections>
@@ -97,17 +101,14 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="sMb-tT-saE" id="hta-DI-cEk"/>
+                <outlet property="idLabel" destination="cQ5-xI-hvh" id="Lr8-5g-1eQ"/>
                 <outlet property="modeLabel" destination="MiL-qp-MaH" id="Y2s-v8-N4V"/>
                 <outlet property="playVideoButton" destination="bfF-KY-vZL" id="nAx-vj-hcs"/>
                 <outlet property="pointsLabel" destination="N5s-XH-kSh" id="gE4-WO-ZR9"/>
                 <outlet property="profileImageView" destination="ADR-5x-9Mp" id="QLg-A0-oMd"/>
-                <outlet property="userIDLabel" destination="cQ5-xI-hvh" id="mfN-jo-rjn"/>
                 <outlet property="videoView" destination="5bt-3c-Kas" id="Oan-Ps-fqA"/>
             </connections>
             <point key="canvasLocation" x="-10.144927536231885" y="-18.080357142857142"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="play-button" width="170" height="170"/>
-    </resources>
 </document>

@@ -8,13 +8,6 @@
 
 import Foundation
 
-struct Collection {
-    
-    static let member = "member"
-    
-    static let trainingResults = "training_results"
-}
-
 struct Member: Codable {
     
     let id: String
@@ -52,26 +45,5 @@ struct TrainingResult: Codable {
         case date, mode, points
         
         case videoLocalID = "video_local_id"
-    }
-    
-    func dictionary() -> Dictionary<String, Any>? {
-        
-        var dictionary: [String: Any]? = [:]
-        
-        do {
-            
-            let data = try JSONEncoder().encode(self)
-            
-            dictionary = try JSONSerialization.jsonObject(
-                with: data,
-                options: .allowFragments
-            ) as? [String: Any]
-            
-        } catch {
-            
-            print(error)
-        }
-        
-        return dictionary
     }
 }

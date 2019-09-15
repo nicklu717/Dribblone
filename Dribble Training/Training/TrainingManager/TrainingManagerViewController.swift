@@ -102,7 +102,7 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
     
     func endTraining(points: Int, trainingMode mode: String) {
         
-        let date = Date.timeIntervalBetween1970AndReferenceDate
+        let date = Date().timeIntervalSince1970
         
         trainingResult = TrainingResult(date: date, mode: mode, points: points, videoLocalID: nil)
         
@@ -154,7 +154,7 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         
         dismiss(animated: true) {
             
-            StorageManager.shared.upload(trainingResult: self.trainingResult,
+            FirestoreManager.shared.upload(trainingResult: self.trainingResult,
                                          completion: self.trainingCompletion)
         }
     }

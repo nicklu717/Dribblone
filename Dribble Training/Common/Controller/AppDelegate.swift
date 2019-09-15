@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        FirestoreManager.shared.fetchTrainingResult()
+        
         return true
     }
 }
-
