@@ -14,11 +14,41 @@ class MemberManager {
     
     private let auth = Auth.auth()
     
+    private let databaseManager = DatabaseManager.shared
+    
     var currentUser: Member?
     
-    func logIn(withEmail email: String, password: String) {}
+    func logIn(withEmail email: String, password: String) {
+        
+        auth.signIn(withEmail: email,
+                    password: password) { (authDataResult, error) in
+            
+            guard
+                let uid = authDataResult?.user.uid
+                else {
+                    if let error = error {
+                        print(error)
+                    }
+                    return
+            }
+            
+            self.databaseManager.fetchMemberData(
+                forUID: uid,
+                completion: { result in
+                
+                    switch result {
+                        
+                    case .success(let member):
+                        
+                        self.currentUser = member
+                        
+                    case .failure(let error):
+                        
+                        print(error)
+                    }
+            })
+        }
+    }
     
     func signUp(withEmail email: String, password: String, id: String) {}
-    
-    func fetchMemberData(forID id: String) {}
 }
