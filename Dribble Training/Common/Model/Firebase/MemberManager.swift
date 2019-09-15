@@ -16,9 +16,9 @@ class MemberManager {
     
     var currentUser: Member?
     
-    func logIn(withEmail: String, password: String) {}
+    func logIn(withEmail email: String, password: String) {}
     
-    func signUp(withEmail: String, password: String, id: String) {}
+    func signUp(withEmail email: String, password: String, id: String) {}
     
     func fetchMemberData(forID id: String) {}
 }
