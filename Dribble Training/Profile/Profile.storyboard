@@ -92,9 +92,9 @@
                         <connections>
                             <outlet property="followersLabel" destination="nnM-lP-Ryh" id="LR7-28-ECV"/>
                             <outlet property="followingsLabel" destination="Y1p-ZY-4hx" id="hOI-tA-91k"/>
+                            <outlet property="nameLabel" destination="hh1-0N-b5s" id="2jD-Li-3cX"/>
                             <outlet property="pictureImageView" destination="1AV-1N-AV5" id="tIN-Pv-XNg"/>
                             <outlet property="trainingResultPageView" destination="gvx-lD-jw1" id="qAu-CH-9No"/>
-                            <outlet property="usernameLabel" destination="hh1-0N-b5s" id="O6h-hc-8C1"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="wein7" id="kh7-mY-uXS"/>

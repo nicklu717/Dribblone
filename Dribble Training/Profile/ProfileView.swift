@@ -23,7 +23,7 @@ class ProfileView: UIView {
     }
     
     @IBOutlet var pictureImageView: UIImageView!
-    @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var followingsLabel: UILabel!
     @IBOutlet var followersLabel: UILabel!
     
@@ -41,7 +41,7 @@ class ProfileView: UIView {
         }
         
 //        pictureImageView.image = delegate.member?.
-        usernameLabel.text = delegate.member?.id
+        nameLabel.text = delegate.member?.id
         followingsLabel.text = delegate.member?.followings.count.string()
         followersLabel.text = delegate.member?.followers.count.string()
     }
