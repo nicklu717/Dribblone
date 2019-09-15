@@ -25,5 +25,8 @@ class RegisterView: UIView {
     
     @IBAction func switchStatus() {
         
+        logInView.isHidden = !logInView.isHidden
+        
+        signUpView.isHidden = !signUpView.isHidden
     }
 }
