@@ -13,8 +13,6 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    let databaseManager = DatabaseManager.shared
 
     func application(
         _ application: UIApplication,
@@ -22,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         
         FirebaseApp.configure()
-        
-        databaseManager.fetchTrainingResult()
         
         return true
     }

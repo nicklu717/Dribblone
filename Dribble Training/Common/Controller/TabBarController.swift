@@ -19,6 +19,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegate = self
+        
         for tab in tabs {
             
             guard
@@ -99,5 +101,27 @@ class TabBarController: UITabBarController {
             
             return tabBarItem
         }
+    }
+}
+
+extension TabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController,
+                          shouldSelect viewController: UIViewController) -> Bool {
+        
+        if viewController.tabBarItem.title == UIImage.Asset.profile.rawValue,
+            MemberManager.shared.currentUser == nil {
+            
+            let storyboard = UIStoryboard.register
+            
+            if let registerPage = storyboard.instantiateInitialViewController() as? RegisterViewController {
+            
+                present(registerPage, animated: true, completion: nil)
+                
+                return false
+            }
+        }
+        
+        return true
     }
 }
