@@ -12,8 +12,6 @@ class FirestoreManager {
     
     static let shared = FirestoreManager()
     
-    var trainingResults: [TrainingResult] = []
-    
     let firestore = Firestore.firestore()
     
     private struct Collection {
@@ -22,6 +20,8 @@ class FirestoreManager {
         
         static let trainingResults = "training_results"
     }
+    
+    var trainingResults: [TrainingResult] = []
     
     func upload(trainingResult: TrainingResult, completion: ((TrainingResult) -> Void)?) {
         

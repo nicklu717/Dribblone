@@ -17,6 +17,7 @@
 		5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */; };
 		5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */; };
 		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
+		5A6BA14B232E24F700E2FB48 /* MemberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA14A232E24F700E2FB48 /* MemberManager.swift */; };
 		5A6EF2752328F619005359C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2742328F619005359C8 /* ProfileViewController.swift */; };
 		5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2762328F624005359C8 /* ProfileView.swift */; };
 		5A7808EC232B833C00B35757 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7808EB232B833C00B35757 /* PhotoManager.swift */; };
@@ -57,6 +58,7 @@
 		5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultTableViewCell.swift; sourceTree = "<group>"; };
 		5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingResultTableViewCell.xib; sourceTree = "<group>"; };
 		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A6BA14A232E24F700E2FB48 /* MemberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManager.swift; sourceTree = "<group>"; };
 		5A6EF2742328F619005359C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5A6EF2762328F624005359C8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5A7808EB232B833C00B35757 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */,
 				5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */,
+				5A6BA14A232E24F700E2FB48 /* MemberManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */,
 				5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */,
 				5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */,
+				5A6BA14B232E24F700E2FB48 /* MemberManager.swift in Sources */,
 				5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */,
 				5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
