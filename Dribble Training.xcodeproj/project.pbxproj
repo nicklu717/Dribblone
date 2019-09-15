@@ -32,8 +32,8 @@
 		5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC842327902A00BD23D4 /* Team.storyboard */; };
 		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
-		5ACBCAEF232A19FB007B0E3B /* FirestoreStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */; };
-		5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */; };
+		5ACBCAEF232A19FB007B0E3B /* DatabaseStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */; };
+		5ACBCAF2232A229C007B0E3B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* DatabaseManager.swift */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
@@ -73,8 +73,8 @@
 		5A88EC842327902A00BD23D4 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
-		5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreStruct.swift; sourceTree = "<group>"; };
-		5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStructure.swift; sourceTree = "<group>"; };
+		5ACBCAF1232A229C007B0E3B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,8 +188,8 @@
 		5ACBCAF0232A2272007B0E3B /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */,
-				5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */,
+				5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */,
+				5ACBCAF1232A229C007B0E3B /* DatabaseManager.swift */,
 				5A6BA14A232E24F700E2FB48 /* MemberManager.swift */,
 			);
 			path = Firebase;
@@ -453,7 +453,7 @@
 				5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */,
 				5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
-				5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */,
+				5ACBCAF2232A229C007B0E3B /* DatabaseManager.swift in Sources */,
 				5A50A161232D39A80048B875 /* Int+Extension.swift in Sources */,
 				5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */,
 				5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */,
@@ -468,7 +468,7 @@
 				5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */,
 				5A7808EC232B833C00B35757 /* PhotoManager.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
-				5ACBCAEF232A19FB007B0E3B /* FirestoreStruct.swift in Sources */,
+				5ACBCAEF232A19FB007B0E3B /* DatabaseStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
