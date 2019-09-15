@@ -20,9 +20,11 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     func logIn(withEmail email: String, password: String) {
         
+        memberManager.logIn(withEmail: email, password: password)
     }
     
     func signUp(withEmail email: String, password: String, id: String) {
         
+        memberManager.SignUp(withEmail: email, password: password, id: id)
     }
 }
