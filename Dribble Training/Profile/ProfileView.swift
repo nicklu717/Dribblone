@@ -38,7 +38,7 @@ class ProfileView: UIView {
         }
         
 //        pictureImageView.image = member.picture
-        nameLabel.text = member.id
+        nameLabel.text = member.displayName
         followingsLabel.text = member.followings.count.string()
         followersLabel.text = member.followers.count.string()
     }

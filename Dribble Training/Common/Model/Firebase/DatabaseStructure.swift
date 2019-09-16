@@ -12,17 +12,21 @@ struct Member: Codable {
     
     let id: String
     
-    let followers: [String] = []
+    let displayName: String
     
-    let followings: [String] = []
+    let followers: [String]
     
-    let trainingResults: [String] = []
+    let followings: [String]
     
-    let picture: String = ""
+    let trainingResults: [String]
+    
+    let picture: String
     
     enum CodingKeys: String, CodingKey {
         
         case id, followers, followings, picture
+        
+        case displayName = "display_name"
         
         case trainingResults = "training_results"
     }

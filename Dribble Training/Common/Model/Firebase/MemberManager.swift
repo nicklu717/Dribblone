@@ -74,7 +74,13 @@ class MemberManager {
                     return
             }
             
-            self.databaseManager.upload(member: Member(id: "user_id"), uid: uid)
+            self.databaseManager.upload(member: Member(id: "default_id",
+                                                       displayName: "",
+                                                       followers: [],
+                                                       followings: [],
+                                                       trainingResults: [],
+                                                       picture: ""),
+                                        uid: uid)
             
             completion(.success("Sign Up Secceeded"))
         }
