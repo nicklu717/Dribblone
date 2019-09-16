@@ -98,6 +98,26 @@ class DatabaseManager {
 //        }
 //    }
     
+    func upload(member: Member, uid: String) {
+        
+        guard
+            let dictionary = getDictionary(from: member)
+            else {
+                print("Member Data Encoding Failure")
+                return
+        }
+        
+        firestore
+            .collection(Collection.member)
+            .document(uid)
+            .setData(dictionary) { error in
+            
+                if let error = error {
+                    print(error)
+                }
+        }
+    }
+    
 //    func upload(trainingResult: TrainingResult, completion: ((TrainingResult) -> Void)?) {
 //
 //        guard let dictionary = getDictionary(from: trainingResult)
@@ -142,18 +162,18 @@ class DatabaseManager {
         }
     }
     
-    private func getDictionary(from trainingResult: TrainingResult) -> [String: Any]? {
-        
-        var dictionary: [String: Any]? = [:]
+    private func getDictionary<T: Encodable>(from object: T) -> [String: Any]? {
         
         do {
             
-            let data = try JSONEncoder().encode(trainingResult)
+            let data = try JSONEncoder().encode(object)
             
-            dictionary = try JSONSerialization.jsonObject(
+            let dictionary = try JSONSerialization.jsonObject(
                 with: data,
                 options: .allowFragments
-                ) as? [String: Any]
+            ) as? [String: Any]
+            
+            return dictionary
             
         } catch {
             
@@ -161,7 +181,5 @@ class DatabaseManager {
             
             return nil
         }
-        
-        return dictionary
     }
 }

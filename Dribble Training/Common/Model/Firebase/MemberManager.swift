@@ -74,8 +74,7 @@ class MemberManager {
                     return
             }
             
-            // TODO: Upload to database
-            
+            self.databaseManager.upload(member: Member(id: "user_id"), uid: uid)
             
             // TODO: Log in
         }

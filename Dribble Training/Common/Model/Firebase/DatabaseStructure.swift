@@ -12,13 +12,13 @@ struct Member: Codable {
     
     let id: String
     
-    let followers: [String]
+    let followers: [String] = []
     
-    let followings: [String]
+    let followings: [String] = []
     
-    let trainingResults: [String]
+    let trainingResults: [String] = []
     
-    let picture: String
+    let picture: String = ""
     
     enum CodingKeys: String, CodingKey {
         
