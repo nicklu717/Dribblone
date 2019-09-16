@@ -12,7 +12,7 @@ protocol RegisterViewDelegate: UIViewController {
     
     func logIn(withEmail email: String, password: String)
     
-    func signUp(withEmail email: String, password: String, id: String)
+    func signUp(withEmail email: String, password: String)
 }
 
 class RegisterView: UIView {
@@ -48,9 +48,8 @@ class RegisterView: UIView {
         
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        let id = idTextField.text ?? ""
         
-        delegate?.signUp(withEmail: email, password: password, id: id)
+        delegate?.signUp(withEmail: email, password: password)
     }
     
     @IBAction func switchStatus() {

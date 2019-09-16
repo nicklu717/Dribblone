@@ -22,8 +22,9 @@ class MemberManager {
                password: String,
                completion: @escaping (Result<String, LogInError>) -> Void) {
         
-        auth.signIn(withEmail: email,
-                    password: password) { (authDataResult, error) in
+        auth.signIn(withEmail: email, password: password) {
+            
+            (authDataResult, error) in
             
             guard
                 let uid = authDataResult?.user.uid
@@ -57,11 +58,39 @@ class MemberManager {
         }
     }
     
-    func signUp(withEmail email: String, password: String, id: String) {}
+    func signUp(withEmail email: String,
+                password: String,
+                completion: @escaping (Result<String, SignUpError>) -> Void) {
+            
+        self.auth.createUser(withEmail: email, password: password) { (authDataResult, error) in
+            
+            guard
+                let uid = authDataResult?.user.uid
+                else {
+                    if let error = error {
+                        print(error)
+                    }
+                    completion(.failure(.accountCreatingFailure))
+                    return
+            }
+            
+            // TODO: Upload to database
+            
+            
+            // TODO: Log in
+        }
+    }
     
     enum LogInError: String, Error {
         
         case invalidEmailOrPassword = "Invalid Email or Password"
+        
+        case memberDataFetchingError = "Member Data Fetching Error"
+    }
+    
+    enum SignUpError: String, Error {
+        
+        case accountCreatingFailure = "Account Creating Failure"
         
         case memberDataFetchingError = "Member Data Fetching Error"
     }

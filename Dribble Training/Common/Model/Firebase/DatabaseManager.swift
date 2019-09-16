@@ -80,6 +80,24 @@ class DatabaseManager {
         }
     }
     
+//    func checkAvailable(forID id: String, completion: @escaping (Bool) -> Void) {
+//
+//        firestore
+//            .collection(Collection.member)
+//            .whereField("id", isEqualTo: id)
+//            .getDocuments { (querySnapshot, error) in
+//
+//                if let querySnapshot = querySnapshot, querySnapshot.documents.isEmpty {
+//
+//                    completion(false)
+//
+//                } else {
+//
+//                    completion(true)
+//                }
+//        }
+//    }
+    
 //    func upload(trainingResult: TrainingResult, completion: ((TrainingResult) -> Void)?) {
 //
 //        guard let dictionary = getDictionary(from: trainingResult)
