@@ -45,7 +45,9 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                 
             case .success(let message):
                 
-                self.dismiss(animated: true, completion: nil)
+                print(message)
+                
+                self.registerView.switchStatus()
                 
                 // TODO: Show Success Alert
                 

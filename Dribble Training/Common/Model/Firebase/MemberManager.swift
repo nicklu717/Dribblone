@@ -76,7 +76,7 @@ class MemberManager {
             
             self.databaseManager.upload(member: Member(id: "user_id"), uid: uid)
             
-            // TODO: Log in
+            completion(.success("Sign Up Secceeded"))
         }
     }
     
@@ -90,7 +90,5 @@ class MemberManager {
     enum SignUpError: String, Error {
         
         case accountCreatingFailure = "Account Creating Failure"
-        
-        case memberDataFetchingError = "Member Data Fetching Error"
     }
 }
