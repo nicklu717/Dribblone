@@ -20,9 +20,21 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     func logIn(withEmail email: String, password: String) {
         
-        memberManager.logIn(withEmail: email, password: password)
-        
-        dismiss(animated: true, completion: nil)
+        memberManager.logIn(withEmail: email, password: password) { result in
+            
+            switch result {
+                
+            case .success(let message):
+                
+                self.dismiss(animated: true, completion: nil)
+                
+                // TODO: Show Success Alert
+                
+            case .failure(let error):
+                
+                self.registerView.showErrorMessage(error.rawValue)
+            }
+        }
     }
     
     func signUp(withEmail email: String, password: String, id: String) {

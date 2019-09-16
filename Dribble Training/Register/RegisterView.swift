@@ -34,6 +34,8 @@ class RegisterView: UIView {
     
     @IBAction func logIn() {
         
+        errorMessageLabel.isHidden = true
+        
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
@@ -41,6 +43,8 @@ class RegisterView: UIView {
     }
     
     @IBAction func signUp() {
+        
+        errorMessageLabel.isHidden = true
         
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
@@ -51,8 +55,17 @@ class RegisterView: UIView {
     
     @IBAction func switchStatus() {
         
+        errorMessageLabel.isHidden = true
+        
         logInView.isHidden = !logInView.isHidden
         
         signUpView.isHidden = !signUpView.isHidden
+    }
+    
+    func showErrorMessage(_ message: String) {
+        
+        errorMessageLabel.text = message
+        
+        errorMessageLabel.isHidden = false
     }
 }
