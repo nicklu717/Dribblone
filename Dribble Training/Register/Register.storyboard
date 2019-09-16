@@ -138,6 +138,12 @@
                                     <action selector="dismiss" destination="lib-iY-Qk8" eventType="touchUpInside" id="foA-ca-s0N"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In Failure!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pd-Ed-J5E">
+                                <rect key="frame" x="153.5" y="158.5" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.01208707165" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -150,15 +156,18 @@
                             <constraint firstItem="1xH-23-a1p" firstAttribute="centerX" secondItem="lib-iY-Qk8" secondAttribute="centerX" id="X07-7Z-c9F"/>
                             <constraint firstItem="8fn-3b-hED" firstAttribute="leading" secondItem="su0-MR-1vd" secondAttribute="leading" id="Xry-y0-FGQ"/>
                             <constraint firstItem="Mds-Lg-6Xa" firstAttribute="top" secondItem="hk4-tn-vQ6" secondAttribute="bottom" constant="16" id="cNH-CD-BkS"/>
+                            <constraint firstItem="3Hy-aA-9wG" firstAttribute="top" secondItem="7Pd-Ed-J5E" secondAttribute="bottom" constant="10" id="eM7-Qo-mgB"/>
                             <constraint firstItem="paa-bk-nER" firstAttribute="top" secondItem="uzJ-Fp-v5h" secondAttribute="top" constant="36" id="fn0-36-g9u"/>
                             <constraint firstItem="su0-MR-1vd" firstAttribute="leading" secondItem="uzJ-Fp-v5h" secondAttribute="leading" constant="70" id="kpy-Q5-eyP"/>
                             <constraint firstItem="su0-MR-1vd" firstAttribute="top" secondItem="uzJ-Fp-v5h" secondAttribute="top" constant="150" id="l9P-XV-n7D"/>
                             <constraint firstItem="uzJ-Fp-v5h" firstAttribute="trailing" secondItem="paa-bk-nER" secondAttribute="trailing" constant="36" id="o9n-li-etw"/>
+                            <constraint firstItem="7Pd-Ed-J5E" firstAttribute="centerX" secondItem="lib-iY-Qk8" secondAttribute="centerX" id="p8a-H1-cSE"/>
                             <constraint firstItem="8fn-3b-hED" firstAttribute="centerY" secondItem="hk4-tn-vQ6" secondAttribute="centerY" id="rrz-Qs-l1w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uzJ-Fp-v5h"/>
                         <connections>
                             <outlet property="emailTextField" destination="3Hy-aA-9wG" id="eWV-lD-1pl"/>
+                            <outlet property="errorMessageLabel" destination="7Pd-Ed-J5E" id="CQV-Xm-adG"/>
                             <outlet property="idTextField" destination="NJ2-R2-Vkg" id="frr-hC-MWs"/>
                             <outlet property="logInView" destination="Mds-Lg-6Xa" id="2OG-mh-z7q"/>
                             <outlet property="passwordTextField" destination="hk4-tn-vQ6" id="XAJ-KF-C8x"/>

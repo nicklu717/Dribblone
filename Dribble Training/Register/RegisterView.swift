@@ -19,6 +19,8 @@ class RegisterView: UIView {
     
     weak var delegate: RegisterViewDelegate?
     
+    @IBOutlet var errorMessageLabel: UILabel!
+    
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var idTextField: UITextField!
