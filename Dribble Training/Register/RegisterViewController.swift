@@ -26,13 +26,17 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                 
             case .success(let message):
                 
-                self.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
                 
                 // TODO: Show Success Alert
                 
             case .failure(let error):
                 
-                self.registerView.showErrorMessage(error.rawValue)
+                DispatchQueue.main.async {
+                    self.registerView.showErrorMessage(error.rawValue)
+                }
             }
         }
     }
@@ -45,15 +49,17 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                 
             case .success(let message):
                 
-                print(message)
-                
-                self.registerView.switchStatus()
+                DispatchQueue.main.async {
+                    self.registerView.switchStatus()
+                }
                 
                 // TODO: Show Success Alert
                 
             case .failure(let error):
                 
-                self.registerView.showErrorMessage(error.rawValue)
+                DispatchQueue.main.async {
+                    self.registerView.showErrorMessage(error.rawValue)
+                }
             }
         }
     }

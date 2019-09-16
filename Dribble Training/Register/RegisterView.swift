@@ -23,10 +23,11 @@ class RegisterView: UIView {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var idTextField: UITextField!
-
-    @IBOutlet var logInView: UIView!
-    @IBOutlet var signUpView: UIView!
+    
+    @IBOutlet var logInButton: UIButton!
+    @IBOutlet var switchStatusButton: UIButton!
+    
+    var isLogIn: Bool = true
     
     @IBAction func dismiss() {
         delegate?.dismiss(animated: true, completion: nil)
@@ -39,26 +40,34 @@ class RegisterView: UIView {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        delegate?.logIn(withEmail: email, password: password)
-    }
-    
-    @IBAction func signUp() {
-        
-        errorMessageLabel.isHidden = true
-        
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        
-        delegate?.signUp(withEmail: email, password: password)
+        if isLogIn {
+            
+            delegate?.logIn(withEmail: email, password: password)
+            
+        } else {
+            
+            delegate?.signUp(withEmail: email, password: password)
+        }
     }
     
     @IBAction func switchStatus() {
         
         errorMessageLabel.isHidden = true
         
-        logInView.isHidden = !logInView.isHidden
+        isLogIn = !isLogIn
         
-        signUpView.isHidden = !signUpView.isHidden
+        if isLogIn {
+            
+            logInButton.setTitle("Log In", for: .normal)
+            
+            switchStatusButton.setTitle("Sign up?", for: .normal)
+            
+        } else {
+            
+            logInButton.setTitle("Sign Up", for: .normal)
+            
+            switchStatusButton.setTitle("Log in?", for: .normal)
+        }
     }
     
     func showErrorMessage(_ message: String) {
