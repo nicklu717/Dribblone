@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol ProfileViewDelegate: UIViewController {
-    
-    var member: Member? { get }
-    
-    var trainingResults: [TrainingResult]? { get }
-}
+protocol ProfileViewDelegate: UIViewController {}
 
 class ProfileView: UIView {
     
-    weak var delegate: ProfileViewDelegate?
+//    weak var delegate: ProfileViewDelegate?
     
     @IBOutlet var pictureImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
@@ -28,14 +23,7 @@ class ProfileView: UIView {
     
     var trainingResultPage: TrainingResultViewController!
     
-    func setupProfile(for member: Member?) {
-        
-        guard
-            let member = member
-            else {
-                print("Member Not Exist")
-                return
-        }
+    func setupProfile(for member: Member) {
         
 //        pictureImageView.image = member.picture
         nameLabel.text = member.displayName
@@ -43,7 +31,7 @@ class ProfileView: UIView {
         followersLabel.text = member.followers.count.string()
     }
     
-    func setupTrainingResultPage(_ trainingResults: [TrainingResult]) {
+    func setupTrainingResultPage(for member: Member) {
         
         let storyboard = UIStoryboard.trainingResult
         
@@ -57,10 +45,19 @@ class ProfileView: UIView {
         
         trainingResultPage = trainingResultViewController
         
-        trainingResultPageView.addSubview(trainingResultPage.view)
-        
         trainingResultPage.loadViewIfNeeded()
         
-        trainingResultPage.trainingResults = trainingResults
+        trainingResultPage.fetchTrainingResults(for: member) {
+            
+            print(Thread.current)
+            DispatchQueue.main.async {
+                self.showTrainingResults()
+            }
+        }
+    }
+    
+    private func showTrainingResults() {
+        trainingResultPageView.addSubview(trainingResultPage.view)
+        print("add subview")
     }
 }

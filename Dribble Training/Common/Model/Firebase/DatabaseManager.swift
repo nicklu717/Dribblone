@@ -43,12 +43,12 @@ class DatabaseManager {
         }
     }
     
-    func fetchTrainingResult(forMemberID id: String,
+    func fetchTrainingResult(for member: Member,
                              completion: @escaping (Result<[TrainingResult], Error>) -> Void) {
         
         firestore
             .collection(Collection.trainingResult)
-            .whereField("id", isEqualTo: id)
+            .whereField("id", isEqualTo: member.id)
             .order(by: "date", descending: true)
             .getDocuments { (querySnapshot, error) in
                 

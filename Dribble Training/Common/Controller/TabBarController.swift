@@ -17,6 +17,7 @@ class TabBarController: UITabBarController {
     private let tabs: [Tab] = [.postWall, .training, .profile]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         delegate = self
@@ -123,5 +124,16 @@ extension TabBarController: UITabBarControllerDelegate {
         }
         
         return true
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController,
+                          didSelect viewController: UIViewController) {
+        
+        if
+            let navigationController = viewController as? UINavigationController,
+            let profileViewController = navigationController.viewControllers.first as? ProfileViewController {
+            
+            profileViewController.member = MemberManager.shared.currentUser
+        }
     }
 }

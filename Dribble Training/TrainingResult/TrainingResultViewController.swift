@@ -25,6 +25,28 @@ class TrainingResultViewController: UIViewController {
     }
     
     let photoManager = PhotoManager.shared
+    
+    let databaseManager = DatabaseManager.shared
+    
+    func fetchTrainingResults(for member: Member,
+                              completion: (() -> Void)?) {
+        
+        databaseManager.fetchTrainingResult(for: member) { result in
+            
+            switch result {
+                
+            case .success(let trainingResults):
+                
+                self.trainingResults = trainingResults
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+            completion?()
+        }
+    }
 }
 
 extension TrainingResultViewController: TrainingResultViewDataSource {

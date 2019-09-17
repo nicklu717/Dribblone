@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, ProfileViewDelegate {
+class ProfileViewController: UIViewController {
     
     @IBOutlet var profileView: ProfileView!
     
@@ -16,48 +16,22 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     
     private let databaseManager = DatabaseManager.shared
     
-    var member: Member? {
-        didSet {
-            profileView.setupProfile(for: member)
-            fetchTrainingResult()
-        }
-    }
-    
-    var trainingResults: [TrainingResult]?
+    var member: Member?
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileView.delegate = self
-        
-        member = memberManager.currentUser
-    }
-    
-    // MARK: - Private Method
-    
-    private func fetchTrainingResult() {
-        
         guard
             let member = member
             else {
-                print("Invalid Member")
+                print("Member Not Exist")
                 return
         }
         
-        databaseManager.fetchTrainingResult(forMemberID: member.id) { result in
-            
-            switch result {
-                
-            case .success(let trainingResults):
-                
-                self.profileView.setupTrainingResultPage(trainingResults)
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-        }
+        profileView.setupProfile(for: member)
+        
+        profileView.setupTrainingResultPage(for: member)
     }
 }
