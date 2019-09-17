@@ -136,8 +136,6 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
     func previewController(_ previewController: RPPreviewViewController,
                            didFinishWithActivityTypes activityTypes: Set<String>) {
         
-        // Fetch Video PHAsset
-        
         let fetchOptions = PHFetchOptions()
         
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
@@ -151,31 +149,20 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
             print("Video Fetching Failure")
             return
         }
-        
         let videoID = videoPHAsset.localIdentifier
         
-        // Request Video AVAsset
-        
-        imageManager.requestAVAsset(
-            forVideo: videoPHAsset,
-            options: nil) { (videoAVAsset, _, _) in
+        imageManager.requestImageData(
+            for: videoPHAsset,
+            options: nil) { (data, _, _, _) in
                 
                 guard
-                    let videoAVURLAsset = videoAVAsset as? AVURLAsset
+                    let data = data
                     else {
-                        print("Video AVURLAsset Converting Failure")
+                        print("Video Data Fetching Failure")
                         return
                 }
                 
-                do {
-                    let data = try Data(contentsOf: videoAVURLAsset.url)
-                
-                    self.storageManager.upload(videoID: videoID, videoData: data)
-                    
-                } catch {
-                    
-                    print(error)
-                }
+                self.storageManager.upload(videoID: videoID, videoData: data)
         }
         
         previewController.dismiss(animated: true)
