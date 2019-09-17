@@ -26,12 +26,12 @@ class TrainingResultViewController: UIViewController {
     
     let photoManager = PhotoManager.shared
     
-    let databaseManager = DatabaseManager.shared
+    let firestoreManager = FirestoreManager.shared
     
     func fetchTrainingResults(for member: Member,
                               completion: (() -> Void)?) {
         
-        databaseManager.fetchTrainingResult(for: member) { result in
+        firestoreManager.fetchTrainingResult(for: member) { result in
             
             switch result {
                 

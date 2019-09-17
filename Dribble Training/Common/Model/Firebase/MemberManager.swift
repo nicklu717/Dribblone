@@ -14,7 +14,7 @@ class MemberManager {
     
     private let auth = Auth.auth()
     
-    private let databaseManager = DatabaseManager.shared
+    private let firestoreManager = FirestoreManager.shared
     
     var currentUser: Member?
     
@@ -36,7 +36,7 @@ class MemberManager {
                     return
             }
             
-            self.databaseManager.fetchMemberData(
+            self.firestoreManager.fetchMemberData(
                 forUID: uid,
                 completion: { result in
                 
@@ -74,7 +74,7 @@ class MemberManager {
                     return
             }
             
-            self.databaseManager.upload(member: Member(id: "default_id",
+            self.firestoreManager.upload(member: Member(id: "default_id",
                                                        displayName: "",
                                                        followers: [],
                                                        followings: [],

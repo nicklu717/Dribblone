@@ -12,10 +12,6 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var profileView: ProfileView!
     
-    private let memberManager = MemberManager.shared
-    
-    private let databaseManager = DatabaseManager.shared
-    
     var member: Member?
     
     // MARK: - Life Cycle

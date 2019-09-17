@@ -1,5 +1,5 @@
 //
-//  DatabaseManager.swift
+//  FirestoreManager.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/12.
@@ -8,9 +8,9 @@
 
 import FirebaseFirestore
 
-class DatabaseManager {
+class FirestoreManager {
     
-    static let shared = DatabaseManager()
+    static let shared = FirestoreManager()
     
     private let firestore = Firestore.firestore()
     
