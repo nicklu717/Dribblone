@@ -32,7 +32,6 @@ struct Member: Codable {
     }
 }
 
-
 struct TrainingResult: Codable {
     
     let id: String

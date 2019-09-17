@@ -14,13 +14,6 @@ class FirestoreManager {
     
     private let firestore = Firestore.firestore()
     
-    private struct Collection {
-        
-        static let member = "member"
-        
-        static let trainingResult = "training_result"
-    }
-    
     func fetchMemberData(forUID uid: String,
                          completion: @escaping (Result<Member, Error>) -> Void) {
         
@@ -181,5 +174,12 @@ class FirestoreManager {
             
             return nil
         }
+    }
+    
+    private struct Collection {
+        
+        static let member = "member"
+        
+        static let trainingResult = "training_result"
     }
 }

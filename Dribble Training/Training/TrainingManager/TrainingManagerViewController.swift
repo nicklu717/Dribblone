@@ -36,6 +36,8 @@ class TrainingManagerViewController: UIViewController {
     
     let imageManager = PHImageManager.default()
     
+    let storageManager = StorageManager.shared
+    
     var trainingResult: TrainingResult!
     
     var trainingCompletion: ((TrainingResult) -> ())?
@@ -134,6 +136,8 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
     func previewController(_ previewController: RPPreviewViewController,
                            didFinishWithActivityTypes activityTypes: Set<String>) {
         
+        // Fetch Video PHAsset
+        
         let fetchOptions = PHFetchOptions()
         
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
@@ -142,20 +146,41 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         let fetchResult = PHAsset.fetchAssets(with: .video, options: fetchOptions)
         
         guard
-            let video = fetchResult.firstObject
+            let videoPHAsset = fetchResult.firstObject
         else {
             print("Video Fetching Failure")
             return
         }
         
-        trainingResult.videoLocalID = video.localIdentifier
+        let videoID = videoPHAsset.localIdentifier
+        
+        // Request Video AVAsset
+        
+        imageManager.requestAVAsset(
+            forVideo: videoPHAsset,
+            options: nil) { (videoAVAsset, _, _) in
+                
+                guard
+                    let videoAVURLAsset = videoAVAsset as? AVURLAsset
+                    else {
+                        print("Video AVURLAsset Converting Failure")
+                        return
+                }
+                
+                do {
+                    let data = try Data(contentsOf: videoAVURLAsset.url)
+                
+                    self.storageManager.upload(videoID: videoID, videoData: data)
+                    
+                } catch {
+                    
+                    print(error)
+                }
+        }
         
         previewController.dismiss(animated: true)
         
         dismiss(animated: true) {
-            
-//            FirestoreManager.shared.upload(trainingResult: self.trainingResult,
-//                                           completion: self.trainingCompletion)
         }
     }
 }

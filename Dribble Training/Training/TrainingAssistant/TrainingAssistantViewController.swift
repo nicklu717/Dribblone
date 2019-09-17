@@ -58,7 +58,7 @@ class TrainingAssistantViewController: UIViewController {
     
     // MARK: - Instance Method
     
-    func resetTimer(minute: Int = 0, second: Int = 10) {
+    func resetTimer(minute: Int = 0, second: Int = 3) {
         
         self.minute = minute
         self.second = second

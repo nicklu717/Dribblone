@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseStorage
 class TabBarController: UITabBarController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

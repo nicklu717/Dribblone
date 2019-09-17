@@ -86,31 +86,31 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         cell.playVideoButton.setTitle("Video Not Available", for: .normal)
         cell.playVideoButton.setImage(nil, for: .normal)
         
-        photoManager.requestPlayerItem(withLocalID: result.videoLocalID) { playerItem in
-            
-            let avPlayer = self.photoManager.avPlayer(playerItem: playerItem)
-            
-            cell.avPlayerLayer.player = avPlayer
-            
-            DispatchQueue.main.async {
-                
-                cell.playVideoButton.isEnabled = true
-                cell.playVideoButton.setTitle(nil, for: .normal)
-                cell.playVideoButton.setImage(UIImage.asset(.play), for: .normal)
-            }
-            
-            let endTime = playerItem.asset.duration
-            
-            avPlayer.addBoundaryTimeObserver(
-                forTimes: [NSValue(time: endTime)],
-                queue: DispatchQueue.main,
-                using: {
-                    
-                    cell.avPlayerLayer.player?.seek(to: .zero)
-                    
-                    cell.playVideoButton.isHidden = false
-            })
-        }
+//        photoManager.requestPlayerItem(withLocalID: result.videoLocalID) { playerItem in
+//
+//            let avPlayer = self.photoManager.avPlayer(playerItem: playerItem)
+//
+//            cell.avPlayerLayer.player = avPlayer
+//
+//            DispatchQueue.main.async {
+//
+//                cell.playVideoButton.isEnabled = true
+//                cell.playVideoButton.setTitle(nil, for: .normal)
+//                cell.playVideoButton.setImage(UIImage.asset(.play), for: .normal)
+//            }
+//
+//            let endTime = playerItem.asset.duration
+//
+//            avPlayer.addBoundaryTimeObserver(
+//                forTimes: [NSValue(time: endTime)],
+//                queue: DispatchQueue.main,
+//                using: {
+//
+//                    cell.avPlayerLayer.player?.seek(to: .zero)
+//
+//                    cell.playVideoButton.isHidden = false
+//            })
+//        }
         
         return cell
     }
