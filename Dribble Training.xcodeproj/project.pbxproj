@@ -35,6 +35,7 @@
 		5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC842327902A00BD23D4 /* Team.storyboard */; };
 		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
+		5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */; };
 		5ACBCAEF232A19FB007B0E3B /* DatabaseStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */; };
 		5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
@@ -79,6 +80,7 @@
 		5A88EC842327902A00BD23D4 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
+		5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStructure.swift; sourceTree = "<group>"; };
 		5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,7 @@
 				5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */,
 				5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */,
 				5A6BA14A232E24F700E2FB48 /* MemberManager.swift */,
+				5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */,
 				5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */,
+				5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */,
 				5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */,
 				5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */,
 				5A6BA14B232E24F700E2FB48 /* MemberManager.swift in Sources */,
