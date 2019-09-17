@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol ProfileViewDelegate: UIViewController {}
-
 class ProfileView: UIView {
-    
-//    weak var delegate: ProfileViewDelegate?
     
     @IBOutlet var pictureImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
@@ -49,15 +45,14 @@ class ProfileView: UIView {
         
         trainingResultPage.fetchTrainingResults(for: member) {
             
-            print(Thread.current)
-            DispatchQueue.main.async {
-                self.showTrainingResults()
-            }
+            self.showTrainingResults()
         }
     }
     
     private func showTrainingResults() {
+        
         trainingResultPageView.addSubview(trainingResultPage.view)
-        print("add subview")
+        
+        trainingResultPage.view.frame = trainingResultPageView.bounds
     }
 }
