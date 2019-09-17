@@ -31,6 +31,8 @@ class ProfileViewController: UIViewController {
                 return
         }
         
+        navigationItem.title = member.id
+        
         profileView.setupProfile(for: member)
         
         profileView.setupTrainingResultPage(for: member)
