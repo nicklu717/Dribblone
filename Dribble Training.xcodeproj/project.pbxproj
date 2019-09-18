@@ -36,7 +36,6 @@
 		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */; };
-		5ACBCAEF232A19FB007B0E3B /* DatabaseStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */; };
 		5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
@@ -48,6 +47,7 @@
 		5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */; };
 		5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */; };
 		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
+		5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */; };
 		FEC79306F0EDC8C7F409909D /* Pods_Dribble_Training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +81,6 @@
 		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStructure.swift; sourceTree = "<group>"; };
 		5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyView.swift; sourceTree = "<group>"; };
 		5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingLobby.storyboard; sourceTree = "<group>"; };
 		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreStructure.swift; sourceTree = "<group>"; };
 		66A171F80630C1F8354FD801 /* Pods-Dribble Training.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dribble Training.debug.xcconfig"; path = "Target Support Files/Pods-Dribble Training/Pods-Dribble Training.debug.xcconfig"; sourceTree = "<group>"; };
 		86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dribble_Training.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D333BB7EFBCBE7134544BB3 /* Pods-Dribble Training.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dribble Training.release.xcconfig"; path = "Target Support Files/Pods-Dribble Training/Pods-Dribble Training.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		5ACBCAF0232A2272007B0E3B /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				5ACBCAEE232A19FB007B0E3B /* DatabaseStructure.swift */,
+				5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */,
 				5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */,
 				5A6BA14A232E24F700E2FB48 /* MemberManager.swift */,
 				5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */,
@@ -484,6 +484,7 @@
 				5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */,
 				5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */,
 				5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */,
+				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 				5A6EF2752328F619005359C8 /* ProfileViewController.swift in Sources */,
@@ -492,7 +493,6 @@
 				5A7808EC232B833C00B35757 /* PhotoManager.swift in Sources */,
 				5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
-				5ACBCAEF232A19FB007B0E3B /* DatabaseStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
