@@ -182,6 +182,6 @@ class FirestoreManager {
         
         static let member = "member"
         
-        static let trainingResult = "training_result"
+        static let trainingResult = "training_results"
     }
 }
