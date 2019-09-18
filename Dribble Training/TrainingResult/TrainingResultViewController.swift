@@ -70,23 +70,17 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         
         let date = Date(timeIntervalSince1970: trainingResult.date)
         
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "yy-MMM-dd HH:mm"
-        
-        cell.dateLabel.text = dateFormatter.string(from: date)
+        cell.dateLabel.text = date.string(format: .resultDisplay)
         
         cell.idLabel.text = trainingResult.id
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = "\(trainingResult.points) pts"
         
-        cell.avPlayerLayer.player = nil
-        
         cell.playVideoButton.isEnabled = false
         cell.playVideoButton.setTitle("Video Not Available", for: .normal)
         cell.playVideoButton.setImage(nil, for: .normal)
         
-        
+        cell.avPlayerLayer.player = nil
         
 //        photoManager.requestPlayerItem(withLocalID: trainingResult.videoLocalID) { playerItem in
 //
