@@ -111,7 +111,7 @@ extension TabBarController: UITabBarControllerDelegate {
                           shouldSelect viewController: UIViewController) -> Bool {
         
         if viewController.tabBarItem.title == UIImage.Asset.profile.rawValue,
-            MemberManager.shared.currentUser == nil {
+            AuthManager.shared.currentUser == nil {
             
             let storyboard = UIStoryboard.register
             
@@ -133,7 +133,7 @@ extension TabBarController: UITabBarControllerDelegate {
             let navigationController = viewController as? UINavigationController,
             let profileViewController = navigationController.viewControllers.first as? ProfileViewController {
             
-            profileViewController.member = MemberManager.shared.currentUser
+            profileViewController.member = AuthManager.shared.currentUser
         }
     }
 }

@@ -19,7 +19,7 @@ class StorageManager {
                 completion: @escaping (Result<URL, Error>) -> Void) {
         
         guard
-            let member = MemberManager.shared.currentUser
+            let member = AuthManager.shared.currentUser
             else {
                 print("Member Not Exist")
                 return

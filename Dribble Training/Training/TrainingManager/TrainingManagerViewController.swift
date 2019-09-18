@@ -40,7 +40,7 @@ class TrainingManagerViewController: UIViewController {
     
     let firestoreManager = FirestoreManager.shared
     
-    let memberManager = MemberManager.shared
+    let authManager = AuthManager.shared
     
     var trainingResult: TrainingResult!
     
@@ -109,7 +109,7 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
     func endTraining(points: Int, trainingMode mode: String) {
         
         guard
-            let member = MemberManager.shared.currentUser
+            let member = AuthManager.shared.currentUser
             else {
                 print("Member Not Exist")
                 return
@@ -189,7 +189,7 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
                             
                             self.trainingResult.videoURL = String(describing: videoURL)
                             
-                            let member = self.memberManager.currentUser!
+                            let member = self.authManager.currentUser!
                             
                             self.firestoreManager.upload(trainingResult: self.trainingResult,
                                                          for: member)

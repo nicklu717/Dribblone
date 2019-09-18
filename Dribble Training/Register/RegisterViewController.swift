@@ -16,11 +16,11 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         }
     }
     
-    let memberManager = MemberManager.shared
+    let authManager = AuthManager.shared
     
     func logIn(withEmail email: String, password: String) {
         
-        memberManager.logIn(withEmail: email, password: password) { result in
+        authManager.logIn(withEmail: email, password: password) { result in
             
             switch result {
                 
@@ -43,7 +43,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     func signUp(withEmail email: String, password: String) {
         
-        memberManager.signUp(withEmail: email, password: password) { result in
+        authManager.signUp(withEmail: email, password: password) { result in
                 
             switch result {
                 

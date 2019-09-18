@@ -1,5 +1,5 @@
 //
-//  MemberManager.swift
+//  AuthManager.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/15.
@@ -8,9 +8,9 @@
 
 import FirebaseAuth
 
-class MemberManager {
+class AuthManager {
     
-    static let shared = MemberManager()
+    static let shared = AuthManager()
     
     private let auth = Auth.auth()
     
