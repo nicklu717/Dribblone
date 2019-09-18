@@ -121,7 +121,7 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
                                         date: date,
                                         mode: mode,
                                         points: points,
-                                        videoLocalID: nil)
+                                        videoURL: nil)
         
         screenRecorder.stopRecording { (previewViewController, error) in
             
@@ -187,7 +187,7 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
                             
                         case .success(let videoURL):
                             
-                            self.trainingResult.videoLocalID = String(describing: videoURL)
+                            self.trainingResult.videoURL = String(describing: videoURL)
                             
                             let member = self.memberManager.currentUser!
                             

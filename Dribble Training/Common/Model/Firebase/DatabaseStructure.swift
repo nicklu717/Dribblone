@@ -44,12 +44,12 @@ struct TrainingResult: Codable {
     
     let points: Int
     
-    var videoLocalID: String?
+    var videoURL: String?
     
     enum CodingKeys: String, CodingKey {
         
         case id, date, mode, points
         
-        case videoLocalID = "video_local_id"
+        case videoURL = "video_url"
     }
 }
