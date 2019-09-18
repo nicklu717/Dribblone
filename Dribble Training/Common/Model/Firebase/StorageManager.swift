@@ -27,7 +27,7 @@ class StorageManager {
             storageReference
                 .child(member.id)
                 .child(Folder.trainingVideo)
-                .child("1111.mp4")
+                .child("\(videoID).mp4")
         
         videoReference.putData(
             videoData,

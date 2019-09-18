@@ -149,7 +149,6 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
             print("Video Fetching Failure")
             return
         }
-        let videoID = videoPHAsset.localIdentifier
         
         imageManager.requestImageData(
             for: videoPHAsset,
@@ -162,12 +161,20 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
                         return
                 }
                 
+                let videoID = String(self.trainingResult.date)
+                
                 self.storageManager.upload(videoID: videoID, videoData: data)
+                
+                // TODO: Upload Result
+                
+                previewController.dismiss(animated: true)
+                
+                self.dismiss(animated: true) {
+                    
+                    // TODO: Show Result
+                }
         }
         
-        previewController.dismiss(animated: true)
         
-        dismiss(animated: true) {
-        }
     }
 }
