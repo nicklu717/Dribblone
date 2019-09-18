@@ -40,7 +40,7 @@ class FirestoreManager {
                              completion: @escaping (Result<[TrainingResult], Error>) -> Void) {
         
         firestore
-            .collection(Collection.trainingResult)
+            .collection(Collection.trainingResults)
             .whereField("id", isEqualTo: member.id)
             .order(by: "date", descending: true)
             .getDocuments { (querySnapshot, error) in
@@ -126,14 +126,14 @@ class FirestoreManager {
         
         let reference =
             firestore
-                .collection(Collection.trainingResult)
+                .collection(Collection.trainingResults)
                 .addDocument(data: dictionary)
         
         firestore
             .collection(Collection.member)
             .document(member.uid)
             .updateData(
-                [Collection.trainingResult: FieldValue.arrayUnion([reference.documentID])]
+                [Collection.trainingResults: FieldValue.arrayUnion([reference.documentID])]
         )
         
         completion?()
@@ -182,6 +182,6 @@ class FirestoreManager {
         
         static let member = "member"
         
-        static let trainingResult = "training_results"
+        static let trainingResults = "training_results"
     }
 }
