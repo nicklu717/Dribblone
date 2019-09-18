@@ -66,9 +66,9 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
             return TrainingResultTableViewCell()
         }
         
-        let result = trainingResults[indexPath.row]
+        let trainingResult = trainingResults[indexPath.row]
         
-        let date = Date(timeIntervalSince1970: result.date)
+        let date = Date(timeIntervalSince1970: trainingResult.date)
         
         let dateFormatter = DateFormatter()
         
@@ -76,9 +76,9 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         
         cell.dateLabel.text = dateFormatter.string(from: date)
         
-        cell.idLabel.text = result.id
-        cell.modeLabel.text = result.mode
-        cell.pointsLabel.text = "\(result.points) pts"
+        cell.idLabel.text = trainingResult.id
+        cell.modeLabel.text = trainingResult.mode
+        cell.pointsLabel.text = "\(trainingResult.points) pts"
         
         cell.avPlayerLayer.player = nil
         
@@ -86,7 +86,9 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         cell.playVideoButton.setTitle("Video Not Available", for: .normal)
         cell.playVideoButton.setImage(nil, for: .normal)
         
-//        photoManager.requestPlayerItem(withLocalID: result.videoLocalID) { playerItem in
+        
+        
+//        photoManager.requestPlayerItem(withLocalID: trainingResult.videoLocalID) { playerItem in
 //
 //            let avPlayer = self.photoManager.avPlayer(playerItem: playerItem)
 //
