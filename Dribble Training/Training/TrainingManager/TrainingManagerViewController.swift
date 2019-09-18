@@ -161,7 +161,7 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
                         return
                 }
                 
-                let videoID = String(self.trainingResult.date)
+                let videoID = String(format: "%.0f", self.trainingResult.date)
                 
                 self.storageManager.upload(videoID: videoID, videoData: data)
                 
