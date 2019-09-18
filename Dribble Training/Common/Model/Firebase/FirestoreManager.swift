@@ -91,7 +91,7 @@ class FirestoreManager {
 //        }
 //    }
     
-    func upload(member: Member, uid: String) {
+    func update(member: Member, completion: (() -> Void)? = nil) {
         
         guard
             let dictionary = getDictionary(from: member)
@@ -102,40 +102,42 @@ class FirestoreManager {
         
         firestore
             .collection(Collection.member)
-            .document(uid)
+            .document(member.uid)
             .setData(dictionary) { error in
             
                 if let error = error {
                     print(error)
                 }
         }
+        
+        completion?()
     }
     
-//    func upload(trainingResult: TrainingResult, completion: ((TrainingResult) -> Void)?) {
-//
-//        guard let dictionary = getDictionary(from: trainingResult)
-//
-//            else {
-//                print("Invalid Training Result Dictionary")
-//                return
-//        }
-//
-//        firestore
-//            .collection(Collection.member)
-//            .document("nicklu717")
-//            .collection(Collection.trainingResults)
-//            .addDocument(data: dictionary) { (error) in
-//
-//                if let error = error {
-//                    print(error)
-//                    return
-//                }
-//
-//                self.fetchTrainingResult()
-//        }
-//
-//        completion?(trainingResult)
-//    }
+    func upload(trainingResult: TrainingResult,
+                for member: Member,
+                completion: (() -> Void)? = nil) {
+        
+        guard
+            let dictionary = getDictionary(from: trainingResult)
+            else {
+                print("Training Result Data Encoding Failure")
+                return
+        }
+        
+        let reference =
+            firestore
+                .collection(Collection.trainingResult)
+                .addDocument(data: dictionary)
+        
+        firestore
+            .collection(Collection.member)
+            .document(member.uid)
+            .updateData(
+                [Collection.trainingResult: FieldValue.arrayUnion([reference.documentID])]
+        )
+        
+        completion?()
+    }
     
     private func getObject<T: Decodable>(from dictionary: [String: Any]) -> T? {
         

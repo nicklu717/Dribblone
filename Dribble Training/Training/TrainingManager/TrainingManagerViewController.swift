@@ -38,6 +38,10 @@ class TrainingManagerViewController: UIViewController {
     
     let storageManager = StorageManager.shared
     
+    let firestoreManager = FirestoreManager.shared
+    
+    let memberManager = MemberManager.shared
+    
     var trainingResult: TrainingResult!
     
     var trainingCompletion: ((TrainingResult) -> ())?
@@ -104,11 +108,22 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
     
     func endTraining(points: Int, trainingMode mode: String) {
         
+        guard
+            let member = MemberManager.shared.currentUser
+            else {
+                print("Member Not Exist")
+                return
+        }
+        
         let date = Date().timeIntervalSince1970
         
-        trainingResult = TrainingResult(id: "wein7", date: date, mode: mode, points: points, videoLocalID: nil)
+        trainingResult = TrainingResult(id: member.id,
+                                        date: date,
+                                        mode: mode,
+                                        points: points,
+                                        videoLocalID: nil)
         
-        screenRecorder.stopRecording { [unowned self] (previewViewController, error) in
+        screenRecorder.stopRecording { (previewViewController, error) in
             
             print("Stop Recording")
             
@@ -163,18 +178,32 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
                 
                 let videoID = String(format: "%.0f", self.trainingResult.date)
                 
-                self.storageManager.upload(videoID: videoID, videoData: data)
-                
-                // TODO: Upload Result
-                
-                previewController.dismiss(animated: true)
-                
-                self.dismiss(animated: true) {
-                    
-                    // TODO: Show Result
-                }
+                self.storageManager.upload(
+                    videoID: videoID,
+                    videoData: data,
+                    completion: { result in
+                        
+                        switch result {
+                            
+                        case .success(let videoURL):
+                            
+                            self.trainingResult.videoLocalID = String(describing: videoURL)
+                            
+                            let member = self.memberManager.currentUser!
+                            
+                            self.firestoreManager.upload(trainingResult: self.trainingResult,
+                                                         for: member)
+                            
+                            self.presentingViewController?.dismiss(animated: true) {
+                                
+                                self.trainingCompletion?(self.trainingResult)
+                            }
+                            
+                        case .failure(let error):
+                            
+                            print(error)
+                        }
+                })
         }
-        
-        
     }
 }

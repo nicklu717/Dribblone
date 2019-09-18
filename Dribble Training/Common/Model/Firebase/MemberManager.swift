@@ -74,13 +74,15 @@ class MemberManager {
                     return
             }
             
-            self.firestoreManager.upload(member: Member(id: "default_id",
-                                                       displayName: "",
-                                                       followers: [],
-                                                       followings: [],
-                                                       trainingResults: [],
-                                                       picture: ""),
-                                        uid: uid)
+            let member = Member(uid: uid,
+                                id: "default_id",
+                                displayName: "",
+                                followers: [],
+                                followings: [],
+                                trainingResults: [],
+                                picture: "")
+            
+            self.firestoreManager.update(member: member)
             
             completion(.success("Sign Up Secceeded"))
         }

@@ -10,6 +10,8 @@ import Foundation
 
 struct Member: Codable {
     
+    let uid: String
+    
     let id: String
     
     let displayName: String
@@ -24,7 +26,7 @@ struct Member: Codable {
     
     enum CodingKeys: String, CodingKey {
         
-        case id, followers, followings, picture
+        case uid, id, followers, followings, picture
         
         case displayName = "display_name"
         

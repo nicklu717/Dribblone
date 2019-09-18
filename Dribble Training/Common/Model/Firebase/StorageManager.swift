@@ -14,7 +14,9 @@ class StorageManager {
     
     private let storageReference = Storage.storage().reference()
     
-    func upload(videoID: String, videoData: Data) {
+    func upload(videoID: String,
+                videoData: Data,
+                completion: @escaping (Result<URL, Error>) -> Void) {
         
         guard
             let member = MemberManager.shared.currentUser
@@ -34,16 +36,18 @@ class StorageManager {
             metadata: nil) { (_, error) in
             
                 if let error = error {
-                    print(error)
+                    completion(.failure(error))
                     return
                 }
                 
                 videoReference.downloadURL { (url, error) in
                     
+                    if let error = error {
+                        completion(.failure(error))
+                    }
+                    
                     if let url = url {
-                        print("Download URL: \(url)")
-                    } else {
-                        print(error!)
+                        completion(.success(url))
                     }
                 }
         }
