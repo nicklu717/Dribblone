@@ -10,7 +10,7 @@ import AVKit
 
 protocol TrainingResultTableViewCellDelegate: AnyObject {
     
-    func playVideo(from url: String, completion: (Result<String, Error>) -> Void)
+    func playVideo(from downloadUrl: String, completion: (Result<String, Error>) -> Void)
 }
 
 class TrainingResultTableViewCell: UITableViewCell {
@@ -26,6 +26,8 @@ class TrainingResultTableViewCell: UITableViewCell {
     @IBOutlet var playVideoButton: UIButton!
     
     var videoDownloadURL: String?
+    
+    var isVideoAvailable = true
     
     override func awakeFromNib() {
         
@@ -56,6 +58,8 @@ class TrainingResultTableViewCell: UITableViewCell {
             case .failure(let error):
                 
                 print(error)
+                
+                isVideoAvailable = false
             }
         }
     }
@@ -64,6 +68,9 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         super.prepareForReuse()
         
-//        cell.playVideoButton.setTitle("Video Not Available", for: .normal)
+        if !isVideoAvailable {
+            
+            playVideoButton.setTitle("Video Not Available", for: .normal)
+        }
     }
 }

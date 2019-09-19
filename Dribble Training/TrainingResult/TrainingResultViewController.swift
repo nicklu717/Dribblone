@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import AVFoundation
+import AVKit
 
-class TrainingResultViewController: UIViewController {
+class TrainingResultViewController: UIViewController, TrainingResultTableViewCellDelegate {
     
     // MARK: - Property Declaration
     
@@ -28,6 +28,10 @@ class TrainingResultViewController: UIViewController {
     let photoManager = PhotoManager.shared
     
     let firestoreManager = FirestoreManager.shared
+    
+//    let storageManager = StorageManager.shared
+    
+//    let avPlayerViewController = AVPlayerViewController()
     
     func fetchTrainingResults(for member: Member,
                               completion: (() -> Void)?) {
@@ -48,6 +52,19 @@ class TrainingResultViewController: UIViewController {
             completion?()
         }
     }
+    
+    func playVideo(from downloadUrl: String, completion: (Result<String, Error>) -> Void) {
+        
+//        storageManager.downloadVideo
+        
+        // get data
+        
+        // save data as local file
+        
+        // make avplayer
+        
+        // persent vc
+    }
 }
 
 extension TrainingResultViewController: TrainingResultViewDataSource {
@@ -66,6 +83,8 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
             print("Invalid Training Result Table View Cell")
             return UITableViewCell()
         }
+        
+        cell.delegate = self
         
         let trainingResult = trainingResults[indexPath.row]
         
