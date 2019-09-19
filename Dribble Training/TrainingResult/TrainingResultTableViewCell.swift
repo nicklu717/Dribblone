@@ -8,14 +8,7 @@
 
 import AVKit
 
-protocol TrainingResultTableViewCellDelegate: AnyObject {
-    
-    func playVideo(from downloadUrl: String, completion: (Result<String, Error>) -> Void)
-}
-
 class TrainingResultTableViewCell: UITableViewCell {
-    
-    weak var delegate: TrainingResultTableViewCellDelegate?
     
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var idLabel: UILabel!
@@ -47,21 +40,21 @@ class TrainingResultTableViewCell: UITableViewCell {
                 return
         }
         
-        delegate?.playVideo(from: videoDownloadURL) { result in
-            
-            switch result {
-                
-            case .success:
-                
-                playVideoButton.isHidden = false
-                
-            case .failure(let error):
-                
-                print(error)
-                
-                isVideoAvailable = false
-            }
-        }
+//        delegate?.playVideo(from: videoDownloadURL) { result in
+//            
+//            switch result {
+//                
+//            case .success:
+//                
+//                self.playVideoButton.isHidden = false
+//                
+//            case .failure(let error):
+//                
+//                print(error)
+//                
+//                self.isVideoAvailable = false
+//            }
+//        }
     }
     
     override func prepareForReuse() {

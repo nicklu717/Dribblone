@@ -9,7 +9,7 @@
 import UIKit
 import AVKit
 
-class TrainingResultViewController: UIViewController, TrainingResultTableViewCellDelegate {
+class TrainingResultViewController: UIViewController {
     
     // MARK: - Property Declaration
     
@@ -29,9 +29,9 @@ class TrainingResultViewController: UIViewController, TrainingResultTableViewCel
     
     let firestoreManager = FirestoreManager.shared
     
-//    let storageManager = StorageManager.shared
+    let storageManager = StorageManager.shared
     
-//    let avPlayerViewController = AVPlayerViewController()
+    let avPlayerViewController = AVPlayerViewController()
     
     func fetchTrainingResults(for member: Member,
                               completion: (() -> Void)?) {
@@ -53,18 +53,43 @@ class TrainingResultViewController: UIViewController, TrainingResultTableViewCel
         }
     }
     
-    func playVideo(from downloadUrl: String, completion: (Result<String, Error>) -> Void) {
-        
-//        storageManager.downloadVideo
-        
-        // get data
-        
-        // save data as local file
-        
-        // make avplayer
-        
-        // persent vc
-    }
+//    func playVideo(from downloadUrl: String,
+//                   completion: @escaping (Result<String, Error>) -> Void) {
+//        
+//        storageManager.downloadVideo(from: downloadUrl) { result in
+//            
+//            switch result {
+//                
+//            case .success(let data):
+//                
+//                guard var fileUrl = FileManager.default.urls(for: .documentDirectory,
+//                                                             in: .userDomainMask).first
+//                    else {
+//                        print("URL Not Exist")
+//                        return
+//                }
+//                
+//                fileUrl.appendPathComponent("training_video.mp4")
+//                
+//                do {
+//                    try data.write(to: fileUrl)
+//                } catch {
+//                    print(error)
+//                    return
+//                }
+//                
+//                self.avPlayerViewController.player = AVPlayer(url: fileUrl)
+//                
+//                self.present(self.avPlayerViewController, animated: true, completion: nil)
+//                
+//                completion(.success("Video Playing"))
+//                
+//            case .failure(let error):
+//                
+//                completion(.failure(error))
+//            }
+//        }
+//    }
 }
 
 extension TrainingResultViewController: TrainingResultViewDataSource {
@@ -84,8 +109,6 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
             return UITableViewCell()
         }
         
-        cell.delegate = self
-        
         let trainingResult = trainingResults[indexPath.row]
         
         let date = Date(timeIntervalSince1970: trainingResult.date)
@@ -95,6 +118,8 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         cell.idLabel.text = trainingResult.id
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = "\(trainingResult.points) pts"
+        
+        cell.videoDownloadURL = trainingResult.videoURL
         
         // TODO: Fetch snapshot
         

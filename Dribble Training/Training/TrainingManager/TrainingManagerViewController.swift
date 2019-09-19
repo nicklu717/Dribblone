@@ -165,14 +165,13 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
             return
         }
         
-        imageManager.requestImageData(
-            for: videoPHAsset,
-            options: nil) { (data, _, _, _) in
+        imageManager.requestAVAsset(
+            forVideo: videoPHAsset,
+            options: nil) { (avAsset, _, _) in
                 
-                guard
-                    let data = data
+                guard let avURLAsset = avAsset as? AVURLAsset
                     else {
-                        print("Video Data Fetching Failure")
+                        print("AV Asset Convertion Failure")
                         return
                 }
                 
@@ -180,30 +179,75 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
                 
                 self.storageManager.upload(
                     videoID: videoID,
-                    videoData: data,
+                    avAsset: avURLAsset,
                     completion: { result in
                         
                         switch result {
-                            
+
                         case .success(let videoURL):
-                            
+
                             self.trainingResult.videoURL = String(describing: videoURL)
-                            
-                            let member = self.authManager.currentUser!
-                            
-                            self.firestoreManager.upload(trainingResult: self.trainingResult,
-                                                         for: member)
                             
                             self.presentingViewController?.dismiss(animated: true) {
                                 
                                 self.trainingCompletion?(self.trainingResult)
                             }
-                            
+
+                            guard let member = self.authManager.currentUser
+                                else {
+                                    print("Member Not Exist. Training Result Won't Upload.")
+                                    return
+                            }
+
+                            self.firestoreManager.upload(trainingResult: self.trainingResult,
+                                                         for: member)
+
                         case .failure(let error):
-                            
+
                             print(error)
                         }
                 })
         }
+        
+//        imageManager.requestImageData(
+//            for: videoPHAsset,
+//            options: nil) { (data, _, _, _) in
+//
+//                guard
+//                    let data = data
+//                    else {
+//                        print("Video Data Fetching Failure")
+//                        return
+//                }
+//
+//                let videoID = String(format: "%.0f", self.trainingResult.date)
+//
+//                self.storageManager.upload(
+//                    videoID: videoID,
+//                    videoData: data,
+//                    completion: { result in
+//
+//                        switch result {
+//
+//                        case .success(let videoURL):
+//
+//                            self.trainingResult.videoURL = String(describing: videoURL)
+//
+//                            let member = self.authManager.currentUser!
+//
+//                            self.firestoreManager.upload(trainingResult: self.trainingResult,
+//                                                         for: member)
+//
+//                            self.presentingViewController?.dismiss(animated: true) {
+//
+//                                self.trainingCompletion?(self.trainingResult)
+//                            }
+//
+//                        case .failure(let error):
+//
+//                            print(error)
+//                        }
+//                })
+//        }
     }
 }

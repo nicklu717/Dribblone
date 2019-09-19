@@ -7,6 +7,7 @@
 //
 
 import FirebaseStorage
+import AVFoundation
 
 class StorageManager {
     
@@ -14,8 +15,22 @@ class StorageManager {
     
     private let storageReference = Storage.storage().reference()
     
+    var temporaryLocalStorageURL: URL
+    
+    init() {
+        
+        var url = FileManager.default.urls(for: .documentDirectory,
+                                           in: .userDomainMask).first!
+        
+        url.appendPathComponent("temporary_video")
+        url.appendPathExtension("mp4")
+        print("FILE PATH:", url)
+        
+        temporaryLocalStorageURL = url
+    }
+    
     func upload(videoID: String,
-                videoData: Data,
+                avAsset: AVAsset,
                 completion: @escaping (Result<URL, Error>) -> Void) {
         
         guard
@@ -25,35 +40,65 @@ class StorageManager {
                 return
         }
         
-        let videoReference =
-            storageReference
-                .child(member.id)
-                .child(Folder.trainingVideo)
-                .child("\(videoID).mp4")
-        
-        videoReference.putData(
-            videoData,
-            metadata: nil) { (metadata, error) in
+        let exportSession = AVAssetExportSession(asset: avAsset,
+                                                 presetName: AVAssetExportPreset1920x1080)
+        exportSession?.outputFileType = .mp4
+        exportSession?.outputURL = temporaryLocalStorageURL
+        exportSession?.exportAsynchronously(completionHandler: {
             
-                if let error = error {
-                    completion(.failure(error))
-                    return
-                }
-                
-                videoReference.downloadURL { (url, error) in
+            let videoReference =
+                self.storageReference
+                    .child(member.id)
+                    .child(Folder.trainingVideo)
+                    .child("\(videoID).mp4")
+            
+            let metadata = StorageMetadata(dictionary: ["Content-Type": "video/mp4"])
+            
+            videoReference.putFile(
+                from: self.temporaryLocalStorageURL,
+                metadata: metadata) { (metadata, error) in
                     
                     if let error = error {
                         completion(.failure(error))
+                        return
                     }
                     
-                    if let url = url {
-                        completion(.success(url))
-                    }
-                }
-        }
+                    videoReference.downloadURL(completion: { (url, error) in
+                        
+                        if let error = error {
+                            completion(.failure(error))
+                        }
+                        
+                        if let url = url {
+                            completion(.success(url))
+                        }
+                    })
+            }
+        })
+        
+//        videoReference.putData(
+//            videoData,
+//            metadata: nil) { (_, error) in
+//
+//                if let error = error {
+//                    completion(.failure(error))
+//                    return
+//                }
+//
+//                videoReference.downloadURL { (url, error) in
+//
+//                    if let error = error {
+//                        completion(.failure(error))
+//                    }
+//
+//                    if let url = url {
+//                        completion(.success(url))
+//                    }
+//                }
+//        }
     }
     
-//    func download(videoURL: String, completion: @escaping (Result<Data, Error>) -> Void) {
+//    func downloadVideo(from urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
 //
 //        guard
 //            let member = AuthManager.shared.currentUser
@@ -63,7 +108,7 @@ class StorageManager {
 //        }
 //
 //        let videoReference =
-//            Storage.storage().reference(forURL: videoURL).getData(maxSize: 10*1024*1024) { (data, error) in
+//            Storage.storage().reference(forURL: urlString).getData(maxSize: 10*1024*1024) { (data, error) in
 //
 //                if let error = error {
 //                    completion(.failure(error))
