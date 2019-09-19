@@ -33,7 +33,7 @@ class StorageManager {
         
         videoReference.putData(
             videoData,
-            metadata: nil) { (_, error) in
+            metadata: nil) { (metadata, error) in
             
                 if let error = error {
                     completion(.failure(error))
@@ -52,6 +52,32 @@ class StorageManager {
                 }
         }
     }
+    
+//    func download(videoURL: String, completion: @escaping (Result<Data, Error>) -> Void) {
+//
+//        guard
+//            let member = AuthManager.shared.currentUser
+//            else {
+//                print("Member Not Exist")
+//                return
+//        }
+//
+//        let videoReference =
+//            Storage.storage().reference(forURL: videoURL).getData(maxSize: 10*1024*1024) { (data, error) in
+//
+//                if let error = error {
+//                    completion(.failure(error))
+//                    return
+//                }
+//
+//                if let data = data {
+//                    completion(.success(data))
+//                    return
+//                }
+//        }
+//    }
+    
+    
     
     private struct Folder {
         

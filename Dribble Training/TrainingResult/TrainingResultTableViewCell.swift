@@ -6,10 +6,16 @@
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
-import UIKit
-import AVFoundation
+import AVKit
+
+protocol TrainingResultTableViewCellDelegate: AnyObject {
+    
+    func playVideo(from url: String, completion: (Result<String, Error>) -> Void)
+}
 
 class TrainingResultTableViewCell: UITableViewCell {
+    
+    weak var delegate: TrainingResultTableViewCellDelegate?
     
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var idLabel: UILabel!
@@ -19,24 +25,45 @@ class TrainingResultTableViewCell: UITableViewCell {
     @IBOutlet var videoView: UIView!
     @IBOutlet var playVideoButton: UIButton!
     
-    let avPlayerLayer = AVPlayerLayer()
+    var videoDownloadURL: String?
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
-        
-        avPlayerLayer.frame = videoView.bounds
-        
-        avPlayerLayer.videoGravity = .resizeAspect
-        
-        videoView.layer.addSublayer(avPlayerLayer)
         
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width * 1/2
     }
     
     @IBAction func playVideo() {
         
-        avPlayerLayer.player?.play()
-        
         playVideoButton.isHidden = true
+        
+        guard
+            let videoDownloadURL = videoDownloadURL
+            else {
+                print("Video Download URL Not Exist")
+                return
+        }
+        
+        delegate?.playVideo(from: videoDownloadURL) { result in
+            
+            switch result {
+                
+            case .success:
+                
+                playVideoButton.isHidden = false
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
+//        cell.playVideoButton.setTitle("Video Not Available", for: .normal)
     }
 }

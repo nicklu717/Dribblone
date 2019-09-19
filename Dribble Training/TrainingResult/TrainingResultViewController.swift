@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TrainingResultViewController: UIViewController {
     
@@ -63,7 +64,7 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
                                                      for: indexPath) as? TrainingResultTableViewCell
         else {
             print("Invalid Training Result Table View Cell")
-            return TrainingResultTableViewCell()
+            return UITableViewCell()
         }
         
         let trainingResult = trainingResults[indexPath.row]
@@ -76,37 +77,7 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = "\(trainingResult.points) pts"
         
-        cell.playVideoButton.isEnabled = false
-        cell.playVideoButton.setTitle("Video Not Available", for: .normal)
-        cell.playVideoButton.setImage(nil, for: .normal)
-        
-        cell.avPlayerLayer.player = nil
-        
-//        photoManager.requestPlayerItem(withLocalID: trainingResult.videoLocalID) { playerItem in
-//
-//            let avPlayer = self.photoManager.avPlayer(playerItem: playerItem)
-//
-//            cell.avPlayerLayer.player = avPlayer
-//
-//            DispatchQueue.main.async {
-//
-//                cell.playVideoButton.isEnabled = true
-//                cell.playVideoButton.setTitle(nil, for: .normal)
-//                cell.playVideoButton.setImage(UIImage.asset(.play), for: .normal)
-//            }
-//
-//            let endTime = playerItem.asset.duration
-//
-//            avPlayer.addBoundaryTimeObserver(
-//                forTimes: [NSValue(time: endTime)],
-//                queue: DispatchQueue.main,
-//                using: {
-//
-//                    cell.avPlayerLayer.player?.seek(to: .zero)
-//
-//                    cell.playVideoButton.isHidden = false
-//            })
-//        }
+        // TODO: Fetch snapshot
         
         return cell
     }
