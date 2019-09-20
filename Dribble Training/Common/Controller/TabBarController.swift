@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseStorage
 class TabBarController: UITabBarController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -17,7 +17,10 @@ class TabBarController: UITabBarController {
     private let tabs: [Tab] = [.postWall, .training, .profile]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        delegate = self
         
         for tab in tabs {
             
@@ -89,15 +92,42 @@ class TabBarController: UITabBarController {
             
             tabBarItem.image = UIImage.asset(imageAsset)
             
-            let inset: CGFloat = 3.3
-            tabBarItem.imageInsets = UIEdgeInsets(top: inset,
-                                                  left: inset,
-                                                  bottom: inset,
-                                                  right: inset)
-            
             tabBarItem.title = imageAsset.rawValue
             
             return tabBarItem
+        }
+    }
+}
+
+extension TabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController,
+                          shouldSelect viewController: UIViewController) -> Bool {
+        
+        if viewController.tabBarItem.title == UIImage.Asset.profile.rawValue,
+            AuthManager.shared.currentUser == nil {
+            
+            let storyboard = UIStoryboard.register
+            
+            if let registerPage = storyboard.instantiateInitialViewController() as? RegisterViewController {
+            
+                present(registerPage, animated: true, completion: nil)
+                
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController,
+                          didSelect viewController: UIViewController) {
+        
+        if
+            let navigationController = viewController as? UINavigationController,
+            let profileViewController = navigationController.viewControllers.first as? ProfileViewController {
+            
+            profileViewController.member = AuthManager.shared.currentUser
         }
     }
 }

@@ -11,5 +11,6 @@ target 'Dribble Training' do
   # Pods for Dribble Training
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
 end

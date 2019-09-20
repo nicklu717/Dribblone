@@ -12,49 +12,36 @@ class FirestoreManager {
     
     static let shared = FirestoreManager()
     
-    var trainingResults: [TrainingResult] = []
+    private let firestore = Firestore.firestore()
     
-    let firestore = Firestore.firestore()
-    
-    private struct Collection {
-        
-        static let member = "member"
-        
-        static let trainingResults = "training_results"
-    }
-    
-    func upload(trainingResult: TrainingResult, completion: ((TrainingResult) -> Void)?) {
-        
-        guard let dictionary = getDictionary(from: trainingResult)
-            
-            else {
-                print("Invalid Training Result Dictionary")
-                return
-        }
+    func fetchMemberData(forUID uid: String,
+                         completion: @escaping (Result<Member, Error>) -> Void) {
         
         firestore
             .collection(Collection.member)
-            .document("nicklu717")
-            .collection(Collection.trainingResults)
-            .addDocument(data: dictionary) { (error) in
+            .document(uid)
+            .getDocument { (documentSnapshot, error) in
                 
-                if let error = error {
-                    print(error)
-                    return
+                guard
+                    let data = documentSnapshot?.data(),
+                    let member: Member = self.getObject(from: data)
+                    else {
+                        if let error = error {
+                            completion(.failure(error))
+                        }
+                        return
                 }
                 
-                self.fetchTrainingResult()
+                completion(.success(member))
         }
-        
-        completion?(trainingResult)
     }
     
-    func fetchTrainingResult() {
+    func fetchTrainingResult(for member: Member,
+                             completion: @escaping (Result<[TrainingResult], Error>) -> Void) {
         
         firestore
-            .collection(Collection.member)
-            .document("nicklu717")
             .collection(Collection.trainingResults)
+            .whereField("id", isEqualTo: member.id)
             .order(by: "date", descending: true)
             .getDocuments { (querySnapshot, error) in
                 
@@ -62,36 +49,105 @@ class FirestoreManager {
                     let querySnapshot = querySnapshot
                     else {
                         if let error = error {
-                            print(error)
+                            completion(.failure(error))
                         }
                         return
                 }
                 
-                self.trainingResults = []
+                var trainingResults: [TrainingResult] = []
                 
                 for document in querySnapshot.documents {
                     
-                    guard let trainingResult = self.getTrainingResult(from: document.data())
+                    guard
+                        let trainingResult: TrainingResult = self.getObject(from: document.data())
                         
                         else {
                             print("Invalid Training Result")
-                            return
+                            continue
                     }
                     
-                    self.trainingResults.append(trainingResult)
+                    trainingResults.append(trainingResult)
                 }
+                
+                completion(.success(trainingResults))
         }
     }
     
-    private func getTrainingResult(from dictionary: [String: Any]) -> TrainingResult? {
+//    func checkAvailable(forID id: String, completion: @escaping (Bool) -> Void) {
+//
+//        firestore
+//            .collection(Collection.member)
+//            .whereField("id", isEqualTo: id)
+//            .getDocuments { (querySnapshot, error) in
+//
+//                if let querySnapshot = querySnapshot, querySnapshot.documents.isEmpty {
+//
+//                    completion(false)
+//
+//                } else {
+//
+//                    completion(true)
+//                }
+//        }
+//    }
+    
+    func update(member: Member, completion: (() -> Void)? = nil) {
+        
+        guard
+            let dictionary = getDictionary(from: member)
+            else {
+                print("Member Data Encoding Failure")
+                return
+        }
+        
+        firestore
+            .collection(Collection.member)
+            .document(member.uid)
+            .setData(dictionary) { error in
+            
+                if let error = error {
+                    print(error)
+                }
+                
+                completion?()
+        }
+    }
+    
+    func upload(trainingResult: TrainingResult,
+                for member: Member,
+                completion: (() -> Void)? = nil) {
+        
+        guard
+            let dictionary = getDictionary(from: trainingResult)
+            else {
+                print("Training Result Data Encoding Failure")
+                return
+        }
+        
+        let reference =
+            firestore
+                .collection(Collection.trainingResults)
+                .addDocument(data: dictionary)
+        
+        firestore
+            .collection(Collection.member)
+            .document(member.uid)
+            .updateData(
+                [Collection.trainingResults: FieldValue.arrayUnion([reference.documentID])]
+        )
+        
+        completion?()
+    }
+    
+    private func getObject<T: Decodable>(from dictionary: [String: Any]) -> T? {
         
         do {
             let data = try JSONSerialization.data(withJSONObject: dictionary,
                                                   options: [])
             
-            let trainingResult = try JSONDecoder().decode(TrainingResult.self, from: data)
+            let object = try JSONDecoder().decode(T.self, from: data)
             
-            return trainingResult
+            return object
             
         } catch {
             
@@ -101,18 +157,18 @@ class FirestoreManager {
         }
     }
     
-    private func getDictionary(from trainingResult: TrainingResult) -> [String: Any]? {
-        
-        var dictionary: [String: Any]? = [:]
+    private func getDictionary<T: Encodable>(from object: T) -> [String: Any]? {
         
         do {
             
-            let data = try JSONEncoder().encode(trainingResult)
+            let data = try JSONEncoder().encode(object)
             
-            dictionary = try JSONSerialization.jsonObject(
+            let dictionary = try JSONSerialization.jsonObject(
                 with: data,
                 options: .allowFragments
-                ) as? [String: Any]
+            ) as? [String: Any]
+            
+            return dictionary
             
         } catch {
             
@@ -120,7 +176,12 @@ class FirestoreManager {
             
             return nil
         }
+    }
+    
+    private struct Collection {
         
-        return dictionary
+        static let member = "member"
+        
+        static let trainingResults = "training_results"
     }
 }

@@ -10,16 +10,18 @@
 		5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */; };
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CF2321675900EFB13F /* Notification+Extension.swift */; };
-		5A50A161232D39A80048B875 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A50A160232D39A80048B875 /* Int+Extension.swift */; };
 		5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */; };
 		5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4323252F2600562001 /* TrainingResultView.swift */; };
 		5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4523252F3E00562001 /* TrainingResult.storyboard */; };
 		5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */; };
 		5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */; };
 		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
+		5A6BA14B232E24F700E2FB48 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA14A232E24F700E2FB48 /* AuthManager.swift */; };
+		5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6BA14D232E2C0700E2FB48 /* Register.storyboard */; };
+		5A6BA152232E2D2600E2FB48 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA151232E2D2600E2FB48 /* RegisterViewController.swift */; };
+		5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA153232E2D3200E2FB48 /* RegisterView.swift */; };
 		5A6EF2752328F619005359C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2742328F619005359C8 /* ProfileViewController.swift */; };
 		5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2762328F624005359C8 /* ProfileView.swift */; };
-		5A7808EC232B833C00B35757 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7808EB232B833C00B35757 /* PhotoManager.swift */; };
 		5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */; };
 		5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */; };
 		5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */; };
@@ -31,7 +33,7 @@
 		5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC842327902A00BD23D4 /* Team.storyboard */; };
 		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
-		5ACBCAEF232A19FB007B0E3B /* FirestoreStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */; };
+		5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */; };
 		5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */; };
 		5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */; };
 		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
+		5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */; };
+		5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */; };
 		FEC79306F0EDC8C7F409909D /* Pods_Dribble_Training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,16 +54,18 @@
 		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A0F35CF2321675900EFB13F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
-		5A50A160232D39A80048B875 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
 		5A64DF4323252F2600562001 /* TrainingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultView.swift; sourceTree = "<group>"; };
 		5A64DF4523252F3E00562001 /* TrainingResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingResult.storyboard; sourceTree = "<group>"; };
 		5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultTableViewCell.swift; sourceTree = "<group>"; };
 		5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingResultTableViewCell.xib; sourceTree = "<group>"; };
 		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A6BA14A232E24F700E2FB48 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		5A6BA14D232E2C0700E2FB48 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		5A6BA151232E2D2600E2FB48 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5A6BA153232E2D3200E2FB48 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5A6EF2742328F619005359C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5A6EF2762328F624005359C8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		5A7808EB232B833C00B35757 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSetting.swift; sourceTree = "<group>"; };
 		5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +77,7 @@
 		5A88EC842327902A00BD23D4 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
-		5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreStruct.swift; sourceTree = "<group>"; };
+		5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +91,8 @@
 		5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyView.swift; sourceTree = "<group>"; };
 		5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingLobby.storyboard; sourceTree = "<group>"; };
 		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreStructure.swift; sourceTree = "<group>"; };
+		5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		66A171F80630C1F8354FD801 /* Pods-Dribble Training.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dribble Training.debug.xcconfig"; path = "Target Support Files/Pods-Dribble Training/Pods-Dribble Training.debug.xcconfig"; sourceTree = "<group>"; };
 		86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dribble_Training.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D333BB7EFBCBE7134544BB3 /* Pods-Dribble Training.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dribble Training.release.xcconfig"; path = "Target Support Files/Pods-Dribble Training/Pods-Dribble Training.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +145,16 @@
 			path = TrainingAssistant;
 			sourceTree = "<group>";
 		};
+		5A6BA14C232E2B8E00E2FB48 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				5A6BA151232E2D2600E2FB48 /* RegisterViewController.swift */,
+				5A6BA14D232E2C0700E2FB48 /* Register.storyboard */,
+				5A6BA153232E2D3200E2FB48 /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		5A7E901C231FA21500EE0BEF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +162,7 @@
 				5A0F35CF2321675900EFB13F /* Notification+Extension.swift */,
 				5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */,
 				5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */,
-				5A50A160232D39A80048B875 /* Int+Extension.swift */,
+				5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -186,8 +204,10 @@
 		5ACBCAF0232A2272007B0E3B /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				5ACBCAEE232A19FB007B0E3B /* FirestoreStruct.swift */,
+				5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */,
 				5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */,
+				5A6BA14A232E24F700E2FB48 /* AuthManager.swift */,
+				5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -216,6 +236,7 @@
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
 				5AD862CB231920D40036EFFF /* Common */,
+				5A6BA14C232E2B8E00E2FB48 /* Register */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Video */,
 				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
@@ -302,7 +323,6 @@
 		5AF65FA52328C2ED008DB713 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5A7808EB232B833C00B35757 /* PhotoManager.swift */,
 				5ACBCAF0232A2272007B0E3B /* Firebase */,
 			);
 			path = Model;
@@ -381,6 +401,7 @@
 				5A88EC79232788D200BD23D4 /* Main.storyboard in Resources */,
 				5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */,
 				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
+				5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
@@ -444,27 +465,30 @@
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */,
 				5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */,
+				5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */,
 				5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */,
 				5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */,
+				5A6BA14B232E24F700E2FB48 /* AuthManager.swift in Sources */,
+				5A6BA152232E2D2600E2FB48 /* RegisterViewController.swift in Sources */,
 				5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */,
 				5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
 				5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */,
-				5A50A161232D39A80048B875 /* Int+Extension.swift in Sources */,
 				5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */,
 				5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */,
 				5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */,
+				5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */,
 				5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */,
 				5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */,
 				5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */,
+				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 				5A6EF2752328F619005359C8 /* ProfileViewController.swift in Sources */,
 				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,
 				5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */,
-				5A7808EC232B833C00B35757 /* PhotoManager.swift in Sources */,
+				5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
-				5ACBCAEF232A19FB007B0E3B /* FirestoreStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,19 +8,7 @@
 
 import UIKit
 
-protocol ProfileViewDelegate: UIViewController {
-    
-    var member: Member? { get }
-}
-
 class ProfileView: UIView {
-    
-    weak var delegate: ProfileViewDelegate? {
-        didSet {
-            setupProfile()
-            setupTrainingResultPage()
-        }
-    }
     
     @IBOutlet var pictureImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
@@ -31,22 +19,15 @@ class ProfileView: UIView {
     
     var trainingResultPage: TrainingResultViewController!
     
-    private func setupProfile() {
+    func setupProfile(for member: Member) {
         
-        guard
-            let delegate = delegate
-            else {
-                print("Profile View Delegate Not Exist")
-                return
-        }
-        
-//        pictureImageView.image = delegate.member?.
-        nameLabel.text = delegate.member?.id
-        followingsLabel.text = delegate.member?.followings.count.string()
-        followersLabel.text = delegate.member?.followers.count.string()
+//        pictureImageView.image = member.picture
+        nameLabel.text = member.displayName
+        followingsLabel.text = String(member.followings.count)
+        followersLabel.text = String(member.followers.count)
     }
     
-    private func setupTrainingResultPage() {
+    func setupTrainingResultPage(for member: Member) {
         
         let storyboard = UIStoryboard.trainingResult
         
@@ -60,18 +41,18 @@ class ProfileView: UIView {
         
         trainingResultPage = trainingResultViewController
         
-        trainingResultPageView.addSubview(trainingResultPage.view)
-        
         trainingResultPage.loadViewIfNeeded()
         
-        guard
-            let delegate = delegate,
-            let member = delegate.member
-            else {
-                print("Member Info Not Exist")
-                return
+        trainingResultPage.fetchTrainingResults(for: member) {
+            
+            self.showTrainingResults()
         }
+    }
+    
+    private func showTrainingResults() {
         
-        trainingResultPage.trainingResults = member.trainingResults
+        trainingResultPageView.addSubview(trainingResultPage.view)
+        
+        trainingResultPage.view.frame = trainingResultPageView.bounds
     }
 }

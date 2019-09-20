@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class TrainingResultViewController: UIViewController {
     
@@ -24,7 +25,33 @@ class TrainingResultViewController: UIViewController {
         }
     }
     
-    let photoManager = PhotoManager.shared
+//    let photoManager = PhotoManager.shared
+    
+    let firestoreManager = FirestoreManager.shared
+    
+    let storageManager = StorageManager.shared
+    
+    let avPlayerViewController = AVPlayerViewController()
+    
+    func fetchTrainingResults(for member: Member,
+                              completion: (() -> Void)?) {
+        
+        firestoreManager.fetchTrainingResult(for: member) { result in
+            
+            switch result {
+                
+            case .success(let trainingResults):
+                
+                self.trainingResults = trainingResults
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+            completion?()
+        }
+    }
 }
 
 extension TrainingResultViewController: TrainingResultViewDataSource {
@@ -41,41 +68,26 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
                                                      for: indexPath) as? TrainingResultTableViewCell
         else {
             print("Invalid Training Result Table View Cell")
-            return TrainingResultTableViewCell()
+            return UITableViewCell()
         }
         
-        let result = trainingResults[indexPath.row]
+        let trainingResult = trainingResults[indexPath.row]
         
-        let date = Date(timeIntervalSince1970: result.date)
+        let date = Date(timeIntervalSince1970: trainingResult.date)
         
-        let dateFormatter = DateFormatter()
+        cell.dateLabel.text = date.string(format: .resultDisplay)
         
-        dateFormatter.dateFormat = "yy-MMM-dd HH:mm"
+        cell.idLabel.text = trainingResult.id
+        cell.modeLabel.text = trainingResult.mode
+        cell.pointsLabel.text = "\(trainingResult.points) pts"
         
-        cell.dateLabel.text = "\(dateFormatter.string(from: date))"
-        
-        cell.modeLabel.text = result.mode
-        
-        cell.pointsLabel.text = "\(result.points) pts"
-        
-        cell.avPlayerLayer.player = nil
-        
-        cell.playVideoButton.isEnabled = false
-        cell.playVideoButton.setTitle("Video Not Available", for: .normal)
-        cell.playVideoButton.setImage(nil, for: .normal)
-        
-        photoManager.requestPlayerItem(withLocalID: result.videoLocalID) { playerItem in
+        if let urlString = trainingResult.videoURL, let url = URL(string: urlString) {
             
-            let avPlayer = self.photoManager.avPlayer(playerItem: playerItem)
+            let playerItem = AVPlayerItem(url: url)
+            
+            let avPlayer = AVPlayer(playerItem: playerItem)
             
             cell.avPlayerLayer.player = avPlayer
-            
-            DispatchQueue.main.async {
-                
-                cell.playVideoButton.isEnabled = true
-                cell.playVideoButton.setTitle(nil, for: .normal)
-                cell.playVideoButton.setImage(UIImage.asset(.play), for: .normal)
-            }
             
             let endTime = playerItem.asset.duration
             
@@ -83,9 +95,9 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
                 forTimes: [NSValue(time: endTime)],
                 queue: DispatchQueue.main,
                 using: {
-                    
+
                     cell.avPlayerLayer.player?.seek(to: .zero)
-                    
+
                     cell.playVideoButton.isHidden = false
             })
         }

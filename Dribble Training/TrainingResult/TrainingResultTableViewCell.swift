@@ -6,8 +6,7 @@
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
-import UIKit
-import AVFoundation
+import AVKit
 
 class TrainingResultTableViewCell: UITableViewCell {
     
@@ -19,24 +18,59 @@ class TrainingResultTableViewCell: UITableViewCell {
     @IBOutlet var videoView: UIView!
     @IBOutlet var playVideoButton: UIButton!
     
+    var isVideoAvailable = true
+    
     let avPlayerLayer = AVPlayerLayer()
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width * 1/2
         
         avPlayerLayer.frame = videoView.bounds
         
-        avPlayerLayer.videoGravity = .resizeAspect
-        
         videoView.layer.addSublayer(avPlayerLayer)
-        
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width * 1/2
     }
     
     @IBAction func playVideo() {
         
+        playVideoButton.isHidden = true
+        
         avPlayerLayer.player?.play()
         
-        playVideoButton.isHidden = true
+//        delegate?.playVideo(from: videoDownloadURL) { result in
+//            
+//            switch result {
+//                
+//            case .success:
+//                
+//                self.playVideoButton.isHidden = false
+//                
+//            case .failure(let error):
+//                
+//                print(error)
+//                
+//                self.isVideoAvailable = false
+//            }
+//        }
+    }
+    
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
+        if isVideoAvailable {
+            
+            playVideoButton.isEnabled = true
+            playVideoButton.setTitle(nil, for: .normal)
+            playVideoButton.setImage(UIImage.asset(.play), for: .normal)
+            
+        } else {
+            
+            playVideoButton.isEnabled = false
+            playVideoButton.setTitle("Video Not Available", for: .normal)
+            playVideoButton.setImage(nil, for: .normal)
+        }
     }
 }

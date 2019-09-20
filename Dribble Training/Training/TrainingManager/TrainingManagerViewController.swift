@@ -36,6 +36,12 @@ class TrainingManagerViewController: UIViewController {
     
     let imageManager = PHImageManager.default()
     
+    let storageManager = StorageManager.shared
+    
+    let firestoreManager = FirestoreManager.shared
+    
+    let authManager = AuthManager.shared
+    
     var trainingResult: TrainingResult!
     
     var trainingCompletion: ((TrainingResult) -> ())?
@@ -102,11 +108,22 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
     
     func endTraining(points: Int, trainingMode mode: String) {
         
+        guard
+            let member = AuthManager.shared.currentUser
+            else {
+                print("Member Not Exist")
+                return
+        }
+        
         let date = Date().timeIntervalSince1970
         
-        trainingResult = TrainingResult(date: date, mode: mode, points: points, videoLocalID: nil)
+        trainingResult = TrainingResult(id: member.id,
+                                        date: date,
+                                        mode: mode,
+                                        points: points,
+                                        videoURL: nil)
         
-        screenRecorder.stopRecording { [unowned self] (previewViewController, error) in
+        screenRecorder.stopRecording { (previewViewController, error) in
             
             print("Stop Recording")
             
@@ -142,20 +159,107 @@ extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
         let fetchResult = PHAsset.fetchAssets(with: .video, options: fetchOptions)
         
         guard
-            let video = fetchResult.firstObject
+            let videoPHAsset = fetchResult.firstObject,
+            let videoResource = PHAssetResource.assetResources(for: videoPHAsset).first
         else {
             print("Video Fetching Failure")
             return
         }
         
-        trainingResult.videoLocalID = video.localIdentifier
+        var temporaryURL = FileManager.default.temporaryDirectory
         
-        previewController.dismiss(animated: true)
+        temporaryURL.appendPathComponent("temp")
+        temporaryURL.appendPathExtension("mp4")
         
-        dismiss(animated: true) {
-            
-            FirestoreManager.shared.upload(trainingResult: self.trainingResult,
-                                         completion: self.trainingCompletion)
+        PHAssetResourceManager.default().writeData(
+            for: videoResource,
+            toFile: temporaryURL,
+            options: nil) { error in
+                
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                self.storageManager.uploadVideo(
+                    fileName: videoResource.originalFilename,
+                    url: temporaryURL,
+                    completion: { result in
+                        
+                        do {
+                            try FileManager.default.removeItem(at: temporaryURL)
+                        } catch {
+                            print(error)
+                        }
+                        
+                        switch result {
+                            
+                        case .success(let videoURL):
+                            
+                            self.trainingResult.videoURL = String(describing: videoURL)
+                            
+                            self.presentingViewController?.dismiss(animated: true) {
+                                
+                                self.trainingCompletion?(self.trainingResult)
+                            }
+                            
+                            guard let member = self.authManager.currentUser
+                                else {
+                                    print("Member Not Exist. Training Result Won't Upload.")
+                                    return
+                            }
+                            
+                            self.firestoreManager.upload(trainingResult: self.trainingResult,
+                                                         for: member)
+                            
+                        case .failure(let error):
+                            
+                            print(error)
+                        }
+                })
         }
+        
+//        PHAssetResourceManager.default().requestData(
+//            for: videoResource,
+//            options: nil,
+//            dataReceivedHandler: { data in
+//
+//                self.storageManager.uploadVideo(
+//                    fileName: videoResource.originalFilename,
+//                    data: data,
+//                    completion: { result in
+//
+//                        switch result {
+//
+//                        case .success(let videoURL):
+//
+//                            self.trainingResult.videoURL = String(describing: videoURL)
+//
+//                            self.presentingViewController?.dismiss(animated: true) {
+//
+//                                self.trainingCompletion?(self.trainingResult)
+//                            }
+//
+//                            guard let member = self.authManager.currentUser
+//                                else {
+//                                    print("Member Not Exist. Training Result Won't Upload.")
+//                                    return
+//                            }
+//
+//                            self.firestoreManager.upload(trainingResult: self.trainingResult,
+//                                                         for: member)
+//
+//                        case .failure(let error):
+//
+//                            print(error)
+//                        }
+//                })
+//        }, completionHandler: { error in
+//
+//                if let error = error {
+//                    print(error)
+//                    return
+//                }
+//        })
     }
 }

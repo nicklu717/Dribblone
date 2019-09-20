@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, ProfileViewDelegate {
+class ProfileViewController: UIViewController {
     
     @IBOutlet var profileView: ProfileView!
     
@@ -17,14 +17,20 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        member = Member(id: "wein7", email: "nick@appworks.com", followers: ["a", "b"], followings: ["c", "d", "e"], trainingResults: [TrainingResult(date: 1234567899, mode: "Test", points: 99, videoLocalID: "Null")], picture: "1234")
+        guard
+            let member = member
+            else {
+                print("Member Not Exist")
+                return
+        }
         
-        profileView.delegate = self
+        navigationItem.title = member.id
+        
+        profileView.setupProfile(for: member)
+        
+        profileView.setupTrainingResultPage(for: member)
     }
-    
-    // MARK: - Private Method
-    
-    
 }
