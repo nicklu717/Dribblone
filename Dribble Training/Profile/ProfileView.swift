@@ -23,8 +23,8 @@ class ProfileView: UIView {
         
 //        pictureImageView.image = member.picture
         nameLabel.text = member.displayName
-        followingsLabel.text = member.followings.count.string()
-        followersLabel.text = member.followers.count.string()
+        followingsLabel.text = String(member.followings.count)
+        followersLabel.text = String(member.followers.count)
     }
     
     func setupTrainingResultPage(for member: Member) {

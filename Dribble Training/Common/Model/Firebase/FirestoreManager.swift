@@ -108,9 +108,9 @@ class FirestoreManager {
                 if let error = error {
                     print(error)
                 }
+                
+                completion?()
         }
-        
-        completion?()
     }
     
     func upload(trainingResult: TrainingResult,

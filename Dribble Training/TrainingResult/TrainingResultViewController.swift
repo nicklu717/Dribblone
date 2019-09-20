@@ -25,7 +25,7 @@ class TrainingResultViewController: UIViewController {
         }
     }
     
-    let photoManager = PhotoManager.shared
+//    let photoManager = PhotoManager.shared
     
     let firestoreManager = FirestoreManager.shared
     

@@ -62,7 +62,8 @@ class AuthManager {
                 password: String,
                 completion: @escaping (Result<String, SignUpError>) -> Void) {
             
-        self.auth.createUser(withEmail: email, password: password) { (authDataResult, error) in
+        self.auth.createUser(withEmail: email,
+                             password: password) { (authDataResult, error) in
             
             guard
                 let uid = authDataResult?.user.uid

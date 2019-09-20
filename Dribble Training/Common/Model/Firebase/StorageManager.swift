@@ -15,19 +15,6 @@ class StorageManager {
     
     private let storageReference = Storage.storage().reference()
     
-    let temporaryLocalStorageURL: URL
-    
-    init() {
-        
-        var url = FileManager.default.urls(for: .documentDirectory,
-                                           in: .userDomainMask).first!
-        
-        url.appendPathComponent("temporary_video")
-        url.appendPathExtension("mp4")
-        
-        temporaryLocalStorageURL = url
-    }
-    
     func uploadVideo(fileName: String,
                      url: URL,
                      completion: @escaping (Result<URL, Error>) -> Void) {
