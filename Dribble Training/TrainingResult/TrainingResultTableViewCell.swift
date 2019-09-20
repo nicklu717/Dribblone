@@ -18,27 +18,26 @@ class TrainingResultTableViewCell: UITableViewCell {
     @IBOutlet var videoView: UIView!
     @IBOutlet var playVideoButton: UIButton!
     
-    var videoDownloadURL: String?
-    
     var isVideoAvailable = true
+    
+    let avPlayerLayer = AVPlayerLayer()
     
     override func awakeFromNib() {
         
         super.awakeFromNib()
         
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width * 1/2
+        
+        avPlayerLayer.frame = videoView.bounds
+        
+        videoView.layer.addSublayer(avPlayerLayer)
     }
     
     @IBAction func playVideo() {
         
         playVideoButton.isHidden = true
         
-        guard
-            let videoDownloadURL = videoDownloadURL
-            else {
-                print("Video Download URL Not Exist")
-                return
-        }
+        avPlayerLayer.player?.play()
         
 //        delegate?.playVideo(from: videoDownloadURL) { result in
 //            
@@ -61,9 +60,17 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         super.prepareForReuse()
         
-        if !isVideoAvailable {
+        if isVideoAvailable {
             
+            playVideoButton.isEnabled = true
+            playVideoButton.setTitle(nil, for: .normal)
+            playVideoButton.setImage(UIImage.asset(.play), for: .normal)
+            
+        } else {
+            
+            playVideoButton.isEnabled = false
             playVideoButton.setTitle("Video Not Available", for: .normal)
+            playVideoButton.setImage(nil, for: .normal)
         }
     }
 }

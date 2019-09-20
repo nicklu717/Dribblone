@@ -52,44 +52,6 @@ class TrainingResultViewController: UIViewController {
             completion?()
         }
     }
-    
-//    func playVideo(from downloadUrl: String,
-//                   completion: @escaping (Result<String, Error>) -> Void) {
-//        
-//        storageManager.downloadVideo(from: downloadUrl) { result in
-//            
-//            switch result {
-//                
-//            case .success(let data):
-//                
-//                guard var fileUrl = FileManager.default.urls(for: .documentDirectory,
-//                                                             in: .userDomainMask).first
-//                    else {
-//                        print("URL Not Exist")
-//                        return
-//                }
-//                
-//                fileUrl.appendPathComponent("training_video.mp4")
-//                
-//                do {
-//                    try data.write(to: fileUrl)
-//                } catch {
-//                    print(error)
-//                    return
-//                }
-//                
-//                self.avPlayerViewController.player = AVPlayer(url: fileUrl)
-//                
-//                self.present(self.avPlayerViewController, animated: true, completion: nil)
-//                
-//                completion(.success("Video Playing"))
-//                
-//            case .failure(let error):
-//                
-//                completion(.failure(error))
-//            }
-//        }
-//    }
 }
 
 extension TrainingResultViewController: TrainingResultViewDataSource {
@@ -119,9 +81,26 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = "\(trainingResult.points) pts"
         
-        cell.videoDownloadURL = trainingResult.videoURL
-        
-        // TODO: Fetch snapshot
+        if let urlString = trainingResult.videoURL, let url = URL(string: urlString) {
+            
+            let playerItem = AVPlayerItem(url: url)
+            
+            let avPlayer = AVPlayer(playerItem: playerItem)
+            
+            cell.avPlayerLayer.player = avPlayer
+            
+            let endTime = playerItem.asset.duration
+            
+            avPlayer.addBoundaryTimeObserver(
+                forTimes: [NSValue(time: endTime)],
+                queue: DispatchQueue.main,
+                using: {
+
+                    cell.avPlayerLayer.player?.seek(to: .zero)
+
+                    cell.playVideoButton.isHidden = false
+            })
+        }
         
         return cell
     }
