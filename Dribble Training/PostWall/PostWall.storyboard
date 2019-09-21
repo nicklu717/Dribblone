@@ -10,20 +10,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Post Wall View Controller-->
         <scene sceneID="6C5-mv-Dnt">
             <objects>
-                <viewController id="Ee1-By-Aaz" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Tae-u3-2Hr">
+                <viewController id="Ee1-By-Aaz" customClass="PostWallViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tae-u3-2Hr" customClass="PostWallView" customModule="Dribble_Training" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-2d-cAu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XBG-2d-cAu" firstAttribute="top" secondItem="Tae-u3-2Hr" secondAttribute="top" id="A5x-Lu-Ist"/>
+                            <constraint firstItem="XBG-2d-cAu" firstAttribute="trailing" secondItem="Tae-u3-2Hr" secondAttribute="trailing" id="E9o-O4-Ky0"/>
+                            <constraint firstAttribute="bottom" secondItem="XBG-2d-cAu" secondAttribute="bottom" id="Lwe-Eu-Ktg"/>
+                            <constraint firstItem="XBG-2d-cAu" firstAttribute="leading" secondItem="Tae-u3-2Hr" secondAttribute="leading" id="UcI-x5-hHg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="N0U-2Y-PEU"/>
+                        <connections>
+                            <outlet property="trainingResultPageView" destination="XBG-2d-cAu" id="5Lk-O3-a1T"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="postWallView" destination="Tae-u3-2Hr" id="tho-O9-32Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plt-uA-ttK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="-228"/>
+            <point key="canvasLocation" x="221.73913043478262" y="-228.34821428571428"/>
         </scene>
     </scenes>
 </document>
