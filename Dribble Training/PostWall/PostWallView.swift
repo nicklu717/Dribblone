@@ -14,5 +14,10 @@ class PostWallView: UIView {
     
     var trainingResultPage: TrainingResultViewController!
     
-    func setupTrainingResultPage() {}
+    func showTrainingResults() {
+        
+        trainingResultPageView.addSubview(trainingResultPage.view)
+        
+        trainingResultPage.view.frame = trainingResultPageView.bounds
+    }
 }
