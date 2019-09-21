@@ -22,17 +22,20 @@ class FirestoreManager {
             .document(uid)
             .getDocument { (documentSnapshot, error) in
                 
-                guard
-                    let data = documentSnapshot?.data(),
-                    let member: Member = self.getObject(from: data)
-                    else {
-                        if let error = error {
-                            completion(.failure(error))
-                        }
-                        return
+                if let error = error {
+                    completion(.failure(error))
                 }
                 
-                completion(.success(member))
+                if let data = documentSnapshot?.data() {
+                    
+                    guard let member: Member = self.getObject(from: data)
+                        else {
+                            print("Member Data Converting Failure")
+                            return
+                    }
+                    
+                    completion(.success(member))
+                }
         }
     }
     

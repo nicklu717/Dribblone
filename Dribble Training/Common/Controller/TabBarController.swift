@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseStorage
+
 class TabBarController: UITabBarController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -16,19 +16,119 @@ class TabBarController: UITabBarController {
     
     private let tabs: [Tab] = [.postWall, .training, .profile]
     
-    override func viewDidLoad() {
+    private var registerPage: RegisterViewController!
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-        super.viewDidLoad()
+        super.viewDidAppear(animated)
+        
+        if KeychainManager.shared.token == nil {
+            
+            setupRegisterPage()
+            
+            present(registerPage, animated: false, completion: nil)
+            
+        } else {
+            
+            setup()
+        }
+    }
+    
+    private func setupRegisterPage() {
+        
+        let storyboard = UIStoryboard.register
+        
+        if let registerPage =
+            storyboard.instantiateInitialViewController() as? RegisterViewController {
+            
+            registerPage.loadViewIfNeeded()
+            
+            registerPage.completion = { [weak self] in
+                
+                self?.dismiss(animated: true, completion: self?.setup)
+            }
+            
+            self.registerPage = registerPage
+        }
+    }
+    
+    private func setup() {
+        
+        logIn(completion: { result in
+            
+            switch result {
+                
+            case .success(let uid):
+                
+                self.fetchUserData(
+                    for: uid,
+                    completion: { result in
+                        
+                        switch result {
+                            
+                        case .success:
+                            
+                            self.setupTabBar()
+                            
+                        case .failure(let error):
+                            
+                            print(error)
+                        }
+                })
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        })
+    }
+    
+    private func logIn(completion: @escaping (Result<UID, Error>) -> Void) {
+        
+        AuthManager.shared.logIn { result in
+            
+            switch result {
+                
+            case .success(let uid):
+                
+                completion(.success(uid))
+                
+            case .failure(let error):
+                
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func fetchUserData(for uid: UID,
+                               completion: @escaping (Result<String, Error>) -> Void) {
+        
+        FirestoreManager.shared.fetchMemberData(forUID: uid) { result in
+            
+            switch result {
+                
+            case .success(let member):
+                
+                AuthManager.shared.currentUser = member
+                completion(.success("Member Data Fetching Succeeded"))
+                
+            case .failure(let error):
+                
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func setupTabBar() {
         
         delegate = self
         
         for tab in tabs {
             
-            guard
-                let viewController = tab.controller()
-            else {
-                print("Initial View Controller Not Exist")
-                return
+            guard let viewController = tab.controller()
+                else {
+                    print("Initial View Controller Not Exist")
+                    return
             }
             
             addChild(viewController)
@@ -100,25 +200,6 @@ class TabBarController: UITabBarController {
 }
 
 extension TabBarController: UITabBarControllerDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController,
-                          shouldSelect viewController: UIViewController) -> Bool {
-        
-        if viewController.tabBarItem.title == UIImage.Asset.profile.rawValue,
-            AuthManager.shared.currentUser == nil {
-            
-            let storyboard = UIStoryboard.register
-            
-            if let registerPage = storyboard.instantiateInitialViewController() as? RegisterViewController {
-            
-                present(registerPage, animated: true, completion: nil)
-                
-                return false
-            }
-        }
-        
-        return true
-    }
     
     func tabBarController(_ tabBarController: UITabBarController,
                           didSelect viewController: UIViewController) {

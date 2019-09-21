@@ -8,96 +8,62 @@
 
 import FirebaseAuth
 
+typealias UID = String
+typealias Token = String
+
 class AuthManager {
     
     static let shared = AuthManager()
     
     private let auth = Auth.auth()
     
-    private let firestoreManager = FirestoreManager.shared
-    
-    var currentUser: Member?
-    
-    func logIn(withEmail email: String,
-               password: String,
-               completion: @escaping (Result<String, LogInError>) -> Void) {
-        
-        auth.signIn(withEmail: email, password: password) {
-            
-            (authDataResult, error) in
-            
-            guard
-                let uid = authDataResult?.user.uid
-                else {
-                    if let error = error {
-                        print(error)
-                    }
-                    completion(.failure(.invalidEmailOrPassword))
-                    return
-            }
-            
-            self.firestoreManager.fetchMemberData(
-                forUID: uid,
-                completion: { result in
-                
-                    switch result {
-                        
-                    case .success(let member):
-                        
-                        self.currentUser = member
-                        
-                        completion(.success("Log In Succeeded"))
-                        
-                    case .failure(let error):
-                        
-                        print(error)
-                        
-                        completion(.failure(.memberDataFetchingError))
-                    }
-            })
-        }
-    }
+    var currentUser: Member!
     
     func signUp(withEmail email: String,
                 password: String,
-                completion: @escaping (Result<String, SignUpError>) -> Void) {
-            
-        self.auth.createUser(withEmail: email,
-                             password: password) { (authDataResult, error) in
-            
-            guard
-                let uid = authDataResult?.user.uid
-                else {
-                    if let error = error {
-                        print(error)
-                    }
-                    completion(.failure(.accountCreatingFailure))
-                    return
-            }
-            
-            let member = Member(uid: uid,
-                                id: "default_id",
-                                displayName: "",
-                                followers: [],
-                                followings: [],
-                                trainingResults: [],
-                                picture: "")
-            
-            self.firestoreManager.update(member: member)
-            
-            completion(.success("Sign Up Secceeded"))
+                completion: @escaping (Result<Token, Error>) -> Void) {
+        
+        auth.createUser(
+            withEmail: email,
+            password: password) { (authDataResult, error) in
+                
+                if let error = error {
+                    completion(.failure(error))
+                }
+                
+                if let authDataResult = authDataResult {
+                    
+                    authDataResult.user.getIDToken(completion: { (token, error) in
+                        
+                        if let error = error {
+                            completion(.failure(error))
+                        }
+                        
+                        if let token = token {
+                            completion(.success(token))
+                        }
+                    })
+                }
         }
     }
     
-    enum LogInError: String, Error {
+    func logIn(completion: @escaping (Result<UID, Error>) -> Void) {
         
-        case invalidEmailOrPassword = "Invalid Email or Password"
+        guard let token = KeychainManager.shared.token
+            else {
+                print("User Token Not Exist")
+                return
+        }
         
-        case memberDataFetchingError = "Member Data Fetching Error"
-    }
-    
-    enum SignUpError: String, Error {
-        
-        case accountCreatingFailure = "Account Creating Failure"
+        auth.signIn(withCustomToken: token) { (authDataResult, error) in
+            
+            if let error = error {
+                completion(.failure(error))
+            }
+            
+            if let authDataResult = authDataResult {
+                completion(.success(authDataResult.user.uid))
+            }
+        }
     }
 }

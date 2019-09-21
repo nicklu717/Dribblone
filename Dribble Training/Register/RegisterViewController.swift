@@ -16,51 +16,27 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         }
     }
     
-    let authManager = AuthManager.shared
-    
-    func logIn(withEmail email: String, password: String) {
-        
-        authManager.logIn(withEmail: email, password: password) { result in
-            
-            switch result {
-                
-            case .success(let message):
-                
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                }
-                
-                // TODO: Show Success Alert
-                
-            case .failure(let error):
-                
-                DispatchQueue.main.async {
-                    self.registerView.showErrorMessage(error.rawValue)
-                }
-            }
-        }
-    }
+    var completion: (() -> Void)?
     
     func signUp(withEmail email: String, password: String) {
         
-        authManager.signUp(withEmail: email, password: password) { result in
+        AuthManager.shared.signUp(
+            withEmail: email,
+            password: password) { result in
                 
-            switch result {
-                
-            case .success(let message):
-                
-                DispatchQueue.main.async {
-                    self.registerView.switchStatus()
+                switch result {
+                    
+                case .success(let token):
+                    
+                    KeychainManager.shared.token = token
+                    
+                case .failure(let error):
+                    
+                    self.registerView.showErrorMessage("Sign Up Failure!")
+                    print(error)
                 }
                 
-                // TODO: Show Success Alert
-                
-            case .failure(let error):
-                
-                DispatchQueue.main.async {
-                    self.registerView.showErrorMessage(error.rawValue)
-                }
-            }
+                self.completion?()
         }
     }
 }

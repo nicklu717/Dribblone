@@ -12,9 +12,9 @@ class KeychainManager {
     
     static let shared = KeychainManager()
     
-    private let userToken = "UserToken"
+    private let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
     
-    let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+    private let userToken = "UserToken"
     
     var token: String? {
         
