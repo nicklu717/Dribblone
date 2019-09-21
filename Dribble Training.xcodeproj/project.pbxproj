@@ -10,6 +10,9 @@
 		5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */; };
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CF2321675900EFB13F /* Notification+Extension.swift */; };
+		5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF6FF2336631F00E648AC /* KeychainManager.swift */; };
+		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
+		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */; };
 		5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4323252F2600562001 /* TrainingResultView.swift */; };
 		5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4523252F3E00562001 /* TrainingResult.storyboard */; };
@@ -54,6 +57,9 @@
 		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A0F35CF2321675900EFB13F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		5A3DF6FF2336631F00E648AC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
+		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
 		5A64DF4323252F2600562001 /* TrainingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultView.swift; sourceTree = "<group>"; };
 		5A64DF4523252F3E00562001 /* TrainingResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingResult.storyboard; sourceTree = "<group>"; };
@@ -170,7 +176,9 @@
 		5A88EC7A23278E5F00BD23D4 /* PostWall */ = {
 			isa = PBXGroup;
 			children = (
+				5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */,
 				5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */,
+				5A5AB15623362C5600A3BD04 /* PostWallView.swift */,
 			);
 			path = PostWall;
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 		5AF65FA52328C2ED008DB713 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5A3DF6FF2336631F00E648AC /* KeychainManager.swift */,
 				5ACBCAF0232A2272007B0E3B /* Firebase */,
 			);
 			path = Model;
@@ -481,8 +490,11 @@
 				5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */,
 				5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */,
 				5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */,
+				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
+				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
+				5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
 				5A6EF2752328F619005359C8 /* ProfileViewController.swift in Sources */,
 				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,

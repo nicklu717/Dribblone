@@ -33,7 +33,7 @@ class TrainingResultViewController: UIViewController {
     
     let avPlayerViewController = AVPlayerViewController()
     
-    func fetchTrainingResults(for member: Member,
+    func fetchTrainingResults(for member: Member?,
                               completion: (() -> Void)?) {
         
         firestoreManager.fetchTrainingResult(for: member) { result in
