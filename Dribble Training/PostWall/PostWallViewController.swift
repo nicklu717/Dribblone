@@ -12,6 +12,8 @@ class PostWallViewController: UIViewController {
     
     @IBOutlet var postWallView: PostWallView!
     
+    var trainingResultPage: TrainingResultViewController!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -31,13 +33,20 @@ class PostWallViewController: UIViewController {
                 return
         }
         
-        postWallView.trainingResultPage = trainingResultViewController
+        trainingResultPage = trainingResultViewController
         
-        postWallView.trainingResultPage.loadViewIfNeeded()
+        trainingResultPage.loadViewIfNeeded()
         
-        postWallView.trainingResultPage.fetchTrainingResults(for: nil) {
+        trainingResultPage.fetchTrainingResults(for: nil) {
             
-            self.postWallView.showTrainingResults()
+            self.showTrainingResults()
         }
+    }
+    
+    func showTrainingResults() {
+        
+        view.addSubview(trainingResultPage.view)
+        
+        trainingResultPage.view.frame = view.bounds
     }
 }

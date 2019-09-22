@@ -25,18 +25,10 @@ class TrainingResultViewController: UIViewController {
         }
     }
     
-//    let photoManager = PhotoManager.shared
-    
-    let firestoreManager = FirestoreManager.shared
-    
-    let storageManager = StorageManager.shared
-    
-    let avPlayerViewController = AVPlayerViewController()
-    
     func fetchTrainingResults(for member: Member?,
                               completion: (() -> Void)?) {
         
-        firestoreManager.fetchTrainingResult(for: member) { result in
+        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
             
             switch result {
                 
@@ -81,25 +73,11 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = "\(trainingResult.points) pts"
         
-        if let urlString = trainingResult.videoURL, let url = URL(string: urlString) {
+        if
+            let urlString = trainingResult.videoURL,
+            let url = URL(string: urlString) {
             
-            let playerItem = AVPlayerItem(url: url)
-            
-            let avPlayer = AVPlayer(playerItem: playerItem)
-            
-            cell.avPlayerLayer.player = avPlayer
-            
-            let endTime = playerItem.asset.duration
-            
-            avPlayer.addBoundaryTimeObserver(
-                forTimes: [NSValue(time: endTime)],
-                queue: DispatchQueue.main,
-                using: {
-
-                    cell.avPlayerLayer.player?.seek(to: .zero)
-
-                    cell.playVideoButton.isHidden = false
-            })
+            cell.setupAVPlayer(url: url)
         }
         
         return cell
