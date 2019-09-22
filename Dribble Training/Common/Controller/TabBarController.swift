@@ -16,87 +16,11 @@ class TabBarController: UITabBarController {
     
     private let tabs: [Tab] = [.postWall, .training, .profile]
     
-    private var registerPage: RegisterViewController!
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         setupTabBar()
-    }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//
-//        super.viewDidAppear(animated)
-//
-////        KeychainManager.shared.uid = nil
-//
-//        print("tab bar view did appear")
-//
-//        guard let uid = KeychainManager.shared.uid
-//            else {
-//
-//                setupRegisterPage()
-//
-//                present(registerPage, animated: false, completion: nil)
-//
-//                return
-//        }
-//
-//        setup(withUID: uid)
-//    }
-    
-    private func setupRegisterPage() {
-        
-        let storyboard = UIStoryboard.register
-        
-        if let registerPage =
-            storyboard.instantiateInitialViewController() as? RegisterViewController {
-            
-            registerPage.loadViewIfNeeded()
-            
-            self.registerPage = registerPage
-        }
-    }
-    
-    private func setup(withUID uid: UID) {
-        
-        print("setup")
-                
-        self.fetchUserData(
-            for: uid,
-            completion: { result in
-                
-                switch result {
-                    
-                case .success:
-                    
-                    self.setupTabBar()
-                    
-                case .failure(let error):
-                    
-                    print(error)
-                }
-        })
-    }
-    
-    private func fetchUserData(for uid: UID,
-                               completion: @escaping (Result<String, Error>) -> Void) {
-        
-        FirestoreManager.shared.fetchMemberData(forUID: uid) { result in
-            
-            switch result {
-                
-            case .success(let member):
-                
-                AuthManager.shared.currentUser = member
-                completion(.success("Member Data Fetching Succeeded"))
-                
-            case .failure(let error):
-                
-                completion(.failure(error))
-            }
-        }
     }
     
     private func setupTabBar() {

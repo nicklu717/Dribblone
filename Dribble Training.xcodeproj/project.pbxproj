@@ -11,6 +11,7 @@
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CF2321675900EFB13F /* Notification+Extension.swift */; };
 		5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF6FF2336631F00E648AC /* KeychainManager.swift */; };
+		5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF7012337AB0900E648AC /* MainViewController.swift */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */; };
@@ -58,6 +59,7 @@
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A0F35CF2321675900EFB13F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		5A3DF6FF2336631F00E648AC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		5A3DF7012337AB0900E648AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
+				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
 				5A88EC762327882F00BD23D4 /* TabBarController.swift */,
 			);
 			path = Controller;
@@ -488,6 +491,7 @@
 				5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */,
 				5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */,
 				5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */,
+				5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */,
 				5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */,
 				5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */,
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
