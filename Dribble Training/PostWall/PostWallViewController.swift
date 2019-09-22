@@ -37,7 +37,7 @@ class PostWallViewController: UIViewController {
         
         trainingResultPage.loadViewIfNeeded()
         
-        trainingResultPage.fetchTrainingResults(for: nil) {
+        trainingResultPage.fetchTrainingResults() {
             
             self.showTrainingResults()
         }

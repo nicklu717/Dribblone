@@ -150,6 +150,7 @@ class FirestoreManager {
     private func getObject<T: Decodable>(from dictionary: [String: Any]) -> T? {
         
         do {
+            
             let data = try JSONSerialization.data(withJSONObject: dictionary,
                                                   options: [])
             

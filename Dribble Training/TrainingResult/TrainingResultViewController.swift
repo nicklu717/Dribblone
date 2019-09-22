@@ -25,7 +25,7 @@ class TrainingResultViewController: UIViewController {
         }
     }
     
-    func fetchTrainingResults(for member: Member?,
+    func fetchTrainingResults(for member: Member? = nil,
                               completion: (() -> Void)?) {
         
         FirestoreManager.shared.fetchTrainingResult(for: member) { result in
