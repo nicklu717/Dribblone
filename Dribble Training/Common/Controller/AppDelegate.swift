@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseCore
-//import
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        
+        window?.backgroundColor = .white
         
         FirebaseApp.configure()
         

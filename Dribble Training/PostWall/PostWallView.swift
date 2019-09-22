@@ -11,13 +11,4 @@ import UIKit
 class PostWallView: UIView {
     
     @IBOutlet var trainingResultPageView: UIView!
-    
-    var trainingResultPage: TrainingResultViewController!
-    
-    func showTrainingResults() {
-        
-        trainingResultPageView.addSubview(trainingResultPage.view)
-        
-        trainingResultPage.view.frame = trainingResultPageView.bounds
-    }
 }

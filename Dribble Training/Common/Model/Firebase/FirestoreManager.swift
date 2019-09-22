@@ -22,48 +22,62 @@ class FirestoreManager {
             .document(uid)
             .getDocument { (documentSnapshot, error) in
                 
-                guard
-                    let data = documentSnapshot?.data(),
-                    let member: Member = self.getObject(from: data)
-                    else {
-                        if let error = error {
-                            completion(.failure(error))
-                        }
-                        return
+                if let error = error {
+                    completion(.failure(error))
                 }
                 
-                completion(.success(member))
+                if let data = documentSnapshot?.data() {
+                    
+                    guard let member: Member = self.getObject(from: data)
+                        else {
+                            print("Member Data Converting Failure")
+                            return
+                    }
+                    
+                    completion(.success(member))
+                }
         }
     }
     
     func fetchTrainingResult(for member: Member?,
                              completion: @escaping (Result<[TrainingResult], Error>) -> Void) {
         
-        guard let member = member
-            else {
-                
-                firestore
-                    .collection(Collection.member)
-                    .order(by: "date", descending: true)
-                    .getDocuments { (querySnapshot, error) in
-                        
-                        self.trainingResultHandler(querySnapshot: querySnapshot,
-                                                   error: error,
-                                                   completion: completion)
-                }
-                
-                return
+        var reference: Query = firestore.collection(Collection.trainingResults)
+        
+        if let member = member {
+            reference = reference.whereField("id", isEqualTo: member.id)
         }
         
-        firestore
-            .collection(Collection.trainingResults)
-            .whereField("id", isEqualTo: member.id)
+        reference
             .order(by: "date", descending: true)
             .getDocuments { (querySnapshot, error) in
                 
-                self.trainingResultHandler(querySnapshot: querySnapshot,
-                                           error: error,
-                                           completion: completion)
+                guard let querySnapshot = querySnapshot
+                    else {
+                        
+                        if let error = error {
+                            completion(.failure(error))
+                        }
+                        
+                        return
+                }
+                
+                var trainingResults: [TrainingResult] = []
+                
+                for document in querySnapshot.documents {
+                    
+                    guard
+                        let trainingResult: TrainingResult = self.getObject(from: document.data())
+                        
+                        else {
+                            print("Invalid Training Result")
+                            continue
+                    }
+                    
+                    trainingResults.append(trainingResult)
+                }
+                
+                completion(.success(trainingResults))
         }
     }
     
@@ -85,7 +99,7 @@ class FirestoreManager {
 //        }
 //    }
     
-    func update(member: Member, completion: (() -> Void)? = nil) {
+    func update(member: Member, completion: (() -> Void)?) {
         
         guard
             let dictionary = getDictionary(from: member)
@@ -170,38 +184,6 @@ class FirestoreManager {
             
             return nil
         }
-    }
-    
-    private func trainingResultHandler(
-        querySnapshot: QuerySnapshot?,
-        error: Error?,
-        completion: @escaping (Result<[TrainingResult], Error>) -> Void) {
-        
-        guard
-            let querySnapshot = querySnapshot
-            else {
-                if let error = error {
-                    completion(.failure(error))
-                }
-                return
-        }
-        
-        var trainingResults: [TrainingResult] = []
-        
-        for document in querySnapshot.documents {
-            
-            guard
-                let trainingResult: TrainingResult = self.getObject(from: document.data())
-                
-                else {
-                    print("Invalid Training Result")
-                    continue
-            }
-            
-            trainingResults.append(trainingResult)
-        }
-        
-        completion(.success(trainingResults))
     }
     
     private struct Collection {

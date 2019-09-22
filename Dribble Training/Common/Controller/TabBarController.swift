@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseStorage
+
 class TabBarController: UITabBarController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -20,15 +20,19 @@ class TabBarController: UITabBarController {
         
         super.viewDidLoad()
         
+        setupTabBar()
+    }
+    
+    private func setupTabBar() {
+        
         delegate = self
         
         for tab in tabs {
             
-            guard
-                let viewController = tab.controller()
-            else {
-                print("Initial View Controller Not Exist")
-                return
+            guard let viewController = tab.controller()
+                else {
+                    print("Initial View Controller Not Exist")
+                    return
             }
             
             addChild(viewController)
@@ -100,25 +104,6 @@ class TabBarController: UITabBarController {
 }
 
 extension TabBarController: UITabBarControllerDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController,
-                          shouldSelect viewController: UIViewController) -> Bool {
-        
-        if viewController.tabBarItem.title == UIImage.Asset.profile.rawValue,
-            AuthManager.shared.currentUser == nil {
-            
-            let storyboard = UIStoryboard.register
-            
-            if let registerPage = storyboard.instantiateInitialViewController() as? RegisterViewController {
-            
-                present(registerPage, animated: true, completion: nil)
-                
-                return false
-            }
-        }
-        
-        return true
-    }
     
     func tabBarController(_ tabBarController: UITabBarController,
                           didSelect viewController: UIViewController) {

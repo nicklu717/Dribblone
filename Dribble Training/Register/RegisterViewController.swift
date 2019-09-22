@@ -16,51 +16,58 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         }
     }
     
-    let authManager = AuthManager.shared
-    
-    func logIn(withEmail email: String, password: String) {
+    func signUp(withEmail email: String, password: String) {
         
-        authManager.logIn(withEmail: email, password: password) { result in
-            
-            switch result {
+        AuthManager.shared.signUp(
+            withEmail: email,
+            password: password) { result in
                 
-            case .success(let message):
-                
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
+                switch result {
+                    
+                case .success(let uid):
+                    
+                    let member = Member(uid: uid,
+                                        id: "default_id",
+                                        displayName: "",
+                                        followers: [],
+                                        followings: [],
+                                        trainingResults: [],
+                                        picture: "")
+                    
+                    FirestoreManager.shared.update(
+                        member: member,
+                        completion: {
+                            
+                            // Show success alert
+                            self.registerView.switchStatus()
+                    })
+                    
+                case .failure(let error):
+                    
+                    self.registerView.showErrorMessage("Sign Up Failure!")
+                    print(error)
                 }
-                
-                // TODO: Show Success Alert
-                
-            case .failure(let error):
-                
-                DispatchQueue.main.async {
-                    self.registerView.showErrorMessage(error.rawValue)
-                }
-            }
         }
     }
     
-    func signUp(withEmail email: String, password: String) {
+    func logIn(withEmail email: String, password: String) {
         
-        authManager.signUp(withEmail: email, password: password) { result in
+        AuthManager.shared.logIn(
+            withEmail: email,
+            password: password) { result in
                 
-            switch result {
-                
-            case .success(let message):
-                
-                DispatchQueue.main.async {
-                    self.registerView.switchStatus()
+                switch result {
+                    
+                case .success(let uid):
+                    
+                    KeychainManager.shared.uid = uid
+                    self.dismiss(animated: true, completion: nil)
+                    
+                case .failure(let error):
+                    
+                    self.registerView.showErrorMessage("Log In Failure!")
+                    print(error)
                 }
-                
-                // TODO: Show Success Alert
-                
-            case .failure(let error):
-                
-                DispatchQueue.main.async {
-                    self.registerView.showErrorMessage(error.rawValue)
-                }
-            }
         }
     }
 }

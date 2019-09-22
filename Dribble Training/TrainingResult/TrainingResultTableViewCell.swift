@@ -38,22 +38,27 @@ class TrainingResultTableViewCell: UITableViewCell {
         playVideoButton.isHidden = true
         
         avPlayerLayer.player?.play()
+    }
+    
+    func setupAVPlayer(url: URL) {
         
-//        delegate?.playVideo(from: videoDownloadURL) { result in
-//            
-//            switch result {
-//                
-//            case .success:
-//                
-//                self.playVideoButton.isHidden = false
-//                
-//            case .failure(let error):
-//                
-//                print(error)
-//                
-//                self.isVideoAvailable = false
-//            }
-//        }
+        let playerItem = AVPlayerItem(url: url)
+        
+        let avPlayer = AVPlayer(playerItem: playerItem)
+        
+        avPlayerLayer.player = avPlayer
+        
+        let endTime = playerItem.asset.duration
+        
+        avPlayer.addBoundaryTimeObserver(
+            forTimes: [NSValue(time: endTime)],
+            queue: DispatchQueue.main,
+            using: {
+                
+                self.avPlayerLayer.player?.seek(to: .zero)
+                
+                self.playVideoButton.isHidden = false
+        })
     }
     
     override func prepareForReuse() {
