@@ -10,7 +10,12 @@ import UIKit
 
 class ProfileView: UIView {
     
-    @IBOutlet var pictureImageView: UIImageView!
+    @IBOutlet var pictureImageView: UIImageView! {
+        didSet {
+            pictureImageView.layer.cornerRadius = pictureImageView.bounds.width * 1/2
+            pictureImageView.image = UIImage.asset(.profile)
+        }
+    }
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var followingsLabel: UILabel!
     @IBOutlet var followersLabel: UILabel!
