@@ -26,7 +26,9 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         super.awakeFromNib()
         
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width * 1/2
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width * 1/2
+        
+        profileImageView.image = UIImage.asset(.profile)
         
         avPlayerLayer.frame = videoView.bounds
         

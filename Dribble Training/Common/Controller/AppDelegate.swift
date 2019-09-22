@@ -19,8 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         
-        window?.backgroundColor = .white
-        
         FirebaseApp.configure()
         
         return true
