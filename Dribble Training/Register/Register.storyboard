@@ -60,9 +60,19 @@
                                     <constraint firstAttribute="width" constant="120" id="sLL-Sl-omL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Sign Up"/>
+                                <state key="normal" title="Log In"/>
                                 <connections>
-                                    <action selector="signUp" destination="lib-iY-Qk8" eventType="touchUpInside" id="4vn-gv-EEO"/>
+                                    <action selector="logIn" destination="lib-iY-Qk8" eventType="touchUpInside" id="NDM-uM-IdU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-mV-nzZ">
+                                <rect key="frame" x="132" y="480" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="9Cn-A5-YYE"/>
+                                </constraints>
+                                <state key="normal" title="Create an account"/>
+                                <connections>
+                                    <action selector="switchStatus" destination="lib-iY-Qk8" eventType="touchUpInside" id="Cag-Me-jlM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -76,8 +86,10 @@
                             <constraint firstItem="8fn-3b-hED" firstAttribute="leading" secondItem="su0-MR-1vd" secondAttribute="leading" id="Xry-y0-FGQ"/>
                             <constraint firstItem="3Hy-aA-9wG" firstAttribute="top" secondItem="7Pd-Ed-J5E" secondAttribute="bottom" constant="36" id="eM7-Qo-mgB"/>
                             <constraint firstItem="su0-MR-1vd" firstAttribute="leading" secondItem="uzJ-Fp-v5h" secondAttribute="leading" constant="70" id="kpy-Q5-eyP"/>
+                            <constraint firstItem="pr3-mV-nzZ" firstAttribute="top" secondItem="IA6-Yt-KVn" secondAttribute="bottom" constant="8" id="oyQ-Bk-zUd"/>
                             <constraint firstItem="7Pd-Ed-J5E" firstAttribute="centerX" secondItem="lib-iY-Qk8" secondAttribute="centerX" id="p8a-H1-cSE"/>
                             <constraint firstItem="8fn-3b-hED" firstAttribute="centerY" secondItem="hk4-tn-vQ6" secondAttribute="centerY" id="rrz-Qs-l1w"/>
+                            <constraint firstItem="pr3-mV-nzZ" firstAttribute="centerX" secondItem="lib-iY-Qk8" secondAttribute="centerX" id="rxx-VF-LaC"/>
                             <constraint firstItem="IA6-Yt-KVn" firstAttribute="centerY" secondItem="lib-iY-Qk8" secondAttribute="centerY" id="vZi-21-C2c"/>
                             <constraint firstItem="IA6-Yt-KVn" firstAttribute="top" secondItem="hk4-tn-vQ6" secondAttribute="bottom" constant="36" id="vrt-yR-3Ds"/>
                         </constraints>
@@ -85,7 +97,9 @@
                         <connections>
                             <outlet property="emailTextField" destination="3Hy-aA-9wG" id="eWV-lD-1pl"/>
                             <outlet property="errorMessageLabel" destination="7Pd-Ed-J5E" id="CQV-Xm-adG"/>
+                            <outlet property="logInButton" destination="IA6-Yt-KVn" id="X65-5u-uGB"/>
                             <outlet property="passwordTextField" destination="hk4-tn-vQ6" id="XAJ-KF-C8x"/>
+                            <outlet property="switchStatusButton" destination="pr3-mV-nzZ" id="ZBL-ZP-s9g"/>
                         </connections>
                     </view>
                     <connections>

@@ -88,7 +88,7 @@ class FirestoreManager {
 //        }
 //    }
     
-    func update(member: Member, completion: (() -> Void)? = nil) {
+    func update(member: Member, completion: (() -> Void)?) {
         
         guard
             let dictionary = getDictionary(from: member)

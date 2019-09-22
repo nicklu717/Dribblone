@@ -18,21 +18,33 @@ class TabBarController: UITabBarController {
     
     private var registerPage: RegisterViewController!
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         
-        super.viewDidAppear(animated)
+        super.viewDidLoad()
         
-        if KeychainManager.shared.token == nil {
-            
-            setupRegisterPage()
-            
-            present(registerPage, animated: false, completion: nil)
-            
-        } else {
-            
-            setup()
-        }
+        setupTabBar()
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//        super.viewDidAppear(animated)
+//
+////        KeychainManager.shared.uid = nil
+//
+//        print("tab bar view did appear")
+//
+//        guard let uid = KeychainManager.shared.uid
+//            else {
+//
+//                setupRegisterPage()
+//
+//                present(registerPage, animated: false, completion: nil)
+//
+//                return
+//        }
+//
+//        setup(withUID: uid)
+//    }
     
     private func setupRegisterPage() {
         
@@ -43,61 +55,29 @@ class TabBarController: UITabBarController {
             
             registerPage.loadViewIfNeeded()
             
-            registerPage.completion = { [weak self] in
-                
-                self?.dismiss(animated: true, completion: self?.setup)
-            }
-            
             self.registerPage = registerPage
         }
     }
     
-    private func setup() {
+    private func setup(withUID uid: UID) {
         
-        logIn(completion: { result in
-            
-            switch result {
+        print("setup")
                 
-            case .success(let uid):
+        self.fetchUserData(
+            for: uid,
+            completion: { result in
                 
-                self.fetchUserData(
-                    for: uid,
-                    completion: { result in
-                        
-                        switch result {
-                            
-                        case .success:
-                            
-                            self.setupTabBar()
-                            
-                        case .failure(let error):
-                            
-                            print(error)
-                        }
-                })
-                
-            case .failure(let error):
-                
-                print(error)
-            }
+                switch result {
+                    
+                case .success:
+                    
+                    self.setupTabBar()
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
         })
-    }
-    
-    private func logIn(completion: @escaping (Result<UID, Error>) -> Void) {
-        
-        AuthManager.shared.logIn { result in
-            
-            switch result {
-                
-            case .success(let uid):
-                
-                completion(.success(uid))
-                
-            case .failure(let error):
-                
-                completion(.failure(error))
-            }
-        }
     }
     
     private func fetchUserData(for uid: UID,

@@ -16,8 +16,6 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         }
     }
     
-    var completion: (() -> Void)?
-    
     func signUp(withEmail email: String, password: String) {
         
         AuthManager.shared.signUp(
@@ -26,17 +24,50 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                 
                 switch result {
                     
-                case .success(let token):
+                case .success(let uid):
                     
-                    KeychainManager.shared.token = token
+                    let member = Member(uid: uid,
+                                        id: "default_id",
+                                        displayName: "",
+                                        followers: [],
+                                        followings: [],
+                                        trainingResults: [],
+                                        picture: "")
+                    
+                    FirestoreManager.shared.update(
+                        member: member,
+                        completion: {
+                            
+                            // Show success alert
+                            self.registerView.switchStatus()
+                    })
                     
                 case .failure(let error):
                     
                     self.registerView.showErrorMessage("Sign Up Failure!")
                     print(error)
                 }
+        }
+    }
+    
+    func logIn(withEmail email: String, password: String) {
+        
+        AuthManager.shared.logIn(
+            withEmail: email,
+            password: password) { result in
                 
-                self.completion?()
+                switch result {
+                    
+                case .success(let uid):
+                    
+                    KeychainManager.shared.uid = uid
+                    self.dismiss(animated: true, completion: nil)
+                    
+                case .failure(let error):
+                    
+                    self.registerView.showErrorMessage("Log In Failure!")
+                    print(error)
+                }
         }
     }
 }

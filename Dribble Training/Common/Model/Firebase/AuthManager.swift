@@ -9,7 +9,6 @@
 import FirebaseAuth
 
 typealias UID = String
-typealias Token = String
 
 class AuthManager {
     
@@ -21,47 +20,37 @@ class AuthManager {
     
     func signUp(withEmail email: String,
                 password: String,
-                completion: @escaping (Result<Token, Error>) -> Void) {
+                completion: @escaping (Result<UID, Error>) -> Void) {
         
         auth.createUser(
             withEmail: email,
             password: password) { (authDataResult, error) in
                 
                 if let error = error {
+                    
                     completion(.failure(error))
                 }
                 
                 if let authDataResult = authDataResult {
                     
-                    authDataResult.user.getIDToken(completion: { (token, error) in
-                        
-                        if let error = error {
-                            completion(.failure(error))
-                        }
-                        
-                        if let token = token {
-                            completion(.success(token))
-                        }
-                    })
+                    completion(.success(authDataResult.user.uid))
                 }
         }
     }
     
-    func logIn(completion: @escaping (Result<UID, Error>) -> Void) {
+    func logIn(withEmail email: String,
+               password: String,
+               completion: @escaping (Result<UID, Error>) -> Void) {
         
-        guard let token = KeychainManager.shared.token
-            else {
-                print("User Token Not Exist")
-                return
-        }
-        
-        auth.signIn(withCustomToken: token) { (authDataResult, error) in
+        auth.signIn(withEmail: email, password: password) { (authDataResult, error) in
             
             if let error = error {
+                
                 completion(.failure(error))
             }
             
             if let authDataResult = authDataResult {
+                
                 completion(.success(authDataResult.user.uid))
             }
         }

@@ -11,6 +11,8 @@ import UIKit
 protocol RegisterViewDelegate: UIViewController {
     
     func signUp(withEmail email: String, password: String)
+    
+    func logIn(withEmail email: String, password: String)
 }
 
 class RegisterView: UIView {
@@ -22,14 +24,44 @@ class RegisterView: UIView {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
-    @IBAction func signUp() {
+    @IBOutlet var logInButton: UIButton!
+    @IBOutlet var switchStatusButton: UIButton!
+    
+    private var status: Status = .logIn
+    
+    @IBAction func logIn() {
         
         errorMessageLabel.isHidden = true
         
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
+        
+        switch status {
+        
+        case .logIn: delegate?.logIn(withEmail: email, password: password)
+        
+        case .signUp: delegate?.signUp(withEmail: email, password: password)
+        }
+    }
+    
+    @IBAction func switchStatus() {
+        
+        switch status {
             
-        delegate?.signUp(withEmail: email, password: password)
+        case .logIn:
+            
+            status = .signUp
+            
+            logInButton.setTitle("Sign Up", for: .normal)
+            switchStatusButton.setTitle("Log In?", for: .normal)
+            
+        case .signUp:
+            
+            status = .logIn
+            
+            logInButton.setTitle("Log In", for: .normal)
+            switchStatusButton.setTitle("Create an account", for: .normal)
+        }
     }
     
     func showErrorMessage(_ message: String) {
@@ -37,5 +69,12 @@ class RegisterView: UIView {
         errorMessageLabel.text = message
         
         errorMessageLabel.isHidden = false
+    }
+    
+    private enum Status {
+        
+        case logIn
+        
+        case signUp
     }
 }
