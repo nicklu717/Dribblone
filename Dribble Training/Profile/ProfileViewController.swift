@@ -14,18 +14,23 @@ class ProfileViewController: UIViewController, TrainingResultViewControllerDataS
     
     @IBOutlet var profileView: ProfileView!
     
-    var member: Member!
+    var member: Member! {
+        
+        didSet {
+            
+            setupProfileView()
+            setupTrainingResultPage()
+        }
+    }
     
     private var trainingResultPage: TrainingResultViewController!
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        setupProfileView()
-        
-        setupTrainingResultPage()
-    }
+//    override func viewDidLoad() {
+//
+//        super.viewDidLoad()
+//
+//
+//    }
     
     // MARK: - Instance Method
     

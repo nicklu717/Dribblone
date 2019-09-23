@@ -12,11 +12,16 @@ class MainViewController: UIViewController {
     
     private var registerPage: RegisterViewController!
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+//        KeychainManager.shared.uid = nil
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-//        KeychainManager.shared.uid = nil
         
         guard let uid = KeychainManager.shared.uid
             else {
