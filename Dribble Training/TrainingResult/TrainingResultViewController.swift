@@ -90,22 +90,25 @@ extension TrainingResultViewController: TrainingResultTableViewCellDelegate {
     
     func pushProfile(forID memberID: ID) {
         
-        FirestoreManager.shared.fetchMemberData(forID: memberID) { result in
-            
-            switch result {
+        if memberID != AuthManager.shared.currentUser.id {
+        
+            FirestoreManager.shared.fetchMemberData(forID: memberID) { result in
                 
-            case .success(let member):
-                
-                self.profilePage.setupProfileView(member: member)
-                
-                self.profilePage.navigationItem.leftBarButtonItem = nil
-                self.profilePage.navigationItem.rightBarButtonItem = nil
-                
-                self.show(self.profilePage, sender: nil)
-                
-            case .failure(let error):
-                
-                print(error)
+                switch result {
+                    
+                case .success(let member):
+                    
+                    self.profilePage.setupProfileView(member: member)
+                    
+                    self.profilePage.navigationItem.leftBarButtonItem = nil
+                    self.profilePage.navigationItem.rightBarButtonItem = nil
+                    
+                    self.show(self.profilePage, sender: nil)
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
             }
         }
     }
