@@ -15,7 +15,12 @@ protocol TrainingResultViewControllerDataSource: AnyObject {
 
 class TrainingResultViewController: UIViewController {
     
-    weak var dataSource: TrainingResultViewControllerDataSource?
+    weak var dataSource: TrainingResultViewControllerDataSource? {
+        didSet {
+            loadViewIfNeeded()
+            trainingResultView.addRefreshHeader()
+        }
+    }
     
     // MARK: - Property Declaration
     

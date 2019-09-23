@@ -73,6 +73,8 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         
         trainingResultPage = viewController as? TrainingResultViewController
         
+        trainingResultPage.navigationItem.title = "Result"
+        
         trainingResultPage.loadViewIfNeeded()
     }
 }

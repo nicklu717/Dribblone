@@ -23,7 +23,16 @@ class TrainingResultView: UIView {
     
     @IBOutlet var tableView: UITableView!
     
+    func addRefreshHeader() {
+        
+        tableView.addRefreshHeader { [weak self] in
+            
+            self?.delegate?.refreshTrainingResult()
+        }
+    }
+    
     func endHeaderRefresh() {
+        
         tableView.endHeaderRefresh()
     }
     
@@ -36,10 +45,5 @@ class TrainingResultView: UIView {
                            forCellReuseIdentifier: "TrainingResultTableViewCell")
         
         tableView.dataSource = self.delegate
-        
-        tableView.addRefreshHeader { [weak self] in
-            
-            self?.delegate?.refreshTrainingResult()
-        }
     }
 }
