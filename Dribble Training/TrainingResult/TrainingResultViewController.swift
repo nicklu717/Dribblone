@@ -73,14 +73,8 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = "\(trainingResult.points) pts"
         
-        if
-            let urlString = trainingResult.videoURL,
-            let url = URL(string: urlString) {
-            
-            cell.setupAVPlayer(url: url)
-        }
+        cell.videoURL = URL(string: trainingResult.videoURL)
         
         return cell
     }
 }
-

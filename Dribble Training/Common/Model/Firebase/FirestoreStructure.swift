@@ -44,7 +44,7 @@ struct TrainingResult: Codable {
     
     let points: Int
     
-    var videoURL: String?
+    var videoURL: String!
     
     enum CodingKeys: String, CodingKey {
         
