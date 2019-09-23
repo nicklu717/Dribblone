@@ -13,6 +13,7 @@
 		5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF6FF2336631F00E648AC /* KeychainManager.swift */; };
 		5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF7012337AB0900E648AC /* MainViewController.swift */; };
 		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
+		5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590A2338CB1E0055190A /* SCLAlertView.swift */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */; };
@@ -62,6 +63,7 @@
 		5A3DF6FF2336631F00E648AC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		5A3DF7012337AB0900E648AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5A4359082338A8A10055190A /* MJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefresh.swift; sourceTree = "<group>"; };
+		5A43590A2338CB1E0055190A /* SCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				5A4359082338A8A10055190A /* MJRefresh.swift */,
+				5A43590A2338CB1E0055190A /* SCLAlertView.swift */,
 			);
 			path = ThirdPartyWrapper;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,
 				5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */,
 				5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */,
+				5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

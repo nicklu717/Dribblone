@@ -31,6 +31,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                                         displayName: "",
                                         followers: [],
                                         followings: [],
+                                        blockList: [],
                                         trainingResults: [],
                                         picture: "")
                     

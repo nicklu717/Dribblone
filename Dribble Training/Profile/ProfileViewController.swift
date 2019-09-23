@@ -90,13 +90,17 @@ extension ProfileViewController: ProfileViewDelegate {
     
     func blockUser() {
         
-        // confirm
+        showConfirmAlert(title: "Block the user?", confirmHandler: confirmHandler)
         
         // firestore: append block list
         // firestore: remove following if needed
         // firestore: remove follower if needed
         
         // fetch new member data
+    }
+    
+    private func confirmHandler() {
+        print("BLOCK user")
     }
 }
 
