@@ -10,7 +10,15 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    // MARK: - Property Declaration
+    
     private var registerPage: RegisterViewController!
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         
@@ -38,6 +46,8 @@ class MainViewController: UIViewController {
             self.present(TabBarController(), animated: false, completion: nil)
         }
     }
+    
+    // MARK: - Private Method
     
     private func setupRegisterPage() {
         
