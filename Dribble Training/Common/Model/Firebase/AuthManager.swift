@@ -8,8 +8,6 @@
 
 import FirebaseAuth
 
-typealias UID = String
-
 class AuthManager {
     
     static let shared = AuthManager()

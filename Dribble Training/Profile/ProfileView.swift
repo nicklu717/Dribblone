@@ -22,42 +22,11 @@ class ProfileView: UIView {
     
     @IBOutlet var trainingResultPageView: UIView!
     
-    var trainingResultPage: TrainingResultViewController!
-    
     func setupProfile(for member: Member) {
         
 //        pictureImageView.image = member.picture
         nameLabel.text = member.displayName
         followingsLabel.text = String(member.followings.count)
         followersLabel.text = String(member.followers.count)
-    }
-    
-    func setupTrainingResultPage(for member: Member) {
-        
-        let storyboard = UIStoryboard.trainingResult
-        
-        guard
-            let trainingResultViewController = storyboard.instantiateInitialViewController()
-                as? TrainingResultViewController
-            else {
-                print("Training Result View Controller Not Exist")
-                return
-        }
-        
-        trainingResultPage = trainingResultViewController
-        
-        trainingResultPage.loadViewIfNeeded()
-        
-        trainingResultPage.fetchTrainingResults(for: member) {
-            
-            self.showTrainingResults()
-        }
-    }
-    
-    private func showTrainingResults() {
-        
-        trainingResultPageView.addSubview(trainingResultPage.view)
-        
-        trainingResultPage.view.frame = trainingResultPageView.bounds
     }
 }

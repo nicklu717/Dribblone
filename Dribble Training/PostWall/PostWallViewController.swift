@@ -12,7 +12,7 @@ class PostWallViewController: UIViewController {
     
     @IBOutlet var postWallView: PostWallView!
     
-    var trainingResultPage: TrainingResultViewController!
+    private var trainingResultPage: TrainingResultViewController!
     
     override func viewDidLoad() {
         
@@ -37,16 +37,31 @@ class PostWallViewController: UIViewController {
         
         trainingResultPage.loadViewIfNeeded()
         
-        trainingResultPage.fetchTrainingResults() {
+        FirestoreManager.shared.fetchTrainingResult { result in
             
-            self.showTrainingResults()
+            switch result {
+                
+            case .success(let trainingResults):
+                
+                self.trainingResultPage.trainingResults = trainingResults
+                
+            case .failure(let error):
+                
+                print(error)
+            }
         }
+        
+        showTrainingResultPage()
     }
     
-    func showTrainingResults() {
+    func showTrainingResultPage() {
+        
+        addChild(trainingResultPage)
         
         view.addSubview(trainingResultPage.view)
         
         trainingResultPage.view.frame = view.bounds
+        
+        trainingResultPage.didMove(toParent: self)
     }
 }

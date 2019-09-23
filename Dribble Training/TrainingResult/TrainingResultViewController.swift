@@ -35,28 +35,6 @@ class TrainingResultViewController: UIViewController {
         setupProfilePage()
     }
     
-    // MARK: - Instance Method
-    
-    func fetchTrainingResults(for member: Member? = nil,
-                              completion: (() -> Void)?) {
-        
-        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
-            
-            switch result {
-                
-            case .success(let trainingResults):
-                
-                self.trainingResults = trainingResults
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-            
-            completion?()
-        }
-    }
-    
     // MARK: - Private Method
     
     private func setupProfilePage() {
@@ -110,8 +88,21 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
 
 extension TrainingResultViewController: TrainingResultTableViewCellDelegate {
     
-    func pushProfile(forID memberID: String) {
+    func pushProfile(forID memberID: ID) {
         
-        
+        FirestoreManager.shared.fetchMemberData(forID: memberID) { result in
+            
+            switch result {
+                
+            case .success(let member):
+                
+                self.profilePage.setupProfileView(member: member)
+                self.show(self.profilePage, sender: nil)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
     }
 }

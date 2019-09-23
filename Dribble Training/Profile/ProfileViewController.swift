@@ -10,27 +10,62 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    // MARK: - Property Declaration
+    
     @IBOutlet var profileView: ProfileView!
     
-    var member: Member?
+    private var trainingResultPage: TrainingResultViewController!
     
-    // MARK: - Life Cycle
+    // MARK: - Instance Method
     
-    override func viewDidLoad() {
+    func setupProfileView(member: Member) {
         
-        super.viewDidLoad()
-        
-        guard
-            let member = member
-            else {
-                print("Member Not Exist")
-                return
-        }
+        loadViewIfNeeded()
         
         navigationItem.title = member.id
         
         profileView.setupProfile(for: member)
         
-        profileView.setupTrainingResultPage(for: member)
+        setupTrainingResultPage(member: member)
+    }
+    
+    func setupTrainingResultPage(member: Member) {
+        
+        let storyboard = UIStoryboard.trainingResult
+        
+        guard
+            let trainingResultViewController = storyboard.instantiateInitialViewController()
+                as? TrainingResultViewController
+            else {
+                print("Training Result View Controller Not Exist")
+                return
+        }
+        
+        trainingResultPage = trainingResultViewController
+        
+        trainingResultPage.loadViewIfNeeded()
+        
+        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
+            
+            switch result {
+                
+            case .success(let trainingResults):
+                
+                self.trainingResultPage.trainingResults = trainingResults
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+        
+        showTrainingResultPage()
+    }
+    
+    private func showTrainingResultPage() {
+        
+        view.addSubview(trainingResultPage.view)
+        
+        trainingResultPage.view.frame = profileView.trainingResultPageView.bounds
     }
 }

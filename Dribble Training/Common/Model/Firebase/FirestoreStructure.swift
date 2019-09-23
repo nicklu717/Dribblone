@@ -8,6 +8,9 @@
 
 import Foundation
 
+typealias UID = String
+typealias ID = String
+
 struct Member: Codable {
     
     let uid: String

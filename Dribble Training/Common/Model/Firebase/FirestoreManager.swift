@@ -14,7 +14,7 @@ class FirestoreManager {
     
     private let firestore = Firestore.firestore()
     
-    func fetchMemberData(forUID uid: String,
+    func fetchMemberData(forUID uid: UID,
                          completion: @escaping (Result<Member, Error>) -> Void) {
         
         firestore
@@ -39,7 +39,32 @@ class FirestoreManager {
         }
     }
     
-    func fetchTrainingResult(for member: Member?,
+    func fetchMemberData(forID id: ID,
+                         completion: @escaping (Result<Member, Error>) -> Void) {
+        
+        firestore
+            .collection(Collection.member)
+            .whereField("id", isEqualTo: id)
+            .getDocuments { (documentSnapshot, error) in
+                
+                if let error = error {
+                    completion(.failure(error))
+                }
+                
+                if let data = documentSnapshot?.documents.first?.data() {
+                    
+                    guard let member: Member = self.getObject(from: data)
+                        else {
+                            print("Member Data Converting Failure")
+                            return
+                    }
+                    
+                    completion(.success(member))
+                }
+        }
+    }
+    
+    func fetchTrainingResult(for member: Member? = nil,
                              completion: @escaping (Result<[TrainingResult], Error>) -> Void) {
         
         var reference: Query = firestore.collection(Collection.trainingResults)

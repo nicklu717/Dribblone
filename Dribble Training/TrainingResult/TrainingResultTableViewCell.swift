@@ -10,7 +10,7 @@ import AVKit
 
 protocol TrainingResultTableViewCellDelegate: UIViewController {
     
-    func pushProfile(forID memberID: String)
+    func pushProfile(forID memberID: ID)
 }
 
 class TrainingResultTableViewCell: UITableViewCell {
