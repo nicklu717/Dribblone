@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVKit
 
 class TrainingResultViewController: UIViewController {
     
@@ -24,6 +23,19 @@ class TrainingResultViewController: UIViewController {
             trainingResultView.tableView.reloadData()
         }
     }
+    
+    var profilePage: ProfileViewController!
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        setupProfilePage()
+    }
+    
+    // MARK: - Instance Method
     
     func fetchTrainingResults(for member: Member? = nil,
                               completion: (() -> Void)?) {
@@ -44,6 +56,21 @@ class TrainingResultViewController: UIViewController {
             completion?()
         }
     }
+    
+    // MARK: - Private Method
+    
+    private func setupProfilePage() {
+        
+        let storyboard = UIStoryboard.profile
+        
+        guard let profilePage = storyboard.instantiateViewController(withIdentifier: String(describing: ProfileViewController.self)) as? ProfileViewController
+            else {
+                print("Profile View Controller Not Exist")
+                return
+        }
+        
+        self.profilePage = profilePage
+    }
 }
 
 extension TrainingResultViewController: TrainingResultViewDataSource {
@@ -63,18 +90,28 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
             return UITableViewCell()
         }
         
+        cell.delegate = self
+        
         let trainingResult = trainingResults[indexPath.row]
         
         let date = Date(timeIntervalSince1970: trainingResult.date)
         
         cell.dateLabel.text = date.string(format: .resultDisplay)
         
-        cell.idLabel.text = trainingResult.id
+        cell.idButton.setTitle(trainingResult.id, for: .normal)
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = "\(trainingResult.points) pts"
         
         cell.videoURL = URL(string: trainingResult.videoURL)
         
         return cell
+    }
+}
+
+extension TrainingResultViewController: TrainingResultTableViewCellDelegate {
+    
+    func pushProfile(forID memberID: String) {
+        
+        
     }
 }

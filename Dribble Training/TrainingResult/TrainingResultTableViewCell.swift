@@ -8,13 +8,23 @@
 
 import AVKit
 
+protocol TrainingResultTableViewCellDelegate: UIViewController {
+    
+    func pushProfile(forID memberID: String)
+}
+
 class TrainingResultTableViewCell: UITableViewCell {
     
+    weak var delegate: TrainingResultTableViewCellDelegate?
+    
     @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var idLabel: UILabel!
+    
+    @IBOutlet var idButton: UIButton!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var modeLabel: UILabel!
+    
     @IBOutlet var pointsLabel: UILabel!
+    
     @IBOutlet var videoView: UIView!
     @IBOutlet var playVideoButton: UIButton!
     
@@ -53,7 +63,12 @@ class TrainingResultTableViewCell: UITableViewCell {
         avPlayerLayer.player?.play()
     }
     
-    func setupAVPlayer(url: URL) {
+    @IBAction func pushProfile() {
+        
+        delegate?.pushProfile(forID: idButton.titleLabel?.text ?? "")
+    }
+    
+    private func setupAVPlayer(url: URL) {
         
         let playerItem = AVPlayerItem(url: url)
         
