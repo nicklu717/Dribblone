@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wein Lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-0N-b5s">
-                                <rect key="frame" x="36" y="220" width="65" height="21.5"/>
+                                <rect key="frame" x="43.5" y="220" width="65" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,28 +58,27 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-Sv-FYf">
                                 <rect key="frame" x="16" y="269.5" width="200" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvx-lD-jw1">
                                 <rect key="frame" x="0.0" y="341.5" width="414" height="520.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhg-JC-lED">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhg-JC-lED">
                                 <rect key="frame" x="166" y="216" width="146" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RhJ-8j-AOQ"/>
                                 </constraints>
                                 <state key="normal" title="Follow">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw7-yU-AcB">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw7-yU-AcB">
                                 <rect key="frame" x="320" y="216" width="30" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yw7-yU-AcB" secondAttribute="height" multiplier="1:1" id="22F-Eo-re6"/>
                                 </constraints>
@@ -104,9 +103,9 @@
                             <constraint firstItem="eRr-Sv-FYf" firstAttribute="leading" secondItem="RDa-K0-lRe" secondAttribute="leading" constant="16" id="WUi-Rg-Gzm"/>
                             <constraint firstItem="RDa-K0-lRe" firstAttribute="bottom" secondItem="gvx-lD-jw1" secondAttribute="bottom" id="YaI-s1-fdg"/>
                             <constraint firstItem="eRr-Sv-FYf" firstAttribute="top" secondItem="hh1-0N-b5s" secondAttribute="bottom" constant="28" id="eQC-7Y-awz"/>
-                            <constraint firstItem="hh1-0N-b5s" firstAttribute="leading" secondItem="1AV-1N-AV5" secondAttribute="leading" id="i4e-bM-dt8"/>
                             <constraint firstItem="N5w-4a-N0J" firstAttribute="bottom" secondItem="1AV-1N-AV5" secondAttribute="bottom" id="lze-to-sRg"/>
                             <constraint firstItem="1AV-1N-AV5" firstAttribute="top" secondItem="RDa-K0-lRe" secondAttribute="top" constant="36" id="mtS-I5-fwL"/>
+                            <constraint firstItem="hh1-0N-b5s" firstAttribute="centerX" secondItem="1AV-1N-AV5" secondAttribute="centerX" id="naY-8s-ud8"/>
                             <constraint firstItem="dhg-JC-lED" firstAttribute="leading" secondItem="N5w-4a-N0J" secondAttribute="leading" id="nzf-wF-zBy"/>
                             <constraint firstItem="tA7-nP-997" firstAttribute="bottom" secondItem="1AV-1N-AV5" secondAttribute="bottom" id="pRQ-qp-sX6"/>
                             <constraint firstItem="dhg-JC-lED" firstAttribute="centerY" secondItem="hh1-0N-b5s" secondAttribute="centerY" id="pr3-q0-6O4"/>
@@ -115,6 +114,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RDa-K0-lRe"/>
                         <connections>
+                            <outlet property="blockButton" destination="yw7-yU-AcB" id="2gU-6K-hQo"/>
+                            <outlet property="followButton" destination="dhg-JC-lED" id="84e-SQ-uKL"/>
                             <outlet property="followersLabel" destination="nnM-lP-Ryh" id="LR7-28-ECV"/>
                             <outlet property="followingsLabel" destination="Y1p-ZY-4hx" id="hOI-tA-91k"/>
                             <outlet property="nameLabel" destination="hh1-0N-b5s" id="2jD-Li-3cX"/>

@@ -20,6 +20,9 @@ class ProfileView: UIView {
     @IBOutlet var followingsLabel: UILabel!
     @IBOutlet var followersLabel: UILabel!
     
+    @IBOutlet var followButton: UIButton!
+    @IBOutlet var blockButton: UIButton!
+    
     @IBOutlet var trainingResultPageView: UIView!
     
     func setupProfile(for member: Member) {

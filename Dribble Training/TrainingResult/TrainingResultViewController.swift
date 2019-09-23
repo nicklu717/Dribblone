@@ -100,8 +100,7 @@ extension TrainingResultViewController: TrainingResultTableViewCellDelegate {
                     
                     self.profilePage.setupProfileView(member: member)
                     
-                    self.profilePage.navigationItem.leftBarButtonItem = nil
-                    self.profilePage.navigationItem.rightBarButtonItem = nil
+                    self.profilePage.beingPushed()
                     
                     self.show(self.profilePage, sender: nil)
                     

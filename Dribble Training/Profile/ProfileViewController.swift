@@ -62,6 +62,15 @@ class ProfileViewController: UIViewController {
         showTrainingResultPage()
     }
     
+    func beingPushed() {
+        
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.rightBarButtonItem = nil
+        
+        profileView.followButton.isHidden = false
+        profileView.blockButton.isHidden = false
+    }
+    
     private func showTrainingResultPage() {
         
         profileView.trainingResultPageView.addSubview(trainingResultPage.view)
