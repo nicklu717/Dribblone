@@ -56,11 +56,11 @@ class PostWallViewController: UIViewController {
     
     func showTrainingResultPage() {
         
+        postWallView.trainingResultPageView.addSubview(trainingResultPage.view)
+        
+        trainingResultPage.view.frame = postWallView.trainingResultPageView.bounds
+        
         addChild(trainingResultPage)
-        
-        view.addSubview(trainingResultPage.view)
-        
-        trainingResultPage.view.frame = view.bounds
         
         trainingResultPage.didMove(toParent: self)
     }

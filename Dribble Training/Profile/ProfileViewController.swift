@@ -64,8 +64,12 @@ class ProfileViewController: UIViewController {
     
     private func showTrainingResultPage() {
         
-        view.addSubview(trainingResultPage.view)
+        profileView.trainingResultPageView.addSubview(trainingResultPage.view)
         
         trainingResultPage.view.frame = profileView.trainingResultPageView.bounds
+        
+        addChild(trainingResultPage)
+        
+        trainingResultPage.didMove(toParent: self)
     }
 }
