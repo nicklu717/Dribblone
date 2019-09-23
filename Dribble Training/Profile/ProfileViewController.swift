@@ -8,28 +8,37 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, TrainingResultViewControllerDataSource {
     
     // MARK: - Property Declaration
     
     @IBOutlet var profileView: ProfileView!
     
+    var member: Member!
+    
     private var trainingResultPage: TrainingResultViewController!
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        setupProfileView()
+        
+        setupTrainingResultPage()
+    }
     
     // MARK: - Instance Method
     
-    func setupProfileView(member: Member) {
+    private func setupProfileView() {
         
         loadViewIfNeeded()
         
         navigationItem.title = member.id
         
         profileView.setupProfile(for: member)
-        
-        setupTrainingResultPage(member: member)
     }
     
-    func setupTrainingResultPage(member: Member) {
+    private func setupTrainingResultPage() {
         
         let storyboard = UIStoryboard.trainingResult
         
@@ -43,7 +52,16 @@ class ProfileViewController: UIViewController {
         
         trainingResultPage = trainingResultViewController
         
+        trainingResultPage.dataSource = self
+        
         trainingResultPage.loadViewIfNeeded()
+        
+        fetchTrainingResult()
+        
+        showTrainingResultPage()
+    }
+    
+    func fetchTrainingResult() {
         
         FirestoreManager.shared.fetchTrainingResult(for: member) { result in
             
@@ -52,14 +70,13 @@ class ProfileViewController: UIViewController {
             case .success(let trainingResults):
                 
                 self.trainingResultPage.trainingResults = trainingResults
+                self.trainingResultPage.endRefreshing()
                 
             case .failure(let error):
                 
                 print(error)
             }
         }
-        
-        showTrainingResultPage()
     }
     
     func beingPushed() {

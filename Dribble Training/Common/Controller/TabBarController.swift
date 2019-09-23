@@ -112,7 +112,7 @@ extension TabBarController: UITabBarControllerDelegate {
             let navigationController = viewController as? UINavigationController,
             let profileViewController = navigationController.viewControllers.first as? ProfileViewController {
             
-            profileViewController.setupProfileView(member: AuthManager.shared.currentUser)
+            profileViewController.member = AuthManager.shared.currentUser
         }
     }
 }

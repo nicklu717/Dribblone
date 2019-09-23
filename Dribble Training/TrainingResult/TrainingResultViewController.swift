@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol TrainingResultViewControllerDataSource: AnyObject {
+    
+    func fetchTrainingResult()
+}
+
 class TrainingResultViewController: UIViewController {
+    
+    weak var dataSource: TrainingResultViewControllerDataSource?
     
     // MARK: - Property Declaration
     
@@ -49,9 +56,19 @@ class TrainingResultViewController: UIViewController {
         
         self.profilePage = profilePage
     }
+    
+    func refreshTrainingResult() {
+        
+        dataSource?.fetchTrainingResult()
+    }
+    
+    func endRefreshing() {
+        
+        trainingResultView.endHeaderRefresh()
+    }
 }
 
-extension TrainingResultViewController: TrainingResultViewDataSource {
+extension TrainingResultViewController: TrainingResultViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -98,7 +115,7 @@ extension TrainingResultViewController: TrainingResultTableViewCellDelegate {
                     
                 case .success(let member):
                     
-                    self.profilePage.setupProfileView(member: member)
+                    self.profilePage.member = member
                     
                     self.profilePage.beingPushed()
                     

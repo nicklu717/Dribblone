@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostWallViewController: UIViewController {
+class PostWallViewController: UIViewController, TrainingResultViewControllerDataSource {
     
     @IBOutlet var postWallView: PostWallView!
     
@@ -35,7 +35,16 @@ class PostWallViewController: UIViewController {
         
         trainingResultPage = trainingResultViewController
         
+        trainingResultPage.dataSource = self
+        
         trainingResultPage.loadViewIfNeeded()
+        
+        fetchTrainingResult()
+        
+        showTrainingResultPage()
+    }
+    
+    func fetchTrainingResult() {
         
         FirestoreManager.shared.fetchTrainingResult { result in
             
@@ -44,14 +53,13 @@ class PostWallViewController: UIViewController {
             case .success(let trainingResults):
                 
                 self.trainingResultPage.trainingResults = trainingResults
+                self.trainingResultPage.endRefreshing()
                 
             case .failure(let error):
                 
                 print(error)
             }
         }
-        
-        showTrainingResultPage()
     }
     
     func showTrainingResultPage() {
