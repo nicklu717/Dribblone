@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, TrainingResultViewControllerDataSource {
+class ProfileViewController: UIViewController {
     
     // MARK: - Property Declaration
     
-    @IBOutlet var profileView: ProfileView!
+    @IBOutlet var profileView: ProfileView! {
+        didSet {
+            profileView.delegate = self
+        }
+    }
     
     var member: Member! {
         
@@ -59,24 +63,6 @@ class ProfileViewController: UIViewController, TrainingResultViewControllerDataS
         showTrainingResultPage()
     }
     
-    func fetchTrainingResult() {
-        
-        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
-            
-            switch result {
-                
-            case .success(let trainingResults):
-                
-                self.trainingResultPage.trainingResults = trainingResults
-                self.trainingResultPage.endRefreshing()
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-        }
-    }
-    
     func beingPushed() {
         
         navigationItem.leftBarButtonItem = nil
@@ -95,5 +81,42 @@ class ProfileViewController: UIViewController, TrainingResultViewControllerDataS
         addChild(trainingResultPage)
         
         trainingResultPage.didMove(toParent: self)
+    }
+}
+
+extension ProfileViewController: ProfileViewDelegate {
+    
+    func followUser() {}
+    
+    func blockUser() {
+        
+        // confirm
+        
+        // firestore: append block list
+        // firestore: remove following if needed
+        // firestore: remove follower if needed
+        
+        // fetch new member data
+    }
+}
+
+extension ProfileViewController: TrainingResultViewControllerDataSource {
+    
+    func fetchTrainingResult() {
+        
+        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
+            
+            switch result {
+                
+            case .success(let trainingResults):
+                
+                self.trainingResultPage.trainingResults = trainingResults
+                self.trainingResultPage.endRefreshing()
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
     }
 }

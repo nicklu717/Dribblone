@@ -8,7 +8,16 @@
 
 import UIKit
 
+protocol ProfileViewDelegate: AnyObject {
+    
+    func followUser()
+    
+    func blockUser()
+}
+
 class ProfileView: UIView {
+    
+    weak var delegate: ProfileViewDelegate?
     
     @IBOutlet var pictureImageView: UIImageView! {
         didSet {
@@ -36,7 +45,6 @@ class ProfileView: UIView {
     @IBAction func followUser() {}
     
     @IBAction func blockUser() {
-        
-        
+        delegate?.blockUser()
     }
 }
