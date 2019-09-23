@@ -27,7 +27,25 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    var isOtherUser: Bool = false
+    
     private var trainingResultPage: TrainingResultViewController!
+    
+    // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        if isOtherUser {
+            
+            navigationItem.leftBarButtonItem = nil
+            navigationItem.rightBarButtonItem = nil
+            
+            profileView.followButton.isHidden = false
+            profileView.blockButton.isHidden = false
+        }
+    }
     
     // MARK: - Instance Method
     
@@ -63,15 +81,6 @@ class ProfileViewController: UIViewController {
         showTrainingResultPage()
     }
     
-    func beingPushed() {
-        
-        navigationItem.leftBarButtonItem = nil
-        navigationItem.rightBarButtonItem = nil
-        
-        profileView.followButton.isHidden = false
-        profileView.blockButton.isHidden = false
-    }
-    
     private func showTrainingResultPage() {
         
         profileView.trainingResultPageView.addSubview(trainingResultPage.view)
@@ -89,18 +98,18 @@ extension ProfileViewController: ProfileViewDelegate {
     func followUser() {}
     
     func blockUser() {
-        
-        showConfirmAlert(title: "Block the user?", confirmHandler: confirmHandler)
-        
-        // firestore: append block list
-        // firestore: remove following if needed
-        // firestore: remove follower if needed
-        
-        // fetch new member data
+        showConfirmAlert(title: "Block \(member.id)?", confirmHandler: blockUserHandler)
     }
     
-    private func confirmHandler() {
+    private func blockUserHandler() {
+        
         print("BLOCK user")
+        
+        FirestoreManager.shared.block(member: member)
+        
+        AuthManager.shared.currentUser.blockList.append(member.id)
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 

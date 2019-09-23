@@ -13,9 +13,9 @@ typealias ID = String
 
 struct Member: Codable {
     
-    let uid: String
+    let uid: UID
     
-    let id: String
+    let id: ID
     
     let displayName: String
     
@@ -23,7 +23,7 @@ struct Member: Codable {
     
     let followings: [String]
     
-    let blockList: [String]
+    var blockList: [String]
     
     let trainingResults: [String]
     
@@ -43,7 +43,7 @@ struct Member: Codable {
 
 struct TrainingResult: Codable {
     
-    let id: String
+    let id: ID
     
     let date: Double
     

@@ -122,7 +122,7 @@ extension TrainingResultViewController: TrainingResultTableViewCellDelegate {
                     
                     self.profilePage.member = member
                     
-                    self.profilePage.beingPushed()
+                    self.profilePage.isOtherUser = true
                     
                     self.show(self.profilePage, sender: nil)
                     
