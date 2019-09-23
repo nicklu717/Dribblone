@@ -45,6 +45,15 @@ class ProfileViewController: UIViewController {
             profileView.followButton.isHidden = false
             profileView.blockButton.isHidden = false
         }
+        
+        if isFollowing {
+            
+            profileView.followButton.setTitle("Unfollow", for: .normal)
+            
+        } else {
+            
+            profileView.followButton.setTitle("Follow", for: .normal)
+        }
     }
     
     // MARK: - Instance Method
@@ -95,7 +104,22 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewDelegate {
     
-    func followUser() {}
+    var isFollowing: Bool {
+        
+        let followings = AuthManager.shared.currentUser.followings
+        
+        return followings.contains(member.id)
+    }
+    
+    func followUser() {
+        
+        
+    }
+    
+    func unfollowUser() {
+        
+        
+    }
     
     func blockUser() {
         showConfirmAlert(title: "Block \(member.id)?", confirmHandler: blockUserHandler)

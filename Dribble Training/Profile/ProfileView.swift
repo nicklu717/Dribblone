@@ -10,7 +10,11 @@ import UIKit
 
 protocol ProfileViewDelegate: AnyObject {
     
+    var isFollowing: Bool { get }
+    
     func followUser()
+    
+    func unfollowUser()
     
     func blockUser()
 }
@@ -42,7 +46,23 @@ class ProfileView: UIView {
         followersLabel.text = String(member.followers.count)
     }
     
-    @IBAction func followUser() {}
+    @IBAction func followUser() {
+        
+        guard let delegate = delegate
+            else {
+                print("Profile View Delegate Not Exist")
+                return
+        }
+        
+        if delegate.isFollowing {
+            
+            delegate.unfollowUser()
+            
+        } else {
+            
+            delegate.followUser()
+        }
+    }
     
     @IBAction func blockUser() {
         delegate?.blockUser()
