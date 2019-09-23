@@ -32,4 +32,11 @@ class ProfileView: UIView {
         followingsLabel.text = String(member.followings.count)
         followersLabel.text = String(member.followers.count)
     }
+    
+    @IBAction func followUser() {}
+    
+    @IBAction func blockUser() {
+        
+        
+    }
 }

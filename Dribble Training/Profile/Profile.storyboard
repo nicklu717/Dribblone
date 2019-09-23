@@ -76,6 +76,9 @@
                                 <state key="normal" title="Follow">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="followUser" destination="L1g-cG-sA5" eventType="touchUpInside" id="Osm-Yq-LOq"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw7-yU-AcB">
                                 <rect key="frame" x="320" y="216" width="30" height="30"/>
@@ -83,6 +86,9 @@
                                     <constraint firstAttribute="width" secondItem="yw7-yU-AcB" secondAttribute="height" multiplier="1:1" id="22F-Eo-re6"/>
                                 </constraints>
                                 <state key="normal" image="Block"/>
+                                <connections>
+                                    <action selector="blockUser" destination="L1g-cG-sA5" eventType="touchUpInside" id="w5h-Ab-nnk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
