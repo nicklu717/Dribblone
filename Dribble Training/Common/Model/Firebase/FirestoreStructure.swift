@@ -21,7 +21,7 @@ struct Member: Codable {
     
     let followers: [ID]
     
-    let followings: [ID]
+    var followings: [ID]
     
     var blockList: [ID]
     

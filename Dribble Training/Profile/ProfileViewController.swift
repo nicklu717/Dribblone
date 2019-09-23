@@ -46,6 +46,13 @@ class ProfileViewController: UIViewController {
             profileView.blockButton.isHidden = false
         }
         
+        updateFollowingStatus()
+    }
+    
+    // MARK: - Instance Method
+    
+    private func updateFollowingStatus() {
+        
         if isFollowing {
             
             profileView.followButton.setTitle("Unfollow", for: .normal)
@@ -55,8 +62,6 @@ class ProfileViewController: UIViewController {
             profileView.followButton.setTitle("Follow", for: .normal)
         }
     }
-    
-    // MARK: - Instance Method
     
     private func setupProfileView() {
         
@@ -113,15 +118,33 @@ extension ProfileViewController: ProfileViewDelegate {
     
     func followUser() {
         
+        FirestoreManager.shared.follow(member: member)
         
+        AuthManager.shared.currentUser.followings.append(member.id)
+        
+        updateFollowingStatus()
     }
     
     func unfollowUser() {
         
+        FirestoreManager.shared.unfollow(member: member)
         
+        let followings = AuthManager.shared.currentUser.followings
+        
+        var newFollowings: [ID] = []
+        
+        for id in followings where id != member.id {
+            
+            newFollowings.append(id)
+        }
+        
+        AuthManager.shared.currentUser.followings = newFollowings
+        
+        updateFollowingStatus()
     }
     
     func blockUser() {
+        
         showConfirmAlert(title: "Block \(member.id)?", confirmHandler: blockUserHandler)
     }
     

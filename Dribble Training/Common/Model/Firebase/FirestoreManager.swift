@@ -14,6 +14,14 @@ class FirestoreManager {
     
     private let firestore = Firestore.firestore()
     
+    private var currentUser: Member {
+        return AuthManager.shared.currentUser }
+    
+    
+    private var currentUserReference: DocumentReference {
+        return firestore.collection(CollectionKey.member).document(currentUser.uid)
+    }
+    
     func fetchMemberData(forUID uid: UID,
                          completion: @escaping (Result<Member, Error>) -> Void) {
         
@@ -126,23 +134,37 @@ class FirestoreManager {
     
     func block(member: Member) {
         
-        let currentUser = AuthManager.shared.currentUser!
-        
-        let currentUserReference = firestore.collection(CollectionKey.member).document(currentUser.uid)
-        
         currentUserReference.updateData([MemberKey.blockList: FieldValue.arrayUnion([member.id])])
         
         currentUserReference.updateData([MemberKey.followings: FieldValue.arrayRemove([member.id])])
         
         currentUserReference.updateData([MemberKey.followers: FieldValue.arrayRemove([member.id])])
         
-        let blockingMemberReference = firestore.collection(CollectionKey.member).document(member.uid)
+        let memberReference = firestore.collection(CollectionKey.member).document(member.uid)
         
-        blockingMemberReference.updateData([MemberKey.blockList: FieldValue.arrayUnion([currentUser.id])])
+        memberReference.updateData([MemberKey.blockList: FieldValue.arrayUnion([currentUser.id])])
         
-        blockingMemberReference.updateData([MemberKey.followers: FieldValue.arrayRemove([currentUser.id])])
+        memberReference.updateData([MemberKey.followers: FieldValue.arrayRemove([currentUser.id])])
         
-        blockingMemberReference.updateData([MemberKey.followings: FieldValue.arrayRemove([currentUser.id])])
+        memberReference.updateData([MemberKey.followings: FieldValue.arrayRemove([currentUser.id])])
+    }
+    
+    func follow(member: Member) {
+        
+        currentUserReference.updateData([MemberKey.followings: FieldValue.arrayUnion([member.id])])
+        
+        let memberReference = firestore.collection(CollectionKey.member).document(member.uid)
+        
+        memberReference.updateData([MemberKey.followers: FieldValue.arrayUnion([currentUser.id])])
+    }
+    
+    func unfollow(member: Member) {
+        
+        currentUserReference.updateData([MemberKey.followings: FieldValue.arrayRemove([member.id])])
+        
+        let memberReference = firestore.collection(CollectionKey.member).document(member.uid)
+        
+        memberReference.updateData([MemberKey.followers: FieldValue.arrayRemove([currentUser.id])])
     }
     
     func update(member: Member, completion: (() -> Void)?) {
