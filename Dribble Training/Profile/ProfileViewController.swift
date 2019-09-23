@@ -25,13 +25,6 @@ class ProfileViewController: UIViewController, TrainingResultViewControllerDataS
     
     private var trainingResultPage: TrainingResultViewController!
     
-//    override func viewDidLoad() {
-//
-//        super.viewDidLoad()
-//
-//
-//    }
-    
     // MARK: - Instance Method
     
     private func setupProfileView() {
