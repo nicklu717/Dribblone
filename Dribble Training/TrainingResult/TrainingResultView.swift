@@ -8,20 +8,33 @@
 
 import UIKit
 
-protocol TrainingResultViewDataSource: UITableViewDataSource {
+protocol TrainingResultViewDelegate: UITableViewDataSource {
     
-    var trainingResults: [TrainingResult] { get }
+    func refreshTrainingResult()
 }
 
 class TrainingResultView: UIView {
     
-    weak var delegate: TrainingResultViewDataSource? {
+    weak var delegate: TrainingResultViewDelegate? {
         didSet {
             setupTableView()
         }
     }
     
     @IBOutlet var tableView: UITableView!
+    
+    func addRefreshHeader() {
+        
+        tableView.addRefreshHeader { [weak self] in
+            
+            self?.delegate?.refreshTrainingResult()
+        }
+    }
+    
+    func endHeaderRefresh() {
+        
+        tableView.endHeaderRefresh()
+    }
     
     // MARK: - Private Method
     

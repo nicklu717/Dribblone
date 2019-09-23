@@ -8,11 +8,11 @@
 
 import UIKit
 
-class PostWallViewController: UIViewController {
+class PostWallViewController: UIViewController, TrainingResultViewControllerDataSource {
     
     @IBOutlet var postWallView: PostWallView!
     
-    var trainingResultPage: TrainingResultViewController!
+    private var trainingResultPage: TrainingResultViewController!
     
     override func viewDidLoad() {
         
@@ -35,18 +35,53 @@ class PostWallViewController: UIViewController {
         
         trainingResultPage = trainingResultViewController
         
+        trainingResultPage.dataSource = self
+        
         trainingResultPage.loadViewIfNeeded()
         
-        trainingResultPage.fetchTrainingResults() {
+        fetchTrainingResult()
+        
+        showTrainingResultPage()
+    }
+    
+    func fetchTrainingResult() {
+        
+        FirestoreManager.shared.fetchTrainingResult { result in
             
-            self.showTrainingResults()
+            switch result {
+                
+            case .success(let trainingResults):
+                
+                var filteredTrainingResults: [TrainingResult] = []
+                
+                let blockList = AuthManager.shared.currentUser.blockList
+                    
+                for trainingResult in trainingResults {
+                        
+                    if !blockList.contains(trainingResult.id) {
+                        
+                        filteredTrainingResults.append(trainingResult)
+                    }
+                }
+                
+                self.trainingResultPage.trainingResults = filteredTrainingResults
+                self.trainingResultPage.endRefreshing()
+                
+            case .failure(let error):
+                
+                print(error)
+            }
         }
     }
     
-    func showTrainingResults() {
+    func showTrainingResultPage() {
         
-        view.addSubview(trainingResultPage.view)
+        postWallView.trainingResultPageView.addSubview(trainingResultPage.view)
         
-        trainingResultPage.view.frame = view.bounds
+        trainingResultPage.view.frame = postWallView.trainingResultPageView.bounds
+        
+        addChild(trainingResultPage)
+        
+        trainingResultPage.didMove(toParent: self)
     }
 }

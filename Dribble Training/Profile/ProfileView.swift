@@ -8,7 +8,20 @@
 
 import UIKit
 
+protocol ProfileViewDelegate: AnyObject {
+    
+    var isFollowing: Bool { get }
+    
+    func followUser()
+    
+    func unfollowUser()
+    
+    func blockUser()
+}
+
 class ProfileView: UIView {
+    
+    weak var delegate: ProfileViewDelegate?
     
     @IBOutlet var pictureImageView: UIImageView! {
         didSet {
@@ -20,9 +33,10 @@ class ProfileView: UIView {
     @IBOutlet var followingsLabel: UILabel!
     @IBOutlet var followersLabel: UILabel!
     
-    @IBOutlet var trainingResultPageView: UIView!
+    @IBOutlet var followButton: UIButton!
+    @IBOutlet var blockButton: UIButton!
     
-    var trainingResultPage: TrainingResultViewController!
+    @IBOutlet var trainingResultPageView: UIView!
     
     func setupProfile(for member: Member) {
         
@@ -32,32 +46,25 @@ class ProfileView: UIView {
         followersLabel.text = String(member.followers.count)
     }
     
-    func setupTrainingResultPage(for member: Member) {
+    @IBAction func followUser() {
         
-        let storyboard = UIStoryboard.trainingResult
-        
-        guard
-            let trainingResultViewController = storyboard.instantiateInitialViewController()
-                as? TrainingResultViewController
+        guard let delegate = delegate
             else {
-                print("Training Result View Controller Not Exist")
+                print("Profile View Delegate Not Exist")
                 return
         }
         
-        trainingResultPage = trainingResultViewController
-        
-        trainingResultPage.loadViewIfNeeded()
-        
-        trainingResultPage.fetchTrainingResults(for: member) {
+        if delegate.isFollowing {
             
-            self.showTrainingResults()
+            delegate.unfollowUser()
+            
+        } else {
+            
+            delegate.followUser()
         }
     }
     
-    private func showTrainingResults() {
-        
-        trainingResultPageView.addSubview(trainingResultPage.view)
-        
-        trainingResultPage.view.frame = trainingResultPageView.bounds
+    @IBAction func blockUser() {
+        delegate?.blockUser()
     }
 }

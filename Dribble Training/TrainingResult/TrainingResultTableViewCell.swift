@@ -8,17 +8,31 @@
 
 import AVKit
 
+protocol TrainingResultTableViewCellDelegate: UIViewController {
+    
+    func pushProfile(forID memberID: ID)
+}
+
 class TrainingResultTableViewCell: UITableViewCell {
     
+    weak var delegate: TrainingResultTableViewCellDelegate?
+    
     @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var idLabel: UILabel!
+    
+    @IBOutlet var idButton: UIButton!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var modeLabel: UILabel!
+    
     @IBOutlet var pointsLabel: UILabel!
+    
     @IBOutlet var videoView: UIView!
     @IBOutlet var playVideoButton: UIButton!
     
+    var videoURL: URL?
+    
     var isVideoAvailable = true
+    
+    var isVideoSet = false
     
     let avPlayerLayer = AVPlayerLayer()
     
@@ -39,10 +53,22 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         playVideoButton.isHidden = true
         
+        if !isVideoSet {
+            
+            if let url = videoURL {
+                setupAVPlayer(url: url)
+            }
+        }
+        
         avPlayerLayer.player?.play()
     }
     
-    func setupAVPlayer(url: URL) {
+    @IBAction func pushProfile() {
+        
+        delegate?.pushProfile(forID: idButton.titleLabel?.text ?? "")
+    }
+    
+    private func setupAVPlayer(url: URL) {
         
         let playerItem = AVPlayerItem(url: url)
         
@@ -61,6 +87,8 @@ class TrainingResultTableViewCell: UITableViewCell {
                 
                 self.playVideoButton.isHidden = false
         })
+        
+        isVideoSet = true
     }
     
     override func prepareForReuse() {
@@ -69,13 +97,16 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         if isVideoAvailable {
             
-            playVideoButton.isEnabled = true
+            avPlayerLayer.player = nil
+            isVideoSet = false
+            
+            playVideoButton.isHidden = false
+            
             playVideoButton.setTitle(nil, for: .normal)
             playVideoButton.setImage(UIImage.asset(.play), for: .normal)
             
         } else {
             
-            playVideoButton.isEnabled = false
             playVideoButton.setTitle("Video Not Available", for: .normal)
             playVideoButton.setImage(nil, for: .normal)
         }

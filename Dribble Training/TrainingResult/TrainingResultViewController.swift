@@ -7,9 +7,20 @@
 //
 
 import UIKit
-import AVKit
+
+protocol TrainingResultViewControllerDataSource: AnyObject {
+    
+    func fetchTrainingResult()
+}
 
 class TrainingResultViewController: UIViewController {
+    
+    weak var dataSource: TrainingResultViewControllerDataSource? {
+        didSet {
+            loadViewIfNeeded()
+            trainingResultView.addRefreshHeader()
+        }
+    }
     
     // MARK: - Property Declaration
     
@@ -25,28 +36,44 @@ class TrainingResultViewController: UIViewController {
         }
     }
     
-    func fetchTrainingResults(for member: Member? = nil,
-                              completion: (() -> Void)?) {
+    var profilePage: ProfileViewController!
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
         
-        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
-            
-            switch result {
-                
-            case .success(let trainingResults):
-                
-                self.trainingResults = trainingResults
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-            
-            completion?()
+        super.viewDidLoad()
+        
+        setupProfilePage()
+    }
+    
+    // MARK: - Private Method
+    
+    private func setupProfilePage() {
+        
+        let storyboard = UIStoryboard.profile
+        
+        guard let profilePage = storyboard.instantiateViewController(withIdentifier: String(describing: ProfileViewController.self)) as? ProfileViewController
+            else {
+                print("Profile View Controller Not Exist")
+                return
         }
+        
+        self.profilePage = profilePage
+    }
+    
+    func refreshTrainingResult() {
+        
+        dataSource?.fetchTrainingResult()
+    }
+    
+    func endRefreshing() {
+        
+        trainingResultView.endHeaderRefresh()
     }
 }
 
-extension TrainingResultViewController: TrainingResultViewDataSource {
+extension TrainingResultViewController: TrainingResultViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -63,24 +90,47 @@ extension TrainingResultViewController: TrainingResultViewDataSource {
             return UITableViewCell()
         }
         
+        cell.delegate = self
+        
         let trainingResult = trainingResults[indexPath.row]
         
         let date = Date(timeIntervalSince1970: trainingResult.date)
         
         cell.dateLabel.text = date.string(format: .resultDisplay)
         
-        cell.idLabel.text = trainingResult.id
+        cell.idButton.setTitle(trainingResult.id, for: .normal)
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = "\(trainingResult.points) pts"
         
-        if
-            let urlString = trainingResult.videoURL,
-            let url = URL(string: urlString) {
-            
-            cell.setupAVPlayer(url: url)
-        }
+        cell.videoURL = URL(string: trainingResult.videoURL)
         
         return cell
     }
 }
 
+extension TrainingResultViewController: TrainingResultTableViewCellDelegate {
+    
+    func pushProfile(forID memberID: ID) {
+        
+        if memberID != AuthManager.shared.currentUser.id {
+        
+            FirestoreManager.shared.fetchMemberData(forID: memberID) { result in
+                
+                switch result {
+                    
+                case .success(let member):
+                    
+                    self.profilePage.member = member
+                    
+                    self.profilePage.isOtherUser = true
+                    
+                    self.show(self.profilePage, sender: nil)
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
+            }
+        }
+    }
+}

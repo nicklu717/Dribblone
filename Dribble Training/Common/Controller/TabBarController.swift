@@ -14,7 +14,11 @@ class TabBarController: UITabBarController {
         return .portrait
     }
     
+    // MARK: - Property Declaration
+    
     private let tabs: [Tab] = [.postWall, .training, .profile]
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         
@@ -22,6 +26,8 @@ class TabBarController: UITabBarController {
         
         setupTabBar()
     }
+    
+    // MARK: - Private Methed
     
     private func setupTabBar() {
         
@@ -96,7 +102,7 @@ class TabBarController: UITabBarController {
             
             tabBarItem.image = UIImage.asset(imageAsset)
             
-            tabBarItem.title = imageAsset.rawValue
+            tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
             
             return tabBarItem
         }

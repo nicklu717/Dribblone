@@ -10,13 +10,26 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    // MARK: - Property Declaration
+    
     private var registerPage: RegisterViewController!
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+//        KeychainManager.shared.uid = nil
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-//        KeychainManager.shared.uid = nil
         
         guard let uid = KeychainManager.shared.uid
             else {
@@ -33,6 +46,8 @@ class MainViewController: UIViewController {
             self.present(TabBarController(), animated: false, completion: nil)
         }
     }
+    
+    // MARK: - Private Method
     
     private func setupRegisterPage() {
         

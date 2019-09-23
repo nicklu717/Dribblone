@@ -26,12 +26,6 @@
                             <constraint firstAttribute="width" constant="50" id="mC6-kX-pgJ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nicklu717" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ5-xI-hvh">
-                        <rect key="frame" x="102" y="16" width="83" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019/09/10 16:50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMb-tT-saE">
                         <rect key="frame" x="102" y="51" width="100" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -77,23 +71,33 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDO-Og-lBq">
+                        <rect key="frame" x="102" y="15" width="52" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <state key="normal" title="wein7">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="pushProfile" destination="My9-H5-Stv" eventType="touchUpInside" id="OIP-m5-DZQ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="N5s-XH-kSh" firstAttribute="trailing" secondItem="5bt-3c-Kas" secondAttribute="trailing" id="12k-Vd-Mch"/>
                     <constraint firstItem="5bt-3c-Kas" firstAttribute="top" secondItem="MiL-qp-MaH" secondAttribute="bottom" constant="16" id="7d1-IE-rPi"/>
                     <constraint firstItem="ADR-5x-9Mp" firstAttribute="top" secondItem="dyj-Pa-Tqe" secondAttribute="top" constant="16" id="8Ua-aZ-tyy"/>
-                    <constraint firstItem="cQ5-xI-hvh" firstAttribute="leading" secondItem="ADR-5x-9Mp" secondAttribute="trailing" constant="16" id="CN6-Ic-8Pu"/>
                     <constraint firstAttribute="trailing" secondItem="5bt-3c-Kas" secondAttribute="trailing" constant="36" id="Cvf-Df-6rf"/>
                     <constraint firstAttribute="bottom" secondItem="5bt-3c-Kas" secondAttribute="bottom" constant="16" id="JoO-UQ-jFG"/>
-                    <constraint firstItem="ADR-5x-9Mp" firstAttribute="top" secondItem="cQ5-xI-hvh" secondAttribute="top" id="QYO-Ep-TXq"/>
                     <constraint firstItem="NkH-CF-Ryg" firstAttribute="bottom" secondItem="N5s-XH-kSh" secondAttribute="bottom" id="S1b-Y0-XX1"/>
                     <constraint firstItem="MiL-qp-MaH" firstAttribute="top" secondItem="sMb-tT-saE" secondAttribute="bottom" constant="16" id="TLj-47-ziF"/>
                     <constraint firstItem="bfF-KY-vZL" firstAttribute="centerX" secondItem="5bt-3c-Kas" secondAttribute="centerX" id="WGe-I1-rz7"/>
                     <constraint firstItem="MiL-qp-MaH" firstAttribute="leading" secondItem="NkH-CF-Ryg" secondAttribute="trailing" constant="16" id="XYq-LW-X5I"/>
                     <constraint firstItem="NkH-CF-Ryg" firstAttribute="bottom" secondItem="MiL-qp-MaH" secondAttribute="bottom" id="ZNj-Vk-sxc"/>
+                    <constraint firstItem="sMb-tT-saE" firstAttribute="top" secondItem="zDO-Og-lBq" secondAttribute="bottom" id="ZUO-AR-V2i"/>
                     <constraint firstItem="ADR-5x-9Mp" firstAttribute="bottom" secondItem="sMb-tT-saE" secondAttribute="bottom" id="aCp-58-m1k"/>
                     <constraint firstItem="5bt-3c-Kas" firstAttribute="leading" secondItem="dyj-Pa-Tqe" secondAttribute="leading" constant="36" id="c77-bC-3DE"/>
                     <constraint firstItem="sMb-tT-saE" firstAttribute="leading" secondItem="ADR-5x-9Mp" secondAttribute="trailing" constant="16" id="gH4-tL-Ui5"/>
+                    <constraint firstItem="zDO-Og-lBq" firstAttribute="leading" secondItem="ADR-5x-9Mp" secondAttribute="trailing" constant="16" id="h52-8z-ZTW"/>
                     <constraint firstItem="ADR-5x-9Mp" firstAttribute="leading" secondItem="dyj-Pa-Tqe" secondAttribute="leading" constant="36" id="hpA-31-g6l"/>
                     <constraint firstItem="NkH-CF-Ryg" firstAttribute="trailing" secondItem="ADR-5x-9Mp" secondAttribute="trailing" id="jp2-8L-ZLt"/>
                     <constraint firstItem="bfF-KY-vZL" firstAttribute="centerY" secondItem="5bt-3c-Kas" secondAttribute="centerY" id="n3V-N0-j5O"/>
@@ -101,7 +105,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="sMb-tT-saE" id="hta-DI-cEk"/>
-                <outlet property="idLabel" destination="cQ5-xI-hvh" id="Lr8-5g-1eQ"/>
+                <outlet property="idButton" destination="zDO-Og-lBq" id="FBc-35-agq"/>
                 <outlet property="modeLabel" destination="MiL-qp-MaH" id="Y2s-v8-N4V"/>
                 <outlet property="playVideoButton" destination="bfF-KY-vZL" id="nAx-vj-hcs"/>
                 <outlet property="pointsLabel" destination="N5s-XH-kSh" id="gE4-WO-ZR9"/>

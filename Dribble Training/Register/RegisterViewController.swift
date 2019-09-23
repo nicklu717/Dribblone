@@ -10,11 +10,19 @@ import UIKit
 
 class RegisterViewController: UIViewController, RegisterViewDelegate {
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    // MARK: - Property Declaration
+    
     @IBOutlet var registerView: RegisterView! {
         didSet {
             registerView.delegate = self
         }
     }
+    
+    // MARK: - Instance Method
     
     func signUp(withEmail email: String, password: String) {
         
@@ -31,6 +39,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                                         displayName: "",
                                         followers: [],
                                         followings: [],
+                                        blockList: [],
                                         trainingResults: [],
                                         picture: "")
                     

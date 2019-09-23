@@ -8,17 +8,22 @@
 
 import Foundation
 
+typealias UID = String
+typealias ID = String
+
 struct Member: Codable {
     
-    let uid: String
+    let uid: UID
     
-    let id: String
+    let id: ID
     
     let displayName: String
     
-    let followers: [String]
+    let followers: [ID]
     
-    let followings: [String]
+    var followings: [ID]
+    
+    var blockList: [ID]
     
     let trainingResults: [String]
     
@@ -30,13 +35,15 @@ struct Member: Codable {
         
         case displayName = "display_name"
         
+        case blockList = "block_list"
+        
         case trainingResults = "training_results"
     }
 }
 
 struct TrainingResult: Codable {
     
-    let id: String
+    let id: ID
     
     let date: Double
     
@@ -44,7 +51,7 @@ struct TrainingResult: Codable {
     
     let points: Int
     
-    var videoURL: String?
+    var videoURL: String!
     
     enum CodingKeys: String, CodingKey {
         

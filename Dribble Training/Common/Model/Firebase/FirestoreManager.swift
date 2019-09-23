@@ -14,11 +14,19 @@ class FirestoreManager {
     
     private let firestore = Firestore.firestore()
     
-    func fetchMemberData(forUID uid: String,
+    private var currentUser: Member {
+        return AuthManager.shared.currentUser }
+    
+    
+    private var currentUserReference: DocumentReference {
+        return firestore.collection(CollectionKey.member).document(currentUser.uid)
+    }
+    
+    func fetchMemberData(forUID uid: UID,
                          completion: @escaping (Result<Member, Error>) -> Void) {
         
         firestore
-            .collection(Collection.member)
+            .collection(CollectionKey.member)
             .document(uid)
             .getDocument { (documentSnapshot, error) in
                 
@@ -39,10 +47,35 @@ class FirestoreManager {
         }
     }
     
-    func fetchTrainingResult(for member: Member?,
+    func fetchMemberData(forID id: ID,
+                         completion: @escaping (Result<Member, Error>) -> Void) {
+        
+        firestore
+            .collection(CollectionKey.member)
+            .whereField("id", isEqualTo: id)
+            .getDocuments { (documentSnapshot, error) in
+                
+                if let error = error {
+                    completion(.failure(error))
+                }
+                
+                if let data = documentSnapshot?.documents.first?.data() {
+                    
+                    guard let member: Member = self.getObject(from: data)
+                        else {
+                            print("Member Data Converting Failure")
+                            return
+                    }
+                    
+                    completion(.success(member))
+                }
+        }
+    }
+    
+    func fetchTrainingResult(for member: Member? = nil,
                              completion: @escaping (Result<[TrainingResult], Error>) -> Void) {
         
-        var reference: Query = firestore.collection(Collection.trainingResults)
+        var reference: Query = firestore.collection(CollectionKey.trainingResults)
         
         if let member = member {
             reference = reference.whereField("id", isEqualTo: member.id)
@@ -84,7 +117,7 @@ class FirestoreManager {
 //    func checkAvailable(forID id: String, completion: @escaping (Bool) -> Void) {
 //
 //        firestore
-//            .collection(Collection.member)
+//            .collection(CollectionKey.member)
 //            .whereField("id", isEqualTo: id)
 //            .getDocuments { (querySnapshot, error) in
 //
@@ -99,17 +132,51 @@ class FirestoreManager {
 //        }
 //    }
     
+    func block(member: Member) {
+        
+        currentUserReference.updateData([MemberKey.blockList: FieldValue.arrayUnion([member.id])])
+        
+        currentUserReference.updateData([MemberKey.followings: FieldValue.arrayRemove([member.id])])
+        
+        currentUserReference.updateData([MemberKey.followers: FieldValue.arrayRemove([member.id])])
+        
+        let memberReference = firestore.collection(CollectionKey.member).document(member.uid)
+        
+        memberReference.updateData([MemberKey.blockList: FieldValue.arrayUnion([currentUser.id])])
+        
+        memberReference.updateData([MemberKey.followers: FieldValue.arrayRemove([currentUser.id])])
+        
+        memberReference.updateData([MemberKey.followings: FieldValue.arrayRemove([currentUser.id])])
+    }
+    
+    func follow(member: Member) {
+        
+        currentUserReference.updateData([MemberKey.followings: FieldValue.arrayUnion([member.id])])
+        
+        let memberReference = firestore.collection(CollectionKey.member).document(member.uid)
+        
+        memberReference.updateData([MemberKey.followers: FieldValue.arrayUnion([currentUser.id])])
+    }
+    
+    func unfollow(member: Member) {
+        
+        currentUserReference.updateData([MemberKey.followings: FieldValue.arrayRemove([member.id])])
+        
+        let memberReference = firestore.collection(CollectionKey.member).document(member.uid)
+        
+        memberReference.updateData([MemberKey.followers: FieldValue.arrayRemove([currentUser.id])])
+    }
+    
     func update(member: Member, completion: (() -> Void)?) {
         
-        guard
-            let dictionary = getDictionary(from: member)
+        guard let dictionary = getDictionary(from: member)
             else {
                 print("Member Data Encoding Failure")
                 return
         }
         
         firestore
-            .collection(Collection.member)
+            .collection(CollectionKey.member)
             .document(member.uid)
             .setData(dictionary) { error in
             
@@ -125,8 +192,7 @@ class FirestoreManager {
                 for member: Member,
                 completion: (() -> Void)? = nil) {
         
-        guard
-            let dictionary = getDictionary(from: trainingResult)
+        guard let dictionary = getDictionary(from: trainingResult)
             else {
                 print("Training Result Data Encoding Failure")
                 return
@@ -134,18 +200,20 @@ class FirestoreManager {
         
         let reference =
             firestore
-                .collection(Collection.trainingResults)
+                .collection(CollectionKey.trainingResults)
                 .addDocument(data: dictionary)
         
         firestore
-            .collection(Collection.member)
+            .collection(CollectionKey.member)
             .document(member.uid)
             .updateData(
-                [Collection.trainingResults: FieldValue.arrayUnion([reference.documentID])]
+                [CollectionKey.trainingResults: FieldValue.arrayUnion([reference.documentID])]
         )
         
         completion?()
     }
+    
+    // MARK: - Private Method
     
     private func getObject<T: Decodable>(from dictionary: [String: Any]) -> T? {
         
@@ -187,10 +255,32 @@ class FirestoreManager {
         }
     }
     
-    private struct Collection {
+    private struct CollectionKey {
         
         static let member = "member"
         
         static let trainingResults = "training_results"
     }
+    
+    private struct MemberKey {
+        
+        static let uid = "uid"
+        static let id = "id"
+        static let displayName = "display_name"
+        static let followers = "followers"
+        static let followings = "followings"
+        static let blockList = "block_list"
+        static let trainingResults = "training_results"
+        static let picture = "picture"
+    }
+    
+    private struct TrainingResultsKey {
+        
+        static let id = "id"
+        static let date = "date"
+        static let mode = "mode"
+        static let points = "points"
+        static let videoURL = "video_url"
+    }
 }
+

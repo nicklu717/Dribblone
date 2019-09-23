@@ -12,6 +12,10 @@ target 'Dribble Training' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+
   pod 'KeychainAccess'
+
+  pod 'MJRefresh'
+  pod 'SCLAlertView'
 
 end
