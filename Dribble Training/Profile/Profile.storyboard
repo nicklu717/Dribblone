@@ -56,11 +56,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-Sv-FYf">
-                                <rect key="frame" x="16" y="269.5" width="200" height="36"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-Sv-FYf">
+                                <rect key="frame" x="0.0" y="269.5" width="414" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvx-lD-jw1">
@@ -102,13 +101,14 @@
                             <constraint firstItem="yw7-yU-AcB" firstAttribute="centerY" secondItem="dhg-JC-lED" secondAttribute="centerY" id="BXg-8K-rUc"/>
                             <constraint firstItem="gvx-lD-jw1" firstAttribute="trailing" secondItem="RDa-K0-lRe" secondAttribute="trailing" id="Cng-wo-qSZ"/>
                             <constraint firstItem="tA7-nP-997" firstAttribute="leading" secondItem="N5w-4a-N0J" secondAttribute="trailing" constant="30" id="GSS-RQ-Ezg"/>
+                            <constraint firstItem="eRr-Sv-FYf" firstAttribute="leading" secondItem="RDa-K0-lRe" secondAttribute="leading" id="Iap-Ny-Au3"/>
                             <constraint firstItem="dhg-JC-lED" firstAttribute="trailing" secondItem="tA7-nP-997" secondAttribute="trailing" id="KhC-lN-0jw"/>
                             <constraint firstItem="yw7-yU-AcB" firstAttribute="leading" secondItem="dhg-JC-lED" secondAttribute="trailing" constant="8" id="TtI-Vv-1cq"/>
                             <constraint firstItem="Y1p-ZY-4hx" firstAttribute="centerX" secondItem="N5w-4a-N0J" secondAttribute="centerX" id="Uim-Or-gXe"/>
                             <constraint firstItem="gvx-lD-jw1" firstAttribute="top" secondItem="eRr-Sv-FYf" secondAttribute="bottom" constant="36" id="WRF-3v-pwl"/>
-                            <constraint firstItem="eRr-Sv-FYf" firstAttribute="leading" secondItem="RDa-K0-lRe" secondAttribute="leading" constant="16" id="WUi-Rg-Gzm"/>
                             <constraint firstItem="RDa-K0-lRe" firstAttribute="bottom" secondItem="gvx-lD-jw1" secondAttribute="bottom" id="YaI-s1-fdg"/>
                             <constraint firstItem="eRr-Sv-FYf" firstAttribute="top" secondItem="hh1-0N-b5s" secondAttribute="bottom" constant="28" id="eQC-7Y-awz"/>
+                            <constraint firstItem="RDa-K0-lRe" firstAttribute="trailing" secondItem="eRr-Sv-FYf" secondAttribute="trailing" id="lNI-TU-00K"/>
                             <constraint firstItem="N5w-4a-N0J" firstAttribute="bottom" secondItem="1AV-1N-AV5" secondAttribute="bottom" id="lze-to-sRg"/>
                             <constraint firstItem="1AV-1N-AV5" firstAttribute="top" secondItem="RDa-K0-lRe" secondAttribute="top" constant="36" id="mtS-I5-fwL"/>
                             <constraint firstItem="hh1-0N-b5s" firstAttribute="centerX" secondItem="1AV-1N-AV5" secondAttribute="centerX" id="naY-8s-ud8"/>
@@ -131,10 +131,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="wein7" id="kh7-mY-uXS">
                         <barButtonItem key="leftBarButtonItem" image="Settings" id="4ak-pT-ioI">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Edit" id="N5T-j7-QGC">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
