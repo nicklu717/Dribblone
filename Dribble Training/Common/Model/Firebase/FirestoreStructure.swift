@@ -23,6 +23,8 @@ struct Member: Codable {
     
     let followings: [String]
     
+    let blockList: [String]
+    
     let trainingResults: [String]
     
     let picture: String
@@ -32,6 +34,8 @@ struct Member: Codable {
         case uid, id, followers, followings, picture
         
         case displayName = "display_name"
+        
+        case blockList = "block_list"
         
         case trainingResults = "training_results"
     }
