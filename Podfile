@@ -16,5 +16,6 @@ target 'Dribble Training' do
   pod 'KeychainAccess'
 
   pod 'MJRefresh'
+  pod 'SCLAlertView'
 
 end

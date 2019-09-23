@@ -97,6 +97,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
+  - SCLAlertView (0.8)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -104,6 +105,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - KeychainAccess
   - MJRefresh
+  - SCLAlertView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -127,6 +129,7 @@ SPEC REPOS:
     - MJRefresh
     - nanopb
     - Protobuf
+    - SCLAlertView
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
@@ -149,7 +152,8 @@ SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
 
-PODFILE CHECKSUM: e2fc16dce9b53d5d61968b0c0cc213f935b7bf2f
+PODFILE CHECKSUM: df3a7c10b3bb74f242325f36a83899c7611c9e84
 
 COCOAPODS: 1.7.5
