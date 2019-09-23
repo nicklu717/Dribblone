@@ -98,7 +98,14 @@
                             <outlet property="trainingResultPageView" destination="gvx-lD-jw1" id="qAu-CH-9No"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="wein7" id="kh7-mY-uXS"/>
+                    <navigationItem key="navigationItem" title="wein7" id="kh7-mY-uXS">
+                        <barButtonItem key="leftBarButtonItem" image="Settings" id="4ak-pT-ioI">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Edit" id="N5T-j7-QGC">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="profileView" destination="L1g-cG-sA5" id="1io-YY-3uu"/>
                     </connections>
@@ -126,4 +133,8 @@
             <point key="canvasLocation" x="89.855072463768124" y="102.45535714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Edit" width="24" height="24"/>
+        <image name="Settings" width="24" height="24"/>
+    </resources>
 </document>
