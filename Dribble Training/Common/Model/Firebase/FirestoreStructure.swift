@@ -19,11 +19,11 @@ struct Member: Codable {
     
     let displayName: String
     
-    let followers: [String]
+    let followers: [ID]
     
-    let followings: [String]
+    let followings: [ID]
     
-    var blockList: [String]
+    var blockList: [ID]
     
     let trainingResults: [String]
     

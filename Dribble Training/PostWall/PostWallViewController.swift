@@ -52,7 +52,19 @@ class PostWallViewController: UIViewController, TrainingResultViewControllerData
                 
             case .success(let trainingResults):
                 
-                self.trainingResultPage.trainingResults = trainingResults
+                var filteredTrainingResults: [TrainingResult] = []
+                
+                let blockList = AuthManager.shared.currentUser.blockList
+                    
+                for trainingResult in trainingResults {
+                        
+                    if !blockList.contains(trainingResult.id) {
+                        
+                        filteredTrainingResults.append(trainingResult)
+                    }
+                }
+                
+                self.trainingResultPage.trainingResults = filteredTrainingResults
                 self.trainingResultPage.endRefreshing()
                 
             case .failure(let error):
