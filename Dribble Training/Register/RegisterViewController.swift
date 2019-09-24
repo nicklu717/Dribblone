@@ -24,7 +24,15 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     // MARK: - Instance Method
     
-    func signUp(withEmail email: String, password: String) {
+    func signUp(withEmail email: String, password: String, confirmPassword: String, id: ID) {
+        
+        if hasBlank() { return }
+        
+        if !isPasswordConfirmed() {
+            
+            showErrorMessage(.passwordNotConfirmed)
+            return
+        }
         
         AuthManager.shared.signUp(
             withEmail: email,
@@ -53,7 +61,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                     
                 case .failure(let error):
                     
-                    self.registerView.showErrorMessage("Sign Up Failure!")
+                    self.showErrorMessage(.signUpFail)
                     print(error)
                 }
         }
@@ -74,9 +82,75 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                     
                 case .failure(let error):
                     
-                    self.registerView.showErrorMessage("Log In Failure!")
+                    self.showErrorMessage(.logInFail)
                     print(error)
                 }
         }
+    }
+    
+    private func hasBlank() -> Bool {
+        
+        var hasBlank: Bool = false
+        
+        var textFields = [UITextField]()
+        
+        switch registerView.status {
+            
+        case .logIn:
+            
+            textFields = [registerView.emailTextField,
+                          registerView.passwordTextField]
+            
+        case .signUp:
+            
+            textFields = [registerView.emailTextField,
+                          registerView.passwordTextField,
+                          registerView.confirmPasswordTextField,
+                          registerView.idTextField]
+        }
+        
+        for textField in textFields where textField.text == "" {
+            
+            let red = UIColor.red.withAlphaComponent(0.3)
+            
+            textField.flashBackground(with: red, duration: 0.15)
+            
+            hasBlank = true
+        }
+        
+        return hasBlank
+    }
+    
+    private func isPasswordConfirmed() -> Bool {
+        
+        var confirmed: Bool = true
+        
+        switch registerView.status {
+            
+        case .logIn: break
+            
+        case .signUp:
+            
+            confirmed =
+                (registerView.passwordTextField.text == registerView.confirmPasswordTextField.text)
+        }
+        
+        return confirmed
+    }
+    
+    private func showErrorMessage(_ message: RegisterError) {
+        
+        registerView.errorMessageLabel.text = message.rawValue
+        
+        registerView.errorMessageLabel.isHidden = false
+    }
+    
+    private enum RegisterError: String {
+        
+        case passwordNotConfirmed = "Password Not Confirmed"
+        
+        case signUpFail = "Sign Up Failure"
+        
+        case logInFail = "Log In Failure"
     }
 }

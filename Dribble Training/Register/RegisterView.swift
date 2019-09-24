@@ -10,9 +10,9 @@ import UIKit
 
 protocol RegisterViewDelegate: UIViewController {
     
-    func signUp(withEmail email: String, password: String)
+    func signUp(withEmail email: String, password: String, confirmPassword: String, id: ID)
     
-    func logIn(withEmail email: String, password: String) // take id
+    func logIn(withEmail email: String, password: String)
 }
 
 class RegisterView: UIView {
@@ -29,24 +29,29 @@ class RegisterView: UIView {
     @IBOutlet var logInButton: UIButton!
     @IBOutlet var switchStatusButton: UIButton!
     
-    private var status: Status = .logIn
+    var status: Status = .logIn
     
     @IBAction func logIn() {
         
         errorMessageLabel.isHidden = true
         
-        if hasBlank() { return }
-        
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let confirmPassword = confirmPasswordTextField.text ?? ""
-        let id = idTextField.text ?? ""
+        let id: ID = idTextField.text ?? ""
         
         switch status {
         
-        case .logIn: delegate?.logIn(withEmail: email, password: password)
+        case .logIn:
+            
+            delegate?.logIn(withEmail: email, password: password)
         
-        case .signUp: delegate?.signUp(withEmail: email, password: password)
+        case .signUp:
+            
+            delegate?.signUp(withEmail: email,
+                             password: password,
+                             confirmPassword: confirmPassword,
+                             id: id)
         }
     }
     
@@ -84,44 +89,7 @@ class RegisterView: UIView {
         }
     }
     
-    func hasBlank() -> Bool {
-        
-        var hasBlank: Bool = false
-        
-        var textFields = [UITextField]()
-        
-        switch status {
-            
-        case .logIn:
-            
-            textFields = [emailTextField, passwordTextField]
-            
-        case .signUp:
-            
-            textFields = [emailTextField, passwordTextField,
-                          confirmPasswordTextField, idTextField]
-        }
-        
-        for textField in textFields where textField.text == "" {
-            
-            let red = UIColor.red.withAlphaComponent(0.3)
-            
-            textField.flashBackground(with: red, duration: 0.15)
-            
-            hasBlank = true
-        }
-        
-        return hasBlank
-    }
-    
-    func showErrorMessage(_ message: String) {
-        
-        errorMessageLabel.text = message
-        
-        errorMessageLabel.isHidden = false
-    }
-    
-    private enum Status {
+    enum Status {
         
         case logIn
         
