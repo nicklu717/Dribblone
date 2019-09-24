@@ -60,3 +60,29 @@ extension SettingViewController: UITableViewDataSource {
         return cell
     }
 }
+
+extension SettingViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let setting = settings[indexPath.row]
+        
+        switch setting {
+            
+        case .logOut:
+            
+            // show warning
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                else {
+                    print("App Delegate Not Found")
+                    return
+            }
+
+            KeychainManager.shared.uid = nil
+            AuthManager.shared.currentUser = nil
+            
+            appDelegate.window?.rootViewController?.dismiss(animated: true)
+        }
+    }
+}

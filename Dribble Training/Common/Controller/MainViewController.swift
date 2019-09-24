@@ -20,13 +20,6 @@ class MainViewController: UIViewController {
     
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-//        KeychainManager.shared.uid = nil
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
@@ -42,6 +35,8 @@ class MainViewController: UIViewController {
         }
         
         fetchUserData(for: uid) {
+            
+            // Icon Animation
             
             self.present(TabBarController(), animated: false, completion: nil)
         }
