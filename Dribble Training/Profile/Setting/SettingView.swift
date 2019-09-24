@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  SettingView.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/24.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol SettingsViewDelegate: UITableViewDataSource {}
+protocol SettingViewDelegate: UITableViewDataSource {}
 
-class SettingsView: UIView {
+class SettingView: UIView {
     
-    weak var delegate: SettingsViewDelegate? {
+    weak var delegate: SettingViewDelegate? {
         didSet {
             tableView.dataSource = delegate
         }

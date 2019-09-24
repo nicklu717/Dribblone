@@ -159,11 +159,11 @@
             </objects>
             <point key="canvasLocation" x="1000.0000000000001" y="102.45535714285714"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="mOu-JF-iQJ">
             <objects>
-                <viewController id="reQ-Ml-N3y" customClass="SettingsViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O4T-8h-I31" customClass="SettingsView" customModule="Dribble_Training" customModuleProvider="target">
+                <viewController id="reQ-Ml-N3y" customClass="SettingViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O4T-8h-I31" customClass="SettingView" customModule="Dribble_Training" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -185,7 +185,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="settingsView" destination="O4T-8h-I31" id="qSB-rh-V0D"/>
+                        <outlet property="settingView" destination="O4T-8h-I31" id="dNa-Ns-jof"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvu-rR-TLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

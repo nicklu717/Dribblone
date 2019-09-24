@@ -103,6 +103,7 @@
                     <constraint firstItem="bfF-KY-vZL" firstAttribute="centerY" secondItem="5bt-3c-Kas" secondAttribute="centerY" id="n3V-N0-j5O"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
                 <outlet property="dateLabel" destination="sMb-tT-saE" id="hta-DI-cEk"/>
                 <outlet property="idButton" destination="zDO-Og-lBq" id="FBc-35-agq"/>
