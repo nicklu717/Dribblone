@@ -48,6 +48,8 @@ class RegisterView: UIView {
     
     @IBAction func switchStatus() {
         
+        errorMessageLabel.isHidden = true
+        
         switch status {
             
         case .logIn:

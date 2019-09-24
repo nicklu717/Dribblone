@@ -18,4 +18,6 @@ target 'Dribble Training' do
   pod 'MJRefresh'
   pod 'SCLAlertView'
 
+  pod 'IQKeyboardManagerSwift'
+
 end
