@@ -56,7 +56,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPb-za-7zf">
+                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPb-za-7zf">
                                 <rect key="frame" x="56" y="488" width="302" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="DRB-8q-5JV"/>
@@ -113,7 +113,7 @@
                                     <action selector="logIn" destination="lib-iY-Qk8" eventType="touchUpInside" id="NDM-uM-IdU"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZ9-h9-S68">
+                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZ9-h9-S68">
                                 <rect key="frame" x="56" y="556" width="302" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Wmb-7C-xk0"/>

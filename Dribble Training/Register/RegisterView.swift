@@ -65,9 +65,14 @@ class RegisterView: UIView {
             
             status = .signUp
             
-            confirmPasswordTextField.isHidden = false
+            confirmPasswordTextField.text = ""
+            idTextField.text = ""
             
-            idTextField.isHidden = false
+            UIView.animate(withDuration: 0.2) {
+                
+                self.confirmPasswordTextField.alpha = 1
+                self.idTextField.alpha = 1
+            }
             
             logInButton.setTitle("Sign Up", for: .normal)
             
@@ -77,11 +82,11 @@ class RegisterView: UIView {
             
             status = .logIn
             
-            confirmPasswordTextField.isHidden = true
-            confirmPasswordTextField.text = ""
-            
-            idTextField.isHidden = true
-            idTextField.text = ""
+            UIView.animate(withDuration: 0.2) {
+                
+                self.confirmPasswordTextField.alpha = 0
+                self.idTextField.alpha = 0
+            }
             
             logInButton.setTitle("Log In", for: .normal)
             
