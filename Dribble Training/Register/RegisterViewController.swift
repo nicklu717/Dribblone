@@ -34,40 +34,55 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
             return
         }
         
-        AuthManager.shared.signUp(
-            withEmail: email,
-            password: password) { result in
+        FirestoreManager.shared.checkAvailable(for: id) { isAvailable in
+            
+            if isAvailable {
                 
-                switch result {
-                    
-                case .success(let uid):
-                    
-                    let member = Member(uid: uid,
-                                        id: "default_id",
-                                        displayName: "",
-                                        followers: [],
-                                        followings: [],
-                                        blockList: [],
-                                        trainingResults: [],
-                                        picture: "")
-                    
-                    FirestoreManager.shared.update(
-                        member: member,
-                        completion: {
+                AuthManager.shared.signUp(
+                    withEmail: email,
+                    password: password) { result in
+                        
+                        switch result {
                             
-                            // Show success alert
-                            self.registerView.switchStatus()
-                    })
-                    
-                case .failure(let error):
-                    
-                    self.showErrorMessage(.signUpFail)
-                    print(error)
+                        case .success(let uid):
+                            
+                            let member = Member(uid: uid,
+                                                id: id,
+                                                displayName: "",
+                                                followers: [],
+                                                followings: [],
+                                                blockList: [],
+                                                trainingResults: [],
+                                                picture: "")
+                            
+                            FirestoreManager.shared.update(
+                                member: member,
+                                completion: {
+                                    
+                                    // Show success alert
+                                    self.registerView.switchStatus()
+                                    self.registerView.logIn()
+                            })
+                            
+                        case .failure(let error):
+                            
+                            self.showErrorMessage(.signUpFail)
+                            print(error)
+                        }
                 }
+                
+            } else {
+                
+                self.showErrorMessage(.idNotAvailable)
+            }
         }
+        
+        
     }
     
     func logIn(withEmail email: String, password: String) {
+        
+        if hasBlank() { return }
         
         AuthManager.shared.logIn(
             withEmail: email,
@@ -123,19 +138,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     private func isPasswordConfirmed() -> Bool {
         
-        var confirmed: Bool = true
-        
-        switch registerView.status {
-            
-        case .logIn: break
-            
-        case .signUp:
-            
-            confirmed =
-                (registerView.passwordTextField.text == registerView.confirmPasswordTextField.text)
-        }
-        
-        return confirmed
+        return (registerView.passwordTextField.text == registerView.confirmPasswordTextField.text)
     }
     
     private func showErrorMessage(_ message: RegisterError) {
@@ -148,6 +151,8 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     private enum RegisterError: String {
         
         case passwordNotConfirmed = "Password Not Confirmed"
+        
+        case idNotAvailable = "ID Not Available"
         
         case signUpFail = "Sign Up Failure"
         
