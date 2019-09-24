@@ -115,7 +115,7 @@ class FirestoreManager {
     }
     
     func checkAvailable(for id: ID, completion: @escaping (Bool) -> Void) {
-        print(id)
+        
         firestore
             .collection(CollectionKey.member)
             .whereField(MemberKey.id, isEqualTo: id)
