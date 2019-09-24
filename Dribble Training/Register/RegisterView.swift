@@ -35,8 +35,12 @@ class RegisterView: UIView {
         
         errorMessageLabel.isHidden = true
         
+        if hasBlank() { return }
+        
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
+        let confirmPassword = confirmPasswordTextField.text ?? ""
+        let id = idTextField.text ?? ""
         
         switch status {
         
@@ -72,6 +76,38 @@ class RegisterView: UIView {
             logInButton.setTitle("Log In", for: .normal)
             switchStatusButton.setTitle("Create an account", for: .normal)
         }
+    }
+    
+    func hasBlank() -> Bool {
+        
+        var hasBlank: Bool = false
+        
+        var textFields: [UITextField]!
+        
+        switch status {
+            
+        case .logIn:
+            
+            textFields = [emailTextField,
+                          passwordTextField]
+            
+        case .signUp:
+            
+            textFields = [emailTextField,
+                          passwordTextField,
+                          confirmPasswordTextField,
+                          idTextField]
+        }
+        
+        for textField in textFields {
+            
+            if textField.text == "" {
+                
+                hasBlank = true
+            }
+        }
+        
+        return hasBlank
     }
     
     func showErrorMessage(_ message: String) {
