@@ -76,7 +76,7 @@ class RegisterView: UIView {
             
             logInButton.setTitle("Sign Up", for: .normal)
             
-            switchStatusButton.setTitle("Log In?", for: .normal)
+            switchStatusButton.setTitle("Log in?", for: .normal)
             
         case .signUp:
             
