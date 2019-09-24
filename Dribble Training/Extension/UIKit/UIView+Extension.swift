@@ -8,6 +8,27 @@
 
 import UIKit
 
+extension UIView {
+    
+    func flashBackground(with color: UIColor?, duration: TimeInterval){
+        
+        let originColor = backgroundColor
+        
+        changeBackgroundColor(to: color, duration: duration) {
+            self.changeBackgroundColor(to: originColor, duration: duration)
+        }
+    }
+    
+    func changeBackgroundColor(to color: UIColor?,
+                               duration: TimeInterval,
+                               completion: (() -> Void)? = nil) {
+        
+        UIView.animate(withDuration: duration,
+                       animations: { self.backgroundColor = color },
+                       completion: { _ in completion?() })
+    }
+}
+
 @IBDesignable
 extension UIView {
     

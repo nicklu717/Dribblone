@@ -61,9 +61,11 @@ class RegisterView: UIView {
             status = .signUp
             
             confirmPasswordTextField.isHidden = false
+            
             idTextField.isHidden = false
             
             logInButton.setTitle("Sign Up", for: .normal)
+            
             switchStatusButton.setTitle("Log In?", for: .normal)
             
         case .signUp:
@@ -71,9 +73,13 @@ class RegisterView: UIView {
             status = .logIn
             
             confirmPasswordTextField.isHidden = true
+            confirmPasswordTextField.text = ""
+            
             idTextField.isHidden = true
+            idTextField.text = ""
             
             logInButton.setTitle("Log In", for: .normal)
+            
             switchStatusButton.setTitle("Create an account", for: .normal)
         }
     }
@@ -82,29 +88,27 @@ class RegisterView: UIView {
         
         var hasBlank: Bool = false
         
-        var textFields: [UITextField]!
+        var textFields = [UITextField]()
         
         switch status {
             
         case .logIn:
             
-            textFields = [emailTextField,
-                          passwordTextField]
+            textFields = [emailTextField, passwordTextField]
             
         case .signUp:
             
-            textFields = [emailTextField,
-                          passwordTextField,
-                          confirmPasswordTextField,
-                          idTextField]
+            textFields = [emailTextField, passwordTextField,
+                          confirmPasswordTextField, idTextField]
         }
         
-        for textField in textFields {
+        for textField in textFields where textField.text == "" {
             
-            if textField.text == "" {
-                
-                hasBlank = true
-            }
+            let red = UIColor.red.withAlphaComponent(0.3)
+            
+            textField.flashBackground(with: red, duration: 0.15)
+            
+            hasBlank = true
         }
         
         return hasBlank
