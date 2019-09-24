@@ -25,6 +25,8 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         setupTabBar()
+        
+        
     }
     
     // MARK: - Private Methed
@@ -43,6 +45,12 @@ class TabBarController: UITabBarController {
             
             addChild(viewController)
         }
+        
+        tabBar.isTranslucent = false
+        
+//        tabBar.barTintColor = .b1
+        
+        tabBar.tintColor = .b4
     }
     
     private enum Tab {

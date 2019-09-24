@@ -126,7 +126,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         
         for textField in textFields where textField.text == "" {
             
-            let red = UIColor.b2_twine.withAlphaComponent(0.6)
+            let red = UIColor.b2.withAlphaComponent(0.6)
             
             textField.flashBackground(with: red, duration: 0.15)
             

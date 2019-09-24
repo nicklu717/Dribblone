@@ -11,6 +11,7 @@
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A0F35D02321675900EFB13F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CF2321675900EFB13F /* Notification+Extension.swift */; };
 		5A30C2FF233A6B43005D711F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C2FE233A6B43005D711F /* TextField.swift */; };
+		5A30C303233A7912005D711F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C302233A7912005D711F /* NavigationController.swift */; };
 		5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF6FF2336631F00E648AC /* KeychainManager.swift */; };
 		5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF7012337AB0900E648AC /* MainViewController.swift */; };
 		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
@@ -71,6 +72,7 @@
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A0F35CF2321675900EFB13F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		5A30C2FE233A6B43005D711F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		5A30C302233A7912005D711F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		5A3DF6FF2336631F00E648AC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		5A3DF7012337AB0900E648AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5A4359082338A8A10055190A /* MJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefresh.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
 				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
 				5A88EC762327882F00BD23D4 /* TabBarController.swift */,
+				5A30C302233A7912005D711F /* NavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */,
 				5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */,
+				5A30C303233A7912005D711F /* NavigationController.swift in Sources */,
 				5A30C2FF233A6B43005D711F /* TextField.swift in Sources */,
 				5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */,
 				5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */,

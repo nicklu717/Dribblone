@@ -10,10 +10,10 @@ import UIKit
 
 extension UIColor {
 
-    static let b1_linen = UIColor(hex: "D5D2C1")
-    static let b2_twine = UIColor(hex: "BD8E62")
-    static let b3_fawn = UIColor(hex: "A46843")
-    static let b4_hickory = UIColor(hex: "370D00")
+    static let b1 = UIColor(hex: "D5D2C1")
+    static let b2 = UIColor(hex: "BD8E62")
+    static let b3 = UIColor(hex: "A46843")
+    static let b4 = UIColor(hex: "370D00")
     
     convenience init(hex: String) {
         

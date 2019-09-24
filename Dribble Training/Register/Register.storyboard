@@ -33,7 +33,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="BorderColor">
-                                        <color key="value" name="B1_Linen"/>
+                                        <color key="value" name="B1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -54,7 +54,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="BorderColor">
-                                        <color key="value" name="B1_Linen"/>
+                                        <color key="value" name="B1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -72,7 +72,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="BorderColor">
-                                        <color key="value" name="B1_Linen"/>
+                                        <color key="value" name="B1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -90,14 +90,14 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="BorderColor">
-                                        <color key="value" name="B1_Linen"/>
+                                        <color key="value" name="B1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up Failure!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pd-Ed-J5E">
                                 <rect key="frame" x="36" y="283" width="342" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="B3_Fawn"/>
+                                <color key="textColor" name="B3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-mV-nzZ">
@@ -106,7 +106,7 @@
                                     <constraint firstAttribute="width" constant="150" id="9Cn-A5-YYE"/>
                                 </constraints>
                                 <state key="normal" title="Create an account">
-                                    <color key="titleColor" name="B2_Twine"/>
+                                    <color key="titleColor" name="B2"/>
                                 </state>
                                 <connections>
                                     <action selector="switchStatus" destination="lib-iY-Qk8" eventType="touchUpInside" id="Cag-Me-jlM"/>
@@ -114,7 +114,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA6-Yt-KVn">
                                 <rect key="frame" x="16" y="580" width="382" height="40"/>
-                                <color key="backgroundColor" name="B2_Twine"/>
+                                <color key="backgroundColor" name="B2"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -178,13 +178,13 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="B1_Linen">
+        <namedColor name="B1">
             <color red="0.83529411764705885" green="0.82352941176470584" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="B2_Twine">
+        <namedColor name="B2">
             <color red="0.74117647058823533" green="0.55686274509803924" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="B3_Fawn">
+        <namedColor name="B3">
             <color red="0.64313725490196083" green="0.40784313725490196" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
