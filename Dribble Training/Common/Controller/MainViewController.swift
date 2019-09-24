@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         
         super.viewDidLoad()
         
-//        KeychainManager.shared.uid = nil
+        KeychainManager.shared.uid = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {

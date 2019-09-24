@@ -12,7 +12,7 @@ protocol RegisterViewDelegate: UIViewController {
     
     func signUp(withEmail email: String, password: String)
     
-    func logIn(withEmail email: String, password: String)
+    func logIn(withEmail email: String, password: String) // take id
 }
 
 class RegisterView: UIView {
@@ -23,6 +23,8 @@ class RegisterView: UIView {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var confirmPasswordTextField: UITextField!
+    @IBOutlet var idTextField: UITextField!
     
     @IBOutlet var logInButton: UIButton!
     @IBOutlet var switchStatusButton: UIButton!
@@ -52,12 +54,18 @@ class RegisterView: UIView {
             
             status = .signUp
             
+            confirmPasswordTextField.isHidden = false
+            idTextField.isHidden = false
+            
             logInButton.setTitle("Sign Up", for: .normal)
             switchStatusButton.setTitle("Log In?", for: .normal)
             
         case .signUp:
             
             status = .logIn
+            
+            confirmPasswordTextField.isHidden = true
+            idTextField.isHidden = true
             
             logInButton.setTitle("Log In", for: .normal)
             switchStatusButton.setTitle("Create an account", for: .normal)
