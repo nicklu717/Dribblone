@@ -184,12 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */,
-				5A0F35CF2321675900EFB13F /* Notification+Extension.swift */,
-				5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */,
-				5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */,
-				5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */,
-				5A43590C2339236A0055190A /* UIView+Extension.swift */,
-				5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */,
+				5A93ABA02339D12800358CCD /* Foundation */,
+				5A93AB9D2339D0FF00358CCD /* UIKit */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -228,6 +224,26 @@
 				5A88EC842327902A00BD23D4 /* Team.storyboard */,
 			);
 			path = Team;
+			sourceTree = "<group>";
+		};
+		5A93AB9D2339D0FF00358CCD /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */,
+				5A43590C2339236A0055190A /* UIView+Extension.swift */,
+				5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */,
+				5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		5A93ABA02339D12800358CCD /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */,
+				5A0F35CF2321675900EFB13F /* Notification+Extension.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		5ACBCAF0232A2272007B0E3B /* Firebase */ = {
