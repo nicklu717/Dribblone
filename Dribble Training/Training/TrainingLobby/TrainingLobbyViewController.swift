@@ -18,7 +18,7 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         }
     }
     
-    var trainingManagerPage: TrainingManagerViewController!
+    var trainingPage: TrainingViewController!
     
     var trainingResultPage: TrainingResultViewController!
     
@@ -36,9 +36,9 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
     
     func startTraining(mode: TrainingMode) {
         
-        trainingManagerPage.setTrainingMode(to: mode)
+        trainingPage.setTrainingMode(to: mode)
         
-        trainingManagerPage.trainingCompletion = { [weak self]
+        trainingPage.trainingCompletion = { [weak self]
             
             trainingResult in
             
@@ -49,7 +49,7 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
             self.show(self.trainingResultPage, sender: nil)
         }
         
-        present(trainingManagerPage, animated: true, completion: nil)
+        present(trainingPage, animated: true, completion: nil)
     }
     
     // MARK: - Private Method
@@ -60,9 +60,9 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         
         let viewController = storyboard.instantiateInitialViewController()
         
-        trainingManagerPage = viewController as? TrainingManagerViewController
+        trainingPage = viewController as? TrainingViewController
         
-        trainingManagerPage.loadViewIfNeeded()
+        trainingPage.loadViewIfNeeded()
     }
     
     private func setupTrainingResultPage() {

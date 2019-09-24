@@ -1,5 +1,5 @@
 //
-//  TrainingManagerViewController.swift
+//  TrainingViewController.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/8/30.
@@ -10,7 +10,7 @@ import UIKit
 import ReplayKit
 import Photos
 
-class TrainingManagerViewController: UIViewController {
+class TrainingViewController: UIViewController {
     
     // View Orientation
     
@@ -97,14 +97,14 @@ class TrainingManagerViewController: UIViewController {
     }
 }
 
-extension TrainingManagerViewController: BallTrackerViewControllerDelegate {
+extension TrainingViewController: BallTrackerViewControllerDelegate {
     
     func didGetBallPosition(_ position: CGPoint) {
         trainingAssistantPage.setBallNode(to: position)
     }
 }
 
-extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate {
+extension TrainingViewController: TrainingAssistantViewControllerDelegate {
     
     func endTraining(points: Int, trainingMode mode: String) {
         
@@ -146,7 +146,7 @@ extension TrainingManagerViewController: TrainingAssistantViewControllerDelegate
     }
 }
 
-extension TrainingManagerViewController: RPPreviewViewControllerDelegate {
+extension TrainingViewController: RPPreviewViewControllerDelegate {
     
     func previewController(_ previewController: RPPreviewViewController,
                            didFinishWithActivityTypes activityTypes: Set<String>) {

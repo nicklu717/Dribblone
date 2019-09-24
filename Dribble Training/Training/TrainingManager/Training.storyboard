@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Training Manager View Controller-->
+        <!--Training View Controller-->
         <scene sceneID="zvl-z9-3no">
             <objects>
-                <viewController id="LPB-8K-44y" customClass="TrainingManagerViewController" customModule="Dribble_Training" sceneMemberID="viewController">
+                <viewController id="LPB-8K-44y" customClass="TrainingViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jie-qZ-3Je">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

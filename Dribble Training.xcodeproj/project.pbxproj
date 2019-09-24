@@ -46,7 +46,7 @@
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
-		5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* TrainingManagerViewController.swift */; };
+		5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* TrainingViewController.swift */; };
 		5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* BallTrackerView.swift */; };
 		5AD862C9231919F70036EFFF /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* Training.storyboard */; };
 		5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */; };
@@ -100,7 +100,7 @@
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD862B8231913CB0036EFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD862BA231913CB0036EFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AD862C0231915C30036EFFF /* TrainingManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingManagerViewController.swift; sourceTree = "<group>"; };
+		5AD862C0231915C30036EFFF /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		5AD862C6231917A10036EFFF /* BallTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerView.swift; sourceTree = "<group>"; };
 		5AD862C8231919F70036EFFF /* Training.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
 		5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +146,8 @@
 		5A4E2154232238F400F91012 /* TrainingManager */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862C0231915C30036EFFF /* TrainingManagerViewController.swift */,
+				5AD862C8231919F70036EFFF /* Training.storyboard */,
+				5AD862C0231915C30036EFFF /* TrainingViewController.swift */,
 			);
 			path = TrainingManager;
 			sourceTree = "<group>";
@@ -285,7 +286,6 @@
 				5A6BA14C232E2B8E00E2FB48 /* Register */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Video */,
-				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
 				5AD862C2231915DA0036EFFF /* Training */,
 				5A88EC7B23278E6600BD23D4 /* Profile */,
 				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
@@ -298,7 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */,
-				5AD862C8231919F70036EFFF /* Training.storyboard */,
+				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
 				5A4E2154232238F400F91012 /* TrainingManager */,
 				5A4E21552322390200F91012 /* BallTracker */,
 				5A4E21562322390A00F91012 /* TrainingAssistant */,
@@ -511,7 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
-				5AD862C1231915C30036EFFF /* TrainingManagerViewController.swift in Sources */,
+				5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */,
 				5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */,
 				5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */,
 				5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */,
