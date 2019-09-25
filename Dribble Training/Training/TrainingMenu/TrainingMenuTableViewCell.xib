@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vcy-QL-Ok1">
-                        <rect key="frame" x="28" y="15" width="358" height="180"/>
+                        <rect key="frame" x="20" y="11" width="374" height="180"/>
                         <color key="backgroundColor" name="B1"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="180" id="KE0-PK-5ZK"/>
@@ -30,19 +30,19 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixj-Tc-LNU">
-                        <rect key="frame" x="300" y="56" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" name="B3"/>
+                        <rect key="frame" x="305.5" y="36" width="52.5" height="26.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ixj-Tc-LNU" firstAttribute="top" secondItem="TzO-cB-2UQ" secondAttribute="top" constant="56" id="Qfm-uV-ycC"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Vcy-QL-Ok1" secondAttribute="bottom" constant="4" id="hQy-B2-Kn4"/>
-                    <constraint firstItem="Vcy-QL-Ok1" firstAttribute="leading" secondItem="TzO-cB-2UQ" secondAttribute="leadingMargin" constant="8" id="nJu-px-Sxo"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Vcy-QL-Ok1" secondAttribute="trailing" constant="8" id="qFH-Yw-BPe"/>
-                    <constraint firstAttribute="trailing" secondItem="ixj-Tc-LNU" secondAttribute="trailing" constant="72" id="rLS-qg-VLL"/>
-                    <constraint firstItem="Vcy-QL-Ok1" firstAttribute="top" secondItem="TzO-cB-2UQ" secondAttribute="topMargin" constant="4" id="uRg-6H-pbP"/>
+                    <constraint firstItem="ixj-Tc-LNU" firstAttribute="top" secondItem="TzO-cB-2UQ" secondAttribute="top" constant="36" id="Qfm-uV-ycC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Vcy-QL-Ok1" secondAttribute="bottom" id="hQy-B2-Kn4"/>
+                    <constraint firstItem="Vcy-QL-Ok1" firstAttribute="leading" secondItem="TzO-cB-2UQ" secondAttribute="leadingMargin" id="nJu-px-Sxo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Vcy-QL-Ok1" secondAttribute="trailing" id="qFH-Yw-BPe"/>
+                    <constraint firstAttribute="trailing" secondItem="ixj-Tc-LNU" secondAttribute="trailing" constant="56" id="rLS-qg-VLL"/>
+                    <constraint firstItem="Vcy-QL-Ok1" firstAttribute="top" secondItem="TzO-cB-2UQ" secondAttribute="topMargin" id="uRg-6H-pbP"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -55,9 +55,6 @@
     <resources>
         <namedColor name="B1">
             <color red="0.83529411764705885" green="0.82352941176470584" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="B3">
-            <color red="0.64313725490196083" green="0.40784313725490196" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
