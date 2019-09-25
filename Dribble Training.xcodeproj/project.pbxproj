@@ -198,8 +198,8 @@
 		5A5F299D233B00350047E8FA /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
 				5A5F299E233B00D40047E8FA /* Main.storyboard */,
+				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -207,8 +207,8 @@
 		5A6BA14C232E2B8E00E2FB48 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				5A6BA151232E2D2600E2FB48 /* RegisterViewController.swift */,
 				5A6BA14D232E2C0700E2FB48 /* Register.storyboard */,
+				5A6BA151232E2D2600E2FB48 /* RegisterViewController.swift */,
 				5A6BA153232E2D3200E2FB48 /* RegisterView.swift */,
 			);
 			path = Register;
@@ -227,8 +227,8 @@
 		5A88EC7A23278E5F00BD23D4 /* PostWall */ = {
 			isa = PBXGroup;
 			children = (
-				5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */,
 				5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */,
+				5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */,
 				5A5AB15623362C5600A3BD04 /* PostWallView.swift */,
 			);
 			path = PostWall;
@@ -237,8 +237,8 @@
 		5A88EC7B23278E6600BD23D4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				5A6EF2742328F619005359C8 /* ProfileViewController.swift */,
 				5A88EC7E23278E9000BD23D4 /* Profile.storyboard */,
+				5A6EF2742328F619005359C8 /* ProfileViewController.swift */,
 				5A6EF2762328F624005359C8 /* ProfileView.swift */,
 				5A93ABA6233A2EF200358CCD /* Setting */,
 			);
@@ -378,8 +378,8 @@
 		5AD91EED2324DE19000E2BB4 /* TrainingResult */ = {
 			isa = PBXGroup;
 			children = (
-				5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */,
 				5A64DF4523252F3E00562001 /* TrainingResult.storyboard */,
+				5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */,
 				5A64DF4323252F2600562001 /* TrainingResultView.swift */,
 				5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */,
 				5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */,
@@ -390,8 +390,8 @@
 		5AD91EEE2324E96E000E2BB4 /* TrainingMenu */ = {
 			isa = PBXGroup;
 			children = (
-				5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */,
 				5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */,
+				5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */,
 				5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */,
 				5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */,
 				5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */,

@@ -19,10 +19,15 @@ protocol TrainingMenuViewDelegate: AnyObject {
 
 class TrainingMenuView: UIView {
     
+    // MARK: - Property Declaration
+    
     weak var delegate: TrainingMenuViewDelegate?
     
     @IBOutlet var tableView: UITableView! {
+        
         didSet {
+            tableView.registerCellWithNib(id: TrainingMenuTableViewCell.id)
+            
             tableView.dataSource = self
             tableView.delegate = self
         }
@@ -47,5 +52,15 @@ extension TrainingMenuView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         delegate?.startTraining(forModeIndexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        cell.alpha = 0
+        
+        UIView.animate(withDuration: 0.3) {
+            
+            cell.alpha = 1
+        }
     }
 }

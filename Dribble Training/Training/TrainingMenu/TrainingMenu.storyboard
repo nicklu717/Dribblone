@@ -29,6 +29,9 @@
                             <constraint firstItem="4fy-eu-3af" firstAttribute="top" secondItem="JLG-C2-oca" secondAttribute="top" id="zoS-uD-4wY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JLG-C2-oca"/>
+                        <connections>
+                            <outlet property="tableView" destination="4fy-eu-3af" id="OM9-uI-npe"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Training" id="vNu-xE-CAm"/>
                     <connections>

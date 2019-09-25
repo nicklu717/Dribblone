@@ -64,14 +64,26 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate{
     
     var trainingModes: [TrainingMode] {
         
-        return [.crossover, .low, .random]
+        return [.crossover, .low, .random,
+                .crossover, .low, .random,
+                .crossover, .low, .random,
+                .crossover, .low, .random]
     }
     
     func trainingCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         
-        // TODO: Customize cell
+        guard let modeCell = tableView.dequeueReusableCell(withIdentifier: TrainingMenuTableViewCell.id,
+                                                           for: indexPath) as? TrainingMenuTableViewCell
+            else {
+                print("Training Menu Table View Cell Not Exist")
+                return UITableViewCell()
+        }
         
-        return UITableViewCell()
+        let mode = trainingModes[indexPath.row]
+        
+        modeCell.modeNameLabel.text = mode.rawValue
+        
+        return modeCell
     }
     
     func startTraining(forModeIndexPath indexPath: IndexPath) {
