@@ -19,6 +19,8 @@
 		5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590C2339236A0055190A /* UIView+Extension.swift */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
+		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
+		5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F29A0233B01C80047E8FA /* TabBar.storyboard */; };
 		5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */; };
 		5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4323252F2600562001 /* TrainingResultView.swift */; };
 		5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4523252F3E00562001 /* TrainingResult.storyboard */; };
@@ -35,7 +37,6 @@
 		5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */; };
 		5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */; };
 		5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC762327882F00BD23D4 /* TabBarController.swift */; };
-		5A88EC79232788D200BD23D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC78232788D200BD23D4 /* Main.storyboard */; };
 		5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */; };
 		5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7E23278E9000BD23D4 /* Profile.storyboard */; };
 		5A88EC832327902000BD23D4 /* Video.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC822327902000BD23D4 /* Video.storyboard */; };
@@ -80,6 +81,8 @@
 		5A43590C2339236A0055190A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
+		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5A5F29A0233B01C80047E8FA /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
 		5A64DF4323252F2600562001 /* TrainingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultView.swift; sourceTree = "<group>"; };
 		5A64DF4523252F3E00562001 /* TrainingResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingResult.storyboard; sourceTree = "<group>"; };
@@ -96,7 +99,6 @@
 		5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSetting.swift; sourceTree = "<group>"; };
 		5A7FDAF32322505C000DB0DE /* BallTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerViewController.swift; sourceTree = "<group>"; };
 		5A88EC762327882F00BD23D4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		5A88EC78232788D200BD23D4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostWall.storyboard; sourceTree = "<group>"; };
 		5A88EC7E23278E9000BD23D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		5A88EC822327902000BD23D4 /* Video.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Video.storyboard; sourceTree = "<group>"; };
@@ -193,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
-				5A88EC78232788D200BD23D4 /* Main.storyboard */,
+				5A5F299E233B00D40047E8FA /* Main.storyboard */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -404,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
+				5A5F29A0233B01C80047E8FA /* TabBar.storyboard */,
 				5A88EC762327882F00BD23D4 /* TabBarController.swift */,
 				5A30C302233A7912005D711F /* NavigationController.swift */,
 			);
@@ -490,16 +493,17 @@
 			files = (
 				5A93ABAA233A2F3300358CCD /* SettingTableViewCell.xib in Resources */,
 				5A88EC832327902000BD23D4 /* Video.storyboard in Resources */,
-				5A88EC79232788D200BD23D4 /* Main.storyboard in Resources */,
 				5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */,
 				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
 				5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */,
+				5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */,
 				5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */,
 				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
+				5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */,
 				5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */,
 				5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */,
 			);

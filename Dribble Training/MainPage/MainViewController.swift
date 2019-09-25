@@ -24,6 +24,13 @@ class MainViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
+        logInCheck()
+    }
+    
+    // MARK: - Private Method
+    
+    func logInCheck() {
+        
         guard let uid = KeychainManager.shared.uid
             else {
                 
@@ -38,11 +45,17 @@ class MainViewController: UIViewController {
             
             // Icon Animation
             
-            self.present(TabBarController(), animated: false, completion: nil)
+            let tabBarStoryboard = UIStoryboard.tabBar
+            
+            guard let tabBarController = tabBarStoryboard.instantiateInitialViewController() as? TabBarController
+                else {
+                    print("Tab Bar Controller Not Exist")
+                    return
+            }
+            
+            self.present(tabBarController, animated: false, completion: nil)
         }
     }
-    
-    // MARK: - Private Method
     
     private func setupRegisterPage() {
         
@@ -50,6 +63,10 @@ class MainViewController: UIViewController {
         
         if let registerPage =
             storyboard.instantiateInitialViewController() as? RegisterViewController {
+            
+            weak var weakSelf = self
+            
+            registerPage.logInCompletion = weakSelf?.logInCheck
             
             self.registerPage = registerPage
         }

@@ -10,6 +10,8 @@ import UIKit
 
 extension UIStoryboard {
     
+    static var tabBar: UIStoryboard { return storyboard("TabBar") }
+    
     static var main: UIStoryboard { return storyboard("Main") }
     
     static var register: UIStoryboard { return storyboard("Register") }

@@ -50,7 +50,7 @@ class TabBarController: UITabBarController {
         
 //        tabBar.barTintColor = .b1
         
-        tabBar.tintColor = .b4
+        tabBar.tintColor = .b3
     }
     
     private enum Tab {

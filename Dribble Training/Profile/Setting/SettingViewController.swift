@@ -78,11 +78,17 @@ extension SettingViewController: UITableViewDelegate {
                     print("App Delegate Not Found")
                     return
             }
-
+            
+            guard let mainPage = appDelegate.window?.rootViewController as? MainViewController
+                else {
+                    print("Main Page Not Exist")
+                    return
+            }
+            
             KeychainManager.shared.uid = nil
             AuthManager.shared.currentUser = nil
             
-            appDelegate.window?.rootViewController?.dismiss(animated: true)
+            mainPage.dismiss(animated: true, completion: mainPage.logInCheck)
         }
     }
 }

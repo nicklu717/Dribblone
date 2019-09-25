@@ -22,6 +22,8 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         }
     }
     
+    var logInCompletion: (() -> Void)?
+    
     // MARK: - Instance Method
     
     func signUp(withEmail email: String, password: String, confirmPassword: String, id: ID) {
@@ -93,7 +95,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                 case .success(let uid):
                     
                     KeychainManager.shared.uid = uid
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: self.logInCompletion)
                     
                 case .failure(let error):
                     
