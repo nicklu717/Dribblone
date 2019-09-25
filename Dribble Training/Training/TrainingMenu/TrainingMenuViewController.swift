@@ -64,10 +64,7 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate{
     
     var trainingModes: [TrainingMode] {
         
-        return [.crossover, .low, .random,
-                .crossover, .low, .random,
-                .crossover, .low, .random,
-                .crossover, .low, .random]
+        return [.crossover, .low, .rightHand, .leftHand, .mStyle, .random]
     }
     
     func trainingCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {

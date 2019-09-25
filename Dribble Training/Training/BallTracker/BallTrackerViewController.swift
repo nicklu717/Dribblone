@@ -36,28 +36,35 @@ class BallTrackerViewController: UIViewController {
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         do {
+            
             coreMLModel = try VNCoreMLModel(for: MobileNetV2_SSDLite().model)
+            
         } catch {
+            
             fatalError("Unresolve Error: \(error), \(error.localizedDescription)")
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         
         ballTrackerView.captureSession.startRunning()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
         super.viewWillDisappear(animated)
         
         ballTrackerView.captureSession.stopRunning()
     }
     
     override func viewDidLayoutSubviews() {
+        
         super.viewDidLayoutSubviews()
         
         ballTrackerView.layoutCameraLayer()
@@ -67,17 +74,14 @@ class BallTrackerViewController: UIViewController {
     
     private func coreMLRequestCompletion(request: VNRequest, error: Error?) {
         
-        guard
-            let observations = request.results as? [VNRecognizedObjectObservation],
-            observations.count > 0
+        guard let observations = request.results as? [VNRecognizedObjectObservation], observations.count > 0
             else {
                 return
         }
         
         for observation in observations {
             
-            guard
-                let objectID = observation.labels.first?.identifier
+            guard let objectID = observation.labels.first?.identifier
                 else {
                     print("First Label Not Exist")
                     return
