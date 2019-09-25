@@ -112,7 +112,8 @@ extension TrainingResultViewController: TrainingResultTableViewCellDelegate {
     
     func pushProfile(forID memberID: ID) {
         
-        if memberID != AuthManager.shared.currentUser.id {
+        if memberID != AuthManager.shared.currentUser.id &&
+            memberID != navigationController?.navigationBar.topItem?.title {
         
             FirestoreManager.shared.fetchMemberData(forID: memberID) { result in
                 
