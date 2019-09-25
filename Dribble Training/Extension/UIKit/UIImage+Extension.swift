@@ -29,14 +29,22 @@ extension UIImage {
     
     struct Background {
         
-        static let a1 = "https://firebasestorage.googleapis.com/v0/b/dribble-training.appspot.com/o/background_image%2Fball-1837119_1920.jpg?alt=media&token=953c10f6-5f5c-4ffb-b5b3-18dfb9dae14d"
+        static let urls: [String] = [a1, a2, a3, a4, a5, a6, a7]
         
-        static let a2 = "https://firebasestorage.googleapis.com/v0/b/dribble-training.appspot.com/o/background_image%2Fmarcel-schreiber-iZI5qcR7f8s.jpg?alt=media&token=af365473-fe7c-418d-910d-366f57c18ef4"
+        static let a1 = "\(storageURL)a1.jpg?alt=media&token=124feb2a-eae9-449c-be36-262a06911954"
         
-        static let a3 = "https://firebasestorage.googleapis.com/v0/b/dribble-training.appspot.com/o/background_image%2Foutdoor-basketball-1639860_1920.jpg?alt=media&token=1ea6c2c0-40cd-459c-8284-626b714070e4"
+        static let a2 = "\(storageURL)a2.jpg?alt=media&token=fad93bce-e087-4f79-9618-27ef55678725"
         
-        static let a4 = "https://firebasestorage.googleapis.com/v0/b/dribble-training.appspot.com/o/background_image%2Ftom-pottiger-fz92ybo3N0M.jpg?alt=media&token=61609f5a-013a-4593-bbab-b1290bb0b892"
+        static let a3 = "\(storageURL)a3.jpg?alt=media&token=82854f51-523b-41b0-ad97-0d937a4b774b"
         
-        static let a5 = "https://firebasestorage.googleapis.com/v0/b/dribble-training.appspot.com/o/background_image%2Fvidar-nordli-mathisen-mCkoBB69Qf8.jpg?alt=media&token=acd696b2-6131-4a14-ae1f-10d45b0016f4"
+        static let a4 = "\(storageURL)a4.jpg?alt=media&token=6c178dc9-2963-4a5b-8862-fbfa9afc9e94"
+        
+        static let a5 = "\(storageURL)a5.jpg?alt=media&token=9e3a122d-f2de-46fe-aab8-7b17204737e8"
+        
+        static let a6 = "\(storageURL)a6.jpg?alt=media&token=79351072-5be2-4926-b650-a2354b514726"
+        
+        static let a7 = "\(storageURL)a7.jpg?alt=media&token=d2f3cfbc-1df9-4c94-9913-5f77870d913b"
+        
+        private static let storageURL = "https://firebasestorage.googleapis.com/v0/b/dribble-training.appspot.com/o/background_image%2F"
     }
 }

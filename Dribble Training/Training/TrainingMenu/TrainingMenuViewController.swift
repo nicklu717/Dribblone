@@ -83,19 +83,11 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate{
         
         modeCell.modeNameLabel.text = mode.rawValue
         
-        var k: String = ""
+        let urls = UIImage.Background.urls
         
-        switch indexPath.row % 5 {
-            
-        case 0: k = UIImage.Background.a1
-        case 1: k = UIImage.Background.a2
-        case 2: k = UIImage.Background.a3
-        case 3: k = UIImage.Background.a4
-        case 4: k = UIImage.Background.a5
-            
-        default: break
-        }
-        modeCell.backgroundImageView.setImage(withURLString: k, placeholder: nil)
+        let index = indexPath.row % urls.count
+        
+        modeCell.backgroundImageView.setImage(withURLString: urls[index])
         
         return modeCell
     }
