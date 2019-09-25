@@ -100,7 +100,7 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         
         cell.idButton.setTitle(trainingResult.id, for: .normal)
         cell.modeLabel.text = trainingResult.mode
-        cell.pointsLabel.text = "\(trainingResult.points) pts"
+        cell.pointsLabel.text = String(trainingResult.points)
         
         cell.videoURL = URL(string: trainingResult.videoURL)
         

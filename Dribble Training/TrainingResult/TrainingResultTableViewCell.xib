@@ -64,10 +64,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60 pts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5s-XH-kSh">
-                        <rect key="frame" x="280" y="61.5" width="98" height="42"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" pts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6q-wX-fbK">
+                        <rect key="frame" x="323" y="61.5" width="55" height="42"/>
                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                        <color key="textColor" name="B3"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDO-Og-lBq">
@@ -87,9 +87,14 @@
                             <constraint firstAttribute="height" constant="1" id="wzH-bf-XGW"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5s-XH-kSh">
+                        <rect key="frame" x="280" y="61.5" width="43" height="42"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                        <color key="textColor" name="B3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="N5s-XH-kSh" firstAttribute="trailing" secondItem="5bt-3c-Kas" secondAttribute="trailing" id="12k-Vd-Mch"/>
                     <constraint firstAttribute="trailing" secondItem="QXu-pG-PCl" secondAttribute="trailing" id="1Fa-GW-pK6"/>
                     <constraint firstItem="MiL-qp-MaH" firstAttribute="leading" secondItem="zDO-Og-lBq" secondAttribute="leading" id="1MO-eh-2h1"/>
                     <constraint firstAttribute="bottom" secondItem="QXu-pG-PCl" secondAttribute="bottom" id="4qq-ow-OmL"/>
@@ -108,8 +113,11 @@
                     <constraint firstItem="sMb-tT-saE" firstAttribute="leading" secondItem="ADR-5x-9Mp" secondAttribute="trailing" constant="16" id="gH4-tL-Ui5"/>
                     <constraint firstItem="zDO-Og-lBq" firstAttribute="leading" secondItem="ADR-5x-9Mp" secondAttribute="trailing" constant="16" id="h52-8z-ZTW"/>
                     <constraint firstItem="ADR-5x-9Mp" firstAttribute="leading" secondItem="dyj-Pa-Tqe" secondAttribute="leading" constant="36" id="hpA-31-g6l"/>
+                    <constraint firstItem="A6q-wX-fbK" firstAttribute="bottom" secondItem="MiL-qp-MaH" secondAttribute="bottom" id="k9k-3Y-PC7"/>
+                    <constraint firstItem="A6q-wX-fbK" firstAttribute="trailing" secondItem="5bt-3c-Kas" secondAttribute="trailing" id="lnr-DF-6AI"/>
                     <constraint firstItem="bfF-KY-vZL" firstAttribute="centerY" secondItem="5bt-3c-Kas" secondAttribute="centerY" id="n3V-N0-j5O"/>
                     <constraint firstItem="NkH-CF-Ryg" firstAttribute="centerX" secondItem="ADR-5x-9Mp" secondAttribute="centerX" id="vNQ-vT-ADp"/>
+                    <constraint firstItem="A6q-wX-fbK" firstAttribute="leading" secondItem="N5s-XH-kSh" secondAttribute="trailing" id="yVQ-56-Uth"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="number" keyPath="BorderWidth">

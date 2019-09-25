@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vcy-QL-Ok1">
-                        <rect key="frame" x="32" y="17" width="350" height="160"/>
+                        <rect key="frame" x="28" y="15" width="358" height="180"/>
                         <color key="backgroundColor" name="B1"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="160" id="KE0-PK-5ZK"/>
+                            <constraint firstAttribute="height" constant="180" id="KE0-PK-5ZK"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
@@ -38,11 +38,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ixj-Tc-LNU" firstAttribute="top" secondItem="TzO-cB-2UQ" secondAttribute="top" constant="56" id="Qfm-uV-ycC"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Vcy-QL-Ok1" secondAttribute="bottom" constant="6" id="hQy-B2-Kn4"/>
-                    <constraint firstItem="Vcy-QL-Ok1" firstAttribute="leading" secondItem="TzO-cB-2UQ" secondAttribute="leadingMargin" constant="12" id="nJu-px-Sxo"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Vcy-QL-Ok1" secondAttribute="trailing" constant="12" id="qFH-Yw-BPe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Vcy-QL-Ok1" secondAttribute="bottom" constant="4" id="hQy-B2-Kn4"/>
+                    <constraint firstItem="Vcy-QL-Ok1" firstAttribute="leading" secondItem="TzO-cB-2UQ" secondAttribute="leadingMargin" constant="8" id="nJu-px-Sxo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Vcy-QL-Ok1" secondAttribute="trailing" constant="8" id="qFH-Yw-BPe"/>
                     <constraint firstAttribute="trailing" secondItem="ixj-Tc-LNU" secondAttribute="trailing" constant="72" id="rLS-qg-VLL"/>
-                    <constraint firstItem="Vcy-QL-Ok1" firstAttribute="top" secondItem="TzO-cB-2UQ" secondAttribute="topMargin" constant="6" id="uRg-6H-pbP"/>
+                    <constraint firstItem="Vcy-QL-Ok1" firstAttribute="top" secondItem="TzO-cB-2UQ" secondAttribute="topMargin" constant="4" id="uRg-6H-pbP"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
