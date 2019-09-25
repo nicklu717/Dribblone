@@ -63,6 +63,8 @@
 		5AD91EF22324E9AD000E2BB4 /* TrainingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */; };
 		5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */; };
 		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
+		5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */; };
+		5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */; };
 		5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */; };
 		5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */; };
 		FEC79306F0EDC8C7F409909D /* Pods_Dribble_Training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */; };
@@ -127,6 +129,8 @@
 		5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuView.swift; sourceTree = "<group>"; };
 		5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingMenu.storyboard; sourceTree = "<group>"; };
 		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingMenuTableViewCell.xib; sourceTree = "<group>"; };
+		5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuTableViewCell.swift; sourceTree = "<group>"; };
 		5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreStructure.swift; sourceTree = "<group>"; };
 		5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		66A171F80630C1F8354FD801 /* Pods-Dribble Training.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dribble Training.debug.xcconfig"; path = "Target Support Files/Pods-Dribble Training/Pods-Dribble Training.debug.xcconfig"; sourceTree = "<group>"; };
@@ -389,6 +393,8 @@
 				5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */,
 				5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */,
 				5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */,
+				5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */,
+				5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */,
 			);
 			path = TrainingMenu;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 			files = (
 				5A93ABAA233A2F3300358CCD /* SettingTableViewCell.xib in Resources */,
 				5A88EC832327902000BD23D4 /* Video.storyboard in Resources */,
+				5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */,
 				5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */,
 				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
 				5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */,
@@ -600,6 +607,7 @@
 				5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */,
 				5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
+				5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */,
 				5A93ABA2233A209300358CCD /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
