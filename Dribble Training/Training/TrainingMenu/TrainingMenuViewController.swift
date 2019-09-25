@@ -1,5 +1,5 @@
 //
-//  TrainingLobbyViewController.swift
+//  TrainingMenuViewController.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/8.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class TrainingLobbyViewController: UIViewController {
+class TrainingMenuViewController: UIViewController {
     
     // MARK: - Property Declartion
     
-    @IBOutlet var trainingLobbyView: TrainingLobbyView! {
+    @IBOutlet var trainingMenuView: TrainingMenuView! {
         didSet {
-            trainingLobbyView.delegate = self
+            trainingMenuView.delegate = self
         }
     }
     
@@ -25,6 +25,7 @@ class TrainingLobbyViewController: UIViewController {
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         setupTrainingManagerPage()
@@ -59,7 +60,7 @@ class TrainingLobbyViewController: UIViewController {
     }
 }
 
-extension TrainingLobbyViewController: TrainingLobbyViewDelegate{
+extension TrainingMenuViewController: TrainingMenuViewDelegate{
     
     var trainingModes: [TrainingMode] {
         
@@ -83,7 +84,7 @@ extension TrainingLobbyViewController: TrainingLobbyViewDelegate{
             
             guard let strongSelf = self
                 else {
-                    print("Training Lobby Not Exist")
+                    print("Training Menu Not Exist")
                     return
             }
             

@@ -59,9 +59,9 @@
 		5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* TrainingViewController.swift */; };
 		5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* BallTrackerView.swift */; };
 		5AD862C9231919F70036EFFF /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* Training.storyboard */; };
-		5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */; };
-		5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */; };
-		5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */; };
+		5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */; };
+		5AD91EF22324E9AD000E2BB4 /* TrainingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */; };
+		5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */; };
 		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
 		5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */; };
 		5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */; };
@@ -123,9 +123,9 @@
 		5AD862C0231915C30036EFFF /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		5AD862C6231917A10036EFFF /* BallTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerView.swift; sourceTree = "<group>"; };
 		5AD862C8231919F70036EFFF /* Training.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
-		5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyViewController.swift; sourceTree = "<group>"; };
-		5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingLobbyView.swift; sourceTree = "<group>"; };
-		5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingLobby.storyboard; sourceTree = "<group>"; };
+		5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuViewController.swift; sourceTree = "<group>"; };
+		5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuView.swift; sourceTree = "<group>"; };
+		5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingMenu.storyboard; sourceTree = "<group>"; };
 		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreStructure.swift; sourceTree = "<group>"; };
 		5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7E901F231FEF3700EE0BEF /* TrainingSetting.swift */,
-				5AD91EEE2324E96E000E2BB4 /* TrainingLobby */,
+				5AD91EEE2324E96E000E2BB4 /* TrainingMenu */,
 				5A4E2154232238F400F91012 /* TrainingManager */,
 				5A4E21552322390200F91012 /* BallTracker */,
 				5A4E21562322390A00F91012 /* TrainingAssistant */,
@@ -383,14 +383,14 @@
 			path = TrainingResult;
 			sourceTree = "<group>";
 		};
-		5AD91EEE2324E96E000E2BB4 /* TrainingLobby */ = {
+		5AD91EEE2324E96E000E2BB4 /* TrainingMenu */ = {
 			isa = PBXGroup;
 			children = (
-				5AD91EEF2324E9A1000E2BB4 /* TrainingLobbyViewController.swift */,
-				5AD91EF32324E9C9000E2BB4 /* TrainingLobby.storyboard */,
-				5AD91EF12324E9AD000E2BB4 /* TrainingLobbyView.swift */,
+				5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */,
+				5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */,
+				5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */,
 			);
-			path = TrainingLobby;
+			path = TrainingMenu;
 			sourceTree = "<group>";
 		};
 		5AF65FA32328C2DB008DB713 /* View */ = {
@@ -504,7 +504,7 @@
 				5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */,
 				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
 				5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */,
-				5AD91EF42324E9C9000E2BB4 /* TrainingLobby.storyboard in Resources */,
+				5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */,
 				5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,7 +571,7 @@
 				5A6BA14B232E24F700E2FB48 /* AuthManager.swift in Sources */,
 				5A6BA152232E2D2600E2FB48 /* RegisterViewController.swift in Sources */,
 				5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */,
-				5AD91EF22324E9AD000E2BB4 /* TrainingLobbyView.swift in Sources */,
+				5AD91EF22324E9AD000E2BB4 /* TrainingMenuView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
 				5A93ABAC233A327500358CCD /* UITableViewCell+Extension.swift in Sources */,
 				5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */,
@@ -585,7 +585,7 @@
 				5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */,
 				5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */,
 				5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */,
-				5AD91EF02324E9A1000E2BB4 /* TrainingLobbyViewController.swift in Sources */,
+				5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */,
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,

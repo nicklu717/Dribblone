@@ -1,5 +1,5 @@
 //
-//  TrainingLobbyView.swift
+//  TrainingMenuView.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/8.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TrainingLobbyViewDelegate: AnyObject {
+protocol TrainingMenuViewDelegate: AnyObject {
     
     var trainingModes: [TrainingMode] { get }
     
@@ -17,9 +17,9 @@ protocol TrainingLobbyViewDelegate: AnyObject {
     func startTraining(forModeIndexPath indexPath: IndexPath)
 }
 
-class TrainingLobbyView: UIView {
+class TrainingMenuView: UIView {
     
-    weak var delegate: TrainingLobbyViewDelegate?
+    weak var delegate: TrainingMenuViewDelegate?
     
     @IBOutlet var tableView: UITableView! {
         didSet {
@@ -29,7 +29,7 @@ class TrainingLobbyView: UIView {
     }
 }
 
-extension TrainingLobbyView: UITableViewDataSource {
+extension TrainingMenuView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -42,7 +42,7 @@ extension TrainingLobbyView: UITableViewDataSource {
     }
 }
 
-extension TrainingLobbyView: UITableViewDelegate {
+extension TrainingMenuView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

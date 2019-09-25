@@ -25,8 +25,6 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         setupTabBar()
-        
-        
     }
     
     // MARK: - Private Methed
@@ -75,7 +73,7 @@ class TabBarController: UITabBarController {
                 
             case .video: storyboard = .video
                 
-            case .training: storyboard = .trainingLobby
+            case .training: storyboard = .trainingMenu
                 
             case .profile: storyboard = .profile
                 

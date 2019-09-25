@@ -20,7 +20,7 @@ extension UIStoryboard {
     
     static var video: UIStoryboard { return storyboard("Video") }
     
-    static var trainingLobby: UIStoryboard { return storyboard("TrainingLobby")}
+    static var trainingMenu: UIStoryboard { return storyboard("TrainingMenu")}
     
     static var training: UIStoryboard { return storyboard("Training")}
     
