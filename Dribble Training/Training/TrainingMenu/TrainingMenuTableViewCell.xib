@@ -27,17 +27,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAB-LU-cPv">
+                            <visualEffectView opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAB-LU-cPv">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="180"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WzT-h6-AXU">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="180"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <blurEffect style="regular"/>
                             </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixj-Tc-LNU">
-                                <rect key="frame" x="284" y="36" width="54" height="26.5"/>
+                                <rect key="frame" x="284" y="20" width="54" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                             <constraint firstAttribute="bottom" secondItem="PAB-LU-cPv" secondAttribute="bottom" id="JTB-s0-hXL"/>
                             <constraint firstItem="Vcy-QL-Ok1" firstAttribute="leading" secondItem="TM2-0t-11Z" secondAttribute="leading" id="QaU-H5-qJp"/>
                             <constraint firstItem="PAB-LU-cPv" firstAttribute="leading" secondItem="TM2-0t-11Z" secondAttribute="leading" id="UuN-31-u34"/>
-                            <constraint firstItem="ixj-Tc-LNU" firstAttribute="top" secondItem="TM2-0t-11Z" secondAttribute="top" constant="36" id="Vb8-hr-6Ih"/>
+                            <constraint firstItem="ixj-Tc-LNU" firstAttribute="top" secondItem="TM2-0t-11Z" secondAttribute="top" constant="20" id="Vb8-hr-6Ih"/>
                             <constraint firstAttribute="height" constant="180" id="YRf-FT-5u1"/>
                             <constraint firstAttribute="trailing" secondItem="ixj-Tc-LNU" secondAttribute="trailing" constant="36" id="fK2-IV-CJC"/>
                             <constraint firstAttribute="bottom" secondItem="Vcy-QL-Ok1" secondAttribute="bottom" id="ggS-ed-3f1"/>
