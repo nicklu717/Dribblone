@@ -55,11 +55,13 @@ class ProfileViewController: UIViewController {
         
         if isFollowing {
             
-            profileView.followButton.setTitle("Unfollow", for: .normal)
+            profileView.followButton.setTitle("Following", for: .normal)
+            profileView.followButton.changeBackgroundColor(to: .b1, duration: 0.15)
             
         } else {
             
             profileView.followButton.setTitle("Follow", for: .normal)
+            profileView.followButton.changeBackgroundColor(to: .b3, duration: 0.15)
         }
     }
     
