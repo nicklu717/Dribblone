@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
         updateFollowingStatus()
     }
     
-    // MARK: - Instance Method
+    // MARK: - Private Method
     
     private func updateFollowingStatus() {
         

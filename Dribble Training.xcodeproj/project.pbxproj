@@ -189,6 +189,15 @@
 			path = TrainingAssistant;
 			sourceTree = "<group>";
 		};
+		5A5F299D233B00350047E8FA /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
+				5A88EC78232788D200BD23D4 /* Main.storyboard */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
 		5A6BA14C232E2B8E00E2FB48 /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +325,7 @@
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
 				5AD862CB231920D40036EFFF /* Common */,
+				5A5F299D233B00350047E8FA /* MainPage */,
 				5A6BA14C232E2B8E00E2FB48 /* Register */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Video */,
@@ -385,7 +395,6 @@
 			isa = PBXGroup;
 			children = (
 				5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */,
-				5A88EC78232788D200BD23D4 /* Main.storyboard */,
 				5A30C2FE233A6B43005D711F /* TextField.swift */,
 			);
 			path = View;
@@ -395,7 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
-				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
 				5A88EC762327882F00BD23D4 /* TabBarController.swift */,
 				5A30C302233A7912005D711F /* NavigationController.swift */,
 			);
