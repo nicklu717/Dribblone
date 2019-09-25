@@ -21,6 +21,6 @@ extension Date {
     
     enum DateFormat: String {
         
-        case resultDisplay = "yy-MMM-dd HH:mm"
+        case resultDisplay = "MMM-dd HH:mm"
     }
 }
