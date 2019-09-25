@@ -65,6 +65,7 @@
 		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
 		5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */; };
 		5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */; };
+		5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F7233B5D4A004E46FC /* Kingfisher.swift */; };
 		5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */; };
 		5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */; };
 		FEC79306F0EDC8C7F409909D /* Pods_Dribble_Training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */; };
@@ -131,6 +132,7 @@
 		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingMenuTableViewCell.xib; sourceTree = "<group>"; };
 		5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuTableViewCell.swift; sourceTree = "<group>"; };
+		5AE777F7233B5D4A004E46FC /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
 		5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreStructure.swift; sourceTree = "<group>"; };
 		5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		66A171F80630C1F8354FD801 /* Pods-Dribble Training.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dribble Training.debug.xcconfig"; path = "Target Support Files/Pods-Dribble Training/Pods-Dribble Training.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				5A4359082338A8A10055190A /* MJRefresh.swift */,
 				5A43590A2338CB1E0055190A /* SCLAlertView.swift */,
+				5AE777F7233B5D4A004E46FC /* Kingfisher.swift */,
 			);
 			path = ThirdPartyWrapper;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */,
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
+				5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
 				5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */,

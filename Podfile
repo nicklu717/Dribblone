@@ -14,10 +14,10 @@ target 'Dribble Training' do
   pod 'Firebase/Storage'
 
   pod 'KeychainAccess'
+  pod 'IQKeyboardManagerSwift'
+  pod 'Kingfisher'
 
   pod 'MJRefresh'
   pod 'SCLAlertView'
-
-  pod 'IQKeyboardManagerSwift'
 
 end
