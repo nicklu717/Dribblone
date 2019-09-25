@@ -93,6 +93,7 @@ class TrainingViewController: UIViewController {
     }
     
     func setTrainingMode(to mode: TrainingMode) {
+        
         trainingAssistantPage.trainingMode = mode
     }
 }
@@ -100,6 +101,7 @@ class TrainingViewController: UIViewController {
 extension TrainingViewController: BallTrackerViewControllerDelegate {
     
     func didGetBallPosition(_ position: CGPoint) {
+        
         trainingAssistantPage.setBallNode(to: position)
     }
 }
@@ -218,48 +220,5 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                         }
                 })
         }
-        
-//        PHAssetResourceManager.default().requestData(
-//            for: videoResource,
-//            options: nil,
-//            dataReceivedHandler: { data in
-//
-//                self.storageManager.uploadVideo(
-//                    fileName: videoResource.originalFilename,
-//                    data: data,
-//                    completion: { result in
-//
-//                        switch result {
-//
-//                        case .success(let videoURL):
-//
-//                            self.trainingResult.videoURL = String(describing: videoURL)
-//
-//                            self.presentingViewController?.dismiss(animated: true) {
-//
-//                                self.trainingCompletion?(self.trainingResult)
-//                            }
-//
-//                            guard let member = self.authManager.currentUser
-//                                else {
-//                                    print("Member Not Exist. Training Result Won't Upload.")
-//                                    return
-//                            }
-//
-//                            self.firestoreManager.upload(trainingResult: self.trainingResult,
-//                                                         for: member)
-//
-//                        case .failure(let error):
-//
-//                            print(error)
-//                        }
-//                })
-//        }, completionHandler: { error in
-//
-//                if let error = error {
-//                    print(error)
-//                    return
-//                }
-//        })
     }
 }

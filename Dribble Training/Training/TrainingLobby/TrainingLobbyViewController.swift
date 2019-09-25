@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
+class TrainingLobbyViewController: UIViewController {
     
     // MARK: - Property Declartion
     
@@ -18,9 +18,9 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         }
     }
     
-    var trainingPage: TrainingViewController!
+    private var trainingPage: TrainingViewController!
     
-    var trainingResultPage: TrainingResultViewController!
+    private var trainingResultPage: TrainingResultViewController!
     
     // MARK: - Life Cycle
     
@@ -30,26 +30,6 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         setupTrainingManagerPage()
         
         setupTrainingResultPage()
-    }
-    
-    // MARK: - Instance Method
-    
-    func startTraining(mode: TrainingMode) {
-        
-        trainingPage.setTrainingMode(to: mode)
-        
-        trainingPage.trainingCompletion = { [weak self]
-            
-            trainingResult in
-            
-            guard let self = self else { return }
-            
-            self.trainingResultPage.trainingResults = [trainingResult]
-            
-            self.show(self.trainingResultPage, sender: nil)
-        }
-        
-        present(trainingPage, animated: true, completion: nil)
     }
     
     // MARK: - Private Method
@@ -76,5 +56,42 @@ class TrainingLobbyViewController: UIViewController, TrainingLobbyViewDelegate {
         trainingResultPage.navigationItem.title = "Result"
         
         trainingResultPage.loadViewIfNeeded()
+    }
+}
+
+extension TrainingLobbyViewController: TrainingLobbyViewDelegate{
+    
+    var trainingModes: [TrainingMode] {
+        
+        return [.crossover, .low, .random]
+    }
+    
+    func trainingCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+        
+        // TODO: Customize cell
+        
+        return UITableViewCell()
+    }
+    
+    func startTraining(forModeIndexPath indexPath: IndexPath) {
+        
+        let mode = trainingModes[indexPath.row]
+        
+        trainingPage.setTrainingMode(to: mode)
+        
+        trainingPage.trainingCompletion = { [weak self] trainingResult in
+            
+            guard let strongSelf = self
+                else {
+                    print("Training Lobby Not Exist")
+                    return
+            }
+            
+            strongSelf.trainingResultPage.trainingResults = [trainingResult]
+            
+            strongSelf.show(strongSelf.trainingResultPage, sender: nil)
+        }
+        
+        present(trainingPage, animated: true, completion: nil)
     }
 }
