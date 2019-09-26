@@ -334,7 +334,6 @@
 		5AD862AD231913C80036EFFF /* Dribble Training */ = {
 			isa = PBXGroup;
 			children = (
-				5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */,
 				5A4359072338A8770055190A /* ThirdPartyWrapper */,
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
@@ -369,6 +368,7 @@
 				5AD862B5231913CB0036EFFF /* Assets.xcassets */,
 				5AD862BA231913CB0036EFFF /* Info.plist */,
 				5A6678442329F9F1006F69DA /* GoogleService-Info.plist */,
+				5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -757,7 +757,7 @@
 			baseConfigurationReference = 66A171F80630C1F8354FD801 /* Pods-Dribble Training.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Dribble Training.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
@@ -777,7 +777,7 @@
 			baseConfigurationReference = 8D333BB7EFBCBE7134544BB3 /* Pods-Dribble Training.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Dribble Training.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
