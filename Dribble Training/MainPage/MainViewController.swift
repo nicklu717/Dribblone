@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
     
     func checkUID() {
         
+        dismiss(animated: true, completion: nil)
+        
         guard let uid = KeychainManager.shared.uid
             else {
                 

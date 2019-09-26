@@ -25,7 +25,7 @@ class FirestoreManager {
     }
     
     func fetchMemberData(forUID uid: UID,
-                         completion: @escaping (Result<Member, Error>) -> Void) {
+                         completion: @escaping (Result<Member?, Error>) -> Void) {
         
         firestore
             .collection(CollectionKey.member)
@@ -45,12 +45,16 @@ class FirestoreManager {
                     }
                     
                     completion(.success(member))
+                    
+                } else {
+                    
+                    completion(.success(nil))
                 }
         }
     }
     
     func fetchMemberData(forID id: ID,
-                         completion: @escaping (Result<Member, Error>) -> Void) {
+                         completion: @escaping (Result<Member?, Error>) -> Void) {
         
         firestore
             .collection(CollectionKey.member)
@@ -70,6 +74,10 @@ class FirestoreManager {
                     }
                     
                     completion(.success(member))
+                    
+                } else {
+                    
+                    completion(.success(nil))
                 }
         }
     }

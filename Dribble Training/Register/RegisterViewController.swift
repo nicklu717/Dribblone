@@ -102,9 +102,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                     
                 case .success(let uid):
                     
-                    KeychainManager.shared.uid = uid
-                    
-                    self.dismiss(animated: true, completion: self.logInCompletion)
+                    self.logInSuccess(uid: uid)
                     
                 case .failure(let error):
                     
@@ -144,6 +142,13 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         appleSignInButton.cornerRadius = 6
 
         registerView.appleSignInView.addSubview(appleSignInButton)
+    }
+    
+    private func logInSuccess(uid: UID) {
+        
+        KeychainManager.shared.uid = uid
+        
+        logInCompletion?()
     }
     
     private func hasBlank() -> Bool {
@@ -191,8 +196,6 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         registerView.errorMessageLabel.isHidden = false
     }
     
-    
-    
     private enum RegisterError: String {
         
         case passwordNotConfirmed = "Password Not Confirmed"
@@ -218,13 +221,14 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                 
                 switch result {
                     
-                case .success:
+                case .success(let member):
                     
-                    KeychainManager.shared.uid = uid
-                    
-                    self.dismiss(animated: true, completion: nil)
-                    
-                case .failure:
+                    if let member = member {
+                        
+                        self.logInSuccess(uid: member.uid)
+                        
+                        return
+                    }
                     
                     let userName = credential.fullName?.nickname ?? ""
                     
@@ -255,8 +259,12 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                     
                     FirestoreManager.shared.create(member: member, completion: {
                         
-                        self.dismiss(animated: true, completion: self.logInCompletion)
+                        self.logInSuccess(uid: member.uid)
                     })
+                    
+                case .failure(let error):
+                    
+                    print(error)
                 }
             }
         }
