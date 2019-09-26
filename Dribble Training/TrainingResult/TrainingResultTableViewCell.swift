@@ -46,8 +46,6 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         avPlayerLayer.frame = videoView.bounds
         
-        avPlayerLayer.videoGravity = .resizeAspectFill
-        
         videoView.layer.addSublayer(avPlayerLayer)
     }
     
@@ -57,12 +55,19 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         if !isVideoSet {
             
-            if let url = videoURL {
-                setupAVPlayer(url: url)
+            guard let url = videoURL
+                else {
+                    print("Invalid Video URL")
+                    isVideoAvailable = false
+                    return
             }
+            
+            setupAVPlayer(url: url)
         }
         
         avPlayerLayer.player?.play()
+        
+        videoView.image = nil
     }
     
     @IBAction func pushProfile() {
