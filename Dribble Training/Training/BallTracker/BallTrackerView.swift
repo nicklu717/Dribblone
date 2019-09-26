@@ -74,8 +74,6 @@ class BallTrackerView: UIView {
         
         cameraLayer.connection?.videoOrientation = .landscapeLeft
         
-//        layer.insertSublayer(cameraLayer, at: 0)
-        
         layer.addSublayer(cameraLayer)
     }
 }

@@ -12,6 +12,8 @@ import Vision
 
 protocol BallTrackerViewControllerDelegate: AnyObject {
     
+    var pixelBuffer: CVPixelBuffer? { get set }
+    
     func didGetBallPosition(_ position: CGPoint)
 }
 
@@ -40,11 +42,8 @@ class BallTrackerViewController: UIViewController {
         super.viewDidLoad()
         
         do {
-            
             coreMLModel = try VNCoreMLModel(for: MobileNetV2_SSDLite().model)
-            
         } catch {
-            
             fatalError("Unresolve Error: \(error), \(error.localizedDescription)")
         }
     }
@@ -125,6 +124,8 @@ extension BallTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
                 print("Sample Buffer Convert Failure")
                 return
         }
+        
+        delegate?.pixelBuffer = pixelBuffer
         
         let coreMLRequest = VNCoreMLRequest(model: coreMLModel,
                                             completionHandler: coreMLRequestCompletion(request:error:))

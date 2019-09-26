@@ -19,8 +19,14 @@ class StorageManager {
     // MARK: - Instance Method
     
     func uploadScreenShot(fileName: String,
-                          data: Data,
+                          image: UIImage,
                           completion: @escaping (Result<URL, Error>) -> Void) {
+        
+        guard let data = image.jpegData(compressionQuality: 0.3)
+            else {
+                print("Screen Shot Image Converting Failure")
+                return
+        }
         
         let reference =
             self.storageReference
@@ -28,7 +34,10 @@ class StorageManager {
                 .child(Folder.trainingVideo)
                 .child(fileName)
         
-        reference.putData(data, metadata: nil) { (_, error) in
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        reference.putData(data, metadata: metadata) { (_, error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -94,42 +103,6 @@ class StorageManager {
             })
         }
     }
-    
-//    func uploadVideo(fileName: String,
-//                     data: Data,
-//                     completion: @escaping (Result<URL, Error>) -> Void) {
-//
-//        let videoReference =
-//            self.storageReference
-//                .child(AuthManager.shared.currentUser.id)
-//                .child(Folder.trainingVideo)
-//                .child(fileName)
-//
-//        let metadata = StorageMetadata()
-//        metadata.contentType = "video/mp4"
-//
-//        videoReference.putData(
-//            data,
-//            metadata: metadata,
-//            completion: { (_, error) in
-//
-//                if let error = error {
-//                    completion(.failure(error))
-//                    return
-//                }
-//
-//                videoReference.downloadURL(completion: { (url, error) in
-//
-//                    if let error = error {
-//                        completion(.failure(error))
-//                    }
-//
-//                    if let url = url {
-//                        completion(.success(url))
-//                    }
-//                })
-//        })
-//    }
     
     private struct Folder {
         
