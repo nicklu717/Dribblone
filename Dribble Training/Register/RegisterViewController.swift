@@ -117,18 +117,17 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     @objc func appleSignInHandler() {
         
-//        let appleIDProvider = ASAuthorizationAppleIDProvider()
-//
-//        let request = appleIDProvider.createRequest()
-//
-//        request.requestedScopes = [.email]
-//
-//        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//
-//        authorizationController.delegate = self
-//        authorizationController.presentationContextProvider = self
-//
-//        authorizationController.performRequests()
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.email]
+
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+
+        authorizationController.performRequests()
     }
     
     // MARK: - Private Method
@@ -205,23 +204,23 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     }
 }
 
-//extension RegisterViewController: ASAuthorizationControllerDelegate {
-//
-//    func authorizationController(controller: ASAuthorizationController,
-//                                 didCompleteWithAuthorization authorization: ASAuthorization) {
-//
-//
-//    }
-//
-//    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-//
-//    }
-//}
-//
-//extension RegisterViewController: ASAuthorizationControllerPresentationContextProviding {
-//
-//    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-//
-//        return view.window!
-//    }
-//}
+extension RegisterViewController: ASAuthorizationControllerDelegate {
+
+    func authorizationController(controller: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization) {
+
+
+    }
+
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+
+    }
+}
+
+extension RegisterViewController: ASAuthorizationControllerPresentationContextProviding {
+
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+
+        return view.window!
+    }
+}
