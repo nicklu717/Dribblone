@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class RegisterViewController: UIViewController, RegisterViewDelegate {
     
@@ -23,6 +24,15 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     }
     
     var logInCompletion: (() -> Void)?
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        setupAppleSignInButton()
+    }
     
     // MARK: - Instance Method
     
@@ -105,11 +115,44 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         }
     }
     
+    @objc func appleSignInHandler() {
+        
+//        let appleIDProvider = ASAuthorizationAppleIDProvider()
+//
+//        let request = appleIDProvider.createRequest()
+//
+//        request.requestedScopes = [.email]
+//
+//        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+//
+//        authorizationController.delegate = self
+//        authorizationController.presentationContextProvider = self
+//
+//        authorizationController.performRequests()
+    }
+    
+    // MARK: - Private Method
+    
+    private func setupAppleSignInButton() {
+        
+        let appleSignInButton = ASAuthorizationAppleIDButton()
+
+        appleSignInButton.addTarget(self, action: #selector(appleSignInHandler), for: .touchUpInside)
+        
+        appleSignInButton.removeConstraints(appleSignInButton.constraints)
+        
+        appleSignInButton.frame = registerView.appleSignInView.bounds
+
+        appleSignInButton.cornerRadius = 6
+
+        registerView.appleSignInView.addSubview(appleSignInButton)
+    }
+    
     private func hasBlank() -> Bool {
         
         var hasBlank: Bool = false
         
-        var textFields = [UITextField]()
+        var textFields: [UITextField] = []
         
         switch registerView.status {
             
@@ -161,3 +204,24 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         case logInFail = "Log In Failure"
     }
 }
+
+//extension RegisterViewController: ASAuthorizationControllerDelegate {
+//
+//    func authorizationController(controller: ASAuthorizationController,
+//                                 didCompleteWithAuthorization authorization: ASAuthorization) {
+//
+//
+//    }
+//
+//    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+//
+//    }
+//}
+//
+//extension RegisterViewController: ASAuthorizationControllerPresentationContextProviding {
+//
+//    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+//
+//        return view.window!
+//    }
+//}

@@ -17,6 +17,8 @@ protocol RegisterViewDelegate: UIViewController {
 
 class RegisterView: UIView {
     
+    // MARK: - Property Declaration
+    
     weak var delegate: RegisterViewDelegate?
     
     @IBOutlet var errorMessageLabel: UILabel!
@@ -27,9 +29,12 @@ class RegisterView: UIView {
     @IBOutlet var idTextField: UITextField!
     
     @IBOutlet var logInButton: UIButton!
+    @IBOutlet var appleSignInView: UIView!
     @IBOutlet var switchStatusButton: UIButton!
     
     var status: Status = .logIn
+    
+    // MARK: - Instance Method
     
     @IBAction func logIn() {
         
@@ -88,9 +93,9 @@ class RegisterView: UIView {
                 self.idTextField.alpha = 0
             }
             
-            logInButton.setTitle("Log In", for: .normal)
+            logInButton.setTitle("  Log In  ", for: .normal)
             
-            switchStatusButton.setTitle("Create an account", for: .normal)
+            switchStatusButton.setTitle("Create account", for: .normal)
         }
     }
     
