@@ -67,7 +67,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                                                 trainingResults: [],
                                                 picture: "")
                             
-                            FirestoreManager.shared.update(
+                            FirestoreManager.shared.create(
                                 member: member,
                                 completion: {
                                     
@@ -88,8 +88,6 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                 self.showErrorMessage(.idNotAvailable)
             }
         }
-        
-        
     }
     
     func logIn(withEmail email: String, password: String) {
@@ -105,11 +103,13 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                 case .success(let uid):
                     
                     KeychainManager.shared.uid = uid
+                    
                     self.dismiss(animated: true, completion: self.logInCompletion)
                     
                 case .failure(let error):
                     
                     self.showErrorMessage(.logInFail)
+                    
                     print(error)
                 }
         }
@@ -125,7 +125,6 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
 
         authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
 
         authorizationController.performRequests()
     }
@@ -192,6 +191,8 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         registerView.errorMessageLabel.isHidden = false
     }
     
+    
+    
     private enum RegisterError: String {
         
         case passwordNotConfirmed = "Password Not Confirmed"
@@ -208,19 +209,61 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
 
     func authorizationController(controller: ASAuthorizationController,
                                  didCompleteWithAuthorization authorization: ASAuthorization) {
-
-
+        
+        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            
+            let uid = credential.user
+            
+            FirestoreManager.shared.fetchMemberData(forUID: uid) { result in
+                
+                switch result {
+                    
+                case .success:
+                    
+                    KeychainManager.shared.uid = uid
+                    
+                    self.dismiss(animated: true, completion: nil)
+                    
+                case .failure:
+                    
+                    let userName = credential.fullName?.nickname ?? ""
+                    
+                    var id = ""
+                    
+                    if let email = credential.email {
+                        
+                        let firstAT = email.firstIndex(of: "@") ?? email.endIndex
+                        
+                        id = email[..<firstAT].description
+                        
+                    } else {
+                        
+                        let firstDot = uid.firstIndex(of: ".") ?? uid.startIndex
+                        let lastDot = uid.lastIndex(of: ".") ?? uid.endIndex
+                        
+                        id = uid[firstDot..<lastDot].dropFirst(1).description
+                    }
+                    
+                    let member = Member(uid: uid,
+                                        id: id,
+                                        displayName: userName,
+                                        followers: [],
+                                        followings: [],
+                                        blockList: [],
+                                        trainingResults: [],
+                                        picture: "")
+                    
+                    FirestoreManager.shared.create(member: member, completion: {
+                        
+                        self.dismiss(animated: true, completion: self.logInCompletion)
+                    })
+                }
+            }
+        }
     }
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-
-    }
-}
-
-extension RegisterViewController: ASAuthorizationControllerPresentationContextProviding {
-
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-
-        return view.window!
+        
+        print(error)
     }
 }
