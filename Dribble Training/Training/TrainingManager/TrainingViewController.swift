@@ -114,9 +114,9 @@ class TrainingViewController: UIViewController {
                 print("Image Buffer Not Exist")
                 return
         }
-            
+        
         let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-        let image = UIImage(ciImage: ciImage)
+        let image = UIImage(ciImage: ciImage, scale: 1, orientation: .upMirrored)
         
         let fileName = String(format: "%.0d", trainingResult.date)
         

@@ -102,6 +102,8 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         cell.modeLabel.text = trainingResult.mode
         cell.pointsLabel.text = String(trainingResult.points)
         
+        cell.videoView.setImage(withURLString: trainingResult.screenShot)
+        
         cell.videoURL = URL(string: trainingResult.videoURL)
         
         return cell

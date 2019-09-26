@@ -25,7 +25,7 @@ class TrainingResultTableViewCell: UITableViewCell {
     
     @IBOutlet var pointsLabel: UILabel!
     
-    @IBOutlet var videoView: UIView!
+    @IBOutlet var videoView: UIImageView!
     @IBOutlet var playVideoButton: UIButton!
     
     var videoURL: URL?
@@ -45,6 +45,8 @@ class TrainingResultTableViewCell: UITableViewCell {
         profileImageView.image = UIImage.asset(.profile)
         
         avPlayerLayer.frame = videoView.bounds
+        
+        avPlayerLayer.videoGravity = .resizeAspectFill
         
         videoView.layer.addSublayer(avPlayerLayer)
     }
