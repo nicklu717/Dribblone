@@ -49,9 +49,7 @@ class ProfileView: UIView {
                 self.pictureImageView.setImage(withURLString: url.absoluteString,
                                                placeholder: UIImage.asset(.profile))
                 
-            case .failure(let error):
-                
-                print(error)
+            case .failure: break
             }
         }
         

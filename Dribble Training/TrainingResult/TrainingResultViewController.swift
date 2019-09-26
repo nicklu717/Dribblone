@@ -107,9 +107,7 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
                 cell.profileImageView.setImage(withURLString: url.absoluteString,
                                                placeholder: UIImage.asset(.profile))
                 
-            case .failure(let error):
-                
-                print(error)
+            case .failure: break
             }
         }
         
