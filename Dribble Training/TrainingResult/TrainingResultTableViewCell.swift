@@ -102,6 +102,8 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         super.prepareForReuse()
         
+        videoView.image = nil
+        
         if isVideoAvailable {
             
             avPlayerLayer.player = nil
