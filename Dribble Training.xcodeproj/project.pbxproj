@@ -17,7 +17,6 @@
 		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
 		5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590A2338CB1E0055190A /* SCLAlertView.swift */; };
 		5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590C2339236A0055190A /* UIView+Extension.swift */; };
-		5A4B0160233C6A220067ADBB /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B015F233C6A220067ADBB /* CALayer.swift */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
@@ -83,7 +82,7 @@
 		5A4359082338A8A10055190A /* MJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefresh.swift; sourceTree = "<group>"; };
 		5A43590A2338CB1E0055190A /* SCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		5A43590C2339236A0055190A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		5A4B015F233C6A220067ADBB /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dribble Training.entitlements"; sourceTree = "<group>"; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -223,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */,
-				5A4B015F233C6A220067ADBB /* CALayer.swift */,
 				5A93ABA02339D12800358CCD /* Foundation */,
 				5A93AB9D2339D0FF00358CCD /* UIKit */,
 			);
@@ -367,6 +365,7 @@
 				5AD862B5231913CB0036EFFF /* Assets.xcassets */,
 				5AD862BA231913CB0036EFFF /* Info.plist */,
 				5A6678442329F9F1006F69DA /* GoogleService-Info.plist */,
+				5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -614,7 +613,6 @@
 				5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */,
 				5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
-				5A4B0160233C6A220067ADBB /* CALayer.swift in Sources */,
 				5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */,
 				5A93ABA2233A209300358CCD /* SettingViewController.swift in Sources */,
 			);
@@ -685,7 +683,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -740,7 +738,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -755,6 +753,7 @@
 			baseConfigurationReference = 66A171F80630C1F8354FD801 /* Pods-Dribble Training.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
@@ -774,6 +773,7 @@
 			baseConfigurationReference = 8D333BB7EFBCBE7134544BB3 /* Pods-Dribble Training.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";

@@ -15,15 +15,17 @@ class FirestoreManager {
     private let firestore = Firestore.firestore()
     
     private var currentUser: Member {
-        return AuthManager.shared.currentUser }
-    
+        
+        return AuthManager.shared.currentUser
+    }
     
     private var currentUserReference: DocumentReference {
+        
         return firestore.collection(CollectionKey.member).document(currentUser.uid)
     }
     
     func fetchMemberData(forUID uid: UID,
-                         completion: @escaping (Result<Member, Error>) -> Void) {
+                         completion: @escaping (Result<Member?, Error>) -> Void) {
         
         firestore
             .collection(CollectionKey.member)
@@ -43,16 +45,20 @@ class FirestoreManager {
                     }
                     
                     completion(.success(member))
+                    
+                } else {
+                    
+                    completion(.success(nil))
                 }
         }
     }
     
     func fetchMemberData(forID id: ID,
-                         completion: @escaping (Result<Member, Error>) -> Void) {
+                         completion: @escaping (Result<Member?, Error>) -> Void) {
         
         firestore
             .collection(CollectionKey.member)
-            .whereField("id", isEqualTo: id)
+            .whereField(MemberKey.id, isEqualTo: id)
             .getDocuments { (documentSnapshot, error) in
                 
                 if let error = error {
@@ -68,6 +74,10 @@ class FirestoreManager {
                     }
                     
                     completion(.success(member))
+                    
+                } else {
+                    
+                    completion(.success(nil))
                 }
         }
     }
@@ -166,7 +176,7 @@ class FirestoreManager {
         memberReference.updateData([MemberKey.followers: FieldValue.arrayRemove([currentUser.id])])
     }
     
-    func update(member: Member, completion: (() -> Void)?) {
+    func create(member: Member, completion: (() -> Void)?) {
         
         guard let dictionary = getDictionary(from: member)
             else {
@@ -178,11 +188,11 @@ class FirestoreManager {
             .collection(CollectionKey.member)
             .document(member.uid)
             .setData(dictionary) { error in
-            
+
                 if let error = error {
                     print(error)
                 }
-                
+
                 completion?()
         }
     }

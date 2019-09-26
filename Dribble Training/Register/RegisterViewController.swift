@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class RegisterViewController: UIViewController, RegisterViewDelegate {
     
@@ -23,6 +24,15 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     }
     
     var logInCompletion: (() -> Void)?
+    
+    // MARK: - Life Cycle
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        setupAppleSignInButton()
+    }
     
     // MARK: - Instance Method
     
@@ -57,7 +67,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                                                 trainingResults: [],
                                                 picture: "")
                             
-                            FirestoreManager.shared.update(
+                            FirestoreManager.shared.create(
                                 member: member,
                                 completion: {
                                     
@@ -78,8 +88,6 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                 self.showErrorMessage(.idNotAvailable)
             }
         }
-        
-        
     }
     
     func logIn(withEmail email: String, password: String) {
@@ -94,22 +102,60 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                     
                 case .success(let uid):
                     
-                    KeychainManager.shared.uid = uid
-                    self.dismiss(animated: true, completion: self.logInCompletion)
+                    self.logInSuccess(uid: uid)
                     
                 case .failure(let error):
                     
                     self.showErrorMessage(.logInFail)
+                    
                     print(error)
                 }
         }
+    }
+    
+    @objc func appleSignInHandler() {
+        
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.email]
+
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+
+        authorizationController.delegate = self
+
+        authorizationController.performRequests()
+    }
+    
+    // MARK: - Private Method
+    
+    private func setupAppleSignInButton() {
+        
+        let appleSignInButton = ASAuthorizationAppleIDButton()
+
+        appleSignInButton.addTarget(self, action: #selector(appleSignInHandler), for: .touchUpInside)
+        
+        appleSignInButton.removeConstraints(appleSignInButton.constraints)
+        
+        appleSignInButton.frame = registerView.appleSignInView.bounds
+
+        appleSignInButton.cornerRadius = 6
+
+        registerView.appleSignInView.addSubview(appleSignInButton)
+    }
+    
+    private func logInSuccess(uid: UID) {
+        
+        KeychainManager.shared.uid = uid
+        
+        logInCompletion?()
     }
     
     private func hasBlank() -> Bool {
         
         var hasBlank: Bool = false
         
-        var textFields = [UITextField]()
+        var textFields: [UITextField] = []
         
         switch registerView.status {
             
@@ -159,5 +205,73 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         case signUpFail = "Sign Up Failure"
         
         case logInFail = "Log In Failure"
+    }
+}
+
+extension RegisterViewController: ASAuthorizationControllerDelegate {
+
+    func authorizationController(controller: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            
+            let uid = credential.user
+            
+            FirestoreManager.shared.fetchMemberData(forUID: uid) { result in
+                
+                switch result {
+                    
+                case .success(let member):
+                    
+                    if let member = member {
+                        
+                        self.logInSuccess(uid: member.uid)
+                        
+                        return
+                    }
+                    
+                    let userName = credential.fullName?.nickname ?? ""
+                    
+                    var id = ""
+                    
+                    if let email = credential.email {
+                        
+                        let firstAT = email.firstIndex(of: "@") ?? email.endIndex
+                        
+                        id = email[..<firstAT].description
+                        
+                    } else {
+                        
+                        let firstDot = uid.firstIndex(of: ".") ?? uid.startIndex
+                        let lastDot = uid.lastIndex(of: ".") ?? uid.endIndex
+                        
+                        id = uid[firstDot..<lastDot].dropFirst(1).description
+                    }
+                    
+                    let member = Member(uid: uid,
+                                        id: id,
+                                        displayName: userName,
+                                        followers: [],
+                                        followings: [],
+                                        blockList: [],
+                                        trainingResults: [],
+                                        picture: "")
+                    
+                    FirestoreManager.shared.create(member: member, completion: {
+                        
+                        self.logInSuccess(uid: member.uid)
+                    })
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
+            }
+        }
+    }
+
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        
+        print(error)
     }
 }
