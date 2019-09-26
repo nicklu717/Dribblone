@@ -11,7 +11,7 @@
         <!--Training View Controller-->
         <scene sceneID="zvl-z9-3no">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="LPB-8K-44y" customClass="TrainingViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="LPB-8K-44y" customClass="TrainingViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jie-qZ-3Je">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
