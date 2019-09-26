@@ -18,6 +18,24 @@ class StorageManager {
     
     // MARK: - Instance Method
     
+    func getProfilePicture(forID id: ID, completion: @escaping (Result<URL, Error>) -> Void) {
+        
+        storageReference
+            .child(id)
+            .child("profile.jpeg")
+            .downloadURL { (url, error) in
+                
+                if let error = error {
+                    print(error)
+                    completion(.failure(error))
+                }
+                
+                if let url = url {
+                    completion(.success(url))
+                }
+        }
+    }
+    
     func uploadScreenShot(fileName: String,
                           image: UIImage,
                           completion: @escaping (Result<URL, Error>) -> Void) {

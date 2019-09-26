@@ -40,7 +40,21 @@ class ProfileView: UIView {
     
     func setupProfile(for member: Member) {
         
-//        pictureImageView.image = member.picture
+        StorageManager.shared.getProfilePicture(forID: member.id) { result in
+            
+            switch result {
+                
+            case .success(let url):
+                
+                self.pictureImageView.setImage(withURLString: url.absoluteString,
+                                               placeholder: UIImage.asset(.profile))
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+        
         nameLabel.text = member.displayName
         followingsLabel.text = String(member.followings.count)
         followersLabel.text = String(member.followers.count)

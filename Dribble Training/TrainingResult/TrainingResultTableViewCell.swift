@@ -102,6 +102,8 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         super.prepareForReuse()
         
+        profileImageView.image = UIImage.asset(.profile)
+        
         videoView.image = nil
         
         if isVideoAvailable {
