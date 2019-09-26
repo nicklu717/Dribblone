@@ -301,9 +301,9 @@
 		5ACBCAF0232A2272007B0E3B /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				5A6BA14A232E24F700E2FB48 /* AuthManager.swift */,
 				5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */,
 				5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */,
-				5A6BA14A232E24F700E2FB48 /* AuthManager.swift */,
 				5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */,
 			);
 			path = Firebase;

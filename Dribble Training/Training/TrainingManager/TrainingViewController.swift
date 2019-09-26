@@ -36,12 +36,6 @@ class TrainingViewController: UIViewController {
     
     let imageManager = PHImageManager.default()
     
-    let storageManager = StorageManager.shared
-    
-    let firestoreManager = FirestoreManager.shared
-    
-    let authManager = AuthManager.shared
-    
     var trainingResult: TrainingResult!
     
     var trainingCompletion: ((TrainingResult) -> ())?
@@ -49,6 +43,7 @@ class TrainingViewController: UIViewController {
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(
@@ -81,6 +76,17 @@ class TrainingViewController: UIViewController {
     
     @objc func startRecording() {
         
+        let date = Date().timeIntervalSince1970
+        
+        trainingResult = TrainingResult(id: AuthManager.shared.currentUser.id,
+                                        date: date,
+                                        mode: "",
+                                        points: 0,
+                                        videoURL: "",
+                                        screenShot: "")
+        
+        takeScreenShot()
+        
         screenRecorder.startRecording { error in
             
             if let error = error {
@@ -90,6 +96,58 @@ class TrainingViewController: UIViewController {
             
             print("Start Recording")
         }
+    }
+    
+    func takeScreenShot() {
+        
+//        guard
+//            let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+//            let window = appDelegate.window
+//            else {
+//                print("Key Window Not Found")
+//                return
+//        }
+        
+        UIGraphicsBeginImageContext(view.layer.bounds.size)
+        
+        guard let currentContext = UIGraphicsGetCurrentContext()
+            else {
+                print("Couldn't Get Current Context")
+                UIGraphicsEndImageContext()
+                return
+        }
+        
+        view.layer.render(in: currentContext)
+        
+        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+            
+            let fileName = String(format: "%.0d", trainingResult.date)
+            
+            guard let data = image.jpegData(compressionQuality: 0.6)
+                else {
+                    print("Screen Shot Image Converting Failure")
+                    UIGraphicsEndImageContext()
+                    return
+            }
+            
+            StorageManager.shared.uploadImage(
+                fileName: fileName,
+                data: data) { result in
+                    
+                    switch result {
+                        
+                    case .success(let url):
+                        
+                        self.trainingResult.screenShot = String(describing: url)
+                        
+                    case .failure(let error):
+                        
+                        print(error)
+                    }
+            }
+        }
+        
+        UIGraphicsEndImageContext()
     }
     
     func setTrainingMode(to mode: TrainingMode) {
@@ -110,20 +168,8 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
     
     func endTraining(points: Int, trainingMode mode: String) {
         
-        guard
-            let member = AuthManager.shared.currentUser
-            else {
-                print("Member Not Exist")
-                return
-        }
-        
-        let date = Date().timeIntervalSince1970
-        
-        trainingResult = TrainingResult(id: member.id,
-                                        date: date,
-                                        mode: mode,
-                                        points: points,
-                                        videoURL: nil)
+        trainingResult.mode = mode
+        trainingResult.points = points
         
         screenRecorder.stopRecording { (previewViewController, error) in
             
@@ -189,7 +235,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                     return
                 }
                 
-                self.storageManager.uploadVideo(
+                StorageManager.shared.uploadVideo(
                     fileName: videoResource.originalFilename,
                     url: temporaryURL,
                     completion: { result in
@@ -211,14 +257,8 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                                 self.trainingCompletion?(self.trainingResult)
                             }
                             
-                            guard let member = self.authManager.currentUser
-                                else {
-                                    print("Member Not Exist. Training Result Won't Upload.")
-                                    return
-                            }
-                            
-                            self.firestoreManager.upload(trainingResult: self.trainingResult,
-                                                         for: member)
+                            FirestoreManager.shared.upload(trainingResult: self.trainingResult,
+                                                           for: AuthManager.shared.currentUser)
                             
                         case .failure(let error):
                             
