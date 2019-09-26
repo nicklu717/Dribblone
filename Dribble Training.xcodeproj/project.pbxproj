@@ -17,6 +17,7 @@
 		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
 		5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590A2338CB1E0055190A /* SCLAlertView.swift */; };
 		5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590C2339236A0055190A /* UIView+Extension.swift */; };
+		5A4B0160233C6A220067ADBB /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B015F233C6A220067ADBB /* CALayer.swift */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 		5A4359082338A8A10055190A /* MJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefresh.swift; sourceTree = "<group>"; };
 		5A43590A2338CB1E0055190A /* SCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		5A43590C2339236A0055190A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		5A4B015F233C6A220067ADBB /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */,
+				5A4B015F233C6A220067ADBB /* CALayer.swift */,
 				5A93ABA02339D12800358CCD /* Foundation */,
 				5A93AB9D2339D0FF00358CCD /* UIKit */,
 			);
@@ -301,9 +304,9 @@
 		5ACBCAF0232A2272007B0E3B /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				5A6BA14A232E24F700E2FB48 /* AuthManager.swift */,
 				5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */,
 				5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */,
-				5A6BA14A232E24F700E2FB48 /* AuthManager.swift */,
 				5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */,
 			);
 			path = Firebase;
@@ -611,6 +614,7 @@
 				5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */,
 				5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
+				5A4B0160233C6A220067ADBB /* CALayer.swift in Sources */,
 				5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */,
 				5A93ABA2233A209300358CCD /* SettingViewController.swift in Sources */,
 			);

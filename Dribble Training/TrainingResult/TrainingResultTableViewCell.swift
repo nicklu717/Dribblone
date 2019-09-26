@@ -25,7 +25,7 @@ class TrainingResultTableViewCell: UITableViewCell {
     
     @IBOutlet var pointsLabel: UILabel!
     
-    @IBOutlet var videoView: UIView!
+    @IBOutlet var videoView: UIImageView!
     @IBOutlet var playVideoButton: UIButton!
     
     var videoURL: URL?
@@ -55,12 +55,19 @@ class TrainingResultTableViewCell: UITableViewCell {
         
         if !isVideoSet {
             
-            if let url = videoURL {
-                setupAVPlayer(url: url)
+            guard let url = videoURL
+                else {
+                    print("Invalid Video URL")
+                    isVideoAvailable = false
+                    return
             }
+            
+            setupAVPlayer(url: url)
         }
         
         avPlayerLayer.player?.play()
+        
+        videoView.image = nil
     }
     
     @IBAction func pushProfile() {
@@ -94,6 +101,8 @@ class TrainingResultTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         
         super.prepareForReuse()
+        
+        videoView.image = nil
         
         if isVideoAvailable {
             

@@ -45,18 +45,22 @@ struct TrainingResult: Codable {
     
     let id: ID
     
-    let date: Double
+    var date: Double
     
-    let mode: String
+    var mode: String
     
-    let points: Int
+    var points: Int
     
-    var videoURL: String!
+    var videoURL: String
+    
+    var screenShot: String
     
     enum CodingKeys: String, CodingKey {
         
         case id, date, mode, points
         
         case videoURL = "video_url"
+        
+        case screenShot = "screen_shot"
     }
 }

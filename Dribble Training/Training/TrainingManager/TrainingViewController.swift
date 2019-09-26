@@ -36,11 +36,7 @@ class TrainingViewController: UIViewController {
     
     let imageManager = PHImageManager.default()
     
-    let storageManager = StorageManager.shared
-    
-    let firestoreManager = FirestoreManager.shared
-    
-    let authManager = AuthManager.shared
+    var pixelBuffer: CVPixelBuffer?
     
     var trainingResult: TrainingResult!
     
@@ -49,6 +45,7 @@ class TrainingViewController: UIViewController {
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(
@@ -81,6 +78,17 @@ class TrainingViewController: UIViewController {
     
     @objc func startRecording() {
         
+        let date = Date().timeIntervalSince1970
+        
+        trainingResult = TrainingResult(id: AuthManager.shared.currentUser.id,
+                                        date: date,
+                                        mode: "",
+                                        points: 0,
+                                        videoURL: "",
+                                        screenShot: "")
+        
+        takeScreenShot()
+        
         screenRecorder.startRecording { error in
             
             if let error = error {
@@ -96,6 +104,38 @@ class TrainingViewController: UIViewController {
         
         trainingAssistantPage.trainingMode = mode
     }
+    
+    // MARK: - Private Method
+    
+    private func takeScreenShot() {
+
+        guard let pixelBuffer = pixelBuffer
+            else {
+                print("Image Buffer Not Exist")
+                return
+        }
+        
+        let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+        let image = UIImage(ciImage: ciImage, scale: 1, orientation: .upMirrored)
+        
+        let fileName = String(format: "%.0d", trainingResult.date)
+        
+        StorageManager.shared.uploadScreenShot(
+            fileName: fileName,
+            image: image) { result in
+
+                switch result {
+
+                case .success(let url):
+
+                    self.trainingResult.screenShot = String(describing: url)
+
+                case .failure(let error):
+
+                    print(error)
+                }
+        }
+    }
 }
 
 extension TrainingViewController: BallTrackerViewControllerDelegate {
@@ -110,20 +150,8 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
     
     func endTraining(points: Int, trainingMode mode: String) {
         
-        guard
-            let member = AuthManager.shared.currentUser
-            else {
-                print("Member Not Exist")
-                return
-        }
-        
-        let date = Date().timeIntervalSince1970
-        
-        trainingResult = TrainingResult(id: member.id,
-                                        date: date,
-                                        mode: mode,
-                                        points: points,
-                                        videoURL: nil)
+        trainingResult.mode = mode
+        trainingResult.points = points
         
         screenRecorder.stopRecording { (previewViewController, error) in
             
@@ -152,6 +180,17 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
     
     func previewController(_ previewController: RPPreviewViewController,
                            didFinishWithActivityTypes activityTypes: Set<String>) {
+        
+        if !activityTypes.contains(UIActivity.ActivityType.saveToCameraRoll.rawValue) {
+            
+            let fileName = String(format: "%.0d", trainingResult.date)
+            
+            StorageManager.shared.removeScreenShot(fileName: fileName)
+            
+            presentingViewController?.dismiss(animated: true, completion: nil)
+            
+            return
+        }
         
         let fetchOptions = PHFetchOptions()
         
@@ -183,7 +222,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                     return
                 }
                 
-                self.storageManager.uploadVideo(
+                StorageManager.shared.uploadVideo(
                     fileName: videoResource.originalFilename,
                     url: temporaryURL,
                     completion: { result in
@@ -205,14 +244,8 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                                 self.trainingCompletion?(self.trainingResult)
                             }
                             
-                            guard let member = self.authManager.currentUser
-                                else {
-                                    print("Member Not Exist. Training Result Won't Upload.")
-                                    return
-                            }
-                            
-                            self.firestoreManager.upload(trainingResult: self.trainingResult,
-                                                         for: member)
+                            FirestoreManager.shared.upload(trainingResult: self.trainingResult,
+                                                           for: AuthManager.shared.currentUser)
                             
                         case .failure(let error):
                             
