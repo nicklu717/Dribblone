@@ -17,6 +17,7 @@
 		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
 		5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590A2338CB1E0055190A /* SCLAlertView.swift */; };
 		5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590C2339236A0055190A /* UIView+Extension.swift */; };
+		5A4B0164233D0C7A0067ADBB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4B0163233D0C7A0067ADBB /* WebKit.framework */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 		5A43590A2338CB1E0055190A /* SCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		5A43590C2339236A0055190A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dribble Training.entitlements"; sourceTree = "<group>"; };
+		5A4B0163233D0C7A0067ADBB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4B0164233D0C7A0067ADBB /* WebKit.framework in Frameworks */,
 				FEC79306F0EDC8C7F409909D /* Pods_Dribble_Training.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +159,7 @@
 		154457D281359147B0F90584 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A4B0163233D0C7A0067ADBB /* WebKit.framework */,
 				86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */,
 			);
 			name = Frameworks;
@@ -757,6 +761,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -777,6 +782,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
