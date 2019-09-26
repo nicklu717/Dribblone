@@ -148,7 +148,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="wein7" id="kh7-mY-uXS">
                         <barButtonItem key="leftBarButtonItem" image="Settings" id="4ak-pT-ioI">
-                            <color key="tintColor" name="B3"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="reQ-Ml-N3y" kind="show" id="caM-zJ-mzZ"/>
                             </connections>
