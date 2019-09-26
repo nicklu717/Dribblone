@@ -153,6 +153,12 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
     func previewController(_ previewController: RPPreviewViewController,
                            didFinishWithActivityTypes activityTypes: Set<String>) {
         
+        if !activityTypes.contains(UIActivity.ActivityType.saveToCameraRoll.rawValue) {
+            
+            presentingViewController?.dismiss(animated: true, completion: nil)
+            return
+        }
+        
         let fetchOptions = PHFetchOptions()
         
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
