@@ -130,7 +130,7 @@ class TrainingViewController: UIViewController {
                     return
             }
             
-            StorageManager.shared.uploadImage(
+            StorageManager.shared.uploadScreenShot(
                 fileName: fileName,
                 data: data) { result in
                     
@@ -200,6 +200,10 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                            didFinishWithActivityTypes activityTypes: Set<String>) {
         
         if !activityTypes.contains(UIActivity.ActivityType.saveToCameraRoll.rawValue) {
+            
+            let fileName = String(format: "%.0d", trainingResult.date)
+            
+            StorageManager.shared.removeScreenShot(fileName: fileName)
             
             presentingViewController?.dismiss(animated: true, completion: nil)
             return

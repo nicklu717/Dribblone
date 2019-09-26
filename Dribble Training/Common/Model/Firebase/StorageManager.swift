@@ -18,9 +18,9 @@ class StorageManager {
     
     // MARK: - Instance Method
     
-    func uploadImage(fileName: String,
-                     data: Data,
-                     completion: @escaping (Result<URL, Error>) -> Void) {
+    func uploadScreenShot(fileName: String,
+                          data: Data,
+                          completion: @escaping (Result<URL, Error>) -> Void) {
         
         let reference =
             self.storageReference
@@ -45,6 +45,20 @@ class StorageManager {
                     completion(.success(url))
                 }
             }
+        }
+    }
+    
+    func removeScreenShot(fileName: String) {
+        
+        self.storageReference
+            .child(AuthManager.shared.currentUser.id)
+            .child(Folder.trainingVideo)
+            .child(fileName)
+            .delete { error in
+                
+                if let error = error {
+                    print(error)
+                }
         }
     }
     
