@@ -43,6 +43,12 @@ class TabBarController: UITabBarController {
             
             addChild(viewController)
         }
+        
+        tabBar.isTranslucent = false
+        
+//        tabBar.barTintColor = .b1
+        
+        tabBar.tintColor = .b3
     }
     
     private enum Tab {
@@ -67,7 +73,7 @@ class TabBarController: UITabBarController {
                 
             case .video: storyboard = .video
                 
-            case .training: storyboard = .trainingLobby
+            case .training: storyboard = .trainingMenu
                 
             case .profile: storyboard = .profile
                 

@@ -137,15 +137,18 @@ class TrainingAssistantView: SKView {
         }
     }
     
-    private var leftPosition = true
+    private var positionX: Position.X = .left
+    private var positionY: Position.Y = .high
     
     // MARK: - Instance Method
     
     func setPointsLabel(_ points: Int) {
+        
         pointsLabel.text = String(format: "%02d", points)
     }
     
     func setTimerLabel(minute: Int, second: Int) {
+        
         timerLabel.text = String(format: "%02d:%02d", minute, second)
     }
     
@@ -199,6 +202,8 @@ class TrainingAssistantView: SKView {
         
         ballNode.position = CGPoint(x: -100, y: -100)
         
+        ballNode.lineWidth = 0
+        
         ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
         ballNode.physicsBody?.affectedByGravity = false
         ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
@@ -207,7 +212,7 @@ class TrainingAssistantView: SKView {
         
         // Set Up Coin Node
         
-        targetNode.fillColor = .red
+        targetNode.fillColor = .b1
         
         targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         targetNode.physicsBody?.affectedByGravity = false
@@ -224,33 +229,101 @@ class TrainingAssistantView: SKView {
     }
     
     @objc private func cancelTraining() {
+        
         viewDelegate?.dismiss(animated: true, completion: nil)
     }
     
     private func targetNodePosition(mode: TrainingMode) -> CGPoint {
         
-        var xScale: CGFloat!
-        var yScale: CGFloat!
-        
         switch mode {
+            
+        case .rightHand:
+            
+            positionX = .right
+            
+            switch positionY {
+            case .high: positionY = .low
+            case .low: positionY = .high
+            }
+            
+        case .leftHand:
+            
+            positionX = .left
+            
+            switch positionY {
+            case .high: positionY = .low
+            case .low: positionY = .high
+            }
             
         case .crossover:
             
-            leftPosition = !leftPosition
-            xScale = leftPosition ? 0.2 : 0.8
-            yScale = 0.6
+            switch positionX {
+            case .left: positionX = .right
+            case .right: positionX = .left
+            default: positionX = .left
+            }
+            
+            positionY = .high
+            
+        case .mStyle:
+            
+            switch positionX {
+            case .left: positionX = .centerRight
+            case .centerRight: positionX = .right
+            case .right: positionX = .centerLeft
+            case .centerLeft: positionX = .left
+            default: positionX = .left
+            }
+            
+            positionY = .low
             
         case .low:
+
+            switch positionX {
+            case .left: positionX = .centerRight
+            case .centerRight: positionX = .right
+            case .right: positionX = .centerLeft
+            case .centerLeft: positionX = .left
+            default: positionX = .left
+            }
             
-            xScale = CGFloat(Double.random(in: 0.2...0.8))
-            yScale = 0.25
-            
-        case .random:
-            
-            xScale = CGFloat(Double.random(in: 0.2...0.8))
-            yScale = CGFloat(Double.random(in: 0.2...0.5))
+            positionY = .low
+        
+        case .random: break
         }
         
-        return CGPoint(x: bounds.width * xScale, y: bounds.height * yScale)
+        var x = bounds.width * positionX.rawValue
+        var y = bounds.height * positionY.rawValue
+        
+        if mode == .random {
+            
+            x = CGFloat(Double.random(in: 0.2...0.8))
+            y = CGFloat(Double.random(in: 0.2...0.6))
+        }
+        
+        return CGPoint(x: x, y: y)
+    }
+    
+    private struct Position {
+        
+        enum X: CGFloat {
+            
+            case left = 0.2
+            
+            case centerLeft = 0.45
+            
+            case center = 0.5
+            
+            case centerRight = 0.55
+            
+            case right = 0.8
+        }
+        
+        enum Y: CGFloat {
+            
+            case low = 0.25
+            
+            case high = 0.6
+        }
     }
 }

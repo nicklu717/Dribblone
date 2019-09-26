@@ -47,7 +47,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ZpC-mC-DD3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rgj-ia-Mzw" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rgj-ia-Mzw" customClass="NavigationController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rb7-ar-g8c">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

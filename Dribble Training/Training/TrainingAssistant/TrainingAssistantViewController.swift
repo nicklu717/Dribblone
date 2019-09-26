@@ -39,7 +39,7 @@ class TrainingAssistantViewController: UIViewController {
     
     private var timer: Timer?
     
-    var trainingMode: TrainingMode = .crossover
+    var trainingMode: TrainingMode!
     
     // MARK: - Life Cycle
     
@@ -78,6 +78,7 @@ class TrainingAssistantViewController: UIViewController {
     }
     
     func setBallNode(to position: CGPoint) {
+        
         trainingAssistantView.moveBallNode(to: position)
     }
     
@@ -130,6 +131,7 @@ class TrainingAssistantViewController: UIViewController {
 extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
         getPoint()
     }
 }

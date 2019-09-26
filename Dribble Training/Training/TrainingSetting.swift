@@ -20,6 +20,12 @@ enum TrainingMode: String {
     case crossover = "Crossover"
     
     case low = "Low"
+    
+    case rightHand = "One Hand: Right"
+    
+    case leftHand = "One Hand: Left"
+    
+    case mStyle = "M Style"
 }
 
 enum SceneNode {

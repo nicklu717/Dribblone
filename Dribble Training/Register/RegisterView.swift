@@ -10,7 +10,7 @@ import UIKit
 
 protocol RegisterViewDelegate: UIViewController {
     
-    func signUp(withEmail email: String, password: String)
+    func signUp(withEmail email: String, password: String, confirmPassword: String, id: ID)
     
     func logIn(withEmail email: String, password: String)
 }
@@ -23,11 +23,13 @@ class RegisterView: UIView {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var confirmPasswordTextField: UITextField!
+    @IBOutlet var idTextField: UITextField!
     
     @IBOutlet var logInButton: UIButton!
     @IBOutlet var switchStatusButton: UIButton!
     
-    private var status: Status = .logIn
+    var status: Status = .logIn
     
     @IBAction func logIn() {
         
@@ -35,16 +37,27 @@ class RegisterView: UIView {
         
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
+        let confirmPassword = confirmPasswordTextField.text ?? ""
+        let id: ID = idTextField.text ?? ""
         
         switch status {
         
-        case .logIn: delegate?.logIn(withEmail: email, password: password)
+        case .logIn:
+            
+            delegate?.logIn(withEmail: email, password: password)
         
-        case .signUp: delegate?.signUp(withEmail: email, password: password)
+        case .signUp:
+            
+            delegate?.signUp(withEmail: email,
+                             password: password,
+                             confirmPassword: confirmPassword,
+                             id: id)
         }
     }
     
     @IBAction func switchStatus() {
+        
+        errorMessageLabel.isHidden = true
         
         switch status {
             
@@ -52,26 +65,36 @@ class RegisterView: UIView {
             
             status = .signUp
             
+            confirmPasswordTextField.text = ""
+            idTextField.text = ""
+            
+            UIView.animate(withDuration: 0.2) {
+                
+                self.confirmPasswordTextField.alpha = 1
+                self.idTextField.alpha = 1
+            }
+            
             logInButton.setTitle("Sign Up", for: .normal)
-            switchStatusButton.setTitle("Log In?", for: .normal)
+            
+            switchStatusButton.setTitle("Log in?", for: .normal)
             
         case .signUp:
             
             status = .logIn
             
+            UIView.animate(withDuration: 0.2) {
+                
+                self.confirmPasswordTextField.alpha = 0
+                self.idTextField.alpha = 0
+            }
+            
             logInButton.setTitle("Log In", for: .normal)
+            
             switchStatusButton.setTitle("Create an account", for: .normal)
         }
     }
     
-    func showErrorMessage(_ message: String) {
-        
-        errorMessageLabel.text = message
-        
-        errorMessageLabel.isHidden = false
-    }
-    
-    private enum Status {
+    enum Status {
         
         case logIn
         

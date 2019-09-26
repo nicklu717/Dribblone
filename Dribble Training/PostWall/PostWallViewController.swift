@@ -10,9 +10,13 @@ import UIKit
 
 class PostWallViewController: UIViewController, TrainingResultViewControllerDataSource {
     
+    // MARK: - Property Declaration
+    
     @IBOutlet var postWallView: PostWallView!
     
     private var trainingResultPage: TrainingResultViewController!
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         
@@ -21,28 +25,7 @@ class PostWallViewController: UIViewController, TrainingResultViewControllerData
         setupTrainingResultPage()
     }
     
-    func setupTrainingResultPage() {
-        
-        let storyboard = UIStoryboard.trainingResult
-        
-        guard
-            let trainingResultViewController = storyboard.instantiateInitialViewController()
-                as? TrainingResultViewController
-            else {
-                print("Training Result View Controller Not Exist")
-                return
-        }
-        
-        trainingResultPage = trainingResultViewController
-        
-        trainingResultPage.dataSource = self
-        
-        trainingResultPage.loadViewIfNeeded()
-        
-        fetchTrainingResult()
-        
-        showTrainingResultPage()
-    }
+    // MARK: - Instance Method
     
     func fetchTrainingResult() {
         
@@ -74,7 +57,32 @@ class PostWallViewController: UIViewController, TrainingResultViewControllerData
         }
     }
     
-    func showTrainingResultPage() {
+    // MARK: - Private Method
+    
+    private func setupTrainingResultPage() {
+        
+        let storyboard = UIStoryboard.trainingResult
+        
+        guard
+            let trainingResultViewController = storyboard.instantiateInitialViewController()
+                as? TrainingResultViewController
+            else {
+                print("Training Result View Controller Not Exist")
+                return
+        }
+        
+        trainingResultPage = trainingResultViewController
+        
+        trainingResultPage.dataSource = self
+        
+        trainingResultPage.loadViewIfNeeded()
+        
+        fetchTrainingResult()
+        
+        showTrainingResultPage()
+    }
+    
+    private func showTrainingResultPage() {
         
         postWallView.trainingResultPageView.addSubview(trainingResultPage.view)
         

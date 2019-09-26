@@ -114,23 +114,22 @@ class FirestoreManager {
         }
     }
     
-//    func checkAvailable(forID id: String, completion: @escaping (Bool) -> Void) {
-//
-//        firestore
-//            .collection(CollectionKey.member)
-//            .whereField("id", isEqualTo: id)
-//            .getDocuments { (querySnapshot, error) in
-//
-//                if let querySnapshot = querySnapshot, querySnapshot.documents.isEmpty {
-//
-//                    completion(false)
-//
-//                } else {
-//
-//                    completion(true)
-//                }
-//        }
-//    }
+    func checkAvailable(for id: ID, completion: @escaping (Bool) -> Void) {
+        
+        firestore
+            .collection(CollectionKey.member)
+            .whereField(MemberKey.id, isEqualTo: id)
+            .getDocuments { (querySnapshot, error) in
+                
+                if let error = error {
+                    print(error)
+                }
+
+                if let documents = querySnapshot?.documents {
+                    completion(documents.isEmpty)
+                }
+        }
+    }
     
     func block(member: Member) {
         
