@@ -115,7 +115,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     func showPrivacyPolicy() {
         
-        present(PrivacyViewController(), animated: true, completion: nil)
+        show(PrivacyViewController(), sender: nil)
     }
     
     @objc func appleSignInHandler() {

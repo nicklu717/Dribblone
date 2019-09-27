@@ -12,6 +12,8 @@ class PrivacyViewController: UIViewController {
     
     // MARK: - Property
     
+    var privacyPoliceURLString = "https://www.privacypolicies.com/privacy/view/b92ac1d815d87bff3541fba4b45890be"
+    
     let privacyView = PrivacyView()
     
     // MARK: - Life Cycle
@@ -20,9 +22,16 @@ class PrivacyViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let urlString = "https://www.privacypolicies.com/privacy/view/b92ac1d815d87bff3541fba4b45890be"
+        navigationItem.title = "Privacy Policy"
         
-        guard let url = URL(string: urlString)
+        setupPrivacyView()
+    }
+    
+    // MARK: - Private Method
+    
+    private func setupPrivacyView() {
+        
+        guard let url = URL(string: privacyPoliceURLString)
             else {
                 print("Invalid Privacy Policy URL")
                 return

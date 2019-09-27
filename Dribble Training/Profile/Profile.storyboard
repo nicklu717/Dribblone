@@ -11,8 +11,8 @@
         <!--wein7-->
         <scene sceneID="Blj-PQ-AHR">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="7kq-6V-VR0" customClass="ProfileViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="L1g-cG-sA5" customClass="ProfileView" customModule="Dribble_Training" customModuleProvider="target">
+                <viewController storyboardIdentifier="ProfileViewController" id="7kq-6V-VR0" customClass="ProfileViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L1g-cG-sA5" customClass="ProfileView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -165,8 +165,8 @@
         <!--Setting View Controller-->
         <scene sceneID="mOu-JF-iQJ">
             <objects>
-                <viewController id="reQ-Ml-N3y" customClass="SettingViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O4T-8h-I31" customClass="SettingView" customModule="Dribble_Training" customModuleProvider="target">
+                <viewController id="reQ-Ml-N3y" customClass="SettingViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O4T-8h-I31" customClass="SettingView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -198,7 +198,7 @@
         <!--Navigation Controller-->
         <scene sceneID="n48-Ad-uDb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Poh-CX-yQm" customClass="NavigationController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Poh-CX-yQm" customClass="NavigationController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rgZ-fE-otd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

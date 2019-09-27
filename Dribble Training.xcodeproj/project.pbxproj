@@ -358,8 +358,8 @@
 				5A88EC8023278FF700BD23D4 /* Video */,
 				5AD862C2231915DA0036EFFF /* Training */,
 				5A88EC7B23278E6600BD23D4 /* Profile */,
-				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
 				5A88EC812327900600BD23D4 /* Team */,
+				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
 				5AD3F543233DD6B600D5C5CB /* Privacy */,
 			);
 			path = "Dribble Training";
