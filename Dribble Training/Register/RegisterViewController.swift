@@ -139,8 +139,6 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         
         appleSignInButton.frame = registerView.appleSignInView.bounds
 
-        appleSignInButton.cornerRadius = 6
-
         registerView.appleSignInView.addSubview(appleSignInButton)
     }
     
