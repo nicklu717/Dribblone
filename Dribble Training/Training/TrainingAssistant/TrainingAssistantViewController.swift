@@ -46,8 +46,6 @@ class TrainingAssistantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resetTimer()
-        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(startTraining),
@@ -56,12 +54,21 @@ class TrainingAssistantViewController: UIViewController {
         )
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        resetTimer()
+    }
+    
     // MARK: - Instance Method
     
     func resetTimer(minute: Int = 0, second: Int = 10) {
         
         self.minute = minute
         self.second = second
+        
+        trainingAssistantView.startButton.isHidden = false
     }
     
     @objc func startTraining() {
