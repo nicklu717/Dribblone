@@ -113,6 +113,11 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         }
     }
     
+    func showPrivacyPolicy() {
+        
+        present(PrivacyViewController(), animated: true, completion: nil)
+    }
+    
     @objc func appleSignInHandler() {
         
         let appleIDProvider = ASAuthorizationAppleIDProvider()

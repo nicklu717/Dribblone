@@ -30,8 +30,6 @@ extension UIStoryboard {
     
     static var team: UIStoryboard { return storyboard("Team") }
     
-    static var privacy: UIStoryboard { return storyboard("Privacy") }
-    
     private static func storyboard(_ name: String) -> UIStoryboard {
         return UIStoryboard(name: name, bundle: nil)
     }

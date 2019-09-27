@@ -13,7 +13,7 @@ class PrivacyView: UIView {
     
     // MARK: - Property
     
-    @IBOutlet var webView: WKWebView!
+    let webView = WKWebView()
     
     // MARK: - Instance Method
     
@@ -22,5 +22,9 @@ class PrivacyView: UIView {
         let request = URLRequest(url: url)
         
         webView.load(request)
+        
+        webView.frame = bounds
+        
+        addSubview(webView)
     }
 }

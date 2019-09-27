@@ -54,7 +54,6 @@
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */; };
 		5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */; };
-		5AD3F545233DD6DB00D5C5CB /* Privacy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD3F544233DD6DB00D5C5CB /* Privacy.storyboard */; };
 		5AD3F549233DD7D800D5C5CB /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */; };
 		5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
@@ -124,7 +123,6 @@
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
-		5AD3F544233DD6DB00D5C5CB /* Privacy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Privacy.storyboard; sourceTree = "<group>"; };
 		5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribblone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dribblone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,7 +321,6 @@
 		5AD3F543233DD6B600D5C5CB /* Privacy */ = {
 			isa = PBXGroup;
 			children = (
-				5AD3F544233DD6DB00D5C5CB /* Privacy.storyboard */,
 				5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */,
 				5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */,
 			);
@@ -535,7 +532,6 @@
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */,
 				5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */,
-				5AD3F545233DD6DB00D5C5CB /* Privacy.storyboard in Resources */,
 				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
 				5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */,
 				5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */,

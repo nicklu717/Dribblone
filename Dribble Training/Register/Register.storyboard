@@ -137,6 +137,9 @@
                                 <state key="normal" title="Privacy Policy">
                                     <color key="titleColor" name="B2"/>
                                 </state>
+                                <connections>
+                                    <action selector="showPrivacyPolicy" destination="lib-iY-Qk8" eventType="touchUpInside" id="twe-J7-cNz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

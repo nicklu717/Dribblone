@@ -12,7 +12,7 @@ class PrivacyViewController: UIViewController {
     
     // MARK: - Property
     
-    @IBOutlet var privacyView: PrivacyView!
+    let privacyView = PrivacyView()
     
     // MARK: - Life Cycle
     
@@ -27,6 +27,10 @@ class PrivacyViewController: UIViewController {
                 print("Invalid Privacy Policy URL")
                 return
         }
+        
+        privacyView.frame = view.bounds
+        
+        view.addSubview(privacyView)
         
         privacyView.setupWebView(url: url)
     }
