@@ -127,14 +127,14 @@ class TrainingAssistantView: SKView {
             SceneNode.ball.categoryMask | SceneNode.target.categoryMask
     }
     
-    @objc private func startTraining() {
+    @IBAction func startTraining() {
         
         startButton.isHidden = true
         
         NotificationCenter.default.post(Notification(name: .startTraining))
     }
     
-    @objc private func cancelTraining() {
+    @IBAction func cancelTraining() {
         
         viewDelegate?.dismiss(animated: true, completion: nil)
     }

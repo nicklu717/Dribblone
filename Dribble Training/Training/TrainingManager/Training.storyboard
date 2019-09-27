@@ -136,6 +136,9 @@
                                         <color key="value" name="B4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startTraining" destination="gdt-Xo-epj" eventType="touchUpInside" id="NN4-Gi-kdp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLa-H8-ly1">
                                 <rect key="frame" x="25" y="69" width="40" height="40"/>
@@ -152,6 +155,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelTraining" destination="gdt-Xo-epj" eventType="touchUpInside" id="R5a-Ec-T2b"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
