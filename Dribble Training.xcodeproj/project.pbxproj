@@ -54,6 +54,9 @@
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */; };
 		5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */; };
+		5AD3F545233DD6DB00D5C5CB /* Privacy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD3F544233DD6DB00D5C5CB /* Privacy.storyboard */; };
+		5AD3F549233DD7D800D5C5CB /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */; };
+		5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
@@ -121,6 +124,9 @@
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		5AD3F544233DD6DB00D5C5CB /* Privacy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Privacy.storyboard; sourceTree = "<group>"; };
+		5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		5AD862AB231913C80036EFFF /* Dribblone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dribblone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -203,13 +209,13 @@
 			path = TrainingAssistant;
 			sourceTree = "<group>";
 		};
-		5A5F299D233B00350047E8FA /* MainPage */ = {
+		5A5F299D233B00350047E8FA /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				5A5F299E233B00D40047E8FA /* Main.storyboard */,
 				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
 			);
-			path = MainPage;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		5A6BA14C232E2B8E00E2FB48 /* Register */ = {
@@ -314,6 +320,16 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		5AD3F543233DD6B600D5C5CB /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				5AD3F544233DD6DB00D5C5CB /* Privacy.storyboard */,
+				5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */,
+				5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
 		5AD862A2231913C80036EFFF = {
 			isa = PBXGroup;
 			children = (
@@ -339,7 +355,7 @@
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
 				5AD862CB231920D40036EFFF /* Common */,
-				5A5F299D233B00350047E8FA /* MainPage */,
+				5A5F299D233B00350047E8FA /* Main */,
 				5A6BA14C232E2B8E00E2FB48 /* Register */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Video */,
@@ -347,6 +363,7 @@
 				5A88EC7B23278E6600BD23D4 /* Profile */,
 				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
 				5A88EC812327900600BD23D4 /* Team */,
+				5AD3F543233DD6B600D5C5CB /* Privacy */,
 			);
 			path = "Dribble Training";
 			sourceTree = "<group>";
@@ -518,6 +535,7 @@
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */,
 				5A88EC852327902A00BD23D4 /* Team.storyboard in Resources */,
+				5AD3F545233DD6DB00D5C5CB /* Privacy.storyboard in Resources */,
 				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
 				5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */,
 				5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */,
@@ -604,10 +622,12 @@
 				5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */,
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
+				5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */,
 				5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
 				5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */,
+				5AD3F549233DD7D800D5C5CB /* PrivacyViewController.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
 				5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
