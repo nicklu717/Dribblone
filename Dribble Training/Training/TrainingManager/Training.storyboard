@@ -11,7 +11,7 @@
         <!--Training View Controller-->
         <scene sceneID="zvl-z9-3no">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="LPB-8K-44y" customClass="TrainingViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="LPB-8K-44y" customClass="TrainingViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jie-qZ-3Je">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,8 +50,8 @@
         <!--Ball Tracker View Controller-->
         <scene sceneID="oD3-6Y-e2e">
             <objects>
-                <viewController id="2Mf-5e-YYU" customClass="BallTrackerViewController" customModule="Dribble_Training" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9HP-66-eAc" customClass="BallTrackerView" customModule="Dribble_Training">
+                <viewController id="2Mf-5e-YYU" customClass="BallTrackerViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9HP-66-eAc" customClass="BallTrackerView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,8 +68,8 @@
         <!--Training Assistant View Controller-->
         <scene sceneID="g84-Cz-8Cu">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="PrH-wI-fKD" customClass="TrainingAssistantViewController" customModule="Dribble_Training" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gdt-Xo-epj" customClass="TrainingAssistantView" customModule="Dribble_Training">
+                <viewController modalPresentationStyle="overFullScreen" id="PrH-wI-fKD" customClass="TrainingAssistantViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gdt-Xo-epj" customClass="TrainingAssistantView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
