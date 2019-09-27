@@ -104,9 +104,9 @@ class TrainingAssistantView: SKView {
         
         scene.addChild(ballNode)
         
-        // Set Up Coin Node
+        // Set Up Target Node
         
-        targetNode.fillColor = .b1
+        targetNode.fillColor = .b2
         
         targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         targetNode.physicsBody?.affectedByGravity = false
