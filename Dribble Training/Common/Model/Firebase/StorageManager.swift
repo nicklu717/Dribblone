@@ -26,7 +26,6 @@ class StorageManager {
             .downloadURL { (url, error) in
                 
                 if let error = error {
-                    print(error)
                     completion(.failure(error))
                 }
                 
