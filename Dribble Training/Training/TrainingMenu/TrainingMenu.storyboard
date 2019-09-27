@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SIT-Xr-KSW">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Training Menu-->
+        <scene sceneID="6Ce-Ol-D1l">
+            <objects>
+                <viewController id="ouo-5y-2BT" userLabel="Training Menu" customClass="TrainingMenuViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n0t-eT-yMY" customClass="TrainingMenuView" customModule="Dribble_Training" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4fy-eu-3af">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JLG-C2-oca" firstAttribute="trailing" secondItem="4fy-eu-3af" secondAttribute="trailing" id="Sz8-7e-SFs"/>
+                            <constraint firstItem="4fy-eu-3af" firstAttribute="leading" secondItem="JLG-C2-oca" secondAttribute="leading" id="WBS-xC-K6t"/>
+                            <constraint firstAttribute="bottom" secondItem="4fy-eu-3af" secondAttribute="bottom" id="coh-Q3-TuL"/>
+                            <constraint firstItem="4fy-eu-3af" firstAttribute="top" secondItem="JLG-C2-oca" secondAttribute="top" id="zoS-uD-4wY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JLG-C2-oca"/>
+                        <connections>
+                            <outlet property="tableView" destination="4fy-eu-3af" id="OM9-uI-npe"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Training" id="vNu-xE-CAm"/>
+                    <connections>
+                        <outlet property="trainingMenuView" destination="n0t-eT-yMY" id="rsU-Y3-nJp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WC-nT-e2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="388.40579710144931" y="-168.08035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4ag-5R-cAR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SIT-Xr-KSW" customClass="NavigationController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JAr-IG-38Y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ouo-5y-2BT" kind="relationship" relationship="rootViewController" id="IMv-Aq-UV5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1r9-JS-RkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-521.73913043478262" y="-168.08035714285714"/>
+        </scene>
+    </scenes>
+</document>

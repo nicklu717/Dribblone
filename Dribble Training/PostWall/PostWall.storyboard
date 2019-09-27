@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rgj-ia-Mzw">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Post-->
+        <scene sceneID="6C5-mv-Dnt">
+            <objects>
+                <viewController id="Ee1-By-Aaz" customClass="PostWallViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tae-u3-2Hr" customClass="PostWallView" customModule="Dribble_Training" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-2d-cAu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XBG-2d-cAu" firstAttribute="top" secondItem="Tae-u3-2Hr" secondAttribute="top" id="A5x-Lu-Ist"/>
+                            <constraint firstItem="XBG-2d-cAu" firstAttribute="trailing" secondItem="Tae-u3-2Hr" secondAttribute="trailing" id="E9o-O4-Ky0"/>
+                            <constraint firstAttribute="bottom" secondItem="XBG-2d-cAu" secondAttribute="bottom" id="Lwe-Eu-Ktg"/>
+                            <constraint firstItem="XBG-2d-cAu" firstAttribute="leading" secondItem="Tae-u3-2Hr" secondAttribute="leading" id="UcI-x5-hHg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N0U-2Y-PEU"/>
+                        <connections>
+                            <outlet property="trainingResultPageView" destination="XBG-2d-cAu" id="5Lk-O3-a1T"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Post" id="66B-nU-0dL"/>
+                    <connections>
+                        <outlet property="postWallView" destination="Tae-u3-2Hr" id="tho-O9-32Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="plt-uA-ttK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1131.8840579710145" y="-228.34821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZpC-mC-DD3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rgj-ia-Mzw" customClass="NavigationController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rb7-ar-g8c">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ee1-By-Aaz" kind="relationship" relationship="rootViewController" id="d2E-hg-bKQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2N-fM-O5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221.73913043478262" y="-228.34821428571428"/>
+        </scene>
+    </scenes>
+</document>

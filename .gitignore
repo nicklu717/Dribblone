@@ -1,1 +1,3 @@
 *.xcuserstate
+*.xcbkptlist
+GoogleService-Info.plist
