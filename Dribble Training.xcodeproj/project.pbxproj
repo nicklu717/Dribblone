@@ -17,6 +17,7 @@
 		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
 		5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590A2338CB1E0055190A /* SCLAlertView.swift */; };
 		5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590C2339236A0055190A /* UIView+Extension.swift */; };
+		5A4B0164233D0C7A0067ADBB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4B0163233D0C7A0067ADBB /* WebKit.framework */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
@@ -53,6 +54,8 @@
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
 		5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */; };
 		5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */; };
+		5AD3F549233DD7D800D5C5CB /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */; };
+		5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */; };
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
@@ -83,6 +86,7 @@
 		5A43590A2338CB1E0055190A /* SCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		5A43590C2339236A0055190A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dribble Training.entitlements"; sourceTree = "<group>"; };
+		5A4B0163233D0C7A0067ADBB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -119,7 +123,9 @@
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 		5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
-		5AD862AB231913C80036EFFF /* Dribble Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dribble Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		5AD862AB231913C80036EFFF /* Dribblone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dribblone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD862AE231913C80036EFFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD862B8231913CB0036EFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4B0164233D0C7A0067ADBB /* WebKit.framework in Frameworks */,
 				FEC79306F0EDC8C7F409909D /* Pods_Dribble_Training.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +163,7 @@
 		154457D281359147B0F90584 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A4B0163233D0C7A0067ADBB /* WebKit.framework */,
 				86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */,
 			);
 			name = Frameworks;
@@ -199,13 +207,13 @@
 			path = TrainingAssistant;
 			sourceTree = "<group>";
 		};
-		5A5F299D233B00350047E8FA /* MainPage */ = {
+		5A5F299D233B00350047E8FA /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				5A5F299E233B00D40047E8FA /* Main.storyboard */,
 				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
 			);
-			path = MainPage;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		5A6BA14C232E2B8E00E2FB48 /* Register */ = {
@@ -310,6 +318,15 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		5AD3F543233DD6B600D5C5CB /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				5AD3F548233DD7D800D5C5CB /* PrivacyViewController.swift */,
+				5AD3F54A233DD86000D5C5CB /* PrivacyView.swift */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
 		5AD862A2231913C80036EFFF = {
 			isa = PBXGroup;
 			children = (
@@ -323,7 +340,7 @@
 		5AD862AC231913C80036EFFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862AB231913C80036EFFF /* Dribble Training.app */,
+				5AD862AB231913C80036EFFF /* Dribblone.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -335,14 +352,15 @@
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
 				5AD862CB231920D40036EFFF /* Common */,
-				5A5F299D233B00350047E8FA /* MainPage */,
+				5A5F299D233B00350047E8FA /* Main */,
 				5A6BA14C232E2B8E00E2FB48 /* Register */,
 				5A88EC7A23278E5F00BD23D4 /* PostWall */,
 				5A88EC8023278FF700BD23D4 /* Video */,
 				5AD862C2231915DA0036EFFF /* Training */,
 				5A88EC7B23278E6600BD23D4 /* Profile */,
-				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
 				5A88EC812327900600BD23D4 /* Team */,
+				5AD91EED2324DE19000E2BB4 /* TrainingResult */,
+				5AD3F543233DD6B600D5C5CB /* Privacy */,
 			);
 			path = "Dribble Training";
 			sourceTree = "<group>";
@@ -461,7 +479,7 @@
 			);
 			name = "Dribble Training";
 			productName = "Dribble Training";
-			productReference = 5AD862AB231913C80036EFFF /* Dribble Training.app */;
+			productReference = 5AD862AB231913C80036EFFF /* Dribblone.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -600,10 +618,12 @@
 				5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */,
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
+				5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */,
 				5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
 				5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */,
+				5AD3F549233DD7D800D5C5CB /* PrivacyViewController.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
 				5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,
@@ -757,12 +777,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wein7.Dribble-Training";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Dribblone;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -777,12 +798,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wein7.Dribble-Training";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Dribblone;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LWw-Sj-QKE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,12 +11,12 @@
         <!--Register View Controller-->
         <scene sceneID="2ea-Gz-uNI">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="LWw-Sj-QKE" customClass="RegisterViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lib-iY-Qk8" customClass="RegisterView" customModule="Dribble_Training" customModuleProvider="target">
+                <viewController modalPresentationStyle="overFullScreen" id="LWw-Sj-QKE" customClass="RegisterViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lib-iY-Qk8" customClass="RegisterView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Hy-aA-9wG" customClass="TextField" customModule="Dribble_Training" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Hy-aA-9wG" customClass="TextField" customModule="Dribblone" customModuleProvider="target">
                                 <rect key="frame" x="16" y="316" width="382" height="40"/>
                                 <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -34,7 +33,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hk4-tn-vQ6" customClass="TextField" customModule="Dribble_Training" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hk4-tn-vQ6" customClass="TextField" customModule="Dribblone" customModuleProvider="target">
                                 <rect key="frame" x="16" y="372" width="382" height="40"/>
                                 <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -54,7 +53,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPb-za-7zf" customClass="TextField" customModule="Dribble_Training" customModuleProvider="target">
+                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPb-za-7zf" customClass="TextField" customModule="Dribblone" customModuleProvider="target">
                                 <rect key="frame" x="16" y="428" width="382" height="40"/>
                                 <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -71,7 +70,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZ9-h9-S68" customClass="TextField" customModule="Dribble_Training" customModuleProvider="target">
+                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZ9-h9-S68" customClass="TextField" customModule="Dribblone" customModuleProvider="target">
                                 <rect key="frame" x="16" y="484" width="382" height="40"/>
                                 <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -95,10 +94,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-mV-nzZ">
-                                <rect key="frame" x="132" y="684" width="150" height="30"/>
+                                <rect key="frame" x="132" y="700" width="150" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="9Cn-A5-YYE"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Create account">
                                     <color key="titleColor" name="B2"/>
                                 </state>
@@ -124,13 +124,23 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFX-HD-yVK">
                                 <rect key="frame" x="16" y="636" width="382" height="40"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYm-H0-eD4">
+                                <rect key="frame" x="167.5" y="740" width="79" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Privacy Policy">
+                                    <color key="titleColor" name="B2"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPrivacyPolicy" destination="lib-iY-Qk8" eventType="touchUpInside" id="twe-J7-cNz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -138,9 +148,11 @@
                             <constraint firstItem="TFX-HD-yVK" firstAttribute="top" secondItem="IA6-Yt-KVn" secondAttribute="bottom" constant="16" id="0lU-Tg-2AI"/>
                             <constraint firstItem="MPb-za-7zf" firstAttribute="height" secondItem="hk4-tn-vQ6" secondAttribute="height" id="14X-rZ-pVc"/>
                             <constraint firstItem="3Hy-aA-9wG" firstAttribute="width" secondItem="hk4-tn-vQ6" secondAttribute="width" id="2Mg-Dv-h8s"/>
-                            <constraint firstItem="pr3-mV-nzZ" firstAttribute="top" secondItem="TFX-HD-yVK" secondAttribute="bottom" constant="8" id="46n-xA-GVA"/>
+                            <constraint firstItem="pr3-mV-nzZ" firstAttribute="top" secondItem="TFX-HD-yVK" secondAttribute="bottom" constant="24" id="46n-xA-GVA"/>
                             <constraint firstItem="hk4-tn-vQ6" firstAttribute="leading" secondItem="uzJ-Fp-v5h" secondAttribute="leading" constant="16" id="8h9-eC-x8x"/>
+                            <constraint firstItem="tYm-H0-eD4" firstAttribute="centerX" secondItem="lib-iY-Qk8" secondAttribute="centerX" id="9ob-sx-i7x"/>
                             <constraint firstItem="uzJ-Fp-v5h" firstAttribute="trailing" secondItem="7Pd-Ed-J5E" secondAttribute="trailing" constant="36" id="BnR-0q-yIZ"/>
+                            <constraint firstItem="tYm-H0-eD4" firstAttribute="top" secondItem="pr3-mV-nzZ" secondAttribute="bottom" constant="8" symbolic="YES" id="FPB-7h-6VC"/>
                             <constraint firstItem="hk4-tn-vQ6" firstAttribute="top" secondItem="3Hy-aA-9wG" secondAttribute="bottom" constant="16" id="Fri-je-p0f"/>
                             <constraint firstItem="3Hy-aA-9wG" firstAttribute="centerX" secondItem="lib-iY-Qk8" secondAttribute="centerX" id="H7X-7o-jlB"/>
                             <constraint firstItem="pr3-mV-nzZ" firstAttribute="centerX" secondItem="lib-iY-Qk8" secondAttribute="centerX" id="KKL-ci-d1P"/>

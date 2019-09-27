@@ -98,8 +98,23 @@ extension TrainingResultViewController: TrainingResultViewDelegate {
         
         cell.dateLabel.text = date.string(format: .resultDisplay)
         
+        StorageManager.shared.getProfilePicture(forID: trainingResult.id) { result in
+            
+            switch result {
+                
+            case .success(let url):
+                
+                cell.profileImageView.setImage(withURLString: url.absoluteString,
+                                               placeholder: UIImage.asset(.profile))
+                
+            case .failure: break
+            }
+        }
+        
         cell.idButton.setTitle(trainingResult.id, for: .normal)
+        
         cell.modeLabel.text = trainingResult.mode
+        
         cell.pointsLabel.text = String(trainingResult.points)
         
         cell.videoView.setImage(withURLString: trainingResult.screenShot)

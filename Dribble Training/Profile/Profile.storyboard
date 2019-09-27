@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Poh-CX-yQm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,18 +11,26 @@
         <!--wein7-->
         <scene sceneID="Blj-PQ-AHR">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="7kq-6V-VR0" customClass="ProfileViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="L1g-cG-sA5" customClass="ProfileView" customModule="Dribble_Training" customModuleProvider="target">
+                <viewController storyboardIdentifier="ProfileViewController" id="7kq-6V-VR0" customClass="ProfileViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L1g-cG-sA5" customClass="ProfileView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1AV-1N-AV5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1AV-1N-AV5">
                                 <rect key="frame" x="36" y="124" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="TC3-fg-3Rw"/>
                                     <constraint firstAttribute="height" constant="80" id="eDk-q1-vHe"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="BorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="BorderColor">
+                                        <color key="value" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wein Lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-0N-b5s">
                                 <rect key="frame" x="43.5" y="220" width="65" height="22"/>
@@ -61,7 +68,7 @@
                                     <constraint firstAttribute="height" constant="50" id="MDR-7q-ySU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="BorderWidth">
@@ -146,9 +153,6 @@
                                 <segue destination="reQ-Ml-N3y" kind="show" id="caM-zJ-mzZ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="Edit" id="N5T-j7-QGC">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="profileView" destination="L1g-cG-sA5" id="1io-YY-3uu"/>
@@ -161,8 +165,8 @@
         <!--Setting View Controller-->
         <scene sceneID="mOu-JF-iQJ">
             <objects>
-                <viewController id="reQ-Ml-N3y" customClass="SettingViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O4T-8h-I31" customClass="SettingView" customModule="Dribble_Training" customModuleProvider="target">
+                <viewController id="reQ-Ml-N3y" customClass="SettingViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O4T-8h-I31" customClass="SettingView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -194,7 +198,7 @@
         <!--Navigation Controller-->
         <scene sceneID="n48-Ad-uDb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Poh-CX-yQm" customClass="NavigationController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Poh-CX-yQm" customClass="NavigationController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rgZ-fE-otd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -212,7 +216,6 @@
     </scenes>
     <resources>
         <image name="Block" width="24" height="24"/>
-        <image name="Edit" width="24" height="24"/>
         <image name="Settings" width="24" height="24"/>
         <namedColor name="B3">
             <color red="0.64313725490196083" green="0.40784313725490196" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -113,6 +113,11 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         }
     }
     
+    func showPrivacyPolicy() {
+        
+        show(PrivacyViewController(), sender: nil)
+    }
+    
     @objc func appleSignInHandler() {
         
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -138,8 +143,6 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         appleSignInButton.removeConstraints(appleSignInButton.constraints)
         
         appleSignInButton.frame = registerView.appleSignInView.bounds
-
-        appleSignInButton.cornerRadius = 6
 
         registerView.appleSignInView.addSubview(appleSignInButton)
     }

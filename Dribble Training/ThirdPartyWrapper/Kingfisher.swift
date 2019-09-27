@@ -13,11 +13,7 @@ extension UIImageView {
     
     func setImage(withURLString urlString: String, placeholder: UIImage? = nil) {
         
-        guard let url = URL(string: urlString)
-            else {
-                print("Invalid Image URL")
-                return
-        }
+        guard let url = URL(string: urlString) else { return }
         
         kf.setImage(with: url, placeholder: placeholder)
     }

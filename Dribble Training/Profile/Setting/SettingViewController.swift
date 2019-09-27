@@ -14,7 +14,7 @@ class SettingViewController: UIViewController, SettingViewDelegate {
     
     @IBOutlet var settingView: SettingView!
     
-    private let settings: [Setting] = [.logOut]
+    private let settings: [[Setting]] = [[.privacyPolicy], [.logOut]]
     
     // MARK: - Life Cycle
     
@@ -30,9 +30,14 @@ class SettingViewController: UIViewController, SettingViewDelegate {
 
 extension SettingViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
         return settings.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return settings[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,7 +49,7 @@ extension SettingViewController: UITableViewDataSource {
                 return UITableViewCell()
         }
         
-        let setting = settings[indexPath.row]
+        let setting = settings[indexPath.section][indexPath.row]
         
         cell.titleLabel.text = setting.rawValue
         
@@ -55,6 +60,8 @@ extension SettingViewController: UITableViewDataSource {
             cell.titleLabel.textColor = .red
             
             cell.accessoryType = .none
+            
+        default: break
         }
         
         return cell
@@ -65,9 +72,13 @@ extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let setting = settings[indexPath.row]
+        let setting = settings[indexPath.section][indexPath.row]
         
         switch setting {
+            
+        case .privacyPolicy:
+            
+            show(PrivacyViewController(), sender: nil)
             
         case .logOut:
             

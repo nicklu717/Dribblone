@@ -13,6 +13,8 @@ protocol RegisterViewDelegate: UIViewController {
     func signUp(withEmail email: String, password: String, confirmPassword: String, id: ID)
     
     func logIn(withEmail email: String, password: String)
+    
+    func showPrivacyPolicy()
 }
 
 class RegisterView: UIView {
@@ -33,6 +35,12 @@ class RegisterView: UIView {
     @IBOutlet var switchStatusButton: UIButton!
     
     var status: Status = .logIn
+    
+    enum Status {
+        
+        case logIn
+        case signUp
+    }
     
     // MARK: - Instance Method
     
@@ -99,10 +107,8 @@ class RegisterView: UIView {
         }
     }
     
-    enum Status {
+    @IBAction func showPrivacyPolicy() {
         
-        case logIn
-        
-        case signUp
+        delegate?.showPrivacyPolicy()
     }
 }
