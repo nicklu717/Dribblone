@@ -28,112 +28,18 @@ class TrainingAssistantView: SKView {
     
     let targetNode = SKShapeNode(circleOfRadius: 30)
     
-    var pointsLabel: UILabel! {
+    @IBOutlet var pointsLabel: UILabel!
+    @IBOutlet var timerLabel: UILabel!
+    @IBOutlet var startButton: UIButton!
+    
+    @IBOutlet var cancelButton: UIButton! {
         
         didSet {
             
-            pointsLabel.text = "00"
-            pointsLabel.textColor = UIColor(white: 0.8, alpha: 1)
-            pointsLabel.font = UIFont(name: "Helvetica Neue", size: 55)
+            let inset: CGFloat = 5
             
-            pointsLabel.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
-            
-            pointsLabel.layer.cornerRadius = 10
-            pointsLabel.clipsToBounds = true
-            
-            addSubview(pointsLabel)
-            
-            pointsLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                pointsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
-                pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25)
-            ])
-        }
-    }
-    
-    var timerLabel: UILabel! {
-        
-        didSet {
-            
-            timerLabel.text = "00:00"
-            timerLabel.textColor = UIColor(white: 0.8, alpha: 1)
-            timerLabel.font = UIFont(name: "Helvetica Neue", size: 55)
-            
-            timerLabel.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
-            
-            timerLabel.layer.cornerRadius = 10
-            timerLabel.clipsToBounds = true
-            
-            addSubview(timerLabel)
-            
-            timerLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                timerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -55),
-                timerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25)
-            ])
-        }
-    }
-    
-    var startButton: UIButton! {
-        
-        didSet {
-            
-            startButton.setTitle("START", for: .normal)
-            startButton.setTitleColor(UIColor(white: 0.8, alpha: 1), for: .normal)
-            startButton.titleLabel?.font = UIFont.systemFont(ofSize: 55)
-            
-            startButton.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
-            
-            startButton.layer.cornerRadius = 10
-            startButton.clipsToBounds = true
-            
-            startButton.addTarget(self,
-                                  action: #selector(startTraining),
-                                  for: .touchUpInside)
-            
-            addSubview(startButton)
-            
-            startButton.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                startButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-                startButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50)
-            ])
-        }
-    }
-    
-    var cancelButton: UIButton! {
-
-        didSet {
-
-            cancelButton.setImage(UIImage.asset(.close), for: .normal)
-
-            cancelButton.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
-
-            cancelButton.layer.cornerRadius = 10
-            cancelButton.clipsToBounds = true
-            
-            cancelButton.imageEdgeInsets = UIEdgeInsets(top: 10,
-                                                        left: 10,
-                                                        bottom: 10,
-                                                        right: 10)
-
-            cancelButton.addTarget(self,
-                                  action: #selector(cancelTraining),
-                                  for: .touchUpInside)
-
-            addSubview(cancelButton)
-
-            cancelButton.translatesAutoresizingMaskIntoConstraints = false
-
-            NSLayoutConstraint.activate([
-                cancelButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-                cancelButton.topAnchor.constraint(equalTo: topAnchor, constant: 25),
-                cancelButton.widthAnchor.constraint(equalToConstant: 50),
-                cancelButton.heightAnchor.constraint(equalToConstant: 50)
-            ])
+            cancelButton.imageEdgeInsets =
+                UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         }
     }
     
@@ -144,7 +50,7 @@ class TrainingAssistantView: SKView {
     
     func setPointsLabel(_ points: Int) {
         
-        pointsLabel.text = String(format: "%02d", points)
+        pointsLabel.text = String(format: "%03d", points)
     }
     
     func setTimerLabel(minute: Int, second: Int) {
