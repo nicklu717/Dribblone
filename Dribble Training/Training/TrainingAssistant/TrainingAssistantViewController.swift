@@ -130,6 +130,16 @@ class TrainingAssistantViewController: UIViewController {
 
 extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     
+    func cancelTraining() {
+        
+        if let timer = timer, timer.isValid {
+            
+            timer.invalidate()
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         
         getPoint()

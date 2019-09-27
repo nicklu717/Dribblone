@@ -8,18 +8,17 @@
 
 import SpriteKit
 
-protocol TrainingAssistantViewDelegate: UIViewController, SKPhysicsContactDelegate {}
+protocol TrainingAssistantViewDelegate: SKPhysicsContactDelegate {
+    
+    func cancelTraining()
+}
 
 class TrainingAssistantView: SKView {
     
     // MARK: - Property Declaration
     
     weak var viewDelegate: TrainingAssistantViewDelegate? {
-        
         didSet {
-            
-            setUpUI()
-            
             setUpScene()
         }
     }
@@ -80,17 +79,6 @@ class TrainingAssistantView: SKView {
     
     // MARK: - Private Method
     
-    private func setUpUI() {
-        
-        pointsLabel = UILabel()
-        
-        startButton = UIButton()
-        
-        timerLabel = UILabel()
-        
-        cancelButton = UIButton()
-    }
-    
     private func setUpScene() {
         
         // Set Up Scene
@@ -136,7 +124,7 @@ class TrainingAssistantView: SKView {
     
     @IBAction func cancelTraining() {
         
-        viewDelegate?.dismiss(animated: true, completion: nil)
+        viewDelegate?.cancelTraining()
     }
     
     private func targetNodePosition(mode: TrainingMode) -> CGPoint {

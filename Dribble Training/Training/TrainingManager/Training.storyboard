@@ -73,7 +73,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-nL-ihz">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-nL-ihz">
                                 <rect key="frame" x="225" y="69" width="154" height="65"/>
                                 <color key="backgroundColor" name="B3"/>
                                 <constraints>
@@ -107,11 +107,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
                                         <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="BorderColor">
-                                        <color key="value" name="B4"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="BorderWidth">
                                         <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="BorderColor">
+                                        <color key="value" name="B4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -174,9 +174,9 @@
                         <viewLayoutGuide key="safeArea" id="v0V-Wc-DPx"/>
                         <connections>
                             <outlet property="cancelButton" destination="PLa-H8-ly1" id="2iR-qW-DCg"/>
-                            <outlet property="pointsLabel" destination="8aM-QG-tSd" id="sBn-zH-Yfu"/>
-                            <outlet property="startButton" destination="HRS-5w-xAw" id="r18-bG-SNf"/>
-                            <outlet property="timerLabel" destination="3fb-nL-ihz" id="HtT-gg-M8L"/>
+                            <outlet property="pointsLabel" destination="8aM-QG-tSd" id="vqU-4a-hrm"/>
+                            <outlet property="startButton" destination="HRS-5w-xAw" id="eca-YS-fVC"/>
+                            <outlet property="timerLabel" destination="3fb-nL-ihz" id="qoK-PD-cgb"/>
                         </connections>
                     </view>
                     <connections>
