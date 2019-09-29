@@ -13,6 +13,9 @@ target 'Dribble Training' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
 
+  pod 'Fabric'
+  pod 'Crashlytics'
+
   pod 'KeychainAccess'
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher'
