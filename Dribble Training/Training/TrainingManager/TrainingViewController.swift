@@ -62,30 +62,6 @@ class TrainingViewController: UIViewController {
         }
     }
     
-    func startRecording() {
-        
-        let date = Date().timeIntervalSince1970
-        
-        trainingResult = TrainingResult(id: AuthManager.shared.currentUser.id,
-                                        date: date,
-                                        mode: "",
-                                        points: 0,
-                                        videoURL: "",
-                                        screenShot: "")
-        
-        takeScreenShot()
-        
-        screenRecorder.startRecording { error in
-            
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            print("Start Recording")
-        }
-    }
-    
     func setTrainingMode(to mode: TrainingMode) {
         
         trainingAssistantPage.trainingMode = mode
@@ -133,6 +109,48 @@ extension TrainingViewController: BallTrackerViewControllerDelegate {
 }
 
 extension TrainingViewController: TrainingAssistantViewControllerDelegate {
+    
+    func fakeRecordingForPermission() {
+        
+        screenRecorder.startRecording { error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print("Start Recording")
+        }
+    }
+    
+    func startRecording() {
+        
+        let date = Date().timeIntervalSince1970
+        
+        trainingResult = TrainingResult(id: AuthManager.shared.currentUser.id,
+                                        date: date,
+                                        mode: "",
+                                        points: 0,
+                                        videoURL: "",
+                                        screenShot: "")
+        
+        takeScreenShot()
+        
+        screenRecorder.startRecording { error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print("Start Recording")
+        }
+    }
+    
+    func cancelRecording() {
+        
+        screenRecorder.stopRecording(handler: nil)
+    }
     
     func endTraining(points: Int, trainingMode mode: String) {
         

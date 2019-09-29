@@ -11,9 +11,11 @@ import SpriteKit
 
 protocol TrainingAssistantViewControllerDelegate: AnyObject {
     
+    func fakeRecordingForPermission()
+    
     func startRecording()
     
-//    func discardRecording()
+    func cancelRecording()
     
     func endTraining(points: Int, trainingMode: String)
 }
@@ -90,6 +92,10 @@ class TrainingAssistantViewController: UIViewController {
         
         trainingAssistantView.preparingCountdownLabel.isHidden = true
         
+        delegate?.cancelRecording()
+        
+        delegate?.startRecording()
+        
         timer = Timer.scheduledTimer(
             timeInterval: 1,
             target: self,
@@ -142,7 +148,7 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     
     func startPreparingCountdown() {
         
-        delegate?.startRecording()
+        delegate?.fakeRecordingForPermission()
         
         preparingCountdownSecond = 3
         
@@ -177,6 +183,8 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
             
             timer.invalidate()
         }
+        
+        delegate?.cancelRecording()
         
         dismiss(animated: true, completion: nil)
     }
