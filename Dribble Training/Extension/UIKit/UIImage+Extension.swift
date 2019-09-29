@@ -46,6 +46,6 @@ extension UIImage {
         static let image7 = "\(storageURL)a7.jpg?alt=media&token=d2f3cfbc-1df9-4c94-9913-5f77870d913b"
         
         private static let storageURL =
-        "https://firebasestorage.googleapis.com/v0/b/dribble-training.appspot.com/o/backgroundimage%2F"
+        "https://firebasestorage.googleapis.com/v0/b/dribble-training.appspot.com/o/background_image%2F"
     }
 }
