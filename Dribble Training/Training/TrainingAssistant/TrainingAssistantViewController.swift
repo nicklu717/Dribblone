@@ -11,6 +11,8 @@ import SpriteKit
 
 protocol TrainingAssistantViewControllerDelegate: AnyObject {
     
+    func startRecording()
+    
     func endTraining(points: Int, trainingMode: String)
 }
 
@@ -37,22 +39,17 @@ class TrainingAssistantViewController: UIViewController {
         }
     }
     
+    private var preparingCountdownSecond: Int = 3 {
+        didSet {
+            trainingAssistantView.setPreparingCountdownLabel(to: preparingCountdownSecond)
+        }
+    }
+    
     private var timer: Timer?
     
     var trainingMode: TrainingMode!
     
     // MARK: - Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(startTraining),
-            name: .startTraining,
-            object: nil
-        )
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -71,19 +68,6 @@ class TrainingAssistantViewController: UIViewController {
         trainingAssistantView.startButton.isHidden = false
     }
     
-    @objc func startTraining() {
-        
-        timer = Timer.scheduledTimer(
-            timeInterval: 1,
-            target: self,
-            selector: #selector(countdown),
-            userInfo: nil,
-            repeats: true
-        )
-        
-        trainingAssistantView.resetTargetNode(mode: trainingMode)
-    }
-    
     func setBallNode(to position: CGPoint) {
         
         trainingAssistantView.moveBallNode(to: position)
@@ -94,6 +78,19 @@ class TrainingAssistantViewController: UIViewController {
     private func getPoint() {
         
         points += 3
+        
+        trainingAssistantView.resetTargetNode(mode: trainingMode)
+    }
+    
+    private func startTraining() {
+        
+        timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(countdown),
+            userInfo: nil,
+            repeats: true
+        )
         
         trainingAssistantView.resetTargetNode(mode: trainingMode)
     }
@@ -136,6 +133,33 @@ class TrainingAssistantViewController: UIViewController {
 }
 
 extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
+    
+    func startPreparingCountdown() {
+        
+        delegate?.startRecording()
+        
+        timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(preparingCountdown),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+    
+    @objc private func preparingCountdown() {
+        
+        preparingCountdownSecond -= 1
+            
+        trainingAssistantView.setPreparingCountdownLabel(to: preparingCountdownSecond)
+        
+        if preparingCountdownSecond < 0 {
+            
+            timer?.invalidate()
+            
+            startTraining()
+        }
+    }
     
     func cancelTraining() {
         

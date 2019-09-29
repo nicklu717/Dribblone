@@ -63,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf5-QC-eTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504" y="-151"/>
+            <point key="canvasLocation" x="875" y="-151"/>
         </scene>
         <!--Training Assistant View Controller-->
         <scene sceneID="g84-Cz-8Cu">
@@ -159,11 +159,19 @@
                                     <action selector="cancelTraining" destination="gdt-Xo-epj" eventType="touchUpInside" id="R5a-Ec-T2b"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOW-z1-hh7">
+                                <rect key="frame" x="165.5" y="360.5" width="83.5" height="175"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="150"/>
+                                <color key="textColor" name="B3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="JOW-z1-hh7" firstAttribute="centerY" secondItem="gdt-Xo-epj" secondAttribute="centerY" id="1as-xr-I87"/>
                             <constraint firstItem="PLa-H8-ly1" firstAttribute="top" secondItem="v0V-Wc-DPx" secondAttribute="top" constant="25" id="40M-q9-ku4"/>
                             <constraint firstItem="PLa-H8-ly1" firstAttribute="leading" secondItem="gdt-Xo-epj" secondAttribute="leading" constant="25" id="ANC-eh-Qvf"/>
+                            <constraint firstItem="JOW-z1-hh7" firstAttribute="centerX" secondItem="gdt-Xo-epj" secondAttribute="centerX" id="hXk-4J-0A2"/>
                             <constraint firstItem="8aM-QG-tSd" firstAttribute="leading" secondItem="PLa-H8-ly1" secondAttribute="trailing" constant="25" id="lmn-lI-qdc"/>
                             <constraint firstItem="3fb-nL-ihz" firstAttribute="top" secondItem="v0V-Wc-DPx" secondAttribute="top" constant="25" id="lr2-Op-kze"/>
                             <constraint firstItem="8aM-QG-tSd" firstAttribute="top" secondItem="v0V-Wc-DPx" secondAttribute="top" constant="25" id="q7f-Jb-xrS"/>
@@ -175,6 +183,7 @@
                         <connections>
                             <outlet property="cancelButton" destination="PLa-H8-ly1" id="2iR-qW-DCg"/>
                             <outlet property="pointsLabel" destination="8aM-QG-tSd" id="vqU-4a-hrm"/>
+                            <outlet property="preparingCountdownLabel" destination="JOW-z1-hh7" id="Zhy-ve-2KY"/>
                             <outlet property="startButton" destination="HRS-5w-xAw" id="eca-YS-fVC"/>
                             <outlet property="timerLabel" destination="3fb-nL-ihz" id="qoK-PD-cgb"/>
                         </connections>
@@ -185,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBC-QQ-wXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="-151"/>
+            <point key="canvasLocation" x="-406" y="-151"/>
         </scene>
     </scenes>
     <resources>

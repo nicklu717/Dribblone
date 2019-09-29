@@ -10,6 +10,8 @@ import SpriteKit
 
 protocol TrainingAssistantViewDelegate: SKPhysicsContactDelegate {
     
+    func startPreparingCountdown()
+    
     func cancelTraining()
 }
 
@@ -30,6 +32,7 @@ class TrainingAssistantView: SKView {
     @IBOutlet var pointsLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var startButton: UIButton!
+    @IBOutlet var preparingCountdownLabel: UILabel!
     
     @IBOutlet var cancelButton: UIButton! {
         
@@ -46,6 +49,20 @@ class TrainingAssistantView: SKView {
     private var positionY: Position.Y = .high
     
     // MARK: - Instance Method
+    
+    func setPreparingCountdownLabel(to second: Int) {
+        
+        if second <= 0 {
+            
+            preparingCountdownLabel.text = "Go!"
+            
+        } else {
+            
+            preparingCountdownLabel.text = String(second)
+        }
+        
+        
+    }
     
     func setPointsLabel(_ points: Int) {
         
@@ -75,6 +92,18 @@ class TrainingAssistantView: SKView {
         let moveAction = SKAction.move(to: convertedPosition, duration: 1/30)
         
         ballNode.run(moveAction)
+    }
+    
+    @IBAction func startTraining() {
+        
+        startButton.isHidden = true
+        
+        viewDelegate?.startPreparingCountdown()
+    }
+    
+    @IBAction func cancelTraining() {
+        
+        viewDelegate?.cancelTraining()
     }
     
     // MARK: - Private Method
@@ -113,18 +142,6 @@ class TrainingAssistantView: SKView {
         targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
         targetNode.physicsBody?.contactTestBitMask =
             SceneNode.ball.categoryMask | SceneNode.target.categoryMask
-    }
-    
-    @IBAction func startTraining() {
-        
-        startButton.isHidden = true
-        
-        NotificationCenter.default.post(Notification(name: .startTraining))
-    }
-    
-    @IBAction func cancelTraining() {
-        
-        viewDelegate?.cancelTraining()
     }
     
     private func targetNodePosition(mode: TrainingMode) -> CGPoint {

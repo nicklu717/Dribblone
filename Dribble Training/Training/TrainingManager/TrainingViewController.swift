@@ -42,20 +42,6 @@ class TrainingViewController: UIViewController {
     
     var trainingCompletion: ((TrainingResult) -> ())?
     
-    // MARK: - View Life Cycle
-
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(startRecording),
-            name: .startTraining,
-            object: nil
-        )
-    }
-    
     // MARK: - Instance Method
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,7 +62,7 @@ class TrainingViewController: UIViewController {
         }
     }
     
-    @objc func startRecording() {
+    func startRecording() {
         
         let date = Date().timeIntervalSince1970
         
