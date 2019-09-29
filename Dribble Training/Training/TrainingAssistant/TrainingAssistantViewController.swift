@@ -105,6 +105,8 @@ class TrainingAssistantViewController: UIViewController {
         )
         
         trainingAssistantView.resetTargetNode(mode: trainingMode)
+        
+        trainingAssistantView.targetNode.isHidden = false
     }
     
     @objc private func countdown() {
@@ -185,6 +187,8 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
         }
         
         delegate?.cancelRecording()
+        
+        trainingAssistantView.targetNode.isHidden = true
         
         dismiss(animated: true, completion: nil)
     }

@@ -48,6 +48,9 @@ class TrainingAssistantView: SKView {
     private var positionX: Position.X = .left
     private var positionY: Position.Y = .high
     
+    private var xScale: CGFloat!
+    private var yScale: CGFloat!
+    
     // MARK: - Instance Method
     
     func setPreparingCountdownLabel(to second: Int) {
@@ -60,8 +63,6 @@ class TrainingAssistantView: SKView {
             
             preparingCountdownLabel.text = String(second)
         }
-        
-        
     }
     
     func setPointsLabel(_ points: Int) {
@@ -122,8 +123,6 @@ class TrainingAssistantView: SKView {
         presentScene(scene)
         
         // Set Up Ball Node
-        
-        ballNode.position = CGPoint(x: -100, y: -100)
         
         ballNode.lineWidth = 0
         
@@ -203,16 +202,16 @@ class TrainingAssistantView: SKView {
         case .random: break
         }
         
-        var x = bounds.width * positionX.rawValue
-        var y = bounds.height * positionY.rawValue
+        xScale = positionX.rawValue
+        yScale = positionY.rawValue
         
         if mode == .random {
             
-            x = CGFloat(Double.random(in: 0.2...0.8))
-            y = CGFloat(Double.random(in: 0.2...0.6))
+            xScale = CGFloat(Double.random(in: 0.2...0.8))
+            yScale = CGFloat(Double.random(in: 0.2...0.6))
         }
         
-        return CGPoint(x: x, y: y)
+        return CGPoint(x: bounds.width * xScale, y: bounds.height * yScale)
     }
     
     private struct Position {
