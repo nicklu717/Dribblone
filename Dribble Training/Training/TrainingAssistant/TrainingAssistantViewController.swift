@@ -13,6 +13,8 @@ protocol TrainingAssistantViewControllerDelegate: AnyObject {
     
     func startRecording()
     
+//    func discardRecording()
+    
     func endTraining(points: Int, trainingMode: String)
 }
 
@@ -66,6 +68,8 @@ class TrainingAssistantViewController: UIViewController {
         self.second = second
         
         trainingAssistantView.startButton.isHidden = false
+        
+        trainingAssistantView.preparingCountdownLabel.isHidden = true
     }
     
     func setBallNode(to position: CGPoint) {
@@ -83,6 +87,8 @@ class TrainingAssistantViewController: UIViewController {
     }
     
     private func startTraining() {
+        
+        trainingAssistantView.preparingCountdownLabel.isHidden = true
         
         timer = Timer.scheduledTimer(
             timeInterval: 1,
@@ -137,6 +143,10 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     func startPreparingCountdown() {
         
         delegate?.startRecording()
+        
+        preparingCountdownSecond = 3
+        
+        trainingAssistantView.preparingCountdownLabel.isHidden = false
         
         timer = Timer.scheduledTimer(
             timeInterval: 1,
