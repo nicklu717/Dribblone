@@ -8,7 +8,7 @@
 
 import AVKit
 
-protocol TrainingResultTableViewCellDelegate: UIViewController {
+protocol TrainingResultTableViewCellDelegate: AnyObject {
     
     func pushProfile(forID memberID: ID)
 }

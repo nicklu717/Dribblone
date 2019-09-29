@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RegisterViewDelegate: UIViewController {
+protocol RegisterViewDelegate: AnyObject {
     
     func signUp(withEmail email: String, password: String, confirmPassword: String, id: ID)
     

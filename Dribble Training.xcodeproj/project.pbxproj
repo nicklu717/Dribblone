@@ -47,7 +47,6 @@
 		5A93ABA4233A20A800358CCD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABA3233A20A800358CCD /* SettingView.swift */; };
 		5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABA7233A2F1F00358CCD /* SettingTableViewCell.swift */; };
 		5A93ABAA233A2F3300358CCD /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A93ABA9233A2F3300358CCD /* SettingTableViewCell.xib */; };
-		5A93ABAC233A327500358CCD /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABAB233A327500358CCD /* UITableViewCell+Extension.swift */; };
 		5A93ABAE233A347E00358CCD /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABAD233A347E00358CCD /* UITableView+Extension.swift */; };
 		5A93ABB0233A380A00358CCD /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABAF233A380A00358CCD /* Setting.swift */; };
 		5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */; };
@@ -65,6 +64,8 @@
 		5AD91EF22324E9AD000E2BB4 /* TrainingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */; };
 		5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */; };
 		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
+		5ADE95522340F830000608E1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE95512340F830000608E1 /* UIViewController+Extension.swift */; };
+		5ADE95542340F997000608E1 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE95532340F997000608E1 /* PhotoManager.swift */; };
 		5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */; };
 		5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */; };
 		5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F7233B5D4A004E46FC /* Kingfisher.swift */; };
@@ -115,7 +116,6 @@
 		5A93ABA3233A20A800358CCD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5A93ABA7233A2F1F00358CCD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		5A93ABA9233A2F3300358CCD /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
-		5A93ABAB233A327500358CCD /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		5A93ABAD233A347E00358CCD /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		5A93ABAF233A380A00358CCD /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		5AB04044231CEEB2000C5D48 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
@@ -135,6 +135,8 @@
 		5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuView.swift; sourceTree = "<group>"; };
 		5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingMenu.storyboard; sourceTree = "<group>"; };
 		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		5ADE95512340F830000608E1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		5ADE95532340F997000608E1 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingMenuTableViewCell.xib; sourceTree = "<group>"; };
 		5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuTableViewCell.swift; sourceTree = "<group>"; };
 		5AE777F7233B5D4A004E46FC /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
@@ -275,9 +277,9 @@
 			isa = PBXGroup;
 			children = (
 				5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */,
+				5ADE95512340F830000608E1 /* UIViewController+Extension.swift */,
 				5A43590C2339236A0055190A /* UIView+Extension.swift */,
 				5A93ABAD233A347E00358CCD /* UITableView+Extension.swift */,
-				5A93ABAB233A327500358CCD /* UITableViewCell+Extension.swift */,
 				5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */,
 				5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */,
 			);
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				5A3DF6FF2336631F00E648AC /* KeychainManager.swift */,
+				5ADE95532340F997000608E1 /* PhotoManager.swift */,
 				5ACBCAF0232A2272007B0E3B /* Firebase */,
 			);
 			path = Model;
@@ -469,6 +472,8 @@
 				5AD862A8231913C80036EFFF /* Frameworks */,
 				5AD862A9231913C80036EFFF /* Resources */,
 				66665419E4BC3495BAA57328 /* [CP] Embed Pods Frameworks */,
+				5ADE954F2340EE84000608E1 /* Fabric */,
+				5ADE95502340F09E000608E1 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -539,6 +544,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5ADE954F2340EE84000608E1 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		5ADE95502340F09E000608E1 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		6146FA0495BDFC3BB771A307 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADE95542340F997000608E1 /* PhotoManager.swift in Sources */,
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */,
 				5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */,
@@ -600,7 +642,6 @@
 				5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */,
 				5AD91EF22324E9AD000E2BB4 /* TrainingMenuView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
-				5A93ABAC233A327500358CCD /* UITableViewCell+Extension.swift in Sources */,
 				5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */,
 				5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */,
 				5A93AB9C2339CFBC00358CCD /* UIColor+Extension.swift in Sources */,
@@ -615,6 +656,7 @@
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
 				5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */,
+				5ADE95522340F830000608E1 /* UIViewController+Extension.swift in Sources */,
 				5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
@@ -772,6 +814,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -794,6 +837,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

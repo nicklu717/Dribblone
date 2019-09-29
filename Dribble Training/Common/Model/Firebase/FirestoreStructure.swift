@@ -8,8 +8,10 @@
 
 import Foundation
 
+// swiftlint:disable type_name
 typealias UID = String
 typealias ID = String
+// swiftlint:enable type_name
 
 struct Member: Codable {
     

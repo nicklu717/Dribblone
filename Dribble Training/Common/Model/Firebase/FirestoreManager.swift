@@ -292,4 +292,3 @@ class FirestoreManager {
         static let videoURL = "video_url"
     }
 }
-

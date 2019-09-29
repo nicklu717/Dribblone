@@ -103,6 +103,7 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
   - SCLAlertView (0.8)
+  - SwiftLint (0.34.0)
 
 DEPENDENCIES:
   - Crashlytics
@@ -115,6 +116,7 @@ DEPENDENCIES:
   - Kingfisher
   - MJRefresh
   - SCLAlertView
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -143,6 +145,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SCLAlertView
+    - SwiftLint
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
@@ -170,7 +173,8 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 3ac6dcbda9db2bcad2aac78803c44e65d5c6e4d5
+PODFILE CHECKSUM: 785c63b89042f67ff0d0662677dccdc2326349b6
 
 COCOAPODS: 1.7.5
