@@ -32,21 +32,21 @@ extension UIView {
 @IBDesignable
 extension UIView {
     
-    @IBInspectable var CornerRadius: CGFloat {
+    @IBInspectable var cornerRadius: CGFloat {
         
         get { return layer.cornerRadius }
         
         set { layer.cornerRadius = newValue }
     }
     
-    @IBInspectable var BorderWidth: CGFloat {
+    @IBInspectable var borderWidth: CGFloat {
         
         get { return layer.borderWidth }
         
         set { layer.borderWidth = newValue }
     }
     
-    @IBInspectable var BorderColor: UIColor? {
+    @IBInspectable var borderColor: UIColor? {
         
         get {
             

@@ -469,6 +469,8 @@
 				5AD862A8231913C80036EFFF /* Frameworks */,
 				5AD862A9231913C80036EFFF /* Resources */,
 				66665419E4BC3495BAA57328 /* [CP] Embed Pods Frameworks */,
+				5ADE954F2340EE84000608E1 /* Fabric */,
+				5ADE95502340F09E000608E1 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -539,6 +541,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5ADE954F2340EE84000608E1 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		5ADE95502340F09E000608E1 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		6146FA0495BDFC3BB771A307 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -772,6 +810,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -794,6 +833,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -143,6 +143,7 @@ class TrainingAssistantView: SKView {
             SceneNode.ball.categoryMask | SceneNode.target.categoryMask
     }
     
+    // swiftlint:disable cyclomatic_complexity
     private func targetNodePosition(mode: TrainingMode) -> CGPoint {
         
         switch mode {
@@ -213,6 +214,7 @@ class TrainingAssistantView: SKView {
         
         return CGPoint(x: bounds.width * xScale, y: bounds.height * yScale)
     }
+    // swiftlint:enable cyclomatic_complexity
     
     private struct Position {
         

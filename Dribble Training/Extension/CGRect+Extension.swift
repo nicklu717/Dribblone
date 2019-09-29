@@ -12,9 +12,9 @@ extension CGRect {
     
     func center() -> CGPoint {
         
-        let x = origin.x + (width / 2)
-        let y = origin.y + (height / 2)
+        let centerX = origin.x + (width / 2)
+        let centerY = origin.y + (height / 2)
         
-        return CGPoint(x: x, y: y)
+        return CGPoint(x: centerX, y: centerY)
     }
 }
