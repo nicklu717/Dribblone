@@ -59,23 +59,27 @@ class TrainingAssistantViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-        resetTimer()
+        resetTraining()
     }
     
     // MARK: - Instance Method
     
-    func resetTimer(minute: Int = 0, second: Int = 10) {
+    func resetTraining() {
         
-        self.minute = minute
-        self.second = second
+        minute = 0
+        second = 10
+        
+        points = 0
         
         trainingAssistantView.startButton.isHidden = false
         
         trainingAssistantView.preparingCountdownLabel.isHidden = true
+        
+        trainingAssistantView.targetNode.removeFromParent()
     }
     
     func setBallNode(to position: CGPoint) {
-        
+
         trainingAssistantView.moveBallNode(to: position)
     }
     
@@ -136,13 +140,13 @@ class TrainingAssistantViewController: UIViewController {
         
         delegate?.endTraining(points: points, trainingMode: trainingMode.rawValue)
         
-        resetTimer()
-        
-        points = 0
-        
-        trainingAssistantView.startButton.isHidden = false
-        
-        trainingAssistantView.targetNode.removeFromParent()
+//        resetTraining()
+//
+//        points = 0
+//
+//        trainingAssistantView.startButton.isHidden = false
+//
+//        trainingAssistantView.targetNode.removeFromParent()
     }
 }
 
@@ -187,8 +191,6 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
         }
         
         delegate?.cancelRecording()
-        
-        trainingAssistantView.targetNode.isHidden = true
         
         dismiss(animated: true, completion: nil)
     }
