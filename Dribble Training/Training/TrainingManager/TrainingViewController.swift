@@ -40,7 +40,7 @@ class TrainingViewController: UIViewController {
     
     var trainingResult: TrainingResult!
     
-    var trainingCompletion: ((TrainingResult) -> ())?
+    var trainingCompletion: ((TrainingResult) -> Void)?
     
     // MARK: - Instance Method
     
@@ -48,7 +48,7 @@ class TrainingViewController: UIViewController {
         
         let destination = segue.destination
         
-        switch destination  {
+        switch destination {
 
         case is BallTrackerViewController:
             

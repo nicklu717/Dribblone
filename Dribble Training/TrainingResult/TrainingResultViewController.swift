@@ -53,7 +53,9 @@ class TrainingResultViewController: UIViewController {
         
         let storyboard = UIStoryboard.profile
         
-        guard let profilePage = storyboard.instantiateViewController(withIdentifier: String(describing: ProfileViewController.self)) as? ProfileViewController
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: ProfileViewController.id)
+        
+        guard let profilePage = profileViewController as? ProfileViewController
             else {
                 print("Profile View Controller Not Exist")
                 return

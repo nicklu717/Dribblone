@@ -134,7 +134,7 @@ class TrainingAssistantView: SKView {
         
         // Set Up Target Node
         
-        targetNode.fillColor = .b2
+        targetNode.fillColor = .brown2
         
         targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         targetNode.physicsBody?.affectedByGravity = false
@@ -216,6 +216,7 @@ class TrainingAssistantView: SKView {
     }
     // swiftlint:enable cyclomatic_complexity
     
+    // swiftlint:disable nesting type_name
     private struct Position {
         
         enum X: CGFloat {
@@ -238,4 +239,5 @@ class TrainingAssistantView: SKView {
             case high = 0.6
         }
     }
+    // swiftoint:enable nesting type_name
 }

@@ -60,7 +60,7 @@ class TrainingMenuViewController: UIViewController {
     }
 }
 
-extension TrainingMenuViewController: TrainingMenuViewDelegate{
+extension TrainingMenuViewController: TrainingMenuViewDelegate {
     
     var trainingModes: [TrainingMode] {
         

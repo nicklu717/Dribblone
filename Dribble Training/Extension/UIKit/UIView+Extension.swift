@@ -10,7 +10,12 @@ import UIKit
 
 extension UIView {
     
-    func flashBackground(with color: UIColor?, duration: TimeInterval){
+    static var id: String {
+        
+        return String(describing: self.self)
+    }
+    
+    func flashBackground(with color: UIColor?, duration: TimeInterval) {
         
         let originColor = backgroundColor
         

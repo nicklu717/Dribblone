@@ -16,6 +16,6 @@ class NavigationController: UINavigationController {
         
         navigationBar.isTranslucent = false
         
-        navigationBar.tintColor = .b3
+        navigationBar.tintColor = .brown3
     }
 }

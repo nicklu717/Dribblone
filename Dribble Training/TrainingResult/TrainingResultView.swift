@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TrainingResultViewDelegate: UITableViewDataSource {
+protocol TrainingResultViewDelegate: AnyObject, UITableViewDataSource {
     
     func refreshTrainingResult()
 }
