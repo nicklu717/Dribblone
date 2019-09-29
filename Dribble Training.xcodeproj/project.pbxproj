@@ -775,6 +775,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -785,7 +786,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wein7.Dribble-Training";
 				PRODUCT_NAME = Dribblone;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -796,6 +797,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dribble Training/Resource/Dribble Training.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = EQSUGEJF3Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Dribble Training/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -806,7 +808,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wein7.Dribble-Training";
 				PRODUCT_NAME = Dribblone;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
