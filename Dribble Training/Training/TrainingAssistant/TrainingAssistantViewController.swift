@@ -11,6 +11,12 @@ import SpriteKit
 
 protocol TrainingAssistantViewControllerDelegate: AnyObject {
     
+    func fakeRecordingForPermission()
+    
+    func startRecording()
+    
+    func cancelRecording()
+    
     func endTraining(points: Int, trainingMode: String)
 }
 
@@ -37,55 +43,43 @@ class TrainingAssistantViewController: UIViewController {
         }
     }
     
+    private var preparingCountdownSecond: Int = 3 {
+        didSet {
+            trainingAssistantView.setPreparingCountdownLabel(to: preparingCountdownSecond)
+        }
+    }
+    
     private var timer: Timer?
     
     var trainingMode: TrainingMode!
     
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(startTraining),
-            name: .startTraining,
-            object: nil
-        )
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        resetTimer()
+        resetTraining()
     }
     
     // MARK: - Instance Method
     
-    func resetTimer(minute: Int = 0, second: Int = 10) {
+    func resetTraining() {
         
-        self.minute = minute
-        self.second = second
+        minute = 0
+        second = 10
+        
+        points = 0
         
         trainingAssistantView.startButton.isHidden = false
-    }
-    
-    @objc func startTraining() {
         
-        timer = Timer.scheduledTimer(
-            timeInterval: 1,
-            target: self,
-            selector: #selector(countdown),
-            userInfo: nil,
-            repeats: true
-        )
+        trainingAssistantView.preparingCountdownLabel.isHidden = true
         
-        trainingAssistantView.resetTargetNode(mode: trainingMode)
+        trainingAssistantView.targetNode.removeFromParent()
     }
     
     func setBallNode(to position: CGPoint) {
-        
+
         trainingAssistantView.moveBallNode(to: position)
     }
     
@@ -96,6 +90,27 @@ class TrainingAssistantViewController: UIViewController {
         points += 3
         
         trainingAssistantView.resetTargetNode(mode: trainingMode)
+    }
+    
+    private func startTraining() {
+        
+        trainingAssistantView.preparingCountdownLabel.isHidden = true
+        
+        delegate?.cancelRecording()
+        
+        delegate?.startRecording()
+        
+        timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(countdown),
+            userInfo: nil,
+            repeats: true
+        )
+        
+        trainingAssistantView.resetTargetNode(mode: trainingMode)
+        
+        trainingAssistantView.targetNode.isHidden = false
     }
     
     @objc private func countdown() {
@@ -125,17 +140,48 @@ class TrainingAssistantViewController: UIViewController {
         
         delegate?.endTraining(points: points, trainingMode: trainingMode.rawValue)
         
-        resetTimer()
-        
-        points = 0
-        
-        trainingAssistantView.startButton.isHidden = false
-        
-        trainingAssistantView.targetNode.removeFromParent()
+//        resetTraining()
+//
+//        points = 0
+//
+//        trainingAssistantView.startButton.isHidden = false
+//
+//        trainingAssistantView.targetNode.removeFromParent()
     }
 }
 
 extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
+    
+    func startPreparingCountdown() {
+        
+        delegate?.fakeRecordingForPermission()
+        
+        preparingCountdownSecond = 3
+        
+        trainingAssistantView.preparingCountdownLabel.isHidden = false
+        
+        timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(preparingCountdown),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+    
+    @objc private func preparingCountdown() {
+        
+        preparingCountdownSecond -= 1
+            
+        trainingAssistantView.setPreparingCountdownLabel(to: preparingCountdownSecond)
+        
+        if preparingCountdownSecond < 0 {
+            
+            timer?.invalidate()
+            
+            startTraining()
+        }
+    }
     
     func cancelTraining() {
         
@@ -143,6 +189,8 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
             
             timer.invalidate()
         }
+        
+        delegate?.cancelRecording()
         
         dismiss(animated: true, completion: nil)
     }

@@ -10,6 +10,8 @@ import SpriteKit
 
 protocol TrainingAssistantViewDelegate: SKPhysicsContactDelegate {
     
+    func startPreparingCountdown()
+    
     func cancelTraining()
 }
 
@@ -30,6 +32,7 @@ class TrainingAssistantView: SKView {
     @IBOutlet var pointsLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var startButton: UIButton!
+    @IBOutlet var preparingCountdownLabel: UILabel!
     
     @IBOutlet var cancelButton: UIButton! {
         
@@ -45,7 +48,22 @@ class TrainingAssistantView: SKView {
     private var positionX: Position.X = .left
     private var positionY: Position.Y = .high
     
+    private var xScale: CGFloat!
+    private var yScale: CGFloat!
+    
     // MARK: - Instance Method
+    
+    func setPreparingCountdownLabel(to second: Int) {
+        
+        if second <= 0 {
+            
+            preparingCountdownLabel.text = "Go!"
+            
+        } else {
+            
+            preparingCountdownLabel.text = String(second)
+        }
+    }
     
     func setPointsLabel(_ points: Int) {
         
@@ -77,6 +95,18 @@ class TrainingAssistantView: SKView {
         ballNode.run(moveAction)
     }
     
+    @IBAction func startTraining() {
+        
+        startButton.isHidden = true
+        
+        viewDelegate?.startPreparingCountdown()
+    }
+    
+    @IBAction func cancelTraining() {
+        
+        viewDelegate?.cancelTraining()
+    }
+    
     // MARK: - Private Method
     
     private func setUpScene() {
@@ -93,8 +123,6 @@ class TrainingAssistantView: SKView {
         presentScene(scene)
         
         // Set Up Ball Node
-        
-        ballNode.position = CGPoint(x: -100, y: -100)
         
         ballNode.lineWidth = 0
         
@@ -113,18 +141,6 @@ class TrainingAssistantView: SKView {
         targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
         targetNode.physicsBody?.contactTestBitMask =
             SceneNode.ball.categoryMask | SceneNode.target.categoryMask
-    }
-    
-    @IBAction func startTraining() {
-        
-        startButton.isHidden = true
-        
-        NotificationCenter.default.post(Notification(name: .startTraining))
-    }
-    
-    @IBAction func cancelTraining() {
-        
-        viewDelegate?.cancelTraining()
     }
     
     private func targetNodePosition(mode: TrainingMode) -> CGPoint {
@@ -186,16 +202,16 @@ class TrainingAssistantView: SKView {
         case .random: break
         }
         
-        var x = bounds.width * positionX.rawValue
-        var y = bounds.height * positionY.rawValue
+        xScale = positionX.rawValue
+        yScale = positionY.rawValue
         
         if mode == .random {
             
-            x = CGFloat(Double.random(in: 0.2...0.8))
-            y = CGFloat(Double.random(in: 0.2...0.6))
+            xScale = CGFloat(Double.random(in: 0.2...0.8))
+            yScale = CGFloat(Double.random(in: 0.2...0.6))
         }
         
-        return CGPoint(x: x, y: y)
+        return CGPoint(x: bounds.width * xScale, y: bounds.height * yScale)
     }
     
     private struct Position {
