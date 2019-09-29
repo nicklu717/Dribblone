@@ -65,7 +65,10 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                                                 followings: [],
                                                 blockList: [],
                                                 trainingResults: [],
-                                                picture: "")
+                                                picture: "",
+                                                teams: [],
+                                                teamInvitations: [],
+                                                blockTeamList: [])
                             
                             FirestoreManager.shared.create(
                                 member: member,
@@ -258,7 +261,10 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                                         followings: [],
                                         blockList: [],
                                         trainingResults: [],
-                                        picture: "")
+                                        picture: "",
+                                        teams: [],
+                                        teamInvitations: [],
+                                        blockTeamList: [])
                     
                     FirestoreManager.shared.create(member: member, completion: {
                         

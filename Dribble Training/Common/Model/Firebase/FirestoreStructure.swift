@@ -29,15 +29,21 @@ struct Member: Codable {
     
     let picture: String
     
+    let teams: [String]
+    
+    let teamInvitations: [String]
+    
+    let blockTeamList: [String]
+    
     enum CodingKeys: String, CodingKey {
         
-        case uid, id, followers, followings, picture
+        case uid, id, followers, followings, picture, teams
         
         case displayName = "display_name"
-        
         case blockList = "block_list"
-        
         case trainingResults = "training_results"
+        case teamInvitations = "team_invitations"
+        case blockTeamList = "block_team_list"
     }
 }
 
@@ -60,7 +66,6 @@ struct TrainingResult: Codable {
         case id, date, mode, points
         
         case videoURL = "video_url"
-        
         case screenShot = "screen_shot"
     }
 }
