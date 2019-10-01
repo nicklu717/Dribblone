@@ -8,13 +8,11 @@
 
 import UIKit
 
-class PostWallViewController: UIViewController, TrainingResultViewControllerDataSource {
+class PostWallViewController: UIViewController {
     
     // MARK: - Property Declaration
     
     @IBOutlet var postWallView: PostWallView!
-    
-    private var trainingResultPage: TrainingResultViewController!
     
     // MARK: - Life Cycle
     
@@ -22,12 +20,12 @@ class PostWallViewController: UIViewController, TrainingResultViewControllerData
         
         super.viewDidLoad()
         
-        setupTrainingResultPage()
+        fetchTrainingResult()
     }
     
-    // MARK: - Instance Method
+    // MARK: - Private Method
     
-    func fetchTrainingResult() {
+    private func fetchTrainingResult() {
         
         FirestoreManager.shared.fetchTrainingResult { result in
             
@@ -47,49 +45,12 @@ class PostWallViewController: UIViewController, TrainingResultViewControllerData
                     }
                 }
                 
-                self.trainingResultPage.trainingResults = filteredTrainingResults
-                self.trainingResultPage.endRefreshing()
+                // TODO: Save training results
                 
             case .failure(let error):
                 
                 print(error)
             }
         }
-    }
-    
-    // MARK: - Private Method
-    
-    private func setupTrainingResultPage() {
-        
-        let storyboard = UIStoryboard.trainingResult
-        
-        guard
-            let trainingResultViewController = storyboard.instantiateInitialViewController()
-                as? TrainingResultViewController
-            else {
-                print("Training Result View Controller Not Exist")
-                return
-        }
-        
-        trainingResultPage = trainingResultViewController
-        
-        trainingResultPage.dataSource = self
-        
-        trainingResultPage.loadViewIfNeeded()
-        
-        fetchTrainingResult()
-        
-        showTrainingResultPage()
-    }
-    
-    private func showTrainingResultPage() {
-        
-        postWallView.trainingResultPageView.addSubview(trainingResultPage.view)
-        
-        trainingResultPage.view.frame = postWallView.trainingResultPageView.bounds
-        
-        addChild(trainingResultPage)
-        
-        trainingResultPage.didMove(toParent: self)
     }
 }

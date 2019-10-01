@@ -10,5 +10,5 @@ import UIKit
 
 class PostWallView: UIView {
     
-    @IBOutlet var trainingResultPageView: UIView!
+    @IBOutlet var collectionView: UICollectionView!
 }
