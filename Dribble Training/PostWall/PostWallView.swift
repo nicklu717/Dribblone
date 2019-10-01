@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PostWallViewDelegate: UICollectionViewDataSource {
+protocol PostWallViewDelegate: AnyObject {
     
     func numberOfItemsInSection(_ section: Int) -> Int
     
@@ -25,6 +25,11 @@ class PostWallView: UIView {
             collectionView.registerCellWithNib(id: PostWallCollectionViewCell.id)
             collectionView.dataSource = self
         }
+    }
+    
+    func reloadCollectionView() {
+        
+        collectionView.reloadData()
     }
 }
 

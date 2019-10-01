@@ -16,6 +16,8 @@ class PostWallCollectionViewCell: UICollectionViewCell {
     @IBOutlet var modeLabel: UILabel!
     @IBOutlet var screenShotImageView: UIImageView!
     
+    var videoURL: URL?
+    
     @IBAction func showMemberProfile() {}
     @IBAction func playVideo() {
     }
