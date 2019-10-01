@@ -8,7 +8,40 @@
 
 import UIKit
 
+protocol PostWallViewDelegate: UICollectionViewDataSource {
+    
+    func numberOfItemsInSection(_ section: Int) -> Int
+    
+    func cellForItemAt(_ indexPath: IndexPath,
+                       for collectionView: UICollectionView) -> UICollectionViewCell
+}
+
 class PostWallView: UIView {
     
-    @IBOutlet var collectionView: UICollectionView!
+    weak var delegate: PostWallViewDelegate?
+    
+    @IBOutlet var collectionView: UICollectionView! {
+        
+        didSet {
+            
+            // TODO: Register cell
+            
+            collectionView.dataSource = self
+        }
+    }
+}
+
+extension PostWallView: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        
+        return delegate?.numberOfItemsInSection(section) ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        return delegate?.cellForItemAt(indexPath, for: collectionView) ?? UICollectionViewCell()
+    }
 }
