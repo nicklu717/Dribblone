@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A01D5A023434576006A2445 /* PumpingTargetPoint.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5A01D59F23434575006A2445 /* PumpingTargetPoint.atlas */; };
 		5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */; };
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A30C2FF233A6B43005D711F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C2FE233A6B43005D711F /* TextField.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A01D59F23434575006A2445 /* PumpingTargetPoint.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = PumpingTargetPoint.atlas; path = ../../../../PumpingTargetPoint.atlas; sourceTree = "<group>"; };
 		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A30C2FE233A6B43005D711F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD862B5231913CB0036EFFF /* Assets.xcassets */,
+				5A01D59F23434575006A2445 /* PumpingTargetPoint.atlas */,
 				5AD862BA231913CB0036EFFF /* Info.plist */,
 				5A6678442329F9F1006F69DA /* GoogleService-Info.plist */,
 				5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */,
@@ -530,6 +533,7 @@
 				5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */,
+				5A01D5A023434576006A2445 /* PumpingTargetPoint.atlas in Resources */,
 				5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */,
