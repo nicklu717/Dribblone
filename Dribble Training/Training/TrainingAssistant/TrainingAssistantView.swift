@@ -31,7 +31,7 @@ class TrainingAssistantView: SKView {
     
     let ballNode = SKShapeNode(circleOfRadius: 30)
     
-    let targetNode = SKShapeNode(circleOfRadius: 30)
+    var targetNode: SKSpriteNode!
     
     @IBOutlet var pointsLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
@@ -136,9 +136,24 @@ class TrainingAssistantView: SKView {
     
     private func setupTargetNode() {
         
-        targetNode.fillColor = .brown2
+        let pumpingTargetPointAtlas = SKTextureAtlas(named: "PumpingTargetPoint")
         
-        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
+        var pumpingTextures: [SKTexture] = []
+        
+        for index in 1...pumpingTargetPointAtlas.textureNames.count {
+            
+            let textureName = "flash\(index)"
+            
+            pumpingTextures.append(pumpingTargetPointAtlas.textureNamed(textureName))
+        }
+        
+        targetNode = SKSpriteNode(texture: pumpingTextures[0])
+        
+        let animation = SKAction.animate(with: pumpingTextures, timePerFrame: 0.05)
+        
+        targetNode.run(SKAction.repeatForever(animation))
+        
+        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
         targetNode.physicsBody?.affectedByGravity = false
         targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
         targetNode.physicsBody?.contactTestBitMask =
