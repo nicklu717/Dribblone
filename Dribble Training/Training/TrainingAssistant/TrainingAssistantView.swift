@@ -21,9 +21,13 @@ class TrainingAssistantView: SKView {
     
     weak var viewDelegate: TrainingAssistantViewDelegate? {
         didSet {
-            setUpScene()
+            setupScene()
+            setupBallNode()
+            setupTargetNode()
         }
     }
+    
+    let trainScene = SKScene()
     
     let ballNode = SKShapeNode(circleOfRadius: 30)
     
@@ -109,20 +113,17 @@ class TrainingAssistantView: SKView {
     
     // MARK: - Private Method
     
-    private func setUpScene() {
+    private func setupScene() {
         
-        // Set Up Scene
+        trainScene.scaleMode = .resizeFill
+        trainScene.backgroundColor = .clear
         
-        let scene = SKScene()
+        trainScene.physicsWorld.contactDelegate = viewDelegate
         
-        scene.scaleMode = .resizeFill
-        scene.backgroundColor = .clear
-        
-        scene.physicsWorld.contactDelegate = viewDelegate
-        
-        presentScene(scene)
-        
-        // Set Up Ball Node
+        presentScene(trainScene)
+    }
+    
+    private func setupBallNode() {
         
         ballNode.lineWidth = 0
         
@@ -130,9 +131,10 @@ class TrainingAssistantView: SKView {
         ballNode.physicsBody?.affectedByGravity = false
         ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
         
-        scene.addChild(ballNode)
-        
-        // Set Up Target Node
+        trainScene.addChild(ballNode)
+    }
+    
+    private func setupTargetNode() {
         
         targetNode.fillColor = .brown2
         
