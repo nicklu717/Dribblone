@@ -21,13 +21,17 @@ class TrainingAssistantView: SKView {
     
     weak var viewDelegate: TrainingAssistantViewDelegate? {
         didSet {
-            setUpScene()
+            setupScene()
+            setupBallNode()
+            setupTargetNode()
         }
     }
     
+    let trainScene = SKScene()
+    
     let ballNode = SKShapeNode(circleOfRadius: 30)
     
-    let targetNode = SKShapeNode(circleOfRadius: 30)
+    var targetNode: SKSpriteNode!
     
     @IBOutlet var pointsLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
@@ -109,20 +113,17 @@ class TrainingAssistantView: SKView {
     
     // MARK: - Private Method
     
-    private func setUpScene() {
+    private func setupScene() {
         
-        // Set Up Scene
+        trainScene.scaleMode = .resizeFill
+        trainScene.backgroundColor = .clear
         
-        let scene = SKScene()
+        trainScene.physicsWorld.contactDelegate = viewDelegate
         
-        scene.scaleMode = .resizeFill
-        scene.backgroundColor = .clear
-        
-        scene.physicsWorld.contactDelegate = viewDelegate
-        
-        presentScene(scene)
-        
-        // Set Up Ball Node
+        presentScene(trainScene)
+    }
+    
+    private func setupBallNode() {
         
         ballNode.lineWidth = 0
         
@@ -130,13 +131,29 @@ class TrainingAssistantView: SKView {
         ballNode.physicsBody?.affectedByGravity = false
         ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
         
-        scene.addChild(ballNode)
+        trainScene.addChild(ballNode)
+    }
+    
+    private func setupTargetNode() {
         
-        // Set Up Target Node
+        let pumpingTargetPointAtlas = SKTextureAtlas(named: "PumpingTargetPoint")
         
-        targetNode.fillColor = .brown2
+        var pumpingTextures: [SKTexture] = []
         
-        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
+        for index in 1...pumpingTargetPointAtlas.textureNames.count {
+            
+            let textureName = "flash\(index)"
+            
+            pumpingTextures.append(pumpingTargetPointAtlas.textureNamed(textureName))
+        }
+        
+        targetNode = SKSpriteNode(texture: pumpingTextures[0])
+        
+        let animation = SKAction.animate(with: pumpingTextures, timePerFrame: 0.05)
+        
+        targetNode.run(SKAction.repeatForever(animation))
+        
+        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
         targetNode.physicsBody?.affectedByGravity = false
         targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
         targetNode.physicsBody?.contactTestBitMask =
