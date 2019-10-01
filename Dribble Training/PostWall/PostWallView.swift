@@ -18,6 +18,8 @@ protocol PostWallViewDelegate: AnyObject {
 
 class PostWallView: UIView {
     
+    // MARK: - Property
+    
     weak var delegate: PostWallViewDelegate?
     
     @IBOutlet var collectionView: UICollectionView! {
@@ -26,6 +28,8 @@ class PostWallView: UIView {
             collectionView.dataSource = self
         }
     }
+    
+    // MARK: - Instance Method
     
     func reloadCollectionView() {
         
