@@ -34,6 +34,7 @@
 		5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6BA153232E2D3200E2FB48 /* RegisterView.swift */; };
 		5A6D2DB72343882100E83E0E /* PostWallCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6D2DB62343882100E83E0E /* PostWallCollectionViewCell.xib */; };
 		5A6D2DB92343919E00E83E0E /* PostWallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D2DB82343919E00E83E0E /* PostWallCollectionViewCell.swift */; };
+		5A6D2DBB23439DA900E83E0E /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6D2DBA23439DA900E83E0E /* UICollectionView+Extension.swift */; };
 		5A6EF2752328F619005359C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2742328F619005359C8 /* ProfileViewController.swift */; };
 		5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6EF2762328F624005359C8 /* ProfileView.swift */; };
 		5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */; };
@@ -106,6 +107,7 @@
 		5A6BA153232E2D3200E2FB48 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5A6D2DB62343882100E83E0E /* PostWallCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostWallCollectionViewCell.xib; sourceTree = "<group>"; };
 		5A6D2DB82343919E00E83E0E /* PostWallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallCollectionViewCell.swift; sourceTree = "<group>"; };
+		5A6D2DBA23439DA900E83E0E /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		5A6EF2742328F619005359C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5A6EF2762328F624005359C8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5A7E901D231FA22B00EE0BEF /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				5ADE95512340F830000608E1 /* UIViewController+Extension.swift */,
 				5A43590C2339236A0055190A /* UIView+Extension.swift */,
 				5A93ABAD233A347E00358CCD /* UITableView+Extension.swift */,
+				5A6D2DBA23439DA900E83E0E /* UICollectionView+Extension.swift */,
 				5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */,
 				5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */,
 			);
@@ -673,6 +676,7 @@
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
 				5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */,
 				5AD3F549233DD7D800D5C5CB /* PrivacyViewController.swift in Sources */,
+				5A6D2DBB23439DA900E83E0E /* UICollectionView+Extension.swift in Sources */,
 				5A7E901E231FA22B00EE0BEF /* CGRect+Extension.swift in Sources */,
 				5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */,
 				5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */,

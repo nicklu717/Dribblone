@@ -21,11 +21,8 @@ class PostWallView: UIView {
     weak var delegate: PostWallViewDelegate?
     
     @IBOutlet var collectionView: UICollectionView! {
-        
         didSet {
-            
-            // TODO: Register cell
-            
+            collectionView.registerCellWithNib(id: PostWallCollectionViewCell.id)
             collectionView.dataSource = self
         }
     }
