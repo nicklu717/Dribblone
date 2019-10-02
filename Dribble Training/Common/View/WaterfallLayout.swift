@@ -53,7 +53,7 @@ class WaterfallLayout: UICollectionViewLayout {
                 
                 // Calculate Item Frame
                 
-                let itemHeight = CGFloat.random(in: 200...400)
+                let itemHeight = CGFloat.random(in: 200...450)
                 
                 let column = index % numberOfColumn
                 
