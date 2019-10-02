@@ -18,6 +18,15 @@ class PostWallCollectionViewCell: UICollectionViewCell {
     
     var videoURL: URL?
     
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
+        profileImageView.image = UIImage.asset(.profile)
+        
+        screenShotImageView.image = nil
+    }
+    
     @IBAction func showMemberProfile() {}
     @IBAction func playVideo() {}
 }
