@@ -10,6 +10,8 @@ import UIKit
 
 protocol ProfileViewDelegate: AnyObject {
     
+    func fetchTrainingResult()
+    
     func numberOfRows(inSection section: Int) -> Int
     
     func cellForRow(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell
@@ -43,8 +45,7 @@ class ProfileView: UIView {
     
     @IBOutlet var tableView: UITableView! {
         didSet {
-            tableView.registerCellWithNib(id: ResultTableViewCell.id)
-            tableView.dataSource = self
+            setupTableView()
         }
     }
     
@@ -71,6 +72,8 @@ class ProfileView: UIView {
     func reloadTableView() {
         
         tableView.reloadData()
+        
+        tableView.endHeaderRefresh()
     }
     
     @IBAction func followUser() {
@@ -94,6 +97,18 @@ class ProfileView: UIView {
     @IBAction func blockUser() {
         
         delegate?.blockUser()
+    }
+    
+    private func setupTableView() {
+        
+        tableView.addRefreshHeader { [weak self] in
+            
+            self?.delegate?.fetchTrainingResult()
+        }
+        
+        tableView.registerCellWithNib(id: ResultTableViewCell.id)
+        
+        tableView.dataSource = self
     }
 }
 

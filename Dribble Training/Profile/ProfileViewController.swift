@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController {
         profileView.setupProfile(for: member)
     }
     
-    private func fetchTrainingResult() {
+    func fetchTrainingResult() {
         
         FirestoreManager.shared.fetchTrainingResult(for: member) { result in
             
