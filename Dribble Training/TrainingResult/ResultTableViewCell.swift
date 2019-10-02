@@ -12,7 +12,7 @@ class ResultTableViewCell: UITableViewCell {
     
     @IBOutlet var profileImageView: UIImageView!
     
-    @IBOutlet var idButton: UIButton!
+    @IBOutlet var idLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var modeLabel: UILabel!
     

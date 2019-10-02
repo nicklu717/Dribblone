@@ -118,7 +118,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         cell.dateLabel.text = date.string(format: .resultDisplay)
         
-        cell.idButton.setTitle(result.id, for: .normal)
+        cell.idLabel.text = result.id
         
         cell.modeLabel.text = result.mode
         
