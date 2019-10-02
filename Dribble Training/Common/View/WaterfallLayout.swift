@@ -37,7 +37,6 @@ class WaterfallLayout: UICollectionViewLayout {
         layoutAttributes = []
         
         var xOffsets = [CGFloat]()
-        var yOffsets = [CGFloat](repeating: 0, count: numberOfColumn)
         
         let columnWidth = contentWidth / CGFloat(numberOfColumn)
         
@@ -46,11 +45,39 @@ class WaterfallLayout: UICollectionViewLayout {
             xOffsets.append(columnWidth * CGFloat(column))
         }
         
+        var yOffsets = [CGFloat](repeating: 0, count: numberOfColumn)
+        
         for section in 0..<collectionView.numberOfSections {
         
             for index in 0..<collectionView.numberOfItems(inSection: section) {
                 
+                // Calculate Item Frame
                 
+                let itemHeight = CGFloat.random(in: 200...300)
+                
+                let column = index % numberOfColumn
+                
+                let itemFrame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: itemHeight)
+                
+                let insetFrame = itemFrame.insetBy(dx: cellPadding, dy: cellPadding)
+                
+                // Add Attribute
+                
+                let indexPath = IndexPath(item: index, section: section)
+                
+                let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                
+                attribute.frame = insetFrame
+                
+                layoutAttributes.append(attribute)
+                
+                // Update Offset
+                
+                yOffsets[column] += itemHeight
+                
+                // Update Content Height
+                
+                contentHeight = max(contentHeight, itemFrame.maxY)
             }
         }
     }
