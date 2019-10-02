@@ -39,7 +39,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGi-zl-PgM">
-                        <rect key="frame" x="64" y="26" width="195" height="20"/>
+                        <rect key="frame" x="64" y="26" width="42" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="I4m-gO-1Up"/>
                         </constraints>
@@ -48,7 +48,7 @@
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <connections>
-                            <action selector="showMemberProfile" destination="5Ln-5A-sGv" eventType="touchUpInside" id="uJT-5G-gsJ"/>
+                            <action selector="showMemberProfile:" destination="5Ln-5A-sGv" eventType="touchUpInside" id="bZg-05-ZEU"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STi-gj-P8c">
@@ -85,7 +85,7 @@
                     <constraint firstAttribute="bottom" secondItem="EMg-4W-qfD" secondAttribute="bottom" constant="16" id="0tq-et-NXA"/>
                     <constraint firstAttribute="trailing" secondItem="EMg-4W-qfD" secondAttribute="trailing" constant="16" id="13G-mi-xxn"/>
                     <constraint firstItem="yGi-zl-PgM" firstAttribute="leading" secondItem="Zx8-RP-qGt" secondAttribute="trailing" constant="8" id="3fg-U2-AP3"/>
-                    <constraint firstAttribute="trailing" secondItem="yGi-zl-PgM" secondAttribute="trailing" constant="16" id="9Yj-eN-t4I"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yGi-zl-PgM" secondAttribute="trailing" constant="16" id="9Yj-eN-t4I"/>
                     <constraint firstItem="cFq-OJ-AeH" firstAttribute="leading" secondItem="Dpr-7e-pUw" secondAttribute="trailing" constant="4" id="A3X-dj-OMe"/>
                     <constraint firstItem="Zx8-RP-qGt" firstAttribute="leading" secondItem="nBw-Uu-lwU" secondAttribute="leading" constant="16" id="BiL-nK-CxU"/>
                     <constraint firstItem="STi-gj-P8c" firstAttribute="centerY" secondItem="EMg-4W-qfD" secondAttribute="centerY" id="FtT-yF-W0i"/>

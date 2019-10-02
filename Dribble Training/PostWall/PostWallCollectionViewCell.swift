@@ -8,7 +8,16 @@
 
 import UIKit
 
+protocol PostWallCollectionViewCellDelegate: AnyObject {
+    
+    func showProfile(for id: ID)
+    
+    func playVideo(for url: URL?)
+}
+
 class PostWallCollectionViewCell: UICollectionViewCell {
+    
+    weak var delegate: PostWallCollectionViewCellDelegate?
     
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var idButton: UIButton!
@@ -27,6 +36,15 @@ class PostWallCollectionViewCell: UICollectionViewCell {
         screenShotImageView.image = nil
     }
     
-    @IBAction func showMemberProfile() {}
-    @IBAction func playVideo() {}
+    @IBAction func showMemberProfile(_ button: UIButton) {
+        
+        let id = button.titleLabel?.text ?? ""
+        
+        delegate?.showProfile(for: id)
+    }
+    
+    @IBAction func playVideo() {
+        
+        delegate?.playVideo(for: videoURL)
+    }
 }
