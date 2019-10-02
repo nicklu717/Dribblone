@@ -65,6 +65,9 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFq-OJ-AeH">
                         <rect key="frame" x="226" y="54" width="33" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="WPm-vj-fat"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
