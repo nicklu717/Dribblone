@@ -21,17 +21,9 @@
                                 <collectionViewLayout key="collectionViewLayout" id="aoQ-ps-oaz" customClass="WaterfallLayout" customModule="Dribblone" customModuleProvider="target"/>
                                 <cells/>
                             </collectionView>
-                            <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYh-hN-uh7">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sYh-hN-uh7" firstAttribute="leading" secondItem="N0U-2Y-PEU" secondAttribute="leading" id="3Ky-t7-oLD"/>
-                            <constraint firstAttribute="bottom" secondItem="sYh-hN-uh7" secondAttribute="bottom" id="799-bY-5FV"/>
-                            <constraint firstItem="sYh-hN-uh7" firstAttribute="top" secondItem="Tae-u3-2Hr" secondAttribute="top" id="LKp-lK-hNp"/>
-                            <constraint firstItem="sYh-hN-uh7" firstAttribute="trailing" secondItem="N0U-2Y-PEU" secondAttribute="trailing" id="Ulc-1Y-tf3"/>
                             <constraint firstAttribute="trailing" secondItem="3ju-Vg-qkF" secondAttribute="trailing" id="cRu-P9-Jdf"/>
                             <constraint firstItem="3ju-Vg-qkF" firstAttribute="leading" secondItem="Tae-u3-2Hr" secondAttribute="leading" id="fF2-w4-a0q"/>
                             <constraint firstItem="3ju-Vg-qkF" firstAttribute="top" secondItem="Tae-u3-2Hr" secondAttribute="top" id="kGg-Fc-wIy"/>
@@ -40,7 +32,6 @@
                         <viewLayoutGuide key="safeArea" id="N0U-2Y-PEU"/>
                         <connections>
                             <outlet property="collectionView" destination="3ju-Vg-qkF" id="2ZU-95-Kha"/>
-                            <outlet property="videoView" destination="sYh-hN-uh7" id="nA6-rY-y3m"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="66B-nU-0dL"/>

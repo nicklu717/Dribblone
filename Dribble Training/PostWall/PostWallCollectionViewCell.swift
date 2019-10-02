@@ -12,7 +12,7 @@ protocol PostWallCollectionViewCellDelegate: AnyObject {
     
     func showProfile(for id: ID)
     
-    func playVideo(for url: URL?)
+    func playVideo(with url: URL?) -> Bool
 }
 
 class PostWallCollectionViewCell: UICollectionViewCell {
@@ -26,6 +26,8 @@ class PostWallCollectionViewCell: UICollectionViewCell {
     @IBOutlet var screenShotImageView: UIImageView!
     
     var videoURL: URL?
+    
+    var isVideoAvailable: Bool = true
     
     override func prepareForReuse() {
         
@@ -45,6 +47,12 @@ class PostWallCollectionViewCell: UICollectionViewCell {
     
     @IBAction func playVideo() {
         
-        delegate?.playVideo(for: videoURL)
+        guard let delegate = delegate
+            else {
+                print("Post Wall Collection View Cell Delegate Not Exist")
+                return
+        }
+        
+        isVideoAvailable = delegate.playVideo(with: videoURL)
     }
 }

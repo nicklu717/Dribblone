@@ -6,7 +6,7 @@
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
-import UIKit
+import AVKit
 
 class PostWallViewController: UIViewController {
     
@@ -23,6 +23,8 @@ class PostWallViewController: UIViewController {
             postWallView.reloadCollectionView()
         }
     }
+    
+    let playerViewController = AVPlayerViewController()
     
     // MARK: - Life Cycle
     
@@ -87,6 +89,8 @@ extension PostWallViewController: PostWallViewDelegate {
         
         let result = trainingResults[indexPath.row]
         
+        cell.delegate = self
+        
         cell.idButton.setTitle(result.id, for: .normal)
         
         cell.pointsLabel.text = String(result.points)
@@ -113,5 +117,27 @@ extension PostWallViewController: PostWallViewDelegate {
         }
         
         return cell
+    }
+}
+
+extension PostWallViewController: PostWallCollectionViewCellDelegate {
+    
+    func showProfile(for id: ID) {
+        
+    }
+    
+    func playVideo(with url: URL?) -> Bool {
+        
+        guard let url = url
+            else {
+                print("Invalid Video URL")
+                return false
+        }
+        
+        playerViewController.player = AVPlayer(url: url)
+        
+        present(playerViewController, animated: true, completion: nil)
+        
+        return true
     }
 }
