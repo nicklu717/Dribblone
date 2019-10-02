@@ -1,5 +1,5 @@
 //
-//  PostWallCollectionViewCell.swift
+//  ResultCollectionViewCell.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/10/1.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol PostWallCollectionViewCellDelegate: AnyObject {
+protocol ResultCollectionViewCellDelegate: AnyObject {
     
     func showProfile(for id: ID)
     
     func playVideo(with url: URL?) -> Bool
 }
 
-class PostWallCollectionViewCell: UICollectionViewCell {
+class ResultCollectionViewCell: UICollectionViewCell {
     
-    weak var delegate: PostWallCollectionViewCellDelegate?
+    weak var delegate: ResultCollectionViewCellDelegate?
     
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var idButton: UIButton!

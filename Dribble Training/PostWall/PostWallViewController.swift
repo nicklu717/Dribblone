@@ -77,14 +77,14 @@ extension PostWallViewController: PostWallViewDelegate {
     func cellForItemAt(_ indexPath: IndexPath,
                        for collectionView: UICollectionView) -> UICollectionViewCell {
         
-        let postWallCollectionViewcell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: PostWallCollectionViewCell.id,
+        let resultCollectionViewCell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.id,
                                                for: indexPath)
         
-        guard let cell = postWallCollectionViewcell as? PostWallCollectionViewCell
+        guard let cell = resultCollectionViewCell as? ResultCollectionViewCell
             else {
                 print("Post Wall Collection View Cell Casting Failure")
-                return postWallCollectionViewcell
+                return resultCollectionViewCell
         }
         
         let result = trainingResults[indexPath.row]
@@ -120,7 +120,7 @@ extension PostWallViewController: PostWallViewDelegate {
     }
 }
 
-extension PostWallViewController: PostWallCollectionViewCellDelegate {
+extension PostWallViewController: ResultCollectionViewCellDelegate {
     
     func showProfile(for id: ID) {
         

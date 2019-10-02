@@ -33,7 +33,7 @@ class PostWallView: UIView {
             collectionView.contentInset = UIEdgeInsets(top: inset, left: inset,
                                                        bottom: inset, right: inset)
             
-            collectionView.registerCellWithNib(id: PostWallCollectionViewCell.id)
+            collectionView.registerCellWithNib(id: ResultCollectionViewCell.id)
             
             collectionView.dataSource = self
         }
