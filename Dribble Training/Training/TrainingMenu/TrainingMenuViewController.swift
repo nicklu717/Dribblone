@@ -80,12 +80,12 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate {
         
         trainingPage.trainingCompletion = { [weak self] trainingResult in
             
-            guard let strongSelf = self
-                else {
-                    print("Training Menu Not Exist")
-                    return
-            }
-            
+//            guard let strongSelf = self
+//                else {
+//                    print("Training Menu Not Exist")
+//                    return
+//            }
+//
 //            strongSelf.trainingResultPage.trainingResults = [trainingResult]
 //
 //            strongSelf.show(strongSelf.trainingResultPage, sender: nil)

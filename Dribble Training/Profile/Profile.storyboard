@@ -79,10 +79,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvx-lD-jw1">
-                                <rect key="frame" x="0.0" y="320" width="414" height="542"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhg-JC-lED">
                                 <rect key="frame" x="172" y="216" width="161" height="30"/>
                                 <color key="backgroundColor" name="B3"/>
@@ -106,24 +102,28 @@
                                     <action selector="blockUser" destination="L1g-cG-sA5" eventType="touchUpInside" id="w5h-Ab-nnk"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KNI-rp-zjc">
+                                <rect key="frame" x="0.0" y="320" width="414" height="542"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="KNI-rp-zjc" firstAttribute="leading" secondItem="RDa-K0-lRe" secondAttribute="leading" id="1cc-D4-bIz"/>
                             <constraint firstItem="N5w-4a-N0J" firstAttribute="leading" secondItem="1AV-1N-AV5" secondAttribute="trailing" constant="56" id="29h-WC-cmV"/>
+                            <constraint firstItem="RDa-K0-lRe" firstAttribute="trailing" secondItem="KNI-rp-zjc" secondAttribute="trailing" id="2lG-qh-VaV"/>
                             <constraint firstItem="nnM-lP-Ryh" firstAttribute="centerX" secondItem="tA7-nP-997" secondAttribute="centerX" id="464-1N-x57"/>
                             <constraint firstItem="N5w-4a-N0J" firstAttribute="top" secondItem="Y1p-ZY-4hx" secondAttribute="bottom" constant="8" id="5ge-bP-PVK"/>
                             <constraint firstItem="tA7-nP-997" firstAttribute="top" secondItem="nnM-lP-Ryh" secondAttribute="bottom" constant="8" id="7bE-2h-tSp"/>
-                            <constraint firstItem="gvx-lD-jw1" firstAttribute="leading" secondItem="RDa-K0-lRe" secondAttribute="leading" id="98i-LB-pdg"/>
+                            <constraint firstItem="KNI-rp-zjc" firstAttribute="top" secondItem="eRr-Sv-FYf" secondAttribute="bottom" id="8Y2-Ab-51k"/>
+                            <constraint firstItem="RDa-K0-lRe" firstAttribute="bottom" secondItem="KNI-rp-zjc" secondAttribute="bottom" id="BRq-Nt-bhW"/>
                             <constraint firstItem="yw7-yU-AcB" firstAttribute="centerY" secondItem="dhg-JC-lED" secondAttribute="centerY" id="BXg-8K-rUc"/>
-                            <constraint firstItem="gvx-lD-jw1" firstAttribute="trailing" secondItem="RDa-K0-lRe" secondAttribute="trailing" id="Cng-wo-qSZ"/>
                             <constraint firstItem="tA7-nP-997" firstAttribute="leading" secondItem="N5w-4a-N0J" secondAttribute="trailing" constant="45" id="GSS-RQ-Ezg"/>
                             <constraint firstItem="eRr-Sv-FYf" firstAttribute="leading" secondItem="RDa-K0-lRe" secondAttribute="leading" constant="-1" id="Iap-Ny-Au3"/>
                             <constraint firstItem="eRr-Sv-FYf" firstAttribute="top" secondItem="dhg-JC-lED" secondAttribute="bottom" constant="24" id="Kfo-9D-XfQ"/>
                             <constraint firstItem="dhg-JC-lED" firstAttribute="trailing" secondItem="tA7-nP-997" secondAttribute="trailing" id="KhC-lN-0jw"/>
                             <constraint firstItem="yw7-yU-AcB" firstAttribute="leading" secondItem="dhg-JC-lED" secondAttribute="trailing" constant="8" id="TtI-Vv-1cq"/>
                             <constraint firstItem="Y1p-ZY-4hx" firstAttribute="centerX" secondItem="N5w-4a-N0J" secondAttribute="centerX" id="Uim-Or-gXe"/>
-                            <constraint firstItem="gvx-lD-jw1" firstAttribute="top" secondItem="eRr-Sv-FYf" secondAttribute="bottom" id="WRF-3v-pwl"/>
-                            <constraint firstItem="RDa-K0-lRe" firstAttribute="bottom" secondItem="gvx-lD-jw1" secondAttribute="bottom" id="YaI-s1-fdg"/>
                             <constraint firstItem="dhg-JC-lED" firstAttribute="top" secondItem="N5w-4a-N0J" secondAttribute="bottom" constant="12" id="ehu-Ds-cyK"/>
                             <constraint firstItem="RDa-K0-lRe" firstAttribute="trailing" secondItem="eRr-Sv-FYf" secondAttribute="trailing" constant="-1" id="lNI-TU-00K"/>
                             <constraint firstItem="N5w-4a-N0J" firstAttribute="bottom" secondItem="1AV-1N-AV5" secondAttribute="bottom" id="lze-to-sRg"/>
@@ -143,7 +143,7 @@
                             <outlet property="followingsLabel" destination="Y1p-ZY-4hx" id="hOI-tA-91k"/>
                             <outlet property="nameLabel" destination="hh1-0N-b5s" id="2jD-Li-3cX"/>
                             <outlet property="pictureImageView" destination="1AV-1N-AV5" id="tIN-Pv-XNg"/>
-                            <outlet property="trainingResultPageView" destination="gvx-lD-jw1" id="qAu-CH-9No"/>
+                            <outlet property="tableView" destination="KNI-rp-zjc" id="xr7-aL-dHU"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="wein7" id="kh7-mY-uXS">
