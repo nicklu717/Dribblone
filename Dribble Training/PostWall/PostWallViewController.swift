@@ -35,9 +35,9 @@ class PostWallViewController: UIViewController {
         fetchTrainingResult()
     }
     
-    // MARK: - Private Method
+    // MARK: - Instance Method
     
-    private func fetchTrainingResult() {
+    func fetchTrainingResult() {
         
         FirestoreManager.shared.fetchTrainingResult { result in
             

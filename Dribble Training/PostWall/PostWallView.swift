@@ -10,6 +10,8 @@ import UIKit
 
 protocol PostWallViewDelegate: AnyObject {
     
+    func fetchTrainingResult()
+    
     func numberOfItemsInSection(_ section: Int) -> Int
     
     func cellForItemAt(_ indexPath: IndexPath,
@@ -25,17 +27,8 @@ class PostWallView: UIView {
     @IBOutlet var videoView: UIView!
     
     @IBOutlet var collectionView: UICollectionView! {
-        
         didSet {
-            
-            let inset: CGFloat = 3
-            
-            collectionView.contentInset = UIEdgeInsets(top: inset, left: inset,
-                                                       bottom: inset, right: inset)
-            
-            collectionView.registerCellWithNib(id: ResultCollectionViewCell.id)
-            
-            collectionView.dataSource = self
+            setupCollectionView()
         }
     }
     
@@ -44,6 +37,29 @@ class PostWallView: UIView {
     func reloadCollectionView() {
         
         collectionView.reloadData()
+        
+        collectionView.endHeaderRefresh()
+    }
+    
+    // MARK: - Private Method
+    
+    private func setupCollectionView() {
+        
+        collectionView.addRefreshHeader { [weak self] in
+            
+            self?.delegate?.fetchTrainingResult()
+        }
+        
+        let inset: CGFloat = 3
+        
+        collectionView.contentInset = UIEdgeInsets(top: inset, left: inset,
+                                                   bottom: inset, right: inset)
+        
+        
+        
+        collectionView.registerCellWithNib(id: ResultCollectionViewCell.id)
+        
+        collectionView.dataSource = self
     }
 }
 
