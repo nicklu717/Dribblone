@@ -23,8 +23,16 @@ class PostWallView: UIView {
     weak var delegate: PostWallViewDelegate?
     
     @IBOutlet var collectionView: UICollectionView! {
+        
         didSet {
+            
+            let inset: CGFloat = 3
+            
+            collectionView.contentInset = UIEdgeInsets(top: inset, left: inset,
+                                                       bottom: inset, right: inset)
+            
             collectionView.registerCellWithNib(id: PostWallCollectionViewCell.id)
+            
             collectionView.dataSource = self
         }
     }
