@@ -19,6 +19,5 @@ class PostWallCollectionViewCell: UICollectionViewCell {
     var videoURL: URL?
     
     @IBAction func showMemberProfile() {}
-    @IBAction func playVideo() {
-    }
+    @IBAction func playVideo() {}
 }

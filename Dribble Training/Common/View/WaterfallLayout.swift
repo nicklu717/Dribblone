@@ -27,7 +27,7 @@ class WaterfallLayout: UICollectionViewLayout {
     
     override var collectionViewContentSize: CGSize {
         
-        return CGSize(width: contentHeight, height: contentWidth)
+        return CGSize(width: contentWidth, height: contentHeight)
     }
     
     override func prepare() {
