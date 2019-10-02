@@ -10,6 +10,9 @@ import UIKit
 
 class WaterfallLayout: UICollectionViewLayout {
     
+    let numberOfColumn: Int = 2
+    let cellPadding: CGFloat = 3
+    
     var layoutAttributes: [UICollectionViewLayoutAttributes] = []
     
     var contentHeight: CGFloat = 0
@@ -29,6 +32,27 @@ class WaterfallLayout: UICollectionViewLayout {
     
     override func prepare() {
         
+        guard let collectionView = collectionView else { return }
+        
+        layoutAttributes = []
+        
+        var xOffsets = [CGFloat]()
+        var yOffsets = [CGFloat](repeating: 0, count: numberOfColumn)
+        
+        let columnWidth = contentWidth / CGFloat(numberOfColumn)
+        
+        for column in 0..<numberOfColumn {
+            
+            xOffsets.append(columnWidth * CGFloat(column))
+        }
+        
+        for section in 0..<collectionView.numberOfSections {
+        
+            for index in 0..<collectionView.numberOfItems(inSection: section) {
+                
+                
+            }
+        }
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
