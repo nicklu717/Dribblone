@@ -24,7 +24,6 @@
 		5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F29A0233B01C80047E8FA /* TabBar.storyboard */; };
 		5A64DF4223252EEF00562001 /* TrainingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */; };
 		5A64DF4423252F2600562001 /* TrainingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF4323252F2600562001 /* TrainingResultView.swift */; };
-		5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4523252F3E00562001 /* TrainingResult.storyboard */; };
 		5A64DF4A2326462100562001 /* TrainingResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */; };
 		5A64DF4C2326463000562001 /* TrainingResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */; };
 		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
@@ -98,7 +97,6 @@
 		5A5F29A0233B01C80047E8FA /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultViewController.swift; sourceTree = "<group>"; };
 		5A64DF4323252F2600562001 /* TrainingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultView.swift; sourceTree = "<group>"; };
-		5A64DF4523252F3E00562001 /* TrainingResult.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingResult.storyboard; sourceTree = "<group>"; };
 		5A64DF492326462100562001 /* TrainingResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingResultTableViewCell.swift; sourceTree = "<group>"; };
 		5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingResultTableViewCell.xib; sourceTree = "<group>"; };
 		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 		5AD91EED2324DE19000E2BB4 /* TrainingResult */ = {
 			isa = PBXGroup;
 			children = (
-				5A64DF4523252F3E00562001 /* TrainingResult.storyboard */,
 				5A64DF4123252EEF00562001 /* TrainingResultViewController.swift */,
 				5A64DF4323252F2600562001 /* TrainingResultView.swift */,
 				5A64DF4B2326463000562001 /* TrainingResultTableViewCell.xib */,
@@ -540,7 +537,6 @@
 				5A93ABAA233A2F3300358CCD /* SettingTableViewCell.xib in Resources */,
 				5A88EC832327902000BD23D4 /* Video.storyboard in Resources */,
 				5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */,
-				5A64DF4623252F3E00562001 /* TrainingResult.storyboard in Resources */,
 				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
 				5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,

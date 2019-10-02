@@ -19,11 +19,8 @@ class ProfileViewController: UIViewController {
     }
     
     var member: Member! {
-        
         didSet {
-            
             setupProfileView()
-            setupTrainingResultPage()
         }
     }
     
@@ -72,40 +69,6 @@ class ProfileViewController: UIViewController {
         navigationItem.title = member.id
         
         profileView.setupProfile(for: member)
-    }
-    
-    private func setupTrainingResultPage() {
-        
-        let storyboard = UIStoryboard.trainingResult
-        
-        guard
-            let trainingResultViewController = storyboard.instantiateInitialViewController()
-                as? TrainingResultViewController
-            else {
-                print("Training Result View Controller Not Exist")
-                return
-        }
-        
-        trainingResultPage = trainingResultViewController
-        
-        trainingResultPage.dataSource = self
-        
-        trainingResultPage.loadViewIfNeeded()
-        
-        fetchTrainingResult()
-        
-        showTrainingResultPage()
-    }
-    
-    private func showTrainingResultPage() {
-        
-        profileView.trainingResultPageView.addSubview(trainingResultPage.view)
-        
-        trainingResultPage.view.frame = profileView.trainingResultPageView.bounds
-        
-        addChild(trainingResultPage)
-        
-        trainingResultPage.didMove(toParent: self)
     }
 }
 
