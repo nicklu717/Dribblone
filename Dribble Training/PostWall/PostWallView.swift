@@ -22,6 +22,8 @@ class PostWallView: UIView {
     
     weak var delegate: PostWallViewDelegate?
     
+    @IBOutlet var videoView: UIView!
+    
     @IBOutlet var collectionView: UICollectionView! {
         
         didSet {
