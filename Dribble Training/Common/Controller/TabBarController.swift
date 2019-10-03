@@ -46,8 +46,6 @@ class TabBarController: UITabBarController {
         
         tabBar.isTranslucent = false
         
-//        tabBar.barTintColor = .b1
-        
         tabBar.tintColor = .brown3
     }
     

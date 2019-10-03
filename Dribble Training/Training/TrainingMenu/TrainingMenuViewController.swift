@@ -20,8 +20,6 @@ class TrainingMenuViewController: UIViewController {
     
     private var trainingPage: TrainingViewController!
     
-    private var trainingResultPage: TrainingResultViewController!
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -29,8 +27,6 @@ class TrainingMenuViewController: UIViewController {
         super.viewDidLoad()
         
         setupTrainingManagerPage()
-        
-        setupTrainingResultPage()
     }
     
     // MARK: - Private Method
@@ -44,19 +40,6 @@ class TrainingMenuViewController: UIViewController {
         trainingPage = viewController as? TrainingViewController
         
         trainingPage.loadViewIfNeeded()
-    }
-    
-    private func setupTrainingResultPage() {
-        
-        let storyboard = UIStoryboard.trainingResult
-        
-        let viewController = storyboard.instantiateInitialViewController()
-        
-        trainingResultPage = viewController as? TrainingResultViewController
-        
-        trainingResultPage.navigationItem.title = "Result"
-        
-        trainingResultPage.loadViewIfNeeded()
     }
 }
 
@@ -94,19 +77,6 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate {
         let mode = trainingModes[indexPath.row]
         
         trainingPage.setTrainingMode(to: mode)
-        
-        trainingPage.trainingCompletion = { [weak self] trainingResult in
-            
-            guard let strongSelf = self
-                else {
-                    print("Training Menu Not Exist")
-                    return
-            }
-            
-            strongSelf.trainingResultPage.trainingResults = [trainingResult]
-            
-            strongSelf.show(strongSelf.trainingResultPage, sender: nil)
-        }
         
         present(trainingPage, animated: true, completion: nil)
     }

@@ -19,17 +19,21 @@ class ProfileViewController: UIViewController {
     }
     
     var member: Member! {
-        
         didSet {
-            
-            setupProfileView()
-            setupTrainingResultPage()
+            setupProfile()
+            fetchTrainingResult()
         }
     }
     
-    var isOtherUser: Bool = false
+    var trainingResults: [TrainingResult] = [] {
+        didSet {
+            profileView.reloadTableView()
+        }
+    }
     
-    private var trainingResultPage: TrainingResultViewController!
+    var isOtherUser: Bool {
+        return member.id != AuthManager.shared.currentUser.id
+    }
     
     // MARK: - Life Cycle
     
@@ -44,12 +48,38 @@ class ProfileViewController: UIViewController {
             
             profileView.followButton.isHidden = false
             profileView.blockButton.isHidden = false
+            
+            updateFollowingStatus()
         }
-        
-        updateFollowingStatus()
     }
     
     // MARK: - Private Method
+    
+    private func setupProfile() {
+        
+        navigationItem.title = member.id
+        
+        loadViewIfNeeded()
+        
+        profileView.setupProfile(for: member)
+    }
+    
+    func fetchTrainingResult() {
+        
+        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
+            
+            switch result {
+                
+            case .success(let trainingResults):
+                
+                self.trainingResults = trainingResults
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
     
     private func updateFollowingStatus() {
         
@@ -64,52 +94,58 @@ class ProfileViewController: UIViewController {
             profileView.followButton.changeBackgroundColor(to: .brown3, duration: 0.15)
         }
     }
-    
-    private func setupProfileView() {
-        
-        loadViewIfNeeded()
-        
-        navigationItem.title = member.id
-        
-        profileView.setupProfile(for: member)
-    }
-    
-    private func setupTrainingResultPage() {
-        
-        let storyboard = UIStoryboard.trainingResult
-        
-        guard
-            let trainingResultViewController = storyboard.instantiateInitialViewController()
-                as? TrainingResultViewController
-            else {
-                print("Training Result View Controller Not Exist")
-                return
-        }
-        
-        trainingResultPage = trainingResultViewController
-        
-        trainingResultPage.dataSource = self
-        
-        trainingResultPage.loadViewIfNeeded()
-        
-        fetchTrainingResult()
-        
-        showTrainingResultPage()
-    }
-    
-    private func showTrainingResultPage() {
-        
-        profileView.trainingResultPageView.addSubview(trainingResultPage.view)
-        
-        trainingResultPage.view.frame = profileView.trainingResultPageView.bounds
-        
-        addChild(trainingResultPage)
-        
-        trainingResultPage.didMove(toParent: self)
-    }
 }
 
 extension ProfileViewController: ProfileViewDelegate {
+    
+    func numberOfRows(inSection section: Int) -> Int {
+        
+        return trainingResults.count
+    }
+    
+    func cellForRow(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
+        
+        let resultTableViewCell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.id, for: indexPath)
+        
+        guard let cell = resultTableViewCell as? ResultTableViewCell
+            else {
+                print("Result Table View Cell Casting Failure")
+                return UITableViewCell()
+        }
+        
+        let result = trainingResults[indexPath.row]
+        
+        let date = Date(timeIntervalSince1970: result.date)
+        
+        cell.dateLabel.text = date.string(format: .resultDisplay)
+        
+        cell.idLabel.text = result.id
+        
+        cell.modeLabel.text = result.mode
+        
+        cell.pointsLabel.text = String(result.points)
+        
+        cell.videoView.setImage(withURLString: result.screenShot)
+        
+        cell.videoURL = URL(string: result.videoURL)
+        
+        StorageManager.shared.getProfilePicture(forID: result.id) { result in
+            
+            switch result {
+                
+            case .success(let url):
+                
+                cell.profileImageView.setImage(withURLString: url.absoluteString,
+                                               placeholder: UIImage.asset(.profile))
+                
+            case .failure:
+                
+                break
+            }
+        }
+        
+        return cell
+    }
     
     var isFollowing: Bool {
         
@@ -152,33 +188,10 @@ extension ProfileViewController: ProfileViewDelegate {
     
     private func blockUserHandler() {
         
-        print("BLOCK user")
-        
         FirestoreManager.shared.block(member: member)
         
         AuthManager.shared.currentUser.blockList.append(member.id)
         
         navigationController?.popViewController(animated: true)
-    }
-}
-
-extension ProfileViewController: TrainingResultViewControllerDataSource {
-    
-    func fetchTrainingResult() {
-        
-        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
-            
-            switch result {
-                
-            case .success(let trainingResults):
-                
-                self.trainingResultPage.trainingResults = trainingResults
-                self.trainingResultPage.endRefreshing()
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-        }
     }
 }

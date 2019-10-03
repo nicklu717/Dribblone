@@ -24,8 +24,6 @@ extension UIStoryboard {
     
     static var training: UIStoryboard { return storyboard("Training")}
     
-    static var trainingResult: UIStoryboard { return storyboard("TrainingResult")}
-    
     static var profile: UIStoryboard { return storyboard("Profile") }
     
     static var team: UIStoryboard { return storyboard("Team") }

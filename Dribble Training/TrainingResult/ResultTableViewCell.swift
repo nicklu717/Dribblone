@@ -1,5 +1,5 @@
 //
-//  TrainingResultTableViewCell.swift
+//  ResultTableViewCell.swift
 //  Dribble Training
 //
 //  Created by 陸瑋恩 on 2019/9/9.
@@ -8,18 +8,11 @@
 
 import AVKit
 
-protocol TrainingResultTableViewCellDelegate: AnyObject {
-    
-    func pushProfile(forID memberID: ID)
-}
-
-class TrainingResultTableViewCell: UITableViewCell {
-    
-    weak var delegate: TrainingResultTableViewCellDelegate?
+class ResultTableViewCell: UITableViewCell {
     
     @IBOutlet var profileImageView: UIImageView!
     
-    @IBOutlet var idButton: UIButton!
+    @IBOutlet var idLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var modeLabel: UILabel!
     
@@ -68,11 +61,6 @@ class TrainingResultTableViewCell: UITableViewCell {
         avPlayerLayer.player?.play()
         
         videoView.image = nil
-    }
-    
-    @IBAction func pushProfile() {
-        
-        delegate?.pushProfile(forID: idButton.titleLabel?.text ?? "")
     }
     
     private func setupAVPlayer(url: URL) {

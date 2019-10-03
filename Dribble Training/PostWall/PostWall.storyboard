@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rgj-ia-Mzw">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rgj-ia-Mzw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,26 +10,28 @@
         <!--Post-->
         <scene sceneID="6C5-mv-Dnt">
             <objects>
-                <viewController id="Ee1-By-Aaz" customClass="PostWallViewController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Tae-u3-2Hr" customClass="PostWallView" customModule="Dribble_Training" customModuleProvider="target">
+                <viewController id="Ee1-By-Aaz" customClass="PostWallViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tae-u3-2Hr" customClass="PostWallView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-2d-cAu">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3ju-Vg-qkF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                                <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewLayout key="collectionViewLayout" id="aoQ-ps-oaz" customClass="WaterfallLayout" customModule="Dribblone" customModuleProvider="target"/>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XBG-2d-cAu" firstAttribute="top" secondItem="Tae-u3-2Hr" secondAttribute="top" id="A5x-Lu-Ist"/>
-                            <constraint firstItem="XBG-2d-cAu" firstAttribute="trailing" secondItem="Tae-u3-2Hr" secondAttribute="trailing" id="E9o-O4-Ky0"/>
-                            <constraint firstAttribute="bottom" secondItem="XBG-2d-cAu" secondAttribute="bottom" id="Lwe-Eu-Ktg"/>
-                            <constraint firstItem="XBG-2d-cAu" firstAttribute="leading" secondItem="Tae-u3-2Hr" secondAttribute="leading" id="UcI-x5-hHg"/>
+                            <constraint firstAttribute="trailing" secondItem="3ju-Vg-qkF" secondAttribute="trailing" id="cRu-P9-Jdf"/>
+                            <constraint firstItem="3ju-Vg-qkF" firstAttribute="leading" secondItem="Tae-u3-2Hr" secondAttribute="leading" id="fF2-w4-a0q"/>
+                            <constraint firstItem="3ju-Vg-qkF" firstAttribute="top" secondItem="Tae-u3-2Hr" secondAttribute="top" id="kGg-Fc-wIy"/>
+                            <constraint firstAttribute="bottom" secondItem="3ju-Vg-qkF" secondAttribute="bottom" id="ni6-mH-IFh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N0U-2Y-PEU"/>
                         <connections>
-                            <outlet property="trainingResultPageView" destination="XBG-2d-cAu" id="5Lk-O3-a1T"/>
+                            <outlet property="collectionView" destination="3ju-Vg-qkF" id="2ZU-95-Kha"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="66B-nU-0dL"/>
@@ -47,7 +46,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ZpC-mC-DD3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rgj-ia-Mzw" customClass="NavigationController" customModule="Dribble_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rgj-ia-Mzw" customClass="NavigationController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rb7-ar-g8c">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
