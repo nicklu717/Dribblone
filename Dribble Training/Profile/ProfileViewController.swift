@@ -36,9 +36,10 @@ class ProfileViewController: UIViewController {
     }
     
     // MARK: - Life Cycle
-    override func viewDidLoad() {
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        super.viewDidLoad()
+        super.viewWillAppear(animated)
         
         if isOtherUser {
             
