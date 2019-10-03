@@ -76,7 +76,7 @@ class PostWallViewController: UIViewController {
         
         let profileStoryboard = UIStoryboard.profile
         
-        let viewController = profileStoryboard.instantiateInitialViewController()
+        let viewController = profileStoryboard.instantiateViewController(identifier: ProfileViewController.id)
         
         guard let profilePage = viewController as? ProfileViewController
             else {
@@ -145,19 +145,27 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
     
     func showProfile(for id: ID) {
         
-//        FirestoreManager.shared.fetchMemberData(forID: id) { result in
-//
-//            switch result {
-//
-//            case .success(let member):
-//
-//
-//
-//            case .failure(let error):
-//
-//                print(error)
-//            }
-//        }
+        FirestoreManager.shared.fetchMemberData(forID: id) { result in
+
+            switch result {
+
+            case .success(let member):
+                
+                guard let member = member
+                    else {
+                        print("Member Data Not Exist")
+                        return
+                }
+                
+                self.profilePage.member = member
+                
+                self.show(self.profilePage, sender: nil)
+
+            case .failure(let error):
+
+                print(error)
+            }
+        }
     }
     
     func playVideo(with url: URL?) -> Bool {
