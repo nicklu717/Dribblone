@@ -145,6 +145,8 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
     
     func showProfile(for id: ID) {
         
+        if id == AuthManager.shared.currentUser.id { return }
+        
         FirestoreManager.shared.fetchMemberData(forID: id) { result in
 
             switch result {
