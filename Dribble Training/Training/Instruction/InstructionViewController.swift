@@ -29,7 +29,7 @@ class InstructionViewController: UIViewController {
     
     // MARK: - Instance Method
     
-    @IBAction func startTraining() {
+    func startTraining() {
         
         trainingPage.setTrainingMode(to: trainingMode)
 

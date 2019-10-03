@@ -20,11 +20,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="startTraining" destination="IcJ-VW-ARs" eventType="touchUpInside" id="Ahg-tz-X1V"/>
+                                    <action selector="startTraining" destination="vXW-ti-MSd" eventType="touchUpInside" id="gmF-dD-5eA"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2ht-Ue-YNN"/>
                     </view>
                     <connections>

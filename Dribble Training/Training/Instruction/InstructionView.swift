@@ -8,6 +8,17 @@
 
 import UIKit
 
+protocol InstructionViewDelegate: AnyObject {
+    
+    func startTraining()
+}
+
 class InstructionView: UIView {
     
+    weak var delegate: InstructionViewDelegate?
+    
+    @IBAction func startTraining() {
+        
+        delegate?.startTraining()
+    }
 }
