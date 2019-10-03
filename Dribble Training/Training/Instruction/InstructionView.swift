@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 protocol InstructionViewDelegate: AnyObject {
     
@@ -17,7 +18,16 @@ protocol InstructionViewDelegate: AnyObject {
 
 class InstructionView: UIView {
     
+    // MARK: - Property
+    
     weak var delegate: InstructionViewDelegate?
+    
+    @IBOutlet var videoPlayerView: YTPlayerView!
+    @IBOutlet var modeLabel: UILabel!
+    @IBOutlet var durationLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    
+    // MARK: - Instance Method
     
     @IBAction func startTraining() {
         
