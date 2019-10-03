@@ -16,13 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5S-DW-qKd">
-                                <rect key="frame" x="36" y="820" width="342" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-SN-MEb">
+                                <rect key="frame" x="215" y="562.5" width="163" height="40"/>
+                                <color key="backgroundColor" name="B2"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gy0-B4-fJf"/>
+                                    <constraint firstAttribute="height" constant="40" id="WHP-Xh-hcQ"/>
                                 </constraints>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -31,7 +31,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="dismiss" destination="vXW-ti-MSd" eventType="touchUpInside" id="2Ni-So-0dq"/>
+                                    <action selector="startTraining" destination="vXW-ti-MSd" eventType="touchUpInside" id="p5x-5F-6EU"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLK-DC-AXC" customClass="YTPlayerView">
@@ -56,13 +56,10 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-SN-MEb">
-                                <rect key="frame" x="36" y="764" width="342" height="40"/>
-                                <color key="backgroundColor" name="B2"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="WHP-Xh-hcQ"/>
-                                </constraints>
-                                <state key="normal" title="Start Training">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5S-DW-qKd">
+                                <rect key="frame" x="36" y="562.5" width="163" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -71,7 +68,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="startTraining" destination="vXW-ti-MSd" eventType="touchUpInside" id="p5x-5F-6EU"/>
+                                    <action selector="dismiss" destination="vXW-ti-MSd" eventType="touchUpInside" id="2Ni-So-0dq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,20 +76,21 @@
                         <constraints>
                             <constraint firstItem="1BY-GE-Wbj" firstAttribute="top" secondItem="jLK-DC-AXC" secondAttribute="bottom" constant="16" id="4Qb-zV-Rhj"/>
                             <constraint firstItem="W5S-DW-qKd" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" constant="36" id="5sD-1Z-RlZ"/>
-                            <constraint firstAttribute="trailing" secondItem="W5S-DW-qKd" secondAttribute="trailing" constant="36" id="7t6-qb-XV3"/>
+                            <constraint firstItem="W5S-DW-qKd" firstAttribute="top" secondItem="gG5-C5-rc2" secondAttribute="bottom" constant="36" id="8XD-29-hDL"/>
                             <constraint firstItem="NEG-dc-nb0" firstAttribute="leading" secondItem="1BY-GE-Wbj" secondAttribute="leading" id="Bws-zt-eLg"/>
                             <constraint firstAttribute="trailing" secondItem="gG5-C5-rc2" secondAttribute="trailing" constant="36" id="CY1-6M-fBx"/>
-                            <constraint firstAttribute="bottom" secondItem="W5S-DW-qKd" secondAttribute="bottom" constant="36" id="EHP-Dh-y7h"/>
-                            <constraint firstItem="HZT-SN-MEb" firstAttribute="centerX" secondItem="W5S-DW-qKd" secondAttribute="centerX" id="Esk-f3-MaM"/>
                             <constraint firstItem="NEG-dc-nb0" firstAttribute="top" secondItem="1BY-GE-Wbj" secondAttribute="bottom" id="GUE-I1-toH"/>
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="height" secondItem="vXW-ti-MSd" secondAttribute="height" multiplier="2:5" id="IJN-Qb-682"/>
-                            <constraint firstItem="W5S-DW-qKd" firstAttribute="top" secondItem="HZT-SN-MEb" secondAttribute="bottom" constant="16" id="ISZ-HG-wlc"/>
+                            <constraint firstItem="HZT-SN-MEb" firstAttribute="centerY" secondItem="W5S-DW-qKd" secondAttribute="centerY" id="ITP-tO-SUU"/>
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="trailing" secondItem="vXW-ti-MSd" secondAttribute="trailing" id="Li7-F1-W0s"/>
                             <constraint firstItem="gG5-C5-rc2" firstAttribute="leading" secondItem="1BY-GE-Wbj" secondAttribute="leading" id="Oa0-Wu-guE"/>
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" id="PeC-JQ-9B4"/>
+                            <constraint firstAttribute="trailing" secondItem="HZT-SN-MEb" secondAttribute="trailing" constant="36" id="QwR-5u-OKV"/>
+                            <constraint firstItem="W5S-DW-qKd" firstAttribute="height" secondItem="HZT-SN-MEb" secondAttribute="height" id="ZbU-97-6Yr"/>
+                            <constraint firstItem="HZT-SN-MEb" firstAttribute="leading" secondItem="W5S-DW-qKd" secondAttribute="trailing" constant="16" id="b4H-Yy-1sh"/>
                             <constraint firstItem="gG5-C5-rc2" firstAttribute="top" secondItem="NEG-dc-nb0" secondAttribute="bottom" constant="8" id="euV-pg-GlP"/>
                             <constraint firstItem="HZT-SN-MEb" firstAttribute="width" secondItem="W5S-DW-qKd" secondAttribute="width" id="g4h-7P-LKZ"/>
-                            <constraint firstItem="jLK-DC-AXC" firstAttribute="top" secondItem="vXW-ti-MSd" secondAttribute="topMargin" id="t7M-VB-6tD"/>
+                            <constraint firstItem="jLK-DC-AXC" firstAttribute="top" secondItem="vXW-ti-MSd" secondAttribute="top" constant="44" id="t7M-VB-6tD"/>
                             <constraint firstItem="1BY-GE-Wbj" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" constant="36" id="xEH-2k-mCb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ht-Ue-YNN"/>
