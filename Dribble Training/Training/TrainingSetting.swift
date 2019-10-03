@@ -26,6 +26,66 @@ enum TrainingMode: String {
     case leftHand = "One Hand: Left"
     
     case mStyle = "M Style"
+    
+    var description: String {
+        
+        var description: String!
+        
+        switch self {
+            
+        case .crossover:
+            
+            description = ""
+            
+        case .low:
+        
+            description = ""
+            
+        case .rightHand, .leftHand:
+        
+            description = ""
+            
+        case .mStyle:
+        
+            description = ""
+            
+        case .random:
+        
+            description = ""
+        }
+        
+        return description
+    }
+    
+    var videoID: String {
+        
+        var id: String!
+        
+        switch self {
+            
+        case .crossover:
+            
+            id = ""
+            
+        case .low:
+        
+            id = ""
+            
+        case .rightHand, .leftHand:
+        
+            id = ""
+            
+        case .mStyle:
+        
+            id = ""
+            
+        case .random:
+        
+            id = ""
+        }
+        
+        return id
+    }
 }
 
 enum SceneNode {

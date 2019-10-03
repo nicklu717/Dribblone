@@ -11,8 +11,6 @@ import youtube_ios_player_helper
 
 protocol InstructionViewDelegate: AnyObject {
     
-//    var trainingMode: TrainingMode { get }
-    
     func startTraining()
 }
 

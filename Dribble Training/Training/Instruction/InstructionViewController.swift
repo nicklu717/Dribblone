@@ -18,7 +18,11 @@ class InstructionViewController: UIViewController, InstructionViewDelegate {
         }
     }
     
-    var trainingMode: TrainingMode = .crossover
+    var trainingMode: TrainingMode! {
+        didSet {
+            setupInstructionView()
+        }
+    }
     
     private var trainingPage: TrainingViewController!
     
@@ -41,6 +45,15 @@ class InstructionViewController: UIViewController, InstructionViewDelegate {
     }
     
     // MARK: - Private Method
+    
+    private func setupInstructionView() {
+        
+        instructionView.videoPlayerView.load(withVideoId: trainingMode.videoID)
+        
+        instructionView.modeLabel.text = trainingMode.rawValue
+        
+        instructionView.descriptionLabel.text = trainingMode.description
+    }
     
     private func setupTrainingPage() {
         
