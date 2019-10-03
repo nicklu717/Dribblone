@@ -49,7 +49,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         
         guard let delegate = delegate
             else {
-                print("Post Wall Collection View Cell Delegate Not Exist")
+                print("Result Collection View Cell Delegate Not Exist")
                 return
         }
         

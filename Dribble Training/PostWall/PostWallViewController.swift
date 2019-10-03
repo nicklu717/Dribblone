@@ -83,7 +83,7 @@ extension PostWallViewController: PostWallViewDelegate {
         
         guard let cell = resultCollectionViewCell as? ResultCollectionViewCell
             else {
-                print("Post Wall Collection View Cell Casting Failure")
+                print("Result Collection View Cell Casting Failure")
                 return resultCollectionViewCell
         }
         
