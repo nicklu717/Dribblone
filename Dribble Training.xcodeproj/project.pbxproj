@@ -19,6 +19,8 @@
 		5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590C2339236A0055190A /* UIView+Extension.swift */; };
 		5A4B0164233D0C7A0067ADBB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4B0163233D0C7A0067ADBB /* WebKit.framework */; };
 		5A5618132345A89A004B66A5 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5618122345A89A004B66A5 /* Instruction.storyboard */; };
+		5A5618152345A9E1004B66A5 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5618142345A9E1004B66A5 /* InstructionViewController.swift */; };
+		5A5618172345A9FA004B66A5 /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5618162345A9FA004B66A5 /* InstructionView.swift */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
@@ -89,6 +91,8 @@
 		5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dribble Training.entitlements"; sourceTree = "<group>"; };
 		5A4B0163233D0C7A0067ADBB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5A5618122345A89A004B66A5 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
+		5A5618142345A9E1004B66A5 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
+		5A5618162345A9FA004B66A5 /* InstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				5A5618122345A89A004B66A5 /* Instruction.storyboard */,
+				5A5618142345A9E1004B66A5 /* InstructionViewController.swift */,
+				5A5618162345A9FA004B66A5 /* InstructionView.swift */,
 			);
 			path = Instruction;
 			sourceTree = "<group>";
@@ -637,8 +643,10 @@
 				5AD91EF22324E9AD000E2BB4 /* TrainingMenuView.swift in Sources */,
 				5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */,
 				5ACBCAF2232A229C007B0E3B /* FirestoreManager.swift in Sources */,
+				5A5618152345A9E1004B66A5 /* InstructionViewController.swift in Sources */,
 				5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */,
 				5A93AB9C2339CFBC00358CCD /* UIColor+Extension.swift in Sources */,
+				5A5618172345A9FA004B66A5 /* InstructionView.swift in Sources */,
 				5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */,
 				5A93ABB0233A380A00358CCD /* Setting.swift in Sources */,
 				5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */,
