@@ -40,21 +40,7 @@ class TrainingViewController: UIViewController {
     
     var trainingResult: TrainingResult!
     
-    var trainingCompletion: ((TrainingResult) -> ())?
-    
-    // MARK: - View Life Cycle
-
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(startRecording),
-            name: .startTraining,
-            object: nil
-        )
-    }
+    var trainingCompletion: ((TrainingResult) -> Void)?
     
     // MARK: - Instance Method
     
@@ -62,7 +48,7 @@ class TrainingViewController: UIViewController {
         
         let destination = segue.destination
         
-        switch destination  {
+        switch destination {
 
         case is BallTrackerViewController:
             
@@ -73,30 +59,6 @@ class TrainingViewController: UIViewController {
             trainingAssistantPage = destination as? TrainingAssistantViewController
             
         default: return
-        }
-    }
-    
-    @objc func startRecording() {
-        
-        let date = Date().timeIntervalSince1970
-        
-        trainingResult = TrainingResult(id: AuthManager.shared.currentUser.id,
-                                        date: date,
-                                        mode: "",
-                                        points: 0,
-                                        videoURL: "",
-                                        screenShot: "")
-        
-        takeScreenShot()
-        
-        screenRecorder.startRecording { error in
-            
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            print("Start Recording")
         }
     }
     
@@ -148,6 +110,48 @@ extension TrainingViewController: BallTrackerViewControllerDelegate {
 
 extension TrainingViewController: TrainingAssistantViewControllerDelegate {
     
+    func fakeRecordingForPermission() {
+        
+        screenRecorder.startRecording { error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print("Start Recording")
+        }
+    }
+    
+    func startRecording() {
+        
+        let date = Date().timeIntervalSince1970
+        
+        trainingResult = TrainingResult(id: AuthManager.shared.currentUser.id,
+                                        date: date,
+                                        mode: "",
+                                        points: 0,
+                                        videoURL: "",
+                                        screenShot: "")
+        
+        takeScreenShot()
+        
+        screenRecorder.startRecording { error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print("Start Recording")
+        }
+    }
+    
+    func cancelRecording() {
+        
+        screenRecorder.stopRecording(handler: nil)
+    }
+    
     func endTraining(points: Int, trainingMode mode: String) {
         
         trainingResult.mode = mode
@@ -192,19 +196,10 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
             return
         }
         
-        let fetchOptions = PHFetchOptions()
-        
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
-                                                         ascending: false)]
-        
-        let fetchResult = PHAsset.fetchAssets(with: .video, options: fetchOptions)
-        
-        guard
-            let videoPHAsset = fetchResult.firstObject,
-            let videoResource = PHAssetResource.assetResources(for: videoPHAsset).first
-        else {
-            print("Video Fetching Failure")
-            return
+        guard let videoResource = PhotoManager.shared.fetchResource(for: .video)
+            else {
+                print("Video Resource Fetching Failure")
+                return
         }
         
         var temporaryURL = FileManager.default.temporaryDirectory
@@ -212,46 +207,38 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
         temporaryURL.appendPathComponent("temp")
         temporaryURL.appendPathExtension("mp4")
         
-        PHAssetResourceManager.default().writeData(
-            for: videoResource,
-            toFile: temporaryURL,
-            options: nil) { error in
-                
-                if let error = error {
-                    print(error)
-                    return
-                }
-                
-                StorageManager.shared.uploadVideo(
-                    fileName: videoResource.originalFilename,
-                    url: temporaryURL,
-                    completion: { result in
+        PhotoManager.shared.writeData(to: temporaryURL, resource: videoResource) {
+            
+            StorageManager.shared.uploadVideo(
+                fileName: videoResource.originalFilename,
+                url: temporaryURL,
+                completion: { result in
+                    
+                    do {
+                        try FileManager.default.removeItem(at: temporaryURL)
+                    } catch {
+                        print(error)
+                    }
+                    
+                    switch result {
                         
-                        do {
-                            try FileManager.default.removeItem(at: temporaryURL)
-                        } catch {
-                            print(error)
+                    case .success(let videoURL):
+                        
+                        self.trainingResult.videoURL = String(describing: videoURL)
+                        
+                        self.presentingViewController?.dismiss(animated: true) {
+                            
+                            self.trainingCompletion?(self.trainingResult)
                         }
                         
-                        switch result {
-                            
-                        case .success(let videoURL):
-                            
-                            self.trainingResult.videoURL = String(describing: videoURL)
-                            
-                            self.presentingViewController?.dismiss(animated: true) {
-                                
-                                self.trainingCompletion?(self.trainingResult)
-                            }
-                            
-                            FirestoreManager.shared.upload(trainingResult: self.trainingResult,
-                                                           for: AuthManager.shared.currentUser)
-                            
-                        case .failure(let error):
-                            
-                            print(error)
-                        }
-                })
+                        FirestoreManager.shared.upload(trainingResult: self.trainingResult,
+                                                       for: AuthManager.shared.currentUser)
+                        
+                    case .failure(let error):
+                        
+                        print(error)
+                    }
+            })
         }
     }
 }

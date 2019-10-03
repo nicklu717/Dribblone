@@ -18,9 +18,7 @@ class TrainingMenuViewController: UIViewController {
         }
     }
     
-    private var trainingPage: TrainingViewController!
-    
-    private var trainingResultPage: TrainingResultViewController!
+    private var instructionPage: InstructionViewController!
     
     // MARK: - Life Cycle
     
@@ -28,39 +26,24 @@ class TrainingMenuViewController: UIViewController {
         
         super.viewDidLoad()
         
-        setupTrainingManagerPage()
-        
-        setupTrainingResultPage()
+        setupInstructionPage()
     }
     
     // MARK: - Private Method
     
-    private func setupTrainingManagerPage() {
+    private func setupInstructionPage() {
         
-        let storyboard = UIStoryboard.training
+        let instructionStoryboard = UIStoryboard.instruction
         
-        let viewController = storyboard.instantiateInitialViewController()
+        let viewController = instructionStoryboard.instantiateInitialViewController()
         
-        trainingPage = viewController as? TrainingViewController
+        instructionPage = viewController as? InstructionViewController
         
-        trainingPage.loadViewIfNeeded()
-    }
-    
-    private func setupTrainingResultPage() {
-        
-        let storyboard = UIStoryboard.trainingResult
-        
-        let viewController = storyboard.instantiateInitialViewController()
-        
-        trainingResultPage = viewController as? TrainingResultViewController
-        
-        trainingResultPage.navigationItem.title = "Result"
-        
-        trainingResultPage.loadViewIfNeeded()
+        instructionPage.loadViewIfNeeded()
     }
 }
 
-extension TrainingMenuViewController: TrainingMenuViewDelegate{
+extension TrainingMenuViewController: TrainingMenuViewDelegate {
     
     var trainingModes: [TrainingMode] {
         
@@ -89,25 +72,12 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate{
         return modeCell
     }
     
-    func startTraining(forModeIndexPath indexPath: IndexPath) {
+    func prepareTraining(forModeIndex indexPath: IndexPath) {
         
         let mode = trainingModes[indexPath.row]
+
+        instructionPage.trainingMode = mode
         
-        trainingPage.setTrainingMode(to: mode)
-        
-        trainingPage.trainingCompletion = { [weak self] trainingResult in
-            
-            guard let strongSelf = self
-                else {
-                    print("Training Menu Not Exist")
-                    return
-            }
-            
-            strongSelf.trainingResultPage.trainingResults = [trainingResult]
-            
-            strongSelf.show(strongSelf.trainingResultPage, sender: nil)
-        }
-        
-        present(trainingPage, animated: true, completion: nil)
+        present(instructionPage, animated: true, completion: nil)
     }
 }

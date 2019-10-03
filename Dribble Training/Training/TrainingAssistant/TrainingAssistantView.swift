@@ -10,6 +10,8 @@ import SpriteKit
 
 protocol TrainingAssistantViewDelegate: SKPhysicsContactDelegate {
     
+    func startPreparingCountdown()
+    
     func cancelTraining()
 }
 
@@ -19,17 +21,22 @@ class TrainingAssistantView: SKView {
     
     weak var viewDelegate: TrainingAssistantViewDelegate? {
         didSet {
-            setUpScene()
+            setupScene()
+            setupBallNode()
+            setupTargetNode()
         }
     }
     
+    let trainScene = SKScene()
+    
     let ballNode = SKShapeNode(circleOfRadius: 30)
     
-    let targetNode = SKShapeNode(circleOfRadius: 30)
+    var targetNode: SKSpriteNode!
     
     @IBOutlet var pointsLabel: UILabel!
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var startButton: UIButton!
+    @IBOutlet var preparingCountdownLabel: UILabel!
     
     @IBOutlet var cancelButton: UIButton! {
         
@@ -45,7 +52,22 @@ class TrainingAssistantView: SKView {
     private var positionX: Position.X = .left
     private var positionY: Position.Y = .high
     
+    private var xScale: CGFloat!
+    private var yScale: CGFloat!
+    
     // MARK: - Instance Method
+    
+    func setPreparingCountdownLabel(to second: Int) {
+        
+        if second <= 0 {
+            
+            preparingCountdownLabel.text = "Go!"
+            
+        } else {
+            
+            preparingCountdownLabel.text = String(second)
+        }
+    }
     
     func setPointsLabel(_ points: Int) {
         
@@ -77,49 +99,11 @@ class TrainingAssistantView: SKView {
         ballNode.run(moveAction)
     }
     
-    // MARK: - Private Method
-    
-    private func setUpScene() {
-        
-        // Set Up Scene
-        
-        let scene = SKScene()
-        
-        scene.scaleMode = .resizeFill
-        scene.backgroundColor = .clear
-        
-        scene.physicsWorld.contactDelegate = viewDelegate
-        
-        presentScene(scene)
-        
-        // Set Up Ball Node
-        
-        ballNode.position = CGPoint(x: -100, y: -100)
-        
-        ballNode.lineWidth = 0
-        
-        ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
-        ballNode.physicsBody?.affectedByGravity = false
-        ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
-        
-        scene.addChild(ballNode)
-        
-        // Set Up Target Node
-        
-        targetNode.fillColor = .b2
-        
-        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
-        targetNode.physicsBody?.affectedByGravity = false
-        targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
-        targetNode.physicsBody?.contactTestBitMask =
-            SceneNode.ball.categoryMask | SceneNode.target.categoryMask
-    }
-    
     @IBAction func startTraining() {
         
         startButton.isHidden = true
         
-        NotificationCenter.default.post(Notification(name: .startTraining))
+        viewDelegate?.startPreparingCountdown()
     }
     
     @IBAction func cancelTraining() {
@@ -127,6 +111,56 @@ class TrainingAssistantView: SKView {
         viewDelegate?.cancelTraining()
     }
     
+    // MARK: - Private Method
+    
+    private func setupScene() {
+        
+        trainScene.scaleMode = .resizeFill
+        trainScene.backgroundColor = .clear
+        
+        trainScene.physicsWorld.contactDelegate = viewDelegate
+        
+        presentScene(trainScene)
+    }
+    
+    private func setupBallNode() {
+        
+        ballNode.lineWidth = 0
+        
+        ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        ballNode.physicsBody?.affectedByGravity = false
+        ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
+        
+        trainScene.addChild(ballNode)
+    }
+    
+    private func setupTargetNode() {
+        
+        let pumpingTargetPointAtlas = SKTextureAtlas(named: "PumpingTargetPoint")
+        
+        var pumpingTextures: [SKTexture] = []
+        
+        for index in 1...pumpingTargetPointAtlas.textureNames.count {
+            
+            let textureName = "flash\(index)"
+            
+            pumpingTextures.append(pumpingTargetPointAtlas.textureNamed(textureName))
+        }
+        
+        targetNode = SKSpriteNode(texture: pumpingTextures[0])
+        
+        let animation = SKAction.animate(with: pumpingTextures, timePerFrame: 0.05)
+        
+        targetNode.run(SKAction.repeatForever(animation))
+        
+        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        targetNode.physicsBody?.affectedByGravity = false
+        targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
+        targetNode.physicsBody?.contactTestBitMask =
+            SceneNode.ball.categoryMask | SceneNode.target.categoryMask
+    }
+    
+    // swiftlint:disable cyclomatic_complexity
     private func targetNodePosition(mode: TrainingMode) -> CGPoint {
         
         switch mode {
@@ -186,18 +220,20 @@ class TrainingAssistantView: SKView {
         case .random: break
         }
         
-        var x = bounds.width * positionX.rawValue
-        var y = bounds.height * positionY.rawValue
+        xScale = positionX.rawValue
+        yScale = positionY.rawValue
         
         if mode == .random {
             
-            x = CGFloat(Double.random(in: 0.2...0.8))
-            y = CGFloat(Double.random(in: 0.2...0.6))
+            xScale = CGFloat(Double.random(in: 0.2...0.8))
+            yScale = CGFloat(Double.random(in: 0.2...0.6))
         }
         
-        return CGPoint(x: x, y: y)
+        return CGPoint(x: bounds.width * xScale, y: bounds.height * yScale)
     }
+    // swiftlint:enable cyclomatic_complexity
     
+    // swiftlint:disable nesting type_name
     private struct Position {
         
         enum X: CGFloat {
@@ -220,4 +256,5 @@ class TrainingAssistantView: SKView {
             case high = 0.6
         }
     }
+    // swiftoint:enable nesting type_name
 }

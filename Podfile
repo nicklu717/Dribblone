@@ -9,13 +9,20 @@ target 'Dribble Training' do
   use_frameworks!
 
   # Pods for Dribble Training
+  pod 'SwiftLint'
+
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
 
+  pod 'Fabric'
+  pod 'Crashlytics'
+
+  pod 'youtube-ios-player-helper'
+
   pod 'KeychainAccess'
-  pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher'
+  pod 'IQKeyboardManagerSwift'
 
   pod 'MJRefresh'
   pod 'SCLAlertView'

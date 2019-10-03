@@ -65,7 +65,10 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                                                 followings: [],
                                                 blockList: [],
                                                 trainingResults: [],
-                                                picture: "")
+                                                picture: "",
+                                                teams: [],
+                                                teamInvitations: [],
+                                                blockTeamList: [])
                             
                             FirestoreManager.shared.create(
                                 member: member,
@@ -177,7 +180,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         
         for textField in textFields where textField.text == "" {
             
-            let red = UIColor.b2.withAlphaComponent(0.6)
+            let red = UIColor.brown2.withAlphaComponent(0.6)
             
             textField.flashBackground(with: red, duration: 0.15)
             
@@ -258,7 +261,10 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                                         followings: [],
                                         blockList: [],
                                         trainingResults: [],
-                                        picture: "")
+                                        picture: "",
+                                        teams: [],
+                                        teamInvitations: [],
+                                        blockTeamList: [])
                     
                     FirestoreManager.shared.create(member: member, completion: {
                         

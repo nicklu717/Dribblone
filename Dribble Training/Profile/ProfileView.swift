@@ -10,6 +10,12 @@ import UIKit
 
 protocol ProfileViewDelegate: AnyObject {
     
+    func fetchTrainingResult()
+    
+    func numberOfRows(inSection section: Int) -> Int
+    
+    func cellForRow(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell
+    
     var isFollowing: Bool { get }
     
     func followUser()
@@ -23,20 +29,20 @@ class ProfileView: UIView {
     
     weak var delegate: ProfileViewDelegate?
     
-    @IBOutlet var pictureImageView: UIImageView! {
-        didSet {
-            pictureImageView.layer.cornerRadius = pictureImageView.bounds.width * 1/2
-            pictureImageView.image = UIImage.asset(.profile)
-        }
-    }
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var pictureImageView: UIImageView!
+    
     @IBOutlet var followingsLabel: UILabel!
     @IBOutlet var followersLabel: UILabel!
     
     @IBOutlet var followButton: UIButton!
     @IBOutlet var blockButton: UIButton!
     
-    @IBOutlet var trainingResultPageView: UIView!
+    @IBOutlet var tableView: UITableView! {
+        didSet {
+            setupTableView()
+        }
+    }
     
     func setupProfile(for member: Member) {
         
@@ -58,6 +64,13 @@ class ProfileView: UIView {
         followersLabel.text = String(member.followers.count)
     }
     
+    func reloadTableView() {
+        
+        tableView.reloadData()
+        
+        tableView.endHeaderRefresh()
+    }
+    
     @IBAction func followUser() {
         
         guard let delegate = delegate
@@ -77,6 +90,32 @@ class ProfileView: UIView {
     }
     
     @IBAction func blockUser() {
+        
         delegate?.blockUser()
+    }
+    
+    private func setupTableView() {
+        
+        tableView.addRefreshHeader { [weak self] in
+            
+            self?.delegate?.fetchTrainingResult()
+        }
+        
+        tableView.registerCellWithNib(id: ResultTableViewCell.id)
+        
+        tableView.dataSource = self
+    }
+}
+
+extension ProfileView: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return delegate?.numberOfRows(inSection: section) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return delegate?.cellForRow(at: indexPath, in: tableView) ?? UITableViewCell()
     }
 }
