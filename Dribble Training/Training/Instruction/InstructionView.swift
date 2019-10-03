@@ -10,6 +10,8 @@ import UIKit
 
 protocol InstructionViewDelegate: AnyObject {
     
+//    var trainingMode: TrainingMode { get }
+    
     func startTraining()
 }
 

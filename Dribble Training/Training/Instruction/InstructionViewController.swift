@@ -8,13 +8,17 @@
 
 import UIKit
 
-class InstructionViewController: UIViewController {
+class InstructionViewController: UIViewController, InstructionViewDelegate {
     
     // MARK: - Property Declartion
     
-    @IBOutlet var instructionView: InstructionView!
+    @IBOutlet var instructionView: InstructionView! {
+        didSet {
+            instructionView.delegate = self
+        }
+    }
     
-    var trainingMode: TrainingMode!
+    var trainingMode: TrainingMode = .crossover
     
     private var trainingPage: TrainingViewController!
     
