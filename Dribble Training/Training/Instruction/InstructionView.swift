@@ -12,6 +12,8 @@ import youtube_ios_player_helper
 protocol InstructionViewDelegate: AnyObject {
     
     func startTraining()
+    
+    func dismiss()
 }
 
 class InstructionView: UIView {
@@ -30,5 +32,10 @@ class InstructionView: UIView {
     @IBAction func startTraining() {
         
         delegate?.startTraining()
+    }
+    
+    @IBAction func dismiss() {
+        
+        delegate?.dismiss()
     }
 }

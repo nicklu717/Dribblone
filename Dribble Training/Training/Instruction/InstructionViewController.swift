@@ -44,6 +44,11 @@ class InstructionViewController: UIViewController, InstructionViewDelegate {
         present(trainingPage, animated: true, completion: nil)
     }
     
+    func dismiss() {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Private Method
     
     private func setupInstructionView() {
