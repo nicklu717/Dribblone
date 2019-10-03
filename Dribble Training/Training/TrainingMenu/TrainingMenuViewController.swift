@@ -78,19 +78,6 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate {
         
         trainingPage.setTrainingMode(to: mode)
         
-        trainingPage.trainingCompletion = { [weak self] trainingResult in
-            
-//            guard let strongSelf = self
-//                else {
-//                    print("Training Menu Not Exist")
-//                    return
-//            }
-//
-//            strongSelf.trainingResultPage.trainingResults = [trainingResult]
-//
-//            strongSelf.show(strongSelf.trainingResultPage, sender: nil)
-        }
-        
         present(trainingPage, animated: true, completion: nil)
     }
 }
