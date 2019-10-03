@@ -30,12 +30,7 @@ class ProfileView: UIView {
     weak var delegate: ProfileViewDelegate?
     
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var pictureImageView: UIImageView! {
-        didSet {
-            pictureImageView.layer.cornerRadius = pictureImageView.bounds.width * 1/2
-            pictureImageView.image = UIImage.asset(.profile)
-        }
-    }
+    @IBOutlet var pictureImageView: UIImageView!
     
     @IBOutlet var followingsLabel: UILabel!
     @IBOutlet var followersLabel: UILabel!
