@@ -18,9 +18,11 @@ extension UIStoryboard {
     
     static var postWall: UIStoryboard { return storyboard("PostWall") }
     
-    static var trainingMenu: UIStoryboard { return storyboard("TrainingMenu")}
+    static var trainingMenu: UIStoryboard { return storyboard("TrainingMenu") }
     
-    static var training: UIStoryboard { return storyboard("Training")}
+    static var instruction: UIStoryboard { return storyboard("Instruction") }
+    
+    static var training: UIStoryboard { return storyboard("Training") }
     
     static var profile: UIStoryboard { return storyboard("Profile") }
     
