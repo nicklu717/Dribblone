@@ -40,8 +40,6 @@ class TrainingViewController: UIViewController {
     
     var trainingResult: TrainingResult!
     
-    var trainingCompletion: ((TrainingResult) -> Void)?
-    
     // MARK: - Instance Method
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -198,7 +196,11 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
         
         guard let videoResource = PhotoManager.shared.fetchResource(for: .video)
             else {
+                
                 print("Video Resource Fetching Failure")
+                
+                presentingViewController?.dismiss(animated: true, completion: nil)
+                
                 return
         }
         
@@ -226,10 +228,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                         
                         self.trainingResult.videoURL = String(describing: videoURL)
                         
-                        self.presentingViewController?.dismiss(animated: true) {
-                            
-                            self.trainingCompletion?(self.trainingResult)
-                        }
+                        self.presentingViewController?.dismiss(animated: true)
                         
                         FirestoreManager.shared.upload(trainingResult: self.trainingResult,
                                                        for: AuthManager.shared.currentUser)
