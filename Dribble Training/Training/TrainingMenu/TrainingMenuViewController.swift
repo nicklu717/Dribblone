@@ -18,7 +18,7 @@ class TrainingMenuViewController: UIViewController {
         }
     }
     
-    private var trainingPage: TrainingViewController!
+    private var instructionPage: InstructionViewController!
     
     // MARK: - Life Cycle
     
@@ -26,20 +26,20 @@ class TrainingMenuViewController: UIViewController {
         
         super.viewDidLoad()
         
-        setupTrainingManagerPage()
+        setupInstructionPage()
     }
     
     // MARK: - Private Method
     
-    private func setupTrainingManagerPage() {
+    private func setupInstructionPage() {
         
-        let storyboard = UIStoryboard.training
+        let instructionStoryboard = UIStoryboard.instruction
         
-        let viewController = storyboard.instantiateInitialViewController()
+        let viewController = instructionStoryboard.instantiateInitialViewController()
         
-        trainingPage = viewController as? TrainingViewController
+        instructionPage = viewController as? InstructionViewController
         
-        trainingPage.loadViewIfNeeded()
+        instructionPage.loadViewIfNeeded()
     }
 }
 
@@ -72,12 +72,12 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate {
         return modeCell
     }
     
-    func startTraining(forModeIndexPath indexPath: IndexPath) {
+    func prepareTraining(forModeIndex indexPath: IndexPath) {
         
         let mode = trainingModes[indexPath.row]
+
+        instructionPage.trainingMode = mode
         
-        trainingPage.setTrainingMode(to: mode)
-        
-        present(trainingPage, animated: true, completion: nil)
+        present(instructionPage, animated: true, completion: nil)
     }
 }

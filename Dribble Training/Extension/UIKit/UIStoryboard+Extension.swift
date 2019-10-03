@@ -10,23 +10,21 @@ import UIKit
 
 extension UIStoryboard {
     
-    static var tabBar: UIStoryboard { return storyboard("TabBar") }
+    static let tabBar = storyboard("TabBar")
     
-    static var main: UIStoryboard { return storyboard("Main") }
+    static let main = storyboard("Main")
     
-    static var register: UIStoryboard { return storyboard("Register") }
+    static let register = storyboard("Register")
     
-    static var postWall: UIStoryboard { return storyboard("PostWall") }
+    static let postWall = storyboard("PostWall")
     
-    static var video: UIStoryboard { return storyboard("Video") }
+    static let trainingMenu = storyboard("TrainingMenu")
     
-    static var trainingMenu: UIStoryboard { return storyboard("TrainingMenu")}
+    static let instruction = storyboard("Instruction")
     
-    static var training: UIStoryboard { return storyboard("Training")}
+    static let training = storyboard("Training")
     
-    static var profile: UIStoryboard { return storyboard("Profile") }
-    
-    static var team: UIStoryboard { return storyboard("Team") }
+    static let profile = storyboard("Profile")
     
     private static func storyboard(_ name: String) -> UIStoryboard {
         return UIStoryboard(name: name, bundle: nil)

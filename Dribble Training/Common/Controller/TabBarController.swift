@@ -53,13 +53,9 @@ class TabBarController: UITabBarController {
         
         case postWall
         
-        case video
-        
         case training
         
         case profile
-        
-        case team
         
         func controller() -> UIViewController? {
             
@@ -69,13 +65,9 @@ class TabBarController: UITabBarController {
                 
             case .postWall: storyboard = .postWall
                 
-            case .video: storyboard = .video
-                
             case .training: storyboard = .trainingMenu
                 
             case .profile: storyboard = .profile
-                
-            case .team: storyboard = .team
             }
             
             let controller = storyboard?.instantiateInitialViewController()
@@ -93,13 +85,9 @@ class TabBarController: UITabBarController {
                 
             case .postWall: imageAsset = .post
                 
-            case .video: imageAsset = .video
-                
             case .training: imageAsset = .training
                 
             case .profile: imageAsset = .profile
-                
-            case .team: imageAsset = .team
             }
             
             let tabBarItem = UITabBarItem()

@@ -18,6 +18,8 @@ target 'Dribble Training' do
   pod 'Fabric'
   pod 'Crashlytics'
 
+  pod 'youtube-ios-player-helper'
+
   pod 'KeychainAccess'
   pod 'Kingfisher'
   pod 'IQKeyboardManagerSwift'
