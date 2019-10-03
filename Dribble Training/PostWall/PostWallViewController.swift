@@ -26,6 +26,8 @@ class PostWallViewController: UIViewController {
     
     let playerViewController = AVPlayerViewController()
     
+    var profilePage: ProfileViewController!
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -33,6 +35,8 @@ class PostWallViewController: UIViewController {
         super.viewDidLoad()
         
         fetchTrainingResult()
+        
+        setupProfilePage()
     }
     
     // MARK: - Instance Method
@@ -64,6 +68,23 @@ class PostWallViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    // MARK: - Private Method
+    
+    private func setupProfilePage() {
+        
+        let profileStoryboard = UIStoryboard.profile
+        
+        let viewController = profileStoryboard.instantiateInitialViewController()
+        
+        guard let profilePage = viewController as? ProfileViewController
+            else {
+                print("Profile Page Initializing Failure")
+                return
+        }
+        
+        self.profilePage = profilePage
     }
 }
 
@@ -124,6 +145,19 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
     
     func showProfile(for id: ID) {
         
+//        FirestoreManager.shared.fetchMemberData(forID: id) { result in
+//
+//            switch result {
+//
+//            case .success(let member):
+//
+//
+//
+//            case .failure(let error):
+//
+//                print(error)
+//            }
+//        }
     }
     
     func playVideo(with url: URL?) -> Bool {
