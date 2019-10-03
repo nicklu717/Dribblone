@@ -35,23 +35,23 @@ enum TrainingMode: String {
             
         case .crossover:
             
-            description = ""
+            description = "Crossover!!!!!!!!"
             
         case .low:
         
-            description = ""
+            description = "Low Low Low Low"
             
         case .rightHand, .leftHand:
         
-            description = ""
+            description = "大力運就對了"
             
         case .mStyle:
         
-            description = ""
+            description = "Combination of power dribbles & crossover dribbles"
             
         case .random:
         
-            description = ""
+            description = "Dribble as you like"
         }
         
         return description
@@ -65,23 +65,23 @@ enum TrainingMode: String {
             
         case .crossover:
             
-            id = ""
+            id = "lMl5dnlNdnA"
             
         case .low:
         
-            id = ""
+            id = "UnRklE9VON4"
             
         case .rightHand, .leftHand:
         
-            id = ""
+            id = "aldZhfOAW-4"
             
         case .mStyle:
         
-            id = ""
+            id = "M3yD-gwjoRE"
             
         case .random:
         
-            id = ""
+            id = "GdtS-yaGHY"
         }
         
         return id
