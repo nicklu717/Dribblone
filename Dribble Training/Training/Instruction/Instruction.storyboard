@@ -10,7 +10,7 @@
         <!--Instruction View Controller-->
         <scene sceneID="7Fb-wg-IOU">
             <objects>
-                <viewController id="IcJ-VW-ARs" customClass="InstructionViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="IcJ-VW-ARs" customClass="InstructionViewController" customModule="Dribblone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vXW-ti-MSd" customClass="InstructionView" customModule="Dribblone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
