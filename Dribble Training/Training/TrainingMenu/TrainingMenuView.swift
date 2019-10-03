@@ -14,7 +14,7 @@ protocol TrainingMenuViewDelegate: AnyObject {
     
     func trainingCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
     
-    func startTraining(forModeIndexPath indexPath: IndexPath)
+    func prepareTraining(forModeIndex indexPath: IndexPath)
 }
 
 class TrainingMenuView: UIView {
@@ -51,7 +51,7 @@ extension TrainingMenuView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        delegate?.startTraining(forModeIndexPath: indexPath)
+        delegate?.prepareTraining(forModeIndex: indexPath)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -72,12 +72,12 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate {
         return modeCell
     }
     
-    func startTraining(forModeIndexPath indexPath: IndexPath) {
+    func prepareTraining(forModeIndex indexPath: IndexPath) {
         
         let mode = trainingModes[indexPath.row]
-        
-        trainingPage.setTrainingMode(to: mode)
-        
-        present(trainingPage, animated: true, completion: nil)
+
+//        trainingPage.setTrainingMode(to: mode)
+//
+//        present(trainingPage, animated: true, completion: nil)
     }
 }
