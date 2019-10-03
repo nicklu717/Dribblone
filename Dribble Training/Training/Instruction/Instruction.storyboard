@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5S-DW-qKd">
-                                <rect key="frame" x="36" y="786" width="342" height="40"/>
+                                <rect key="frame" x="36" y="820" width="342" height="40"/>
                                 <color key="backgroundColor" name="B2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gy0-B4-fJf"/>
@@ -60,19 +60,19 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1BY-GE-Wbj" firstAttribute="top" secondItem="jLK-DC-AXC" secondAttribute="bottom" constant="16" id="4Qb-zV-Rhj"/>
-                            <constraint firstItem="W5S-DW-qKd" firstAttribute="leading" secondItem="2ht-Ue-YNN" secondAttribute="leading" constant="36" id="5sD-1Z-RlZ"/>
-                            <constraint firstItem="2ht-Ue-YNN" firstAttribute="trailing" secondItem="W5S-DW-qKd" secondAttribute="trailing" constant="36" id="7t6-qb-XV3"/>
+                            <constraint firstItem="W5S-DW-qKd" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" constant="36" id="5sD-1Z-RlZ"/>
+                            <constraint firstAttribute="trailing" secondItem="W5S-DW-qKd" secondAttribute="trailing" constant="36" id="7t6-qb-XV3"/>
                             <constraint firstItem="NEG-dc-nb0" firstAttribute="leading" secondItem="1BY-GE-Wbj" secondAttribute="leading" id="Bws-zt-eLg"/>
-                            <constraint firstItem="2ht-Ue-YNN" firstAttribute="trailing" secondItem="gG5-C5-rc2" secondAttribute="trailing" constant="36" id="CY1-6M-fBx"/>
-                            <constraint firstItem="2ht-Ue-YNN" firstAttribute="bottom" secondItem="W5S-DW-qKd" secondAttribute="bottom" constant="36" id="EHP-Dh-y7h"/>
+                            <constraint firstAttribute="trailing" secondItem="gG5-C5-rc2" secondAttribute="trailing" constant="36" id="CY1-6M-fBx"/>
+                            <constraint firstAttribute="bottom" secondItem="W5S-DW-qKd" secondAttribute="bottom" constant="36" id="EHP-Dh-y7h"/>
                             <constraint firstItem="NEG-dc-nb0" firstAttribute="top" secondItem="1BY-GE-Wbj" secondAttribute="bottom" constant="8" id="GUE-I1-toH"/>
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="height" secondItem="vXW-ti-MSd" secondAttribute="height" multiplier="2:5" id="IJN-Qb-682"/>
-                            <constraint firstItem="jLK-DC-AXC" firstAttribute="trailing" secondItem="2ht-Ue-YNN" secondAttribute="trailing" id="Li7-F1-W0s"/>
+                            <constraint firstItem="jLK-DC-AXC" firstAttribute="trailing" secondItem="vXW-ti-MSd" secondAttribute="trailing" id="Li7-F1-W0s"/>
                             <constraint firstItem="gG5-C5-rc2" firstAttribute="leading" secondItem="1BY-GE-Wbj" secondAttribute="leading" id="Oa0-Wu-guE"/>
-                            <constraint firstItem="jLK-DC-AXC" firstAttribute="leading" secondItem="2ht-Ue-YNN" secondAttribute="leading" id="PeC-JQ-9B4"/>
+                            <constraint firstItem="jLK-DC-AXC" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" id="PeC-JQ-9B4"/>
                             <constraint firstItem="gG5-C5-rc2" firstAttribute="top" secondItem="NEG-dc-nb0" secondAttribute="bottom" constant="8" id="euV-pg-GlP"/>
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="top" secondItem="vXW-ti-MSd" secondAttribute="top" id="t7M-VB-6tD"/>
-                            <constraint firstItem="1BY-GE-Wbj" firstAttribute="leading" secondItem="2ht-Ue-YNN" secondAttribute="leading" constant="36" id="xEH-2k-mCb"/>
+                            <constraint firstItem="1BY-GE-Wbj" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" constant="36" id="xEH-2k-mCb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ht-Ue-YNN"/>
                         <connections>
