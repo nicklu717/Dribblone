@@ -18,15 +18,11 @@ extension UIStoryboard {
     
     static var postWall: UIStoryboard { return storyboard("PostWall") }
     
-    static var video: UIStoryboard { return storyboard("Video") }
-    
     static var trainingMenu: UIStoryboard { return storyboard("TrainingMenu")}
     
     static var training: UIStoryboard { return storyboard("Training")}
     
     static var profile: UIStoryboard { return storyboard("Profile") }
-    
-    static var team: UIStoryboard { return storyboard("Team") }
     
     private static func storyboard(_ name: String) -> UIStoryboard {
         return UIStoryboard(name: name, bundle: nil)
