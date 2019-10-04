@@ -116,12 +116,12 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRS-5w-xAw">
-                                <rect key="frame" x="115.5" y="750" width="183" height="77"/>
+                                <rect key="frame" x="115.5" y="749" width="183" height="78"/>
                                 <color key="backgroundColor" name="B3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="183" id="0bM-9l-7iU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
