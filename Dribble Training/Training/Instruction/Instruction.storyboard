@@ -17,26 +17,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLK-DC-AXC" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="126" width="414" height="310.5"/>
+                                <rect key="frame" x="0.0" y="126" width="414" height="233"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="jLK-DC-AXC" secondAttribute="height" multiplier="4:3" id="gzH-H1-Gf8"/>
+                                    <constraint firstAttribute="width" secondItem="jLK-DC-AXC" secondAttribute="height" multiplier="16:9" id="gzH-H1-Gf8"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1BY-GE-Wbj">
-                                <rect key="frame" x="36" y="452.5" width="228" height="48"/>
+                                <rect key="frame" x="36" y="375" width="228" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 sec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-dc-nb0">
-                                <rect key="frame" x="36" y="500.5" width="53" height="22"/>
+                                <rect key="frame" x="36" y="423" width="53" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some mode descriptions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gG5-C5-rc2">
-                                <rect key="frame" x="36" y="538.5" width="342" height="24"/>
+                                <rect key="frame" x="36" y="461" width="342" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-SN-MEb">
-                                <rect key="frame" x="36" y="598.5" width="342" height="40"/>
+                                <rect key="frame" x="36" y="521" width="342" height="40"/>
                                 <color key="backgroundColor" name="B2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="WHP-Xh-hcQ"/>

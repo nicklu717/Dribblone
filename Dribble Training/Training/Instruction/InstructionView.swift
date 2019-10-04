@@ -40,6 +40,17 @@ class InstructionView: UIView {
     
     // MARK: - Instance Method
     
+    func setupVideoPlayerView(withID id: String) {
+        
+        videoPlayerView.load(withVideoId: id)
+        
+        guard let webView = videoPlayerView.webView else { return }
+        
+        webView.scalesPageToFit = true
+        
+        webView.backgroundColor = .black
+    }
+    
     @IBAction func startTraining() {
         
         delegate?.startTraining()
