@@ -8,11 +8,8 @@
 
 import UIKit
 import ReplayKit
-import Photos
 
 class TrainingViewController: UIViewController {
-    
-    // View Orientation
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscapeLeft
@@ -33,8 +30,6 @@ class TrainingViewController: UIViewController {
     }
     
     let screenRecorder = RPScreenRecorder.shared()
-    
-    let imageManager = PHImageManager.default()
     
     var pixelBuffer: CVPixelBuffer?
     

@@ -35,23 +35,23 @@ enum TrainingMode: String {
             
         case .crossover:
             
-            description = "Crossover!!!!!!!!"
+            description = "Cross the ball continuously in front of your body."
             
         case .low:
         
-            description = "Low Low Low Low"
+            description = "Dribble the basketball a couple of inches off the ground with your fingertips."
             
         case .rightHand, .leftHand:
         
-            description = "大力運就對了"
+            description = "Pound the ball as hard as you can into the ground at around waist height with the same hand."
             
         case .mStyle:
         
-            description = "Combination of power dribbles & crossover dribbles"
+            description = "One pound dribble with one crossover dribble.\nDraw an 'M' with your basketball."
             
         case .random:
         
-            description = "Dribble as you like"
+            description = "Random target points on screen.\nTry your limitation of reaction!"
         }
         
         return description
@@ -81,7 +81,7 @@ enum TrainingMode: String {
             
         case .random:
         
-            id = "GdtS-yaGHY"
+            id = "-GdtS-yaGHY"
         }
         
         return id

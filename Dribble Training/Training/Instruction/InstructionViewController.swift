@@ -10,7 +10,7 @@ import UIKit
 
 class InstructionViewController: UIViewController, InstructionViewDelegate {
     
-    // MARK: - Property Declartion
+    // MARK: - Property Declaration
     
     @IBOutlet var instructionView: InstructionView! {
         didSet {
@@ -53,7 +53,7 @@ class InstructionViewController: UIViewController, InstructionViewDelegate {
     
     private func setupInstructionView() {
         
-        instructionView.videoPlayerView.load(withVideoId: trainingMode.videoID)
+        instructionView.setupVideoPlayerView(withID: trainingMode.videoID)
         
         instructionView.modeLabel.text = trainingMode.rawValue
         

@@ -10,7 +10,7 @@ import UIKit
 
 class TrainingMenuViewController: UIViewController {
     
-    // MARK: - Property Declartion
+    // MARK: - Property Declaration
     
     @IBOutlet var trainingMenuView: TrainingMenuView! {
         didSet {
