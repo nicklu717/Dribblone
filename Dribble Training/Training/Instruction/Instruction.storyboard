@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5S-DW-qKd">
-                                <rect key="frame" x="36" y="60" width="30" height="30"/>
+                                <rect key="frame" x="348" y="60" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="FYs-3b-72Y"/>
@@ -90,7 +90,7 @@
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" id="PeC-JQ-9B4"/>
                             <constraint firstItem="1BY-GE-Wbj" firstAttribute="width" secondItem="HZT-SN-MEb" secondAttribute="width" multiplier="2:3" id="QKh-eu-lF2"/>
                             <constraint firstAttribute="trailing" secondItem="HZT-SN-MEb" secondAttribute="trailing" constant="36" id="QwR-5u-OKV"/>
-                            <constraint firstItem="W5S-DW-qKd" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" constant="36" id="SVz-9F-ZDK"/>
+                            <constraint firstAttribute="trailing" secondItem="W5S-DW-qKd" secondAttribute="trailing" constant="36" id="SVz-9F-ZDK"/>
                             <constraint firstItem="W5S-DW-qKd" firstAttribute="top" secondItem="vXW-ti-MSd" secondAttribute="top" constant="60" id="YJq-qn-o4S"/>
                             <constraint firstItem="gG5-C5-rc2" firstAttribute="top" secondItem="NEG-dc-nb0" secondAttribute="bottom" constant="16" id="euV-pg-GlP"/>
                             <constraint firstItem="HZT-SN-MEb" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" constant="36" id="tvh-f1-uez"/>
