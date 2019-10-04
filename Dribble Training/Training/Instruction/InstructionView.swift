@@ -22,6 +22,17 @@ class InstructionView: UIView {
     
     weak var delegate: InstructionViewDelegate?
     
+    @IBOutlet var dismissButton: UIButton! {
+        
+        didSet {
+            
+            let inset: CGFloat = 5
+            
+            dismissButton.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset,
+                                                         bottom: inset, right: inset)
+        }
+    }
+    
     @IBOutlet var videoPlayerView: YTPlayerView!
     @IBOutlet var modeLabel: UILabel!
     @IBOutlet var durationLabel: UILabel!

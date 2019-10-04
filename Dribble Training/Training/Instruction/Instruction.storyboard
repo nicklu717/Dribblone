@@ -101,6 +101,7 @@
                         <viewLayoutGuide key="safeArea" id="2ht-Ue-YNN"/>
                         <connections>
                             <outlet property="descriptionLabel" destination="gG5-C5-rc2" id="25g-88-jvm"/>
+                            <outlet property="dismissButton" destination="W5S-DW-qKd" id="EsL-tb-T8p"/>
                             <outlet property="durationLabel" destination="NEG-dc-nb0" id="Qef-n2-Dcb"/>
                             <outlet property="modeLabel" destination="1BY-GE-Wbj" id="qzK-Le-bjr"/>
                             <outlet property="videoPlayerView" destination="jLK-DC-AXC" id="ulV-i1-aKf"/>
