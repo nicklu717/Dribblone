@@ -55,6 +55,8 @@ class InstructionViewController: UIViewController, InstructionViewDelegate {
         
         instructionView.videoPlayerView.load(withVideoId: trainingMode.videoID)
         
+//        instructionView.videoPlayerView.contentMode = .scaleAspectFit
+        
         instructionView.modeLabel.text = trainingMode.rawValue
         
         instructionView.descriptionLabel.text = trainingMode.description
