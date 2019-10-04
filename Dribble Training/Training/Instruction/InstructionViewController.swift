@@ -10,7 +10,7 @@ import UIKit
 
 class InstructionViewController: UIViewController, InstructionViewDelegate {
     
-    // MARK: - Property Declartion
+    // MARK: - Property Declaration
     
     @IBOutlet var instructionView: InstructionView! {
         didSet {
