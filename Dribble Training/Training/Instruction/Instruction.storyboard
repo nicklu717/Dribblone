@@ -61,19 +61,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-SN-MEb">
-                                <rect key="frame" x="137" y="541" width="140" height="60"/>
+                                <rect key="frame" x="107" y="541" width="200" height="50"/>
                                 <color key="backgroundColor" name="B3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="WHP-Xh-hcQ"/>
-                                    <constraint firstAttribute="width" constant="140" id="waN-fb-CTE"/>
+                                    <constraint firstAttribute="height" constant="50" id="WHP-Xh-hcQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="waN-fb-CTE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="START">
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
