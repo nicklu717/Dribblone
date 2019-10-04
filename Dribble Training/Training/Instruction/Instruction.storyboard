@@ -24,7 +24,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1BY-GE-Wbj">
-                                <rect key="frame" x="36" y="375" width="228" height="48"/>
+                                <rect key="frame" x="36" y="375" width="212.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -61,11 +61,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-SN-MEb">
-                                <rect key="frame" x="36" y="521" width="342" height="40"/>
-                                <color key="backgroundColor" name="B2"/>
+                                <rect key="frame" x="137" y="541" width="140" height="60"/>
+                                <color key="backgroundColor" name="B3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="WHP-Xh-hcQ"/>
+                                    <constraint firstAttribute="height" constant="60" id="WHP-Xh-hcQ"/>
+                                    <constraint firstAttribute="width" constant="140" id="waN-fb-CTE"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -88,13 +90,12 @@
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="trailing" secondItem="vXW-ti-MSd" secondAttribute="trailing" id="Li7-F1-W0s"/>
                             <constraint firstItem="gG5-C5-rc2" firstAttribute="leading" secondItem="1BY-GE-Wbj" secondAttribute="leading" id="Oa0-Wu-guE"/>
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" id="PeC-JQ-9B4"/>
-                            <constraint firstItem="1BY-GE-Wbj" firstAttribute="width" secondItem="HZT-SN-MEb" secondAttribute="width" multiplier="2:3" id="QKh-eu-lF2"/>
-                            <constraint firstAttribute="trailing" secondItem="HZT-SN-MEb" secondAttribute="trailing" constant="36" id="QwR-5u-OKV"/>
+                            <constraint firstItem="HZT-SN-MEb" firstAttribute="centerX" secondItem="vXW-ti-MSd" secondAttribute="centerX" id="Rz0-Q1-N4w"/>
                             <constraint firstAttribute="trailing" secondItem="W5S-DW-qKd" secondAttribute="trailing" constant="36" id="SVz-9F-ZDK"/>
                             <constraint firstItem="W5S-DW-qKd" firstAttribute="top" secondItem="vXW-ti-MSd" secondAttribute="top" constant="60" id="YJq-qn-o4S"/>
                             <constraint firstItem="gG5-C5-rc2" firstAttribute="top" secondItem="NEG-dc-nb0" secondAttribute="bottom" constant="16" id="euV-pg-GlP"/>
-                            <constraint firstItem="HZT-SN-MEb" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" constant="36" id="tvh-f1-uez"/>
-                            <constraint firstItem="HZT-SN-MEb" firstAttribute="top" secondItem="gG5-C5-rc2" secondAttribute="bottom" constant="36" id="vGG-zj-mzh"/>
+                            <constraint firstItem="1BY-GE-Wbj" firstAttribute="trailing" secondItem="vXW-ti-MSd" secondAttribute="centerX" multiplier="1.2" id="gQ2-Ca-qoF"/>
+                            <constraint firstItem="HZT-SN-MEb" firstAttribute="top" secondItem="gG5-C5-rc2" secondAttribute="bottom" constant="56" id="vGG-zj-mzh"/>
                             <constraint firstItem="1BY-GE-Wbj" firstAttribute="leading" secondItem="vXW-ti-MSd" secondAttribute="leading" constant="36" id="xEH-2k-mCb"/>
                             <constraint firstItem="jLK-DC-AXC" firstAttribute="top" secondItem="W5S-DW-qKd" secondAttribute="bottom" constant="36" id="xkd-T0-xuR"/>
                         </constraints>
@@ -118,8 +119,8 @@
     </scenes>
     <resources>
         <image name="Close" width="512" height="512"/>
-        <namedColor name="B2">
-            <color red="0.74117647058823533" green="0.55686274509803924" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="B3">
+            <color red="0.64313725490196083" green="0.40784313725490196" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
