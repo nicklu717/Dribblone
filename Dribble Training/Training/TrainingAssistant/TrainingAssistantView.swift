@@ -29,7 +29,7 @@ class TrainingAssistantView: SKView {
     
     let trainScene = SKScene()
     
-    let ballNode = SKShapeNode(circleOfRadius: 30)
+    let ballNode = SKShapeNode(circleOfRadius: SceneNode.standardRadius)
     
     var targetNode: SKSpriteNode!
     
@@ -127,7 +127,7 @@ class TrainingAssistantView: SKView {
         
         ballNode.lineWidth = 0
         
-        ballNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        ballNode.physicsBody = SKPhysicsBody(circleOfRadius: SceneNode.standardRadius)
         ballNode.physicsBody?.affectedByGravity = false
         ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
         
@@ -153,7 +153,7 @@ class TrainingAssistantView: SKView {
         
         targetNode.run(SKAction.repeatForever(animation))
         
-        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        targetNode.physicsBody = SKPhysicsBody(circleOfRadius: SceneNode.standardRadius)
         targetNode.physicsBody?.affectedByGravity = false
         targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
         targetNode.physicsBody?.contactTestBitMask =

@@ -6,6 +6,8 @@
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
+import CoreGraphics
+
 struct TrainingViewControllerSegue {
     
     static let ballTracker = "BallTracker"
@@ -131,6 +133,8 @@ enum SceneNode {
     case ball
     
     case target
+    
+    static let standardRadius: CGFloat = 30
     
     var categoryMask: UInt32 {
         
