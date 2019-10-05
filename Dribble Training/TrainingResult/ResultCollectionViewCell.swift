@@ -40,7 +40,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
     
     @IBAction func showMemberProfile(_ button: UIButton) {
         
-        let id = button.titleLabel?.text ?? ""
+        let id = button.titleLabel?.text ?? .empty
         
         delegate?.showProfile(for: id)
     }

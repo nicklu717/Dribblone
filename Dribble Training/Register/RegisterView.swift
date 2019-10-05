@@ -48,10 +48,10 @@ class RegisterView: UIView {
         
         errorMessageLabel.isHidden = true
         
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        let confirmPassword = confirmPasswordTextField.text ?? ""
-        let id: ID = idTextField.text ?? ""
+        let email = emailTextField.text ?? .empty
+        let password = passwordTextField.text ?? .empty
+        let confirmPassword = confirmPasswordTextField.text ?? .empty
+        let id: ID = idTextField.text ?? .empty
         
         switch status {
         
@@ -78,8 +78,8 @@ class RegisterView: UIView {
             
             status = .signUp
             
-            confirmPasswordTextField.text = ""
-            idTextField.text = ""
+            confirmPasswordTextField.text = .empty
+            idTextField.text = .empty
             
             UIView.animate(withDuration: 0.2) {
                 

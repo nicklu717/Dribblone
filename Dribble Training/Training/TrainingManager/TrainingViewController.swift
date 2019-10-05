@@ -130,10 +130,10 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
         
         trainingResult = TrainingResult(id: currentUser.id,
                                         date: date,
-                                        mode: "",
+                                        mode: .empty,
                                         points: 0,
-                                        videoURL: "",
-                                        screenShot: "")
+                                        videoURL: .empty,
+                                        screenShot: .empty)
         
         takeScreenShot()
     }

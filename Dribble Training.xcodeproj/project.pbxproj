@@ -45,6 +45,7 @@
 		5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7E23278E9000BD23D4 /* Profile.storyboard */; };
 		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
 		5A8C93102348D647004F8187 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8C930F2348D647004F8187 /* Constant.swift */; };
+		5A8C93122348DD57004F8187 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8C93112348DD57004F8187 /* String+Extension.swift */; };
 		5A93AB9C2339CFBC00358CCD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */; };
 		5A93ABA2233A209300358CCD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABA1233A209300358CCD /* SettingViewController.swift */; };
 		5A93ABA4233A20A800358CCD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABA3233A20A800358CCD /* SettingView.swift */; };
@@ -118,6 +119,7 @@
 		5A88EC7E23278E9000BD23D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5A8C930F2348D647004F8187 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		5A8C93112348DD57004F8187 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5A93ABA1233A209300358CCD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		5A93ABA3233A20A800358CCD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */,
+				5A8C93112348DD57004F8187 /* String+Extension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
 				5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */,
 				5ADE95522340F830000608E1 /* UIViewController+Extension.swift in Sources */,
+				5A8C93122348DD57004F8187 /* String+Extension.swift in Sources */,
 				5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,

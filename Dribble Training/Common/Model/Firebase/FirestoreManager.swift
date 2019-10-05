@@ -182,12 +182,12 @@ class FirestoreManager {
         
         let member = Member(uid: uid,
                             id: id,
-                            displayName: "",
+                            displayName: .empty,
                             followers: [],
                             followings: [],
                             blockList: [],
                             trainingResults: [],
-                            picture: "",
+                            picture: .empty,
                             teams: [],
                             teamInvitations: [],
                             blockTeamList: [])

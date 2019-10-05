@@ -166,7 +166,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                           registerView.idTextField]
         }
         
-        for textField in textFields where textField.text == "" {
+        for textField in textFields where textField.text == .empty {
             
             let flashColor = UIColor.themeMediumLight.withAlphaComponent(0.6)
             
@@ -224,7 +224,7 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                         return
                     }
                     
-                    var id = ""
+                    var id: String = .empty
                     
                     if let email = credential.email {
                         
