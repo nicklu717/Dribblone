@@ -54,7 +54,7 @@ class StorageManager {
                 .child(fileName)
         
         let metadata = StorageMetadata()
-        metadata.contentType = "image/jpeg"
+        metadata.contentType = ContentType.jpeg
         
         reference.putData(data, metadata: metadata) { (_, error) in
             
@@ -107,7 +107,7 @@ class StorageManager {
                 .child(fileName)
         
         let metadata = StorageMetadata()
-        metadata.contentType = "video/mp4"
+        metadata.contentType = ContentType.mp4
         
         reference.putFile(from: url, metadata: metadata) { (_, error) in
                 
@@ -132,5 +132,12 @@ class StorageManager {
     private struct Folder {
         
         static let trainingVideo = "training_video"
+    }
+    
+    private struct ContentType {
+        
+        static let jpeg = "image/jpeg"
+        
+        static let mp4 = "video/mp4"
     }
 }
