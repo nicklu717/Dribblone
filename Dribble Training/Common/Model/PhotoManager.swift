@@ -18,7 +18,7 @@ class PhotoManager {
         
         let fetchOptions = PHFetchOptions()
         
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: SortKey.creationDate,
                                                          ascending: false)]
         
         let fetchResult = PHAsset.fetchAssets(with: mediaType, options: fetchOptions)
@@ -45,5 +45,10 @@ class PhotoManager {
             
             completion?()
         }
+    }
+    
+    private struct SortKey {
+        
+        static let creationDate = "creationDate"
     }
 }
