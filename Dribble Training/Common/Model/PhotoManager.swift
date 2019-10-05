@@ -18,28 +18,25 @@ class PhotoManager {
         
         let fetchOptions = PHFetchOptions()
         
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: SortKey.creationDate,
-                                                         ascending: false)]
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: SortKey.creationDate, ascending: false)]
         
         let fetchResult = PHAsset.fetchAssets(with: mediaType, options: fetchOptions)
         
-        guard
-            let videoPHAsset = fetchResult.firstObject,
-            let videoResource = PHAssetResource.assetResources(for: videoPHAsset).first
-        else {
-            print("Video Fetching Failure")
-            return nil
-        }
+        guard let videoPHAsset = fetchResult.firstObject else { return nil }
+        
+        guard let videoResource = PHAssetResource.assetResources(for: videoPHAsset).first else { return nil }
         
         return videoResource
     }
     
     func writeData(to url: URL, resource: PHAssetResource, completion: (() -> Void)?) {
         
-        resourceManager.writeData(for: resource, toFile: url, options: nil) { error in
+        resourceManager.writeData(for: resource, toFile: url, options: nil) { (error) in
                 
             if let error = error {
+                
                 print(error)
+                
                 return
             }
             

@@ -22,18 +22,19 @@ class StorageManager {
     
     func getProfilePicture(forID id: ID, completion: @escaping (Result<URL, Error>) -> Void) {
         
-        storageReference
-            .child(id)
-            .child(pictureName)
-            .downloadURL { (url, error) in
+        let reference = storageReference.child(id).child(pictureName)
+            
+        reference.downloadURL { (url, error) in
                 
-                if let error = error {
-                    completion(.failure(error))
-                }
+            if let error = error {
                 
-                if let url = url {
-                    completion(.success(url))
-                }
+                completion(.failure(error))
+            }
+            
+            if let url = url {
+                
+                completion(.success(url))
+            }
         }
     }
     
@@ -43,35 +44,37 @@ class StorageManager {
         
         guard let currentUser = AuthManager.shared.currentUser else { return }
         
-        guard let data = image.jpegData(compressionQuality: 0.3)
-            else {
-                print("Screen Shot Image Converting Failure")
-                return
+        guard let data = image.jpegData(compressionQuality: 0.3) else {
+            
+            print("Screen Shot Image Converting Failure")
+            
+            return
         }
         
-        let reference =
-            self.storageReference
-                .child(currentUser.id)
-                .child(Folder.trainingVideo)
-                .child(fileName)
+        let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
         
         let metadata = StorageMetadata()
+        
         metadata.contentType = ContentType.jpeg
         
         reference.putData(data, metadata: metadata) { (_, error) in
             
             if let error = error {
+                
                 completion(.failure(error))
+                
                 return
             }
             
             reference.downloadURL { (url, error) in
                 
                 if let error = error {
+                    
                     completion(.failure(error))
                 }
                 
                 if let url = url {
+                    
                     completion(.success(url))
                 }
             }
@@ -80,18 +83,16 @@ class StorageManager {
     
     func removeScreenShot(fileName: String) {
         
-        guard let currentUser = AuthManager.shared.currentUser
-            else { return }
+        guard let currentUser = AuthManager.shared.currentUser else { return }
         
-        self.storageReference
-            .child(currentUser.id)
-            .child(Folder.trainingVideo)
-            .child(fileName)
-            .delete { error in
+        let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
+            
+        reference.delete { (error) in
                 
-                if let error = error {
-                    print(error)
-                }
+            if let error = error {
+                
+                print(error)
+            }
         }
     }
     
@@ -99,32 +100,32 @@ class StorageManager {
                      url: URL,
                      completion: @escaping (Result<URL, Error>) -> Void) {
         
-        guard let currentUser = AuthManager.shared.currentUser
-            else { return }
+        guard let currentUser = AuthManager.shared.currentUser else { return }
         
-        let reference =
-            self.storageReference
-                .child(currentUser.id)
-                .child(Folder.trainingVideo)
-                .child(fileName)
+        let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
         
         let metadata = StorageMetadata()
+        
         metadata.contentType = ContentType.mp4
         
         reference.putFile(from: url, metadata: metadata) { (_, error) in
                 
             if let error = error {
+                
                 completion(.failure(error))
+                
                 return
             }
             
             reference.downloadURL(completion: { (url, error) in
                 
                 if let error = error {
+                    
                     completion(.failure(error))
                 }
                 
                 if let url = url {
+                    
                     completion(.success(url))
                 }
             })

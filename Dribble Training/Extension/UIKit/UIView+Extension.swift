@@ -20,6 +20,7 @@ extension UIView {
         let originColor = backgroundColor
         
         changeBackgroundColor(to: color, duration: duration) {
+            
             self.changeBackgroundColor(to: originColor, duration: duration)
         }
     }
