@@ -25,6 +25,12 @@ class WaterfallLayout: UICollectionViewLayout {
         return collectionView.bounds.width - (inset.left + inset.right)
     }
     
+    private struct Height {
+        
+        static let lowerBound: CGFloat = 200
+        static let upperBound: CGFloat = 450
+    }
+    
     override var collectionViewContentSize: CGSize {
         
         return CGSize(width: contentWidth, height: contentHeight)
@@ -45,7 +51,7 @@ class WaterfallLayout: UICollectionViewLayout {
             xOffsets.append(columnWidth * CGFloat(column))
         }
         
-        var yOffsets = [CGFloat](repeating: 0, count: numberOfColumn)
+        var yOffsets = [CGFloat](repeating: .zero, count: numberOfColumn)
         
         for section in 0..<collectionView.numberOfSections {
         
@@ -53,7 +59,7 @@ class WaterfallLayout: UICollectionViewLayout {
                 
                 // Calculate Item Frame
                 
-                let itemHeight = CGFloat.random(in: 200...450)
+                let itemHeight = CGFloat.random(in: Height.lowerBound...Height.upperBound)
                 
                 let column = index % numberOfColumn
                 
