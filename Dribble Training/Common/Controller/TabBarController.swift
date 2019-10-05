@@ -27,7 +27,7 @@ class TabBarController: UITabBarController {
         setupTabBar()
     }
     
-    // MARK: - Private Methed
+    // MARK: - Private Method
     
     private func setupTabBar() {
         
