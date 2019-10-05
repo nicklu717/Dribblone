@@ -68,7 +68,7 @@ class TrainingAssistantViewController: UIViewController {
         
         trainingTime = Time.training
         
-        points = 0
+        points = .zero
         
         trainingAssistantView.startButton.isHidden = false
         
@@ -86,7 +86,7 @@ class TrainingAssistantViewController: UIViewController {
     
     private func getPoint() {
         
-        points += 3
+        points += Point.normal
         
         trainingAssistantView.resetTargetNode(mode: trainingMode)
     }

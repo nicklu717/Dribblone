@@ -119,6 +119,13 @@ struct Time {
     }
 }
 
+struct Point {
+    
+    static let normal = 3
+    
+    static let quickReaction = 5
+}
+
 enum SceneNode {
     
     case ball
