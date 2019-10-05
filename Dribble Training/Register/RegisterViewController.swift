@@ -180,9 +180,9 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         
         for textField in textFields where textField.text == "" {
             
-            let red = UIColor.brown2.withAlphaComponent(0.6)
+            let flashColor = UIColor.themeMediumLight.withAlphaComponent(0.6)
             
-            textField.flashBackground(with: red, duration: 0.15)
+            textField.flashBackground(with: flashColor, duration: 0.15)
             
             hasBlank = true
         }

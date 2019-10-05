@@ -89,12 +89,12 @@ class ProfileViewController: UIViewController {
         if isFollowing {
             
             profileView.followButton.setTitle("Following", for: .normal)
-            profileView.followButton.changeBackgroundColor(to: .brown1, duration: 0.15)
+            profileView.followButton.changeBackgroundColor(to: .themeLight, duration: 0.15)
             
         } else {
             
             profileView.followButton.setTitle("Follow", for: .normal)
-            profileView.followButton.changeBackgroundColor(to: .brown3, duration: 0.15)
+            profileView.followButton.changeBackgroundColor(to: .themeMediumDark, duration: 0.15)
         }
     }
 }
