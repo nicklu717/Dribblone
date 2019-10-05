@@ -36,16 +36,16 @@ class TrainingAssistantViewController: UIViewController {
         }
     }
     
-    private var minute: Int = 0
-    private var second: Int = 0 {
+    private var trainingTime = Time() {
         didSet {
-            trainingAssistantView.setTimerLabel(minute: minute, second: second)
+            trainingAssistantView.setTimerLabel(minute: trainingTime.minute,
+                                                second: trainingTime.second)
         }
     }
     
-    private var preparingCountdownSecond: Int = 3 {
+    private var preparingTime = Time() {
         didSet {
-            trainingAssistantView.setPreparingCountdownLabel(to: preparingCountdownSecond)
+            trainingAssistantView.setPreparingCountdownLabel(to: preparingTime.second)
         }
     }
     
@@ -66,8 +66,7 @@ class TrainingAssistantViewController: UIViewController {
     
     func resetTraining() {
         
-        minute = 0
-        second = 10
+        trainingTime = Time(minute: 0, second: 10)
         
         points = 0
         
@@ -115,21 +114,12 @@ class TrainingAssistantViewController: UIViewController {
     
     @objc private func countdown() {
         
-        if second <= 0 {
-            
-            if minute > 0 {
-                
-                minute -= 1
-                second = 60
-                
-            } else {
-                
-                endTraining()
-                return
-            }
-        }
+        trainingTime.countdown()
         
-        second -= 1
+        if trainingTime.isZero {
+            
+            endTraining()
+        }
     }
     
     private func endTraining() {
@@ -146,7 +136,7 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
         
         delegate?.fakeRecordingForPermission()
         
-        preparingCountdownSecond = 3
+        preparingTime = Time(minute: 0, second: 3)
         
         trainingAssistantView.preparingCountdownLabel.isHidden = false
         
@@ -161,11 +151,9 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     
     @objc private func preparingCountdown() {
         
-        preparingCountdownSecond -= 1
-            
-        trainingAssistantView.setPreparingCountdownLabel(to: preparingCountdownSecond)
+        preparingTime.countdown()
         
-        if preparingCountdownSecond < 0 {
+        if preparingTime.isZero {
             
             timer?.invalidate()
             

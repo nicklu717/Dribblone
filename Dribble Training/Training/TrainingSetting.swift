@@ -88,6 +88,33 @@ enum TrainingMode: String {
     }
 }
 
+struct Time {
+    
+    var minute: Int = 0
+    
+    var second: Int = 0
+    
+    var isZero: Bool {
+        
+        return minute == 0 && second == 0
+    }
+    
+    mutating func countdown() {
+        
+        if second <= 0 {
+            
+            if minute > 0 {
+                
+                minute -= 1
+                second = 60
+                
+            } else { return }
+        }
+        
+        second -= 1
+    }
+}
+
 enum SceneNode {
     
     case ball
