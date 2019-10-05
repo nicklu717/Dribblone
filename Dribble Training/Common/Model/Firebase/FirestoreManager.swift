@@ -14,16 +14,6 @@ class FirestoreManager {
     
     private let firestore = Firestore.firestore()
     
-//    private var currentUser: Member? {
-//
-//        return AuthManager.shared.currentUser
-//    }
-//
-//    private var currentUserReference: DocumentReference {
-//
-//        return firestore.collection(CollectionKey.member).document(currentUser?.uid)
-//    }
-    
     func fetchMemberData(forUID uid: UID,
                          completion: @escaping (Result<Member?, Error>) -> Void) {
         
