@@ -99,6 +99,10 @@ struct Time {
         return minute == 0 && second == 0
     }
     
+    static let training = Time(minute: 0, second: 10)
+    
+    static let trainingPrepare = Time(minute: 0, second: 3)
+    
     mutating func countdown() {
         
         if second <= 0 {

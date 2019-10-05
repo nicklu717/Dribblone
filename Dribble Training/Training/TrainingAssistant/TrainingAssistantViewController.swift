@@ -66,7 +66,7 @@ class TrainingAssistantViewController: UIViewController {
     
     func resetTraining() {
         
-        trainingTime = Time(minute: 0, second: 10)
+        trainingTime = Time.training
         
         points = 0
         
@@ -136,7 +136,7 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
         
         delegate?.fakeRecordingForPermission()
         
-        preparingTime = Time(minute: 0, second: 3)
+        preparingTime = Time.trainingPrepare
         
         trainingAssistantView.preparingCountdownLabel.isHidden = false
         
