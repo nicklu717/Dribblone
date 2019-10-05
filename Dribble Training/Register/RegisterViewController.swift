@@ -58,23 +58,11 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                             
                         case .success(let uid):
                             
-                            let member = Member(uid: uid,
-                                                id: id,
-                                                displayName: "",
-                                                followers: [],
-                                                followings: [],
-                                                blockList: [],
-                                                trainingResults: [],
-                                                picture: "",
-                                                teams: [],
-                                                teamInvitations: [],
-                                                blockTeamList: [])
-                            
-                            FirestoreManager.shared.create(
-                                member: member,
+                            FirestoreManager.shared.createMember(
+                                uid: uid,
+                                id: id,
                                 completion: {
                                     
-                                    // Show success alert
                                     self.registerView.switchStatus()
                                     self.registerView.logIn()
                             })
@@ -236,8 +224,6 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                         return
                     }
                     
-                    let userName = credential.fullName?.nickname ?? ""
-                    
                     var id = ""
                     
                     if let email = credential.email {
@@ -254,21 +240,12 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                         id = uid[firstDot..<lastDot].dropFirst(1).description
                     }
                     
-                    let member = Member(uid: uid,
-                                        id: id,
-                                        displayName: userName,
-                                        followers: [],
-                                        followings: [],
-                                        blockList: [],
-                                        trainingResults: [],
-                                        picture: "",
-                                        teams: [],
-                                        teamInvitations: [],
-                                        blockTeamList: [])
-                    
-                    FirestoreManager.shared.create(member: member, completion: {
-                        
-                        self.logInSuccess(uid: member.uid)
+                    FirestoreManager.shared.createMember(
+                        uid: uid,
+                        id: id,
+                        completion: {
+                            
+                            self.logInSuccess(uid: uid)
                     })
                     
                 case .failure(let error):

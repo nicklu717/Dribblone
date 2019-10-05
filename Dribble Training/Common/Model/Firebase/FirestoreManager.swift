@@ -178,7 +178,19 @@ class FirestoreManager {
         memberReference.updateData([MemberKey.followers: FieldValue.arrayRemove([currentUser.id])])
     }
     
-    func create(member: Member, completion: (() -> Void)?) {
+    func createMember(uid: UID, id: ID, completion: (() -> Void)?) {
+        
+        let member = Member(uid: uid,
+                            id: id,
+                            displayName: "",
+                            followers: [],
+                            followings: [],
+                            blockList: [],
+                            trainingResults: [],
+                            picture: "",
+                            teams: [],
+                            teamInvitations: [],
+                            blockTeamList: [])
         
         guard let dictionary = getDictionary(from: member)
             else {
