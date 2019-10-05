@@ -86,9 +86,11 @@ class BallTrackerViewController: UIViewController {
             
             // Get Detected Object Position
             
-            switch objectID {
+            let object = Object(rawValue: objectID)
+            
+            switch object {
                 
-            case "sports ball", "mouse", "surfboard":
+            case .sportsBall, .mouse, .surfboard:
                 
                 let visionRect = observation.boundingBox
                 
@@ -105,6 +107,13 @@ class BallTrackerViewController: UIViewController {
             default: return
             }
         }
+    }
+    
+    private enum Object: String {
+        
+        case sportsBall = "sports ball"
+        case mouse
+        case surfboard
     }
 }
 
