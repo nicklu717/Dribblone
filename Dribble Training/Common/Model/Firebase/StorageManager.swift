@@ -16,13 +16,15 @@ class StorageManager {
     
     private let storageReference = Storage.storage().reference()
     
+    private let pictureName = "profile.jpeg"
+    
     // MARK: - Instance Method
     
     func getProfilePicture(forID id: ID, completion: @escaping (Result<URL, Error>) -> Void) {
         
         storageReference
             .child(id)
-            .child("profile.jpeg")
+            .child(pictureName)
             .downloadURL { (url, error) in
                 
                 if let error = error {
