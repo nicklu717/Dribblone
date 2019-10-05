@@ -16,7 +16,7 @@ class FirestoreManager {
     
     private var currentUser: Member {
         
-        return AuthManager.shared.currentUser
+        return AuthManager.shared.currentUser!
     }
     
     private var currentUserReference: DocumentReference {

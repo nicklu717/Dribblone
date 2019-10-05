@@ -51,13 +51,16 @@ class PostWallViewController: UIViewController {
                 
                 var filteredTrainingResults: [TrainingResult] = []
                 
-                let blockList = AuthManager.shared.currentUser.blockList
-                    
-                for trainingResult in trainingResults {
+                if let currentUser = AuthManager.shared.currentUser {
+                
+                    let blockList = currentUser.blockList
                         
-                    if !blockList.contains(trainingResult.id) {
-                        
-                        filteredTrainingResults.append(trainingResult)
+                    for trainingResult in trainingResults {
+                            
+                        if !blockList.contains(trainingResult.id) {
+                            
+                            filteredTrainingResults.append(trainingResult)
+                        }
                     }
                 }
                 
@@ -143,7 +146,10 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
     
     func showProfile(for id: ID) {
         
-        if id == AuthManager.shared.currentUser.id { return }
+        if let currentUser = AuthManager.shared.currentUser {
+            
+            if id == currentUser.id { return }
+        }
         
         FirestoreManager.shared.fetchMemberData(forID: id) { result in
 

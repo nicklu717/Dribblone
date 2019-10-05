@@ -39,6 +39,8 @@ class StorageManager {
                           image: UIImage,
                           completion: @escaping (Result<URL, Error>) -> Void) {
         
+        guard let currentUser = AuthManager.shared.currentUser else { return }
+        
         guard let data = image.jpegData(compressionQuality: 0.3)
             else {
                 print("Screen Shot Image Converting Failure")
@@ -47,7 +49,7 @@ class StorageManager {
         
         let reference =
             self.storageReference
-                .child(AuthManager.shared.currentUser.id)
+                .child(currentUser.id)
                 .child(Folder.trainingVideo)
                 .child(fileName)
         
@@ -76,8 +78,11 @@ class StorageManager {
     
     func removeScreenShot(fileName: String) {
         
+        guard let currentUser = AuthManager.shared.currentUser
+            else { return }
+        
         self.storageReference
-            .child(AuthManager.shared.currentUser.id)
+            .child(currentUser.id)
             .child(Folder.trainingVideo)
             .child(fileName)
             .delete { error in
@@ -92,9 +97,12 @@ class StorageManager {
                      url: URL,
                      completion: @escaping (Result<URL, Error>) -> Void) {
         
+        guard let currentUser = AuthManager.shared.currentUser
+            else { return }
+        
         let reference =
             self.storageReference
-                .child(AuthManager.shared.currentUser.id)
+                .child(currentUser.id)
                 .child(Folder.trainingVideo)
                 .child(fileName)
         

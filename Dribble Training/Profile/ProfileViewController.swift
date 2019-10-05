@@ -32,7 +32,15 @@ class ProfileViewController: UIViewController {
     }
     
     var isOtherUser: Bool {
-        return member.id != AuthManager.shared.currentUser.id
+        
+        if AuthManager.shared.currentUser != nil {
+            
+            return member.id != AuthManager.shared.currentUser!.id
+            
+        } else {
+        
+            return true
+        }
     }
     
     // MARK: - Life Cycle
@@ -149,7 +157,7 @@ extension ProfileViewController: ProfileViewDelegate {
     
     var isFollowing: Bool {
         
-        let followings = AuthManager.shared.currentUser.followings
+        let followings = AuthManager.shared.currentUser!.followings
         
         return followings.contains(member.id)
     }
@@ -158,7 +166,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.follow(member: member)
         
-        AuthManager.shared.currentUser.followings.append(member.id)
+        AuthManager.shared.currentUser!.followings.append(member.id)
         
         updateFollowingStatus()
     }
@@ -167,7 +175,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.unfollow(member: member)
         
-        let followings = AuthManager.shared.currentUser.followings
+        let followings = AuthManager.shared.currentUser!.followings
         
         var newFollowings: [ID] = []
         
@@ -176,7 +184,7 @@ extension ProfileViewController: ProfileViewDelegate {
             newFollowings.append(id)
         }
         
-        AuthManager.shared.currentUser.followings = newFollowings
+        AuthManager.shared.currentUser!.followings = newFollowings
         
         updateFollowingStatus()
     }
@@ -190,7 +198,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.block(member: member)
         
-        AuthManager.shared.currentUser.blockList.append(member.id)
+        AuthManager.shared.currentUser!.blockList.append(member.id)
         
         navigationController?.popViewController(animated: true)
     }

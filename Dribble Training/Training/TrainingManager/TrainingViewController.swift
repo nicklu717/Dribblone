@@ -118,17 +118,6 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
     
     func startRecording() {
         
-        let date = Date().timeIntervalSince1970
-        
-        trainingResult = TrainingResult(id: AuthManager.shared.currentUser.id,
-                                        date: date,
-                                        mode: "",
-                                        points: 0,
-                                        videoURL: "",
-                                        screenShot: "")
-        
-        takeScreenShot()
-        
         screenRecorder.startRecording { error in
             
             if let error = error {
@@ -138,6 +127,19 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
             
             print("Start Recording")
         }
+        
+        guard let currentUser = AuthManager.shared.currentUser else { return }
+        
+        let date = Date().timeIntervalSince1970
+        
+        trainingResult = TrainingResult(id: currentUser.id,
+                                        date: date,
+                                        mode: "",
+                                        points: 0,
+                                        videoURL: "",
+                                        screenShot: "")
+        
+        takeScreenShot()
     }
     
     func cancelRecording() {
@@ -189,6 +191,13 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
             return
         }
         
+        guard let currentUser = AuthManager.shared.currentUser else {
+                
+            presentingViewController?.dismiss(animated: true)
+        
+            return
+        }
+        
         guard let videoResource = PhotoManager.shared.fetchResource(for: .video)
             else {
                 
@@ -226,7 +235,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                         self.presentingViewController?.dismiss(animated: true)
                         
                         FirestoreManager.shared.upload(trainingResult: self.trainingResult,
-                                                       for: AuthManager.shared.currentUser)
+                                                       for: currentUser)
                         
                     case .failure(let error):
                         

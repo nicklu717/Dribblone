@@ -14,7 +14,7 @@ class AuthManager {
     
     private let auth = Auth.auth()
     
-    var currentUser: Member!
+    var currentUser: Member?
     
     func signUp(withEmail email: String,
                 password: String,
