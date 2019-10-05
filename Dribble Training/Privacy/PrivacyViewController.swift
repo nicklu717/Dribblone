@@ -12,7 +12,7 @@ class PrivacyViewController: UIViewController {
     
     // MARK: - Property
     
-    var privacyPoliceURLString = "https://www.privacypolicies.com/privacy/view/b92ac1d815d87bff3541fba4b45890be"
+    let urlString = "https://www.privacypolicies.com/privacy/view/b92ac1d815d87bff3541fba4b45890be"
     
     let privacyView = PrivacyView()
     
@@ -31,7 +31,7 @@ class PrivacyViewController: UIViewController {
     
     private func setupPrivacyView() {
         
-        guard let url = URL(string: privacyPoliceURLString)
+        guard let url = URL(string: urlString)
             else {
                 print("Invalid Privacy Policy URL")
                 return
