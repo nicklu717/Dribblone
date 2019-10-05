@@ -14,15 +14,15 @@ class FirestoreManager {
     
     private let firestore = Firestore.firestore()
     
-    private var currentUser: Member {
-        
-        return AuthManager.shared.currentUser!
-    }
-    
-    private var currentUserReference: DocumentReference {
-        
-        return firestore.collection(CollectionKey.member).document(currentUser.uid)
-    }
+//    private var currentUser: Member? {
+//
+//        return AuthManager.shared.currentUser
+//    }
+//
+//    private var currentUserReference: DocumentReference {
+//
+//        return firestore.collection(CollectionKey.member).document(currentUser?.uid)
+//    }
     
     func fetchMemberData(forUID uid: UID,
                          completion: @escaping (Result<Member?, Error>) -> Void) {
@@ -143,6 +143,10 @@ class FirestoreManager {
     
     func block(member: Member) {
         
+        guard let currentUser = AuthManager.shared.currentUser else { return }
+        
+        let currentUserReference = firestore.collection(CollectionKey.member).document(currentUser.uid)
+        
         currentUserReference.updateData([MemberKey.blockList: FieldValue.arrayUnion([member.id])])
         
         currentUserReference.updateData([MemberKey.followings: FieldValue.arrayRemove([member.id])])
@@ -160,6 +164,10 @@ class FirestoreManager {
     
     func follow(member: Member) {
         
+        guard let currentUser = AuthManager.shared.currentUser else { return }
+        
+        let currentUserReference = firestore.collection(CollectionKey.member).document(currentUser.uid)
+        
         currentUserReference.updateData([MemberKey.followings: FieldValue.arrayUnion([member.id])])
         
         let memberReference = firestore.collection(CollectionKey.member).document(member.uid)
@@ -168,6 +176,10 @@ class FirestoreManager {
     }
     
     func unfollow(member: Member) {
+        
+        guard let currentUser = AuthManager.shared.currentUser else { return }
+        
+        let currentUserReference = firestore.collection(CollectionKey.member).document(currentUser.uid)
         
         currentUserReference.updateData([MemberKey.followings: FieldValue.arrayRemove([member.id])])
         

@@ -33,14 +33,9 @@ class ProfileViewController: UIViewController {
     
     var isOtherUser: Bool {
         
-        if AuthManager.shared.currentUser != nil {
-            
-            return member.id != AuthManager.shared.currentUser!.id
-            
-        } else {
+        guard let currentUser = AuthManager.shared.currentUser else { return true }
         
-            return true
-        }
+        return member.id != currentUser.id
     }
     
     // MARK: - Life Cycle
@@ -157,7 +152,7 @@ extension ProfileViewController: ProfileViewDelegate {
     
     var isFollowing: Bool {
         
-        let followings = AuthManager.shared.currentUser!.followings
+        let followings = AuthManager.shared.currentUser?.followings ?? []
         
         return followings.contains(member.id)
     }
@@ -166,7 +161,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.follow(member: member)
         
-        AuthManager.shared.currentUser!.followings.append(member.id)
+        AuthManager.shared.currentUser?.followings.append(member.id)
         
         updateFollowingStatus()
     }
@@ -184,7 +179,7 @@ extension ProfileViewController: ProfileViewDelegate {
             newFollowings.append(id)
         }
         
-        AuthManager.shared.currentUser!.followings = newFollowings
+        AuthManager.shared.currentUser?.followings = newFollowings
         
         updateFollowingStatus()
     }
@@ -198,7 +193,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.block(member: member)
         
-        AuthManager.shared.currentUser!.blockList.append(member.id)
+        AuthManager.shared.currentUser?.blockList.append(member.id)
         
         navigationController?.popViewController(animated: true)
     }
