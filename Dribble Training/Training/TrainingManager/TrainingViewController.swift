@@ -111,8 +111,6 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
                 print(error)
                 return
             }
-            
-            print("Start Recording")
         }
     }
     
@@ -124,8 +122,6 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
                 print(error)
                 return
             }
-            
-            print("Start Recording")
         }
         
         guard let currentUser = AuthManager.shared.currentUser else { return }
@@ -153,8 +149,6 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
         trainingResult.points = points
         
         screenRecorder.stopRecording { (previewViewController, error) in
-            
-            print("Stop Recording")
             
             if let error = error {
                 print(error)

@@ -134,8 +134,6 @@ class TrainingAssistantViewController: UIViewController {
     
     private func endTraining() {
         
-        print("Time's Up")
-        
         timer?.invalidate()
         
         delegate?.endTraining(points: points, trainingMode: trainingMode.rawValue)
