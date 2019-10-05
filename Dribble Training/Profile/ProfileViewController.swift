@@ -170,9 +170,9 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.unfollow(member: member)
         
-        let followings = AuthManager.shared.currentUser!.followings
-        
         var newFollowings: [ID] = []
+        
+        let followings = AuthManager.shared.currentUser?.followings ?? []
         
         for id in followings where id != member.id {
             
