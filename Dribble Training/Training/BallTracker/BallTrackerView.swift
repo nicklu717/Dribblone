@@ -58,7 +58,7 @@ class BallTrackerView: UIView {
         
         let videoDataOutput = AVCaptureVideoDataOutput()
         
-        let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput")
+        let videoDataOutputQueue = DispatchQueue.global()
         
         videoDataOutput.setSampleBufferDelegate(self.videoOutputDelegate,
                                                 queue: videoDataOutputQueue)
