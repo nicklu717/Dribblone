@@ -88,7 +88,7 @@ class BallTrackerViewController: UIViewController {
             
             switch objectID {
                 
-            case "sports ball", "mouse", "clock", "donut", "kite":
+            case "sports ball", "mouse", "surfboard":
                 
                 let visionRect = observation.boundingBox
                 
