@@ -44,6 +44,7 @@
 		5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */; };
 		5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7E23278E9000BD23D4 /* Profile.storyboard */; };
 		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
+		5A8C93102348D647004F8187 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8C930F2348D647004F8187 /* Constant.swift */; };
 		5A93AB9C2339CFBC00358CCD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */; };
 		5A93ABA2233A209300358CCD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABA1233A209300358CCD /* SettingViewController.swift */; };
 		5A93ABA4233A20A800358CCD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABA3233A20A800358CCD /* SettingView.swift */; };
@@ -116,6 +117,7 @@
 		5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostWall.storyboard; sourceTree = "<group>"; };
 		5A88EC7E23278E9000BD23D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		5A8C930F2348D647004F8187 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5A93ABA1233A209300358CCD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		5A93ABA3233A20A800358CCD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 		5AF65FA52328C2ED008DB713 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5A8C930F2348D647004F8187 /* Constant.swift */,
 				5A3DF6FF2336631F00E648AC /* KeychainManager.swift */,
 				5ADE95532340F997000608E1 /* PhotoManager.swift */,
 				5ACBCAF0232A2272007B0E3B /* Firebase */,
@@ -662,6 +665,7 @@
 				5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
+				5A8C93102348D647004F8187 /* Constant.swift in Sources */,
 				5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */,
 				5AD3F549233DD7D800D5C5CB /* PrivacyViewController.swift in Sources */,
 				5A6D2DBB23439DA900E83E0E /* UICollectionView+Extension.swift in Sources */,

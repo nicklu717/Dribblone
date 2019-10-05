@@ -94,7 +94,7 @@ class TrainingAssistantView: SKView {
         
         let convertedPosition = scene.convertPoint(fromView: position)
         
-        let moveAction = SKAction.move(to: convertedPosition, duration: 1/30)
+        let moveAction = SKAction.move(to: convertedPosition, duration: timePerFrame)
         
         ballNode.run(moveAction)
     }
@@ -149,7 +149,7 @@ class TrainingAssistantView: SKView {
         
         targetNode = SKSpriteNode(texture: pumpingTextures[0])
         
-        let animation = SKAction.animate(with: pumpingTextures, timePerFrame: 0.05)
+        let animation = SKAction.animate(with: pumpingTextures, timePerFrame: timePerFrame)
         
         targetNode.run(SKAction.repeatForever(animation))
         
