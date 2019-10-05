@@ -33,8 +33,6 @@ class BallTrackerViewController: UIViewController {
     
     let sequenceRequestHandler = VNSequenceRequestHandler()
     
-//    var detectionStatistic: [String: Int] = [:]
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -85,8 +83,6 @@ class BallTrackerViewController: UIViewController {
                     print("First Label Not Exist")
                     return
             }
-            
-//            detectionStatistic[objectID] = (detectionStatistic[objectID] ?? 0) + 1
             
             // Get Detected Object Position
             
