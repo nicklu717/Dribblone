@@ -94,7 +94,9 @@ class TabBarController: UITabBarController {
             
             tabBarItem.image = UIImage.asset(imageAsset)
             
-            tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
+            let itemOffset: CGFloat = 5.5
+            
+            tabBarItem.imageInsets = UIEdgeInsets(top: itemOffset, left: 0, bottom: -itemOffset, right: 0)
             
             return tabBarItem
         }
