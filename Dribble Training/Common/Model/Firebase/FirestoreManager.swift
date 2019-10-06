@@ -249,13 +249,13 @@ class FirestoreManager {
     
     // MARK: - Private Method
     
-    private func getObject<T: Decodable>(from dictionary: [String: Any]) -> T? {
+    private func getObject<Object: Decodable>(from dictionary: [String: Any]) -> Object? {
         
         do {
             
             let data = try JSONSerialization.data(withJSONObject: dictionary, options: [])
             
-            let object = try JSONDecoder().decode(T.self, from: data)
+            let object = try JSONDecoder().decode(Object.self, from: data)
             
             return object
             
@@ -267,7 +267,7 @@ class FirestoreManager {
         }
     }
     
-    private func getDictionary<T: Encodable>(from object: T) -> [String: Any]? {
+    private func getDictionary<Object: Encodable>(from object: Object) -> [String: Any]? {
         
         do {
             

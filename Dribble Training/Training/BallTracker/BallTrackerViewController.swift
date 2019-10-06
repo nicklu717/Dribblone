@@ -95,7 +95,7 @@ class BallTrackerViewController: UIViewController {
                 
                 let layerRect = cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
                 
-                self.delegate?.didGetBallPosition(layerRect.center())
+                self.delegate?.didGetBallPosition(layerRect.center)
                 
             default: return
             }
