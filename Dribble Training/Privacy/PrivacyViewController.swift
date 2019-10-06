@@ -31,11 +31,7 @@ class PrivacyViewController: UIViewController {
     
     private func setupPrivacyView() {
         
-        guard let url = URL(string: urlString)
-            else {
-                print("Invalid Privacy Policy URL")
-                return
-        }
+        guard let url = URL(string: urlString) else { return }
         
         privacyView.frame = view.bounds
         

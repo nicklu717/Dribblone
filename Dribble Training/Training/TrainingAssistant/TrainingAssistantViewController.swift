@@ -25,28 +25,23 @@ class TrainingAssistantViewController: UIViewController {
     weak var delegate: TrainingAssistantViewControllerDelegate?
     
     @IBOutlet var trainingAssistantView: TrainingAssistantView! {
-        didSet {
-            trainingAssistantView.viewDelegate = self
-        }
+        
+        didSet { trainingAssistantView.viewDelegate = self }
     }
     
     private var points: Int = 0 {
-        didSet {
-            trainingAssistantView.setPointsLabel(points)
-        }
+        
+        didSet { trainingAssistantView.setPointsLabel(points) }
     }
     
     private var trainingTime = Time() {
-        didSet {
-            trainingAssistantView.setTimerLabel(minute: trainingTime.minute,
-                                                second: trainingTime.second)
-        }
+        
+        didSet { trainingAssistantView.setTimerLabel(minute: trainingTime.minute, second: trainingTime.second) }
     }
     
     private var preparingTime = Time() {
-        didSet {
-            trainingAssistantView.setPreparingCountdownLabel(to: preparingTime.second)
-        }
+        
+        didSet { trainingAssistantView.setPreparingCountdownLabel(to: preparingTime.second) }
     }
     
     private var timer: Timer?

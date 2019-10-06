@@ -82,21 +82,12 @@ extension SettingViewController: UITableViewDelegate {
             
         case .logOut:
             
-            // show warning
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                else {
-                    print("App Delegate Not Found")
-                    return
-            }
-            
-            guard let mainPage = appDelegate.window?.rootViewController as? MainViewController
-                else {
-                    print("Main Page Not Exist")
-                    return
-            }
+            guard let mainPage = appDelegate.window?.rootViewController as? MainViewController else { return }
             
             KeychainManager.shared.uid = nil
+            
             AuthManager.shared.currentUser = nil
             
             mainPage.dismiss(animated: true, completion: mainPage.checkUID)

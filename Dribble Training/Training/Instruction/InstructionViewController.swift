@@ -13,15 +13,13 @@ class InstructionViewController: UIViewController, InstructionViewDelegate {
     // MARK: - Property Declaration
     
     @IBOutlet var instructionView: InstructionView! {
-        didSet {
-            instructionView.delegate = self
-        }
+        
+        didSet { instructionView.delegate = self }
     }
     
     var trainingMode: TrainingMode! {
-        didSet {
-            setupInstructionView()
-        }
+        
+        didSet { setupInstructionView() }
     }
     
     private var trainingPage: TrainingViewController!
@@ -62,12 +60,12 @@ class InstructionViewController: UIViewController, InstructionViewDelegate {
     
     private func setupTrainingPage() {
         
-        let trainingStoryboard = UIStoryboard.training
+        let viewController = UIStoryboard.training.instantiateInitialViewController()
         
-        let viewController = trainingStoryboard.instantiateInitialViewController()
-        
-        trainingPage = viewController as? TrainingViewController
+        guard let trainingPage = viewController as? TrainingViewController else { return }
         
         trainingPage.loadViewIfNeeded()
+        
+        self.trainingPage = trainingPage
     }
 }

@@ -63,7 +63,8 @@ class WaterfallLayout: UICollectionViewLayout {
                 
                 let column = index % numberOfColumn
                 
-                let itemFrame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: itemHeight)
+                let itemFrame = CGRect(x: xOffsets[column], y: yOffsets[column],
+                                       width: columnWidth, height: itemHeight)
                 
                 let insetFrame = itemFrame.insetBy(dx: cellPadding, dy: cellPadding)
                 

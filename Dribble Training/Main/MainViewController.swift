@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        
         return .portrait
     }
     
@@ -31,14 +32,13 @@ class MainViewController: UIViewController {
         
         dismiss(animated: true, completion: nil)
         
-        guard let uid = KeychainManager.shared.uid
-            else {
+        guard let uid = KeychainManager.shared.uid else {
                 
-                setupRegisterPage()
-                
-                present(registerPage, animated: false, completion: nil)
-                
-                return
+            setupRegisterPage()
+            
+            present(registerPage, animated: false, completion: nil)
+            
+            return
         }
         
         welcomeUser(withUID: uid)
@@ -48,39 +48,30 @@ class MainViewController: UIViewController {
     
     private func welcomeUser(withUID uid: UID) {
         
-        fetchUserData(for: uid) { [weak self] in
+        fetchUserData(for: uid) {
+            
+            let viewController = UIStoryboard.tabBar.instantiateInitialViewController()
 
-            // Icon Animation
+            guard let tabBarController = viewController as? TabBarController else { return }
 
-            let tabBarStoryboard = UIStoryboard.tabBar
-
-            guard let tabBarController = tabBarStoryboard.instantiateInitialViewController() as? TabBarController
-                else {
-                    print("Tab Bar Controller Not Exist")
-                    return
-            }
-
-            self?.present(tabBarController, animated: false, completion: nil)
+            self.present(tabBarController, animated: false, completion: nil)
         }
     }
     
     private func setupRegisterPage() {
         
-        let storyboard = UIStoryboard.register
+        let viewController = UIStoryboard.register.instantiateInitialViewController()
         
-        if let registerPage =
-            storyboard.instantiateInitialViewController() as? RegisterViewController {
+        guard let registerPage = viewController as? RegisterViewController else { return }
             
-            registerPage.logInCompletion = checkUID
-            
-            self.registerPage = registerPage
-        }
+        registerPage.logInCompletion = checkUID
+        
+        self.registerPage = registerPage
     }
     
-    private func fetchUserData(for uid: UID,
-                               completion: (() -> Void)?) {
+    private func fetchUserData(for uid: UID, completion: (() -> Void)?) {
         
-        FirestoreManager.shared.fetchMemberData(forUID: uid) { result in
+        FirestoreManager.shared.fetchMemberData(forUID: uid) { (result) in
             
             switch result {
                 

@@ -13,15 +13,13 @@ class PostWallViewController: UIViewController {
     // MARK: - Property Declaration
     
     @IBOutlet var postWallView: PostWallView! {
-        didSet {
-            postWallView.delegate = self
-        }
+        
+        didSet { postWallView.delegate = self }
     }
     
     private var trainingResults: [TrainingResult] = [] {
-        didSet {
-            postWallView.reloadCollectionView()
-        }
+        
+        didSet { postWallView.reloadCollectionView() }
     }
     
     let playerViewController = AVPlayerViewController()
@@ -77,15 +75,9 @@ class PostWallViewController: UIViewController {
     
     private func setupProfilePage() {
         
-        let profileStoryboard = UIStoryboard.profile
+        let viewController = UIStoryboard.profile.instantiateViewController(identifier: ProfileViewController.id)
         
-        let viewController = profileStoryboard.instantiateViewController(identifier: ProfileViewController.id)
-        
-        guard let profilePage = viewController as? ProfileViewController
-            else {
-                print("Profile Page Initializing Failure")
-                return
-        }
+        guard let profilePage = viewController as? ProfileViewController else { return }
         
         self.profilePage = profilePage
     }
@@ -101,29 +93,23 @@ extension PostWallViewController: PostWallViewDelegate {
     func cellForItemAt(_ indexPath: IndexPath,
                        for collectionView: UICollectionView) -> UICollectionViewCell {
         
-        let resultCollectionViewCell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.id,
-                                               for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.id, for: indexPath)
         
-        guard let cell = resultCollectionViewCell as? ResultCollectionViewCell
-            else {
-                print("Result Collection View Cell Casting Failure")
-                return resultCollectionViewCell
-        }
+        guard let resultCell = cell as? ResultCollectionViewCell else { return cell }
         
         let result = trainingResults[indexPath.row]
         
-        cell.delegate = self
+        resultCell.delegate = self
         
-        cell.idButton.setTitle(result.id, for: .normal)
+        resultCell.idButton.setTitle(result.id, for: .normal)
         
-        cell.pointsLabel.text = String(result.points)
+        resultCell.pointsLabel.text = String(result.points)
         
-        cell.modeLabel.text = result.mode
+        resultCell.modeLabel.text = result.mode
         
-        cell.screenShotImageView.setImage(withURLString: result.screenShot)
+        resultCell.screenShotImageView.setImage(withURLString: result.screenShot)
         
-        cell.videoURL = URL(string: result.videoURL)
+        resultCell.videoURL = URL(string: result.videoURL)
         
         StorageManager.shared.getProfilePicture(forID: result.id) { result in
             
@@ -131,14 +117,14 @@ extension PostWallViewController: PostWallViewDelegate {
                 
             case .success(let url):
                 
-                cell.profileImageView.setImage(withURLString: url.absoluteString,
-                                               placeholder: UIImage.asset(.profile))
+                resultCell.profileImageView.setImage(withURLString: url.absoluteString,
+                                                     placeholder: UIImage.asset(.profile))
                 
             case .failure: break
             }
         }
         
-        return cell
+        return resultCell
     }
 }
 
@@ -157,11 +143,7 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
 
             case .success(let member):
                 
-                guard let member = member
-                    else {
-                        print("Member Data Not Exist")
-                        return
-                }
+                guard let member = member else { return }
                 
                 self.profilePage.member = member
                 
@@ -176,11 +158,7 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
     
     func playVideo(with url: URL?) -> Bool {
         
-        guard let url = url
-            else {
-                print("Invalid Video URL")
-                return false
-        }
+        guard let url = url else { return false }
         
         playerViewController.player = AVPlayer(url: url)
         

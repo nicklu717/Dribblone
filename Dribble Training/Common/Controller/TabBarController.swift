@@ -11,6 +11,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        
         return .portrait
     }
     
@@ -35,11 +36,7 @@ class TabBarController: UITabBarController {
         
         for tab in tabs {
             
-            guard let viewController = tab.controller()
-                else {
-                    print("Initial View Controller Not Exist")
-                    return
-            }
+            guard let viewController = tab.controller() else { continue }
             
             addChild(viewController)
         }
@@ -59,7 +56,7 @@ class TabBarController: UITabBarController {
         
         func controller() -> UIViewController? {
             
-            var storyboard: UIStoryboard?
+            var storyboard: UIStoryboard!
             
             switch self {
                 
@@ -70,11 +67,11 @@ class TabBarController: UITabBarController {
             case .profile: storyboard = .profile
             }
             
-            let controller = storyboard?.instantiateInitialViewController()
+            let viewController = storyboard.instantiateInitialViewController()
             
-            controller?.tabBarItem = tabBarItem()
+            viewController?.tabBarItem = tabBarItem()
             
-            return controller
+            return viewController
         }
         
         private func tabBarItem() -> UITabBarItem {
@@ -108,11 +105,12 @@ extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
                           didSelect viewController: UIViewController) {
         
-        if
-            let navigationController = viewController as? UINavigationController,
-            let profileViewController = navigationController.viewControllers.first as? ProfileViewController {
+        guard let navigationController = viewController as? UINavigationController else { return }
+        
+        let rootViewController = navigationController.viewControllers.first
+        
+        guard let profileViewController = rootViewController as? ProfileViewController else { return }
             
-            profileViewController.member = AuthManager.shared.currentUser
-        }
+        profileViewController.member = AuthManager.shared.currentUser
     }
 }

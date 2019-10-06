@@ -26,12 +26,17 @@ class RegisterView: UIView {
     @IBOutlet var errorMessageLabel: UILabel!
     
     @IBOutlet var emailTextField: UITextField!
+    
     @IBOutlet var passwordTextField: UITextField!
+    
     @IBOutlet var confirmPasswordTextField: UITextField!
+    
     @IBOutlet var idTextField: UITextField!
     
     @IBOutlet var logInButton: UIButton!
+    
     @IBOutlet var appleSignInView: UIView!
+    
     @IBOutlet var switchStatusButton: UIButton!
     
     var status: Status = .logIn
@@ -39,6 +44,7 @@ class RegisterView: UIView {
     enum Status {
         
         case logIn
+        
         case signUp
     }
     
@@ -49,8 +55,11 @@ class RegisterView: UIView {
         errorMessageLabel.isHidden = true
         
         let email = emailTextField.text ?? .empty
+        
         let password = passwordTextField.text ?? .empty
+        
         let confirmPassword = confirmPasswordTextField.text ?? .empty
+        
         let id: ID = idTextField.text ?? .empty
         
         switch status {
@@ -79,11 +88,13 @@ class RegisterView: UIView {
             status = .signUp
             
             confirmPasswordTextField.text = .empty
+            
             idTextField.text = .empty
             
             UIView.animate(withDuration: 0.2) {
                 
                 self.confirmPasswordTextField.alpha = 1
+                
                 self.idTextField.alpha = 1
             }
             
@@ -98,6 +109,7 @@ class RegisterView: UIView {
             UIView.animate(withDuration: 0.2) {
                 
                 self.confirmPasswordTextField.alpha = 0
+                
                 self.idTextField.alpha = 0
             }
             

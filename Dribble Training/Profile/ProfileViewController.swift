@@ -13,22 +13,23 @@ class ProfileViewController: UIViewController {
     // MARK: - Property Declaration
     
     @IBOutlet var profileView: ProfileView! {
-        didSet {
-            profileView.delegate = self
-        }
+        
+        didSet { profileView.delegate = self }
     }
     
     var member: Member! {
+        
         didSet {
+        
             setupProfile()
+            
             fetchTrainingResult()
         }
     }
     
     var trainingResults: [TrainingResult] = [] {
-        didSet {
-            profileView.reloadTableView()
-        }
+        
+        didSet { profileView.reloadTableView() }
     }
     
     var isOtherUser: Bool {
@@ -47,9 +48,11 @@ class ProfileViewController: UIViewController {
         if isOtherUser {
             
             navigationItem.leftBarButtonItem = nil
+            
             navigationItem.rightBarButtonItem = nil
             
             profileView.followButton.isHidden = false
+            
             profileView.blockButton.isHidden = false
             
             updateFollowingStatus()
@@ -89,11 +92,13 @@ class ProfileViewController: UIViewController {
         if isFollowing {
             
             profileView.followButton.setTitle("Following", for: .normal)
+            
             profileView.followButton.changeBackgroundColor(to: .themeLight, duration: 0.15)
             
         } else {
             
             profileView.followButton.setTitle("Follow", for: .normal)
+            
             profileView.followButton.changeBackgroundColor(to: .themeMediumDark, duration: 0.15)
         }
     }
@@ -108,29 +113,25 @@ extension ProfileViewController: ProfileViewDelegate {
     
     func cellForRow(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
         
-        let resultTableViewCell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.id, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.id, for: indexPath)
         
-        guard let cell = resultTableViewCell as? ResultTableViewCell
-            else {
-                print("Result Table View Cell Casting Failure")
-                return UITableViewCell()
-        }
+        guard let resultCell = cell as? ResultTableViewCell else { return cell }
         
         let result = trainingResults[indexPath.row]
         
         let date = Date(timeIntervalSince1970: result.date)
         
-        cell.dateLabel.text = date.string(format: .resultDisplay)
+        resultCell.dateLabel.text = date.string(format: .resultDisplay)
         
-        cell.idLabel.text = result.id
+        resultCell.idLabel.text = result.id
         
-        cell.modeLabel.text = result.mode
+        resultCell.modeLabel.text = result.mode
         
-        cell.pointsLabel.text = String(result.points)
+        resultCell.pointsLabel.text = String(result.points)
         
-        cell.videoView.setImage(withURLString: result.screenShot)
+        resultCell.videoView.setImage(withURLString: result.screenShot)
         
-        cell.videoURL = URL(string: result.videoURL)
+        resultCell.videoURL = URL(string: result.videoURL)
         
         StorageManager.shared.getProfilePicture(forID: result.id) { result in
             
@@ -138,16 +139,14 @@ extension ProfileViewController: ProfileViewDelegate {
                 
             case .success(let url):
                 
-                cell.profileImageView.setImage(withURLString: url.absoluteString,
-                                               placeholder: UIImage.asset(.profile))
+                resultCell.profileImageView.setImage(withURLString: url.absoluteString,
+                                                     placeholder: UIImage.asset(.profile))
                 
-            case .failure:
-                
-                break
+            case .failure: break
             }
         }
         
-        return cell
+        return resultCell
     }
     
     var isFollowing: Bool {

@@ -12,15 +12,15 @@ import AuthenticationServices
 class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        
         return .portrait
     }
     
     // MARK: - Property Declaration
     
     @IBOutlet var registerView: RegisterView! {
-        didSet {
-            registerView.delegate = self
-        }
+        
+        didSet { registerView.delegate = self }
     }
     
     var logInCompletion: (() -> Void)?
@@ -43,16 +43,17 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         if !isPasswordConfirmed() {
             
             showErrorMessage(.passwordNotConfirmed)
+            
             return
         }
         
-        FirestoreManager.shared.checkAvailable(for: id) { isAvailable in
+        FirestoreManager.shared.checkAvailable(for: id) { (isAvailable) in
             
             if isAvailable {
                 
                 AuthManager.shared.signUp(
                     withEmail: email,
-                    password: password) { result in
+                    password: password) { (result) in
                         
                         switch result {
                             
@@ -64,12 +65,14 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                                 completion: {
                                     
                                     self.registerView.switchStatus()
+                                    
                                     self.registerView.logIn()
                             })
                             
                         case .failure(let error):
                             
                             self.showErrorMessage(.signUpFail)
+                            
                             print(error)
                         }
                 }
@@ -114,6 +117,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
 
         let request = appleIDProvider.createRequest()
+        
         request.requestedScopes = [.email]
 
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
@@ -180,7 +184,11 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     private func isPasswordConfirmed() -> Bool {
         
-        return (registerView.passwordTextField.text == registerView.confirmPasswordTextField.text)
+        let password = registerView.passwordTextField.text
+        
+        let confirmPassword = registerView.confirmPasswordTextField.text
+        
+        return (password == confirmPassword)
     }
     
     private func showErrorMessage(_ message: RegisterError) {
@@ -235,6 +243,7 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                     } else {
                         
                         let firstDot = uid.firstIndex(of: ".") ?? uid.startIndex
+                        
                         let lastDot = uid.lastIndex(of: ".") ?? uid.endIndex
                         
                         id = uid[firstDot..<lastDot].dropFirst(1).description

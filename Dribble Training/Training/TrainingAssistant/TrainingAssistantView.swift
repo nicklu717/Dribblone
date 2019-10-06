@@ -20,9 +20,13 @@ class TrainingAssistantView: SKView {
     // MARK: - Property Declaration
     
     weak var viewDelegate: TrainingAssistantViewDelegate? {
+        
         didSet {
+            
             setupScene()
+            
             setupBallNode()
+            
             setupTargetNode()
         }
     }
@@ -34,8 +38,11 @@ class TrainingAssistantView: SKView {
     var targetNode: SKSpriteNode!
     
     @IBOutlet var pointsLabel: UILabel!
+    
     @IBOutlet var timerLabel: UILabel!
+    
     @IBOutlet var startButton: UIButton!
+    
     @IBOutlet var preparingCountdownLabel: UILabel!
     
     @IBOutlet var cancelButton: UIButton! {
@@ -44,8 +51,8 @@ class TrainingAssistantView: SKView {
             
             let inset: CGFloat = 5
             
-            cancelButton.imageEdgeInsets =
-                UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+            cancelButton.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset,
+                                                        bottom: inset, right: inset)
         }
     }
     
@@ -116,6 +123,7 @@ class TrainingAssistantView: SKView {
     private func setupScene() {
         
         trainScene.scaleMode = .resizeFill
+        
         trainScene.backgroundColor = .clear
         
         trainScene.physicsWorld.contactDelegate = viewDelegate
@@ -128,7 +136,9 @@ class TrainingAssistantView: SKView {
         ballNode.lineWidth = 0
         
         ballNode.physicsBody = SKPhysicsBody(circleOfRadius: SceneNode.standardRadius)
+        
         ballNode.physicsBody?.affectedByGravity = false
+        
         ballNode.physicsBody?.categoryBitMask = SceneNode.ball.categoryMask
         
         trainScene.addChild(ballNode)
@@ -154,10 +164,12 @@ class TrainingAssistantView: SKView {
         targetNode.run(SKAction.repeatForever(animation))
         
         targetNode.physicsBody = SKPhysicsBody(circleOfRadius: SceneNode.standardRadius)
+        
         targetNode.physicsBody?.affectedByGravity = false
+        
         targetNode.physicsBody?.categoryBitMask = SceneNode.target.categoryMask
-        targetNode.physicsBody?.contactTestBitMask =
-            SceneNode.ball.categoryMask | SceneNode.target.categoryMask
+        
+        targetNode.physicsBody?.contactTestBitMask = (SceneNode.ball.categoryMask | SceneNode.target.categoryMask)
     }
     
     // swiftlint:disable cyclomatic_complexity
@@ -170,7 +182,9 @@ class TrainingAssistantView: SKView {
             positionX = .right
             
             switch positionY {
+                
             case .high: positionY = .low
+            
             case .low: positionY = .high
             }
             
@@ -179,15 +193,20 @@ class TrainingAssistantView: SKView {
             positionX = .left
             
             switch positionY {
+            
             case .high: positionY = .low
+            
             case .low: positionY = .high
             }
             
         case .crossover:
             
             switch positionX {
+            
             case .left: positionX = .right
+            
             case .right: positionX = .left
+            
             default: positionX = .left
             }
             
@@ -196,10 +215,15 @@ class TrainingAssistantView: SKView {
         case .mStyle:
             
             switch positionX {
+            
             case .left: positionX = .centerRight
+            
             case .centerRight: positionX = .right
+            
             case .right: positionX = .centerLeft
+            
             case .centerLeft: positionX = .left
+            
             default: positionX = .left
             }
             
@@ -208,10 +232,15 @@ class TrainingAssistantView: SKView {
         case .low:
 
             switch positionX {
+            
             case .left: positionX = .centerRight
+            
             case .centerRight: positionX = .right
+            
             case .right: positionX = .centerLeft
+            
             case .centerLeft: positionX = .left
+            
             default: positionX = .left
             }
             
@@ -221,11 +250,13 @@ class TrainingAssistantView: SKView {
         }
         
         xScale = positionX.rawValue
+        
         yScale = positionY.rawValue
         
         if mode == .random {
             
             xScale = CGFloat(Double.random(in: 0.2...0.8))
+            
             yScale = CGFloat(Double.random(in: 0.2...0.6))
         }
         

@@ -24,9 +24,8 @@ class BallTrackerViewController: UIViewController {
     weak var delegate: BallTrackerViewControllerDelegate?
     
     @IBOutlet var ballTrackerView: BallTrackerView! {
-        didSet {
-            ballTrackerView.videoOutputDelegate = self
-        }
+        
+        didSet { ballTrackerView.videoOutputDelegate = self }
     }
     
     var coreMLModel: VNCoreMLModel!
@@ -40,8 +39,11 @@ class BallTrackerViewController: UIViewController {
         super.viewDidLoad()
         
         do {
+        
             coreMLModel = try VNCoreMLModel(for: MobileNetV2_SSDLite().model)
+        
         } catch {
+        
             fatalError("Unresolve Error: \(error), \(error.localizedDescription)")
         }
     }
@@ -71,20 +73,11 @@ class BallTrackerViewController: UIViewController {
     
     private func coreMLRequestCompletion(request: VNRequest, error: Error?) {
         
-        guard let observations = request.results as? [VNRecognizedObjectObservation], observations.count > 0
-            else {
-                return
-        }
+        guard let observations = request.results as? [VNRecognizedObjectObservation] else { return }
         
         for observation in observations {
             
-            guard let objectID = observation.labels.first?.identifier
-                else {
-                    print("First Label Not Exist")
-                    return
-            }
-            
-            // Get Detected Object Position
+            guard let objectID = observation.labels.first?.identifier else { return }
             
             let object = Object(rawValue: objectID)
             
@@ -123,12 +116,7 @@ extension BallTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
                        didOutput sampleBuffer: CMSampleBuffer,
                        from connection: AVCaptureConnection) {
         
-        guard
-            let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-            else {
-                print("Sample Buffer Convert Failure")
-                return
-        }
+        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
         delegate?.pixelBuffer = pixelBuffer
         
@@ -138,8 +126,11 @@ extension BallTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
         coreMLRequest.imageCropAndScaleOption = .scaleFill
         
         do {
+        
             try sequenceRequestHandler.perform([coreMLRequest], on: pixelBuffer)
+        
         } catch {
+        
             print(error)
         }
     }

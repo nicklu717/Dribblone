@@ -42,28 +42,26 @@ class BallTrackerView: UIView {
         
         // Set Session Input
         
-        guard
-            let camera = AVCaptureDevice.default(.builtInWideAngleCamera,
-                                                 for: .video,
-                                                 position: .front),
-            let cameraInput = try? AVCaptureDeviceInput(device: camera)
-        else {
-            print("Couldn't Set Up Camera Input")
-            return
+        guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
+        
+        do {
+            
+            let cameraInput = try AVCaptureDeviceInput(device: camera)
+            
+            captureSession.addInput(cameraInput)
+            
+            let videoDataOutput = AVCaptureVideoDataOutput()
+            
+            let videoDataOutputQueue = DispatchQueue.global()
+            
+            videoDataOutput.setSampleBufferDelegate(self.videoOutputDelegate, queue: videoDataOutputQueue)
+            
+            captureSession.addOutput(videoDataOutput)
+        
+        } catch {
+            
+            print(error)
         }
-        
-        captureSession.addInput(cameraInput)
-        
-        // Set Session Output
-        
-        let videoDataOutput = AVCaptureVideoDataOutput()
-        
-        let videoDataOutputQueue = DispatchQueue.global()
-        
-        videoDataOutput.setSampleBufferDelegate(self.videoOutputDelegate,
-                                                queue: videoDataOutputQueue)
-        
-        captureSession.addOutput(videoDataOutput)
     }
     
     private func setUpCameraLayer() {

@@ -141,6 +141,7 @@ enum SceneNode {
         switch self {
         
         case .ball: return 0001
+            
         case .target: return 0010
         }
     }
