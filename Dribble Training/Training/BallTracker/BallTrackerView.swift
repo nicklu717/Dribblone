@@ -40,9 +40,8 @@ class BallTrackerView: UIView {
         
         captureSession.sessionPreset = .high
         
-        // Set Session Input
-        
-        guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
+        guard let camera =
+            AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
         
         do {
             
