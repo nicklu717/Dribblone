@@ -56,10 +56,7 @@ extension UIView {
         
         get {
             
-            guard let borderColor = layer.borderColor
-                else {
-                    return nil
-            }
+            guard let borderColor = layer.borderColor else { return nil }
             
             return UIColor(cgColor: borderColor)
         }

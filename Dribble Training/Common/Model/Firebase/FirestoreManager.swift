@@ -204,12 +204,7 @@ class FirestoreManager {
                             teamInvitations: [],
                             blockTeamList: [])
         
-        guard let dictionary = getDictionary(from: member) else {
-            
-            print("Member Data Encoding Failure")
-            
-            return
-        }
+        guard let dictionary = getDictionary(from: member) else { return }
         
         let reference = firestore.collection(CollectionKey.member).document(member.uid)
             
@@ -228,12 +223,7 @@ class FirestoreManager {
                 for member: Member,
                 completion: (() -> Void)? = nil) {
         
-        guard let dictionary = getDictionary(from: trainingResult) else {
-            
-            print("Training Result Data Encoding Failure")
-            
-            return
-        }
+        guard let dictionary = getDictionary(from: trainingResult) else { return }
         
         let resultReference = firestore.collection(CollectionKey.trainingResults).addDocument(data: dictionary)
         

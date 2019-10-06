@@ -42,29 +42,26 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.id,
-                                                       for: indexPath) as? SettingTableViewCell
-            else {
-                print("Settings Table View Cell Not Exist")
-                return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.id, for: indexPath)
+        
+        guard let settingCell = cell as? SettingTableViewCell else { return cell }
         
         let setting = settings[indexPath.section][indexPath.row]
         
-        cell.titleLabel.text = setting.rawValue
+        settingCell.titleLabel.text = setting.rawValue
         
         switch setting {
             
         case .logOut:
             
-            cell.titleLabel.textColor = .red
+            settingCell.titleLabel.textColor = .red
             
-            cell.accessoryType = .none
+            settingCell.accessoryType = .none
             
         default: break
         }
         
-        return cell
+        return settingCell
     }
 }
 

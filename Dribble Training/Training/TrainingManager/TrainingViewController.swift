@@ -227,8 +227,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                         
                         self.presentingViewController?.dismiss(animated: true)
                         
-                        FirestoreManager.shared.upload(trainingResult: self.trainingResult,
-                                                       for: currentUser)
+                        FirestoreManager.shared.upload(trainingResult: self.trainingResult, for: currentUser)
                         
                     case .failure(let error):
                         
