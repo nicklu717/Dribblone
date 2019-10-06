@@ -44,12 +44,7 @@ class StorageManager {
         
         guard let currentUser = AuthManager.shared.currentUser else { return }
         
-        guard let data = image.jpegData(compressionQuality: 0.3) else {
-            
-            print("Screen Shot Image Converting Failure")
-            
-            return
-        }
+        guard let data = image.jpegData(compressionQuality: 0.3) else { return }
         
         let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
         

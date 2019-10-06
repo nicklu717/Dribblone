@@ -53,12 +53,7 @@ class FirestoreManager {
             
             if let data = documentSnapshot?.documents.first?.data() {
                 
-                guard let member: Member = self.getObject(from: data) else {
-                    
-                    print("Member Data Converting Failure")
-                    
-                    return
-                }
+                guard let member: Member = self.getObject(from: data) else { return }
                 
                 completion(.success(member))
                 
@@ -97,12 +92,7 @@ class FirestoreManager {
             
             for document in querySnapshot.documents {
                 
-                guard let trainingResult: TrainingResult = self.getObject(from: document.data()) else {
-                    
-                    print("Invalid Training Result")
-                    
-                    continue
-                }
+                guard let trainingResult: TrainingResult = self.getObject(from: document.data()) else { continue }
                 
                 trainingResults.append(trainingResult)
             }
