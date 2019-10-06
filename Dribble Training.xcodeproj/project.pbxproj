@@ -25,7 +25,6 @@
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
-		5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F29A0233B01C80047E8FA /* TabBar.storyboard */; };
 		5A64DF4A2326462100562001 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF492326462100562001 /* ResultTableViewCell.swift */; };
 		5A64DF4C2326463000562001 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4B2326463000562001 /* ResultTableViewCell.xib */; };
 		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
@@ -100,7 +99,6 @@
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5A5F29A0233B01C80047E8FA /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		5A64DF492326462100562001 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		5A64DF4B2326463000562001 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -451,7 +449,6 @@
 			isa = PBXGroup;
 			children = (
 				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
-				5A5F29A0233B01C80047E8FA /* TabBar.storyboard */,
 				5A88EC762327882F00BD23D4 /* TabBarController.swift */,
 				5A30C302233A7912005D711F /* NavigationController.swift */,
 				5A365DC6234A38A500A4EF4F /* KitManager */,
@@ -552,7 +549,6 @@
 				5A64DF4C2326463000562001 /* ResultTableViewCell.xib in Resources */,
 				5A6D2DB72343882100E83E0E /* ResultCollectionViewCell.xib in Resources */,
 				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
-				5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */,
 				5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */,
 				5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */,
 				5A5618132345A89A004B66A5 /* Instruction.storyboard in Resources */,

@@ -10,8 +10,6 @@ import UIKit
 
 extension UIStoryboard {
     
-    static let tabBar = storyboard("TabBar")
-    
     static let main = storyboard("Main")
     
     static let register = storyboard("Register")

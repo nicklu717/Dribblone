@@ -50,10 +50,10 @@ class MainViewController: UIViewController {
         
         fetchUserData(for: uid) {
             
-            let viewController = UIStoryboard.tabBar.instantiateInitialViewController()
-
-            guard let tabBarController = viewController as? TabBarController else { return }
-
+            let tabBarController = TabBarController()
+            
+            tabBarController.modalPresentationStyle = .overFullScreen
+            
             self.present(tabBarController, animated: false, completion: nil)
         }
     }
