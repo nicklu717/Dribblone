@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qT3-9h-6m0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="-936"/>
+            <point key="canvasLocation" x="-28" y="-988"/>
         </scene>
         <!--Ball Tracker View Controller-->
         <scene sceneID="oD3-6Y-e2e">
@@ -63,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf5-QC-eTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="875" y="-151"/>
+            <point key="canvasLocation" x="-655" y="-151"/>
         </scene>
         <!--Training Assistant View Controller-->
         <scene sceneID="g84-Cz-8Cu">
@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBC-QQ-wXp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="-151"/>
+            <point key="canvasLocation" x="594" y="-151"/>
         </scene>
     </scenes>
     <resources>
