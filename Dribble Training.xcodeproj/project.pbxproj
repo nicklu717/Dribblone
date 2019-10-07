@@ -25,6 +25,8 @@
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
+		5A64C983234B127D00979F9E /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64C981234B127D00979F9E /* TrainingViewController.swift */; };
+		5A64C984234B127D00979F9E /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A64C982234B127D00979F9E /* Training.storyboard */; };
 		5A64DF4A2326462100562001 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF492326462100562001 /* ResultTableViewCell.swift */; };
 		5A64DF4C2326463000562001 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4B2326463000562001 /* ResultTableViewCell.xib */; };
 		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
@@ -62,9 +64,7 @@
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
-		5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* TrainingViewController.swift */; };
 		5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* BallTrackerView.swift */; };
-		5AD862C9231919F70036EFFF /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* Training.storyboard */; };
 		5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */; };
 		5AD91EF22324E9AD000E2BB4 /* TrainingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */; };
 		5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */; };
@@ -99,6 +99,8 @@
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5A64C981234B127D00979F9E /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		5A64C982234B127D00979F9E /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
 		5A64DF492326462100562001 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		5A64DF4B2326463000562001 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -138,9 +140,7 @@
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD862B8231913CB0036EFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD862BA231913CB0036EFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AD862C0231915C30036EFFF /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		5AD862C6231917A10036EFFF /* BallTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerView.swift; sourceTree = "<group>"; };
-		5AD862C8231919F70036EFFF /* Training.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
 		5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuViewController.swift; sourceTree = "<group>"; };
 		5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuView.swift; sourceTree = "<group>"; };
 		5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingMenu.storyboard; sourceTree = "<group>"; };
@@ -202,8 +202,8 @@
 		5A4E2154232238F400F91012 /* TrainingManager */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862C8231919F70036EFFF /* Training.storyboard */,
-				5AD862C0231915C30036EFFF /* TrainingViewController.swift */,
+				5A64C982234B127D00979F9E /* Training.storyboard */,
+				5A64C981234B127D00979F9E /* TrainingViewController.swift */,
 			);
 			path = TrainingManager;
 			sourceTree = "<group>";
@@ -539,10 +539,10 @@
 			files = (
 				5A93ABAA233A2F3300358CCD /* SettingTableViewCell.xib in Resources */,
 				5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */,
-				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
 				5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */,
+				5A64C984234B127D00979F9E /* Training.storyboard in Resources */,
 				5A01D5A223434942006A2445 /* PumpingTargetPoint.atlas in Resources */,
 				5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
@@ -640,9 +640,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A64C983234B127D00979F9E /* TrainingViewController.swift in Sources */,
 				5ADE95542340F997000608E1 /* PhotoManager.swift in Sources */,
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
-				5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */,
 				5A30C303233A7912005D711F /* NavigationController.swift in Sources */,
 				5A30C2FF233A6B43005D711F /* TextField.swift in Sources */,
 				5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */,
