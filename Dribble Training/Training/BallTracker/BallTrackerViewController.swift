@@ -24,16 +24,13 @@ class BallTrackerViewController: UIViewController {
     weak var delegate: BallTrackerViewControllerDelegate?
     
     @IBOutlet var ballTrackerView: BallTrackerView! {
-        didSet {
-            ballTrackerView.videoOutputDelegate = self
-        }
+        
+        didSet { ballTrackerView.videoOutputDelegate = self }
     }
     
     var coreMLModel: VNCoreMLModel!
     
     let sequenceRequestHandler = VNSequenceRequestHandler()
-    
-//    var detectionStatistic: [String: Int] = [:]
     
     // MARK: - Life Cycle
     
@@ -42,8 +39,11 @@ class BallTrackerViewController: UIViewController {
         super.viewDidLoad()
         
         do {
+        
             coreMLModel = try VNCoreMLModel(for: MobileNetV2_SSDLite().model)
+        
         } catch {
+        
             fatalError("Unresolve Error: \(error), \(error.localizedDescription)")
         }
     }
@@ -73,26 +73,17 @@ class BallTrackerViewController: UIViewController {
     
     private func coreMLRequestCompletion(request: VNRequest, error: Error?) {
         
-        guard let observations = request.results as? [VNRecognizedObjectObservation], observations.count > 0
-            else {
-                return
-        }
+        guard let observations = request.results as? [VNRecognizedObjectObservation] else { return }
         
         for observation in observations {
             
-            guard let objectID = observation.labels.first?.identifier
-                else {
-                    print("First Label Not Exist")
-                    return
-            }
+            guard let objectID = observation.labels.first?.identifier else { return }
             
-//            detectionStatistic[objectID] = (detectionStatistic[objectID] ?? 0) + 1
+            let object = Object(rawValue: objectID)
             
-            // Get Detected Object Position
-            
-            switch objectID {
+            switch object {
                 
-            case "sports ball", "mouse", "clock", "donut", "kite":
+            case .sportsBall, .mouse, .surfboard:
                 
                 let visionRect = observation.boundingBox
                 
@@ -104,11 +95,18 @@ class BallTrackerViewController: UIViewController {
                 
                 let layerRect = cameraLayer.layerRectConverted(fromMetadataOutputRect: avFoundationRect)
                 
-                self.delegate?.didGetBallPosition(layerRect.center())
+                self.delegate?.didGetBallPosition(layerRect.center)
                 
             default: return
             }
         }
+    }
+    
+    private enum Object: String {
+        
+        case sportsBall = "sports ball"
+        case mouse
+        case surfboard
     }
 }
 
@@ -118,12 +116,7 @@ extension BallTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
                        didOutput sampleBuffer: CMSampleBuffer,
                        from connection: AVCaptureConnection) {
         
-        guard
-            let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-            else {
-                print("Sample Buffer Convert Failure")
-                return
-        }
+        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
         delegate?.pixelBuffer = pixelBuffer
         
@@ -133,8 +126,11 @@ extension BallTrackerViewController: AVCaptureVideoDataOutputSampleBufferDelegat
         coreMLRequest.imageCropAndScaleOption = .scaleFill
         
         do {
+        
             try sequenceRequestHandler.perform([coreMLRequest], on: pixelBuffer)
+        
         } catch {
+        
             print(error)
         }
     }

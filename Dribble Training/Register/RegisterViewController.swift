@@ -12,15 +12,15 @@ import AuthenticationServices
 class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        
         return .portrait
     }
     
     // MARK: - Property Declaration
     
     @IBOutlet var registerView: RegisterView! {
-        didSet {
-            registerView.delegate = self
-        }
+        
+        didSet { registerView.delegate = self }
     }
     
     var logInCompletion: (() -> Void)?
@@ -43,45 +43,36 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         if !isPasswordConfirmed() {
             
             showErrorMessage(.passwordNotConfirmed)
+            
             return
         }
         
-        FirestoreManager.shared.checkAvailable(for: id) { isAvailable in
+        FirestoreManager.shared.checkAvailable(for: id) { (isAvailable) in
             
             if isAvailable {
                 
                 AuthManager.shared.signUp(
                     withEmail: email,
-                    password: password) { result in
+                    password: password) { (result) in
                         
                         switch result {
                             
                         case .success(let uid):
                             
-                            let member = Member(uid: uid,
-                                                id: id,
-                                                displayName: "",
-                                                followers: [],
-                                                followings: [],
-                                                blockList: [],
-                                                trainingResults: [],
-                                                picture: "",
-                                                teams: [],
-                                                teamInvitations: [],
-                                                blockTeamList: [])
-                            
-                            FirestoreManager.shared.create(
-                                member: member,
+                            FirestoreManager.shared.createMember(
+                                uid: uid,
+                                id: id,
                                 completion: {
                                     
-                                    // Show success alert
                                     self.registerView.switchStatus()
+                                    
                                     self.registerView.logIn()
                             })
                             
                         case .failure(let error):
                             
                             self.showErrorMessage(.signUpFail)
+                            
                             print(error)
                         }
                 }
@@ -126,6 +117,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
 
         let request = appleIDProvider.createRequest()
+        
         request.requestedScopes = [.email]
 
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
@@ -178,11 +170,11 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                           registerView.idTextField]
         }
         
-        for textField in textFields where textField.text == "" {
+        for textField in textFields where textField.text == .empty {
             
-            let red = UIColor.brown2.withAlphaComponent(0.6)
+            let flashColor = UIColor.themeMediumLight.withAlphaComponent(0.6)
             
-            textField.flashBackground(with: red, duration: 0.15)
+            textField.flashBackground(with: flashColor, duration: 0.15)
             
             hasBlank = true
         }
@@ -192,7 +184,11 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
     
     private func isPasswordConfirmed() -> Bool {
         
-        return (registerView.passwordTextField.text == registerView.confirmPasswordTextField.text)
+        let password = registerView.passwordTextField.text
+        
+        let confirmPassword = registerView.confirmPasswordTextField.text
+        
+        return (password == confirmPassword)
     }
     
     private func showErrorMessage(_ message: RegisterError) {
@@ -236,9 +232,7 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                         return
                     }
                     
-                    let userName = credential.fullName?.nickname ?? ""
-                    
-                    var id = ""
+                    var id: String = .empty
                     
                     if let email = credential.email {
                         
@@ -249,26 +243,18 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                     } else {
                         
                         let firstDot = uid.firstIndex(of: ".") ?? uid.startIndex
+                        
                         let lastDot = uid.lastIndex(of: ".") ?? uid.endIndex
                         
                         id = uid[firstDot..<lastDot].dropFirst(1).description
                     }
                     
-                    let member = Member(uid: uid,
-                                        id: id,
-                                        displayName: userName,
-                                        followers: [],
-                                        followings: [],
-                                        blockList: [],
-                                        trainingResults: [],
-                                        picture: "",
-                                        teams: [],
-                                        teamInvitations: [],
-                                        blockTeamList: [])
-                    
-                    FirestoreManager.shared.create(member: member, completion: {
-                        
-                        self.logInSuccess(uid: member.uid)
+                    FirestoreManager.shared.createMember(
+                        uid: uid,
+                        id: id,
+                        completion: {
+                            
+                            self.logInSuccess(uid: uid)
                     })
                     
                 case .failure(let error):

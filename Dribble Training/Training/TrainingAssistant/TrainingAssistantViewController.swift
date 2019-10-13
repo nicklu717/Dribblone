@@ -25,28 +25,23 @@ class TrainingAssistantViewController: UIViewController {
     weak var delegate: TrainingAssistantViewControllerDelegate?
     
     @IBOutlet var trainingAssistantView: TrainingAssistantView! {
-        didSet {
-            trainingAssistantView.viewDelegate = self
-        }
+        
+        didSet { trainingAssistantView.viewDelegate = self }
     }
     
     private var points: Int = 0 {
-        didSet {
-            trainingAssistantView.setPointsLabel(points)
-        }
+        
+        didSet { trainingAssistantView.setPointsLabel(points) }
     }
     
-    private var minute: Int = 0
-    private var second: Int = 0 {
-        didSet {
-            trainingAssistantView.setTimerLabel(minute: minute, second: second)
-        }
+    private var trainingTime = Time() {
+        
+        didSet { trainingAssistantView.setTimerLabel(minute: trainingTime.minute, second: trainingTime.second) }
     }
     
-    private var preparingCountdownSecond: Int = 3 {
-        didSet {
-            trainingAssistantView.setPreparingCountdownLabel(to: preparingCountdownSecond)
-        }
+    private var preparingTime = Time() {
+        
+        didSet { trainingAssistantView.setPreparingCountdownLabel(to: preparingTime.second) }
     }
     
     private var timer: Timer?
@@ -66,10 +61,9 @@ class TrainingAssistantViewController: UIViewController {
     
     func resetTraining() {
         
-        minute = 0
-        second = 10
+        trainingTime = Time.training
         
-        points = 0
+        points = .zero
         
         trainingAssistantView.startButton.isHidden = false
         
@@ -87,7 +81,7 @@ class TrainingAssistantViewController: UIViewController {
     
     private func getPoint() {
         
-        points += 3
+        points += Point.normal
         
         trainingAssistantView.resetTargetNode(mode: trainingMode)
     }
@@ -115,26 +109,15 @@ class TrainingAssistantViewController: UIViewController {
     
     @objc private func countdown() {
         
-        if second <= 0 {
-            
-            if minute > 0 {
-                
-                minute -= 1
-                second = 60
-                
-            } else {
-                
-                endTraining()
-                return
-            }
-        }
+        trainingTime.countdown()
         
-        second -= 1
+        if trainingTime.isZero {
+            
+            endTraining()
+        }
     }
     
     private func endTraining() {
-        
-        print("Time's Up")
         
         timer?.invalidate()
         
@@ -148,7 +131,7 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
         
         delegate?.fakeRecordingForPermission()
         
-        preparingCountdownSecond = 3
+        preparingTime = Time.trainingPrepare
         
         trainingAssistantView.preparingCountdownLabel.isHidden = false
         
@@ -163,11 +146,9 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     
     @objc private func preparingCountdown() {
         
-        preparingCountdownSecond -= 1
-            
-        trainingAssistantView.setPreparingCountdownLabel(to: preparingCountdownSecond)
+        preparingTime.countdown()
         
-        if preparingCountdownSecond < 0 {
+        if preparingTime.isZero {
             
             timer?.invalidate()
             

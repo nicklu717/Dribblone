@@ -14,12 +14,15 @@ class KeychainManager {
     
     private let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
     
-    private let userUID = "user_uid"
-    
     var uid: String? {
         
-        get { return keychain[userUID] }
+        get { return keychain[KeyName.userUID] }
         
-        set { keychain[userUID] = newValue }
+        set { keychain[KeyName.userUID] = newValue }
+    }
+    
+    private struct KeyName {
+        
+        static let userUID = "user_uid"
     }
 }

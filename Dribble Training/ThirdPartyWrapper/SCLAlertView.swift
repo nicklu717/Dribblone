@@ -11,7 +11,7 @@ import SCLAlertView
 extension UIViewController {
     
     func showConfirmAlert(title: String,
-                          subTitle: String = "",
+                          subTitle: String = .empty,
                           confirmHandler: @escaping () -> Void) {
         
         let appearance = SCLAlertView.SCLAppearance(showCloseButton: false,
@@ -20,6 +20,7 @@ extension UIViewController {
         let alertView = SCLAlertView(appearance: appearance)
         
         alertView.addButton("BLOCK", action: confirmHandler)
+        
         alertView.addButton("Cancel", action: {})
         
         alertView.showError(title, subTitle: subTitle)

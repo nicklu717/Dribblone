@@ -14,25 +14,23 @@ class AuthManager {
     
     private let auth = Auth.auth()
     
-    var currentUser: Member!
+    var currentUser: Member?
     
     func signUp(withEmail email: String,
                 password: String,
                 completion: @escaping (Result<UID, Error>) -> Void) {
         
-        auth.createUser(
-            withEmail: email,
-            password: password) { (authDataResult, error) in
+        auth.createUser(withEmail: email, password: password) { (authDataResult, error) in
                 
-                if let error = error {
-                    
-                    completion(.failure(error))
-                }
+            if let error = error {
                 
-                if let authDataResult = authDataResult {
-                    
-                    completion(.success(authDataResult.user.uid))
-                }
+                completion(.failure(error))
+            }
+            
+            if let authDataResult = authDataResult {
+                
+                completion(.success(authDataResult.user.uid))
+            }
         }
     }
     
@@ -41,7 +39,7 @@ class AuthManager {
                completion: @escaping (Result<UID, Error>) -> Void) {
         
         auth.signIn(withEmail: email, password: password) { (authDataResult, error) in
-            
+                
             if let error = error {
                 
                 completion(.failure(error))

@@ -13,26 +13,30 @@ class ProfileViewController: UIViewController {
     // MARK: - Property Declaration
     
     @IBOutlet var profileView: ProfileView! {
-        didSet {
-            profileView.delegate = self
-        }
+        
+        didSet { profileView.delegate = self }
     }
     
     var member: Member! {
+        
         didSet {
+        
             setupProfile()
+            
             fetchTrainingResult()
         }
     }
     
     var trainingResults: [TrainingResult] = [] {
-        didSet {
-            profileView.reloadTableView()
-        }
+        
+        didSet { profileView.reloadTableView() }
     }
     
     var isOtherUser: Bool {
-        return member.id != AuthManager.shared.currentUser.id
+        
+        guard let currentUser = AuthManager.shared.currentUser else { return true }
+        
+        return member.id != currentUser.id
     }
     
     // MARK: - Life Cycle
@@ -44,9 +48,11 @@ class ProfileViewController: UIViewController {
         if isOtherUser {
             
             navigationItem.leftBarButtonItem = nil
+            
             navigationItem.rightBarButtonItem = nil
             
             profileView.followButton.isHidden = false
+            
             profileView.blockButton.isHidden = false
             
             updateFollowingStatus()
@@ -86,12 +92,14 @@ class ProfileViewController: UIViewController {
         if isFollowing {
             
             profileView.followButton.setTitle("Following", for: .normal)
-            profileView.followButton.changeBackgroundColor(to: .brown1, duration: 0.15)
+            
+            profileView.followButton.changeBackgroundColor(to: .themeLight, duration: 0.15)
             
         } else {
             
             profileView.followButton.setTitle("Follow", for: .normal)
-            profileView.followButton.changeBackgroundColor(to: .brown3, duration: 0.15)
+            
+            profileView.followButton.changeBackgroundColor(to: .themeMediumDark, duration: 0.15)
         }
     }
 }
@@ -105,29 +113,25 @@ extension ProfileViewController: ProfileViewDelegate {
     
     func cellForRow(at indexPath: IndexPath, in tableView: UITableView) -> UITableViewCell {
         
-        let resultTableViewCell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.id, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.id, for: indexPath)
         
-        guard let cell = resultTableViewCell as? ResultTableViewCell
-            else {
-                print("Result Table View Cell Casting Failure")
-                return UITableViewCell()
-        }
+        guard let resultCell = cell as? ResultTableViewCell else { return cell }
         
         let result = trainingResults[indexPath.row]
         
         let date = Date(timeIntervalSince1970: result.date)
         
-        cell.dateLabel.text = date.string(format: .resultDisplay)
+        resultCell.dateLabel.text = date.string(format: .resultDisplay)
         
-        cell.idLabel.text = result.id
+        resultCell.idLabel.text = result.id
         
-        cell.modeLabel.text = result.mode
+        resultCell.modeLabel.text = result.mode
         
-        cell.pointsLabel.text = String(result.points)
+        resultCell.pointsLabel.text = String(result.points)
         
-        cell.videoView.setImage(withURLString: result.screenShot)
+        resultCell.videoView.setImage(withURLString: result.screenShot)
         
-        cell.videoURL = URL(string: result.videoURL)
+        resultCell.videoURL = URL(string: result.videoURL)
         
         StorageManager.shared.getProfilePicture(forID: result.id) { result in
             
@@ -135,21 +139,19 @@ extension ProfileViewController: ProfileViewDelegate {
                 
             case .success(let url):
                 
-                cell.profileImageView.setImage(withURLString: url.absoluteString,
-                                               placeholder: UIImage.asset(.profile))
+                resultCell.profileImageView.setImage(withURLString: url.absoluteString,
+                                                     placeholder: UIImage.asset(.profile))
                 
-            case .failure:
-                
-                break
+            case .failure: break
             }
         }
         
-        return cell
+        return resultCell
     }
     
     var isFollowing: Bool {
         
-        let followings = AuthManager.shared.currentUser.followings
+        let followings = AuthManager.shared.currentUser?.followings ?? []
         
         return followings.contains(member.id)
     }
@@ -158,7 +160,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.follow(member: member)
         
-        AuthManager.shared.currentUser.followings.append(member.id)
+        AuthManager.shared.currentUser?.followings.append(member.id)
         
         updateFollowingStatus()
     }
@@ -167,16 +169,16 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.unfollow(member: member)
         
-        let followings = AuthManager.shared.currentUser.followings
-        
         var newFollowings: [ID] = []
+        
+        let followings = AuthManager.shared.currentUser?.followings ?? []
         
         for id in followings where id != member.id {
             
             newFollowings.append(id)
         }
         
-        AuthManager.shared.currentUser.followings = newFollowings
+        AuthManager.shared.currentUser?.followings = newFollowings
         
         updateFollowingStatus()
     }
@@ -190,7 +192,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         FirestoreManager.shared.block(member: member)
         
-        AuthManager.shared.currentUser.blockList.append(member.id)
+        AuthManager.shared.currentUser?.blockList.append(member.id)
         
         navigationController?.popViewController(animated: true)
     }

@@ -10,11 +10,15 @@ import CoreGraphics
 
 extension CGRect {
     
-    func center() -> CGPoint {
+    var center: CGPoint {
         
-        let centerX = origin.x + (width / 2)
-        let centerY = origin.y + (height / 2)
-        
-        return CGPoint(x: centerX, y: centerY)
+        get {
+            
+            let centerX = origin.x + (width / 2)
+            
+            let centerY = origin.y + (height / 2)
+            
+            return CGPoint(x: centerX, y: centerY)
+        }
     }
 }
