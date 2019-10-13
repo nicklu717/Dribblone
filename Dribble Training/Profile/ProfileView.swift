@@ -30,18 +30,20 @@ class ProfileView: UIView {
     weak var delegate: ProfileViewDelegate?
     
     @IBOutlet var nameLabel: UILabel!
+    
     @IBOutlet var pictureImageView: UIImageView!
     
     @IBOutlet var followingsLabel: UILabel!
+    
     @IBOutlet var followersLabel: UILabel!
     
     @IBOutlet var followButton: UIButton!
+    
     @IBOutlet var blockButton: UIButton!
     
     @IBOutlet var tableView: UITableView! {
-        didSet {
-            setupTableView()
-        }
+        
+        didSet { setupTableView() }
     }
     
     func setupProfile(for member: Member) {
@@ -60,7 +62,9 @@ class ProfileView: UIView {
         }
         
         nameLabel.text = member.displayName
+        
         followingsLabel.text = String(member.followings.count)
+        
         followersLabel.text = String(member.followers.count)
     }
     
@@ -73,11 +77,7 @@ class ProfileView: UIView {
     
     @IBAction func followUser() {
         
-        guard let delegate = delegate
-            else {
-                print("Profile View Delegate Not Exist")
-                return
-        }
+        guard let delegate = delegate else { return }
         
         if delegate.isFollowing {
             

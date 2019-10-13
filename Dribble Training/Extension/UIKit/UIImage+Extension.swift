@@ -11,6 +11,7 @@ import UIKit
 extension UIImage {
     
     static func asset(_ asset: Asset) -> UIImage? {
+        
         return UIImage(named: asset.rawValue)
     }
     

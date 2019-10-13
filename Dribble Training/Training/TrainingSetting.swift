@@ -6,6 +6,8 @@
 //  Copyright © 2019 陸瑋恩. All rights reserved.
 //
 
+import CoreGraphics
+
 struct TrainingViewControllerSegue {
     
     static let ballTracker = "BallTracker"
@@ -88,17 +90,58 @@ enum TrainingMode: String {
     }
 }
 
+struct Time {
+    
+    var minute: Int = 0
+    
+    var second: Int = 0
+    
+    var isZero: Bool {
+        
+        return minute == 0 && second == 0
+    }
+    
+    static let training = Time(minute: 0, second: 10)
+    
+    static let trainingPrepare = Time(minute: 0, second: 3)
+    
+    mutating func countdown() {
+        
+        if second <= 0 {
+            
+            if minute > 0 {
+                
+                minute -= 1
+                second = 60
+                
+            } else { return }
+        }
+        
+        second -= 1
+    }
+}
+
+struct Point {
+    
+    static let normal = 3
+    
+    static let quickReaction = 5
+}
+
 enum SceneNode {
     
     case ball
     
     case target
     
+    static let standardRadius: CGFloat = 30
+    
     var categoryMask: UInt32 {
         
         switch self {
         
         case .ball: return 0001
+            
         case .target: return 0010
         }
     }

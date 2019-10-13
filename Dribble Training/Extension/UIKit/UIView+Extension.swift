@@ -20,6 +20,7 @@ extension UIView {
         let originColor = backgroundColor
         
         changeBackgroundColor(to: color, duration: duration) {
+            
             self.changeBackgroundColor(to: originColor, duration: duration)
         }
     }
@@ -55,10 +56,7 @@ extension UIView {
         
         get {
             
-            guard let borderColor = layer.borderColor
-                else {
-                    return nil
-            }
+            guard let borderColor = layer.borderColor else { return nil }
             
             return UIColor(cgColor: borderColor)
         }

@@ -12,21 +12,20 @@ import ReplayKit
 class TrainingViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        
         return .landscapeLeft
     }
     
     // MARK: - Property Declaration
     
     var ballTrackerPage: BallTrackerViewController! {
-        didSet {
-            ballTrackerPage.delegate = self
-        }
+        
+        didSet { ballTrackerPage.delegate = self }
     }
     
     var trainingAssistantPage: TrainingAssistantViewController! {
-        didSet {
-            trainingAssistantPage.delegate = self
-        }
+        
+        didSet { trainingAssistantPage.delegate = self }
     }
     
     let screenRecorder = RPScreenRecorder.shared()
@@ -64,20 +63,17 @@ class TrainingViewController: UIViewController {
     
     private func takeScreenShot() {
 
-        guard let pixelBuffer = pixelBuffer
-            else {
-                print("Image Buffer Not Exist")
-                return
-        }
+        guard let pixelBuffer = pixelBuffer else { return }
         
         let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+        
         let image = UIImage(ciImage: ciImage, scale: 1, orientation: .upMirrored)
         
         let fileName = String(format: "%.0d", trainingResult.date)
         
         StorageManager.shared.uploadScreenShot(
             fileName: fileName,
-            image: image) { result in
+            image: image) { (result) in
 
                 switch result {
 
@@ -108,36 +104,38 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
         screenRecorder.startRecording { error in
             
             if let error = error {
+                
                 print(error)
+                
                 return
             }
-            
-            print("Start Recording")
         }
     }
     
     func startRecording() {
         
-        let date = Date().timeIntervalSince1970
-        
-        trainingResult = TrainingResult(id: AuthManager.shared.currentUser.id,
-                                        date: date,
-                                        mode: "",
-                                        points: 0,
-                                        videoURL: "",
-                                        screenShot: "")
-        
-        takeScreenShot()
-        
         screenRecorder.startRecording { error in
             
             if let error = error {
+                
                 print(error)
+                
                 return
             }
-            
-            print("Start Recording")
         }
+        
+        guard let currentUser = AuthManager.shared.currentUser else { return }
+        
+        let date = Date().timeIntervalSince1970
+        
+        trainingResult = TrainingResult(id: currentUser.id,
+                                        date: date,
+                                        mode: .empty,
+                                        points: 0,
+                                        videoURL: .empty,
+                                        screenShot: .empty)
+        
+        takeScreenShot()
     }
     
     func cancelRecording() {
@@ -148,27 +146,23 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
     func endTraining(points: Int, trainingMode mode: String) {
         
         trainingResult.mode = mode
+        
         trainingResult.points = points
         
         screenRecorder.stopRecording { (previewViewController, error) in
             
-            print("Stop Recording")
-            
             if let error = error {
+                
                 print(error)
+                
                 return
             }
             
-            guard
-                let previewViewController = previewViewController
-            else {
-                print("Preview View Controller Not Exist")
-                return
-            }
+            guard let previewViewController = previewViewController else { return }
             
             previewViewController.previewControllerDelegate = self
             
-            self.present(previewViewController, animated: true, completion: nil)
+            self.present(previewViewController, animated: true)
         }
     }
 }
@@ -184,17 +178,21 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
             
             StorageManager.shared.removeScreenShot(fileName: fileName)
             
-            presentingViewController?.dismiss(animated: true, completion: nil)
+            presentingViewController?.dismiss(animated: true)
             
             return
         }
         
-        guard let videoResource = PhotoManager.shared.fetchResource(for: .video)
-            else {
+        guard let currentUser = AuthManager.shared.currentUser else {
                 
-                print("Video Resource Fetching Failure")
+            presentingViewController?.dismiss(animated: true)
+        
+            return
+        }
+        
+        guard let videoResource = PhotoManager.shared.fetchResource(for: .video) else {
                 
-                presentingViewController?.dismiss(animated: true, completion: nil)
+                presentingViewController?.dismiss(animated: true)
                 
                 return
         }
@@ -202,6 +200,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
         var temporaryURL = FileManager.default.temporaryDirectory
         
         temporaryURL.appendPathComponent("temp")
+        
         temporaryURL.appendPathExtension("mp4")
         
         PhotoManager.shared.writeData(to: temporaryURL, resource: videoResource) {
@@ -212,8 +211,11 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                 completion: { result in
                     
                     do {
+                        
                         try FileManager.default.removeItem(at: temporaryURL)
+                        
                     } catch {
+                        
                         print(error)
                     }
                     
@@ -225,8 +227,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
                         
                         self.presentingViewController?.dismiss(animated: true)
                         
-                        FirestoreManager.shared.upload(trainingResult: self.trainingResult,
-                                                       for: AuthManager.shared.currentUser)
+                        FirestoreManager.shared.upload(trainingResult: self.trainingResult, for: currentUser)
                         
                     case .failure(let error):
                         

@@ -10,8 +10,6 @@ import UIKit
 
 extension UIStoryboard {
     
-    static let tabBar = storyboard("TabBar")
-    
     static let main = storyboard("Main")
     
     static let register = storyboard("Register")
@@ -27,6 +25,7 @@ extension UIStoryboard {
     static let profile = storyboard("Profile")
     
     private static func storyboard(_ name: String) -> UIStoryboard {
+        
         return UIStoryboard(name: name, bundle: nil)
     }
 }

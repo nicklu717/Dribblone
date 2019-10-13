@@ -20,9 +20,13 @@ class ResultCollectionViewCell: UICollectionViewCell {
     weak var delegate: ResultCollectionViewCellDelegate?
     
     @IBOutlet var profileImageView: UIImageView!
+    
     @IBOutlet var idButton: UIButton!
+    
     @IBOutlet var pointsLabel: UILabel!
+    
     @IBOutlet var modeLabel: UILabel!
+    
     @IBOutlet var screenShotImageView: UIImageView!
     
     var videoURL: URL?
@@ -40,18 +44,14 @@ class ResultCollectionViewCell: UICollectionViewCell {
     
     @IBAction func showMemberProfile(_ button: UIButton) {
         
-        let id = button.titleLabel?.text ?? ""
+        let id = button.titleLabel?.text ?? .empty
         
         delegate?.showProfile(for: id)
     }
     
     @IBAction func playVideo() {
         
-        guard let delegate = delegate
-            else {
-                print("Result Collection View Cell Delegate Not Exist")
-                return
-        }
+        guard let delegate = delegate else { return }
         
         isVideoAvailable = delegate.playVideo(with: videoURL)
     }

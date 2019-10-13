@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         Fabric.with([Crashlytics.self])
+        
         Fabric.sharedSDK().debug = true
         
         IQKeyboardManager.shared.enable = true
