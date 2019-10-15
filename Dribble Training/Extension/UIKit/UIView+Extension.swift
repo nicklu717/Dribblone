@@ -31,7 +31,7 @@ extension UIView {
         
         UIView.animate(withDuration: duration,
                        animations: { self.backgroundColor = color },
-                       completion: { _ in completion?() })
+                       completion: { (_) in completion?() })
     }
 }
 

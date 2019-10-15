@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController {
     
     func fetchTrainingResult() {
         
-        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
+        FirestoreManager.shared.fetchTrainingResult(for: member) { (result) in
             
             switch result {
                 
@@ -133,7 +133,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         resultCell.videoURL = URL(string: result.videoURL)
         
-        StorageManager.shared.getProfilePicture(forID: result.id) { result in
+        StorageManager.shared.getProfilePicture(forID: result.id) { (result) in
             
             switch result {
                 

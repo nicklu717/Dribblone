@@ -90,7 +90,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         
         AuthManager.shared.logIn(
             withEmail: email,
-            password: password) { result in
+            password: password) { (result) in
                 
                 switch result {
                     
@@ -219,7 +219,7 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
             
             let uid = credential.user
             
-            FirestoreManager.shared.fetchMemberData(forUID: uid) { result in
+            FirestoreManager.shared.fetchMemberData(forUID: uid) { (result) in
                 
                 switch result {
                     

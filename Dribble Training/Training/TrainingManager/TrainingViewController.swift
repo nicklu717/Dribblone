@@ -101,7 +101,7 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
     
     func startRecording() {
         
-        screenRecorder.startRecording { error in
+        screenRecorder.startRecording { (error) in
             
             if let error = error {
                 
@@ -123,7 +123,7 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
             return
         }
         
-        screenRecorder.startRecording { error in
+        screenRecorder.startRecording { (error) in
             
             if let error = error {
                 
@@ -217,7 +217,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
             StorageManager.shared.uploadVideo(
                 fileName: videoResource.originalFilename,
                 url: temporaryURL,
-                completion: { result in
+                completion: { (result) in
                     
                     do {
                         

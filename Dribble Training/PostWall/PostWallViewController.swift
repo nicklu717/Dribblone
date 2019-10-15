@@ -41,7 +41,7 @@ class PostWallViewController: UIViewController {
     
     func fetchTrainingResult() {
         
-        FirestoreManager.shared.fetchTrainingResult { result in
+        FirestoreManager.shared.fetchTrainingResult { (result) in
             
             switch result {
                 
@@ -111,7 +111,7 @@ extension PostWallViewController: PostWallViewDelegate {
         
         resultCell.videoURL = URL(string: result.videoURL)
         
-        StorageManager.shared.getProfilePicture(forID: result.id) { result in
+        StorageManager.shared.getProfilePicture(forID: result.id) { (result) in
             
             switch result {
                 
@@ -137,7 +137,7 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
             if id == currentUser.id { return }
         }
         
-        FirestoreManager.shared.fetchMemberData(forID: id) { result in
+        FirestoreManager.shared.fetchMemberData(forID: id) { (result) in
 
             switch result {
 
