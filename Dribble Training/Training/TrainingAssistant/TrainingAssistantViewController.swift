@@ -11,9 +11,9 @@ import SpriteKit
 
 protocol TrainingAssistantViewControllerDelegate: AnyObject {
     
-    func fakeRecordingForPermission()
-    
     func startRecording()
+    
+    func restartRecording()
     
     func cancelRecording()
     
@@ -90,9 +90,7 @@ class TrainingAssistantViewController: UIViewController {
         
         trainingAssistantView.preparingCountdownLabel.isHidden = true
         
-        delegate?.cancelRecording()
-        
-        delegate?.startRecording()
+        delegate?.restartRecording()
         
         timer = Timer.scheduledTimer(
             timeInterval: 1,
@@ -129,7 +127,7 @@ extension TrainingAssistantViewController: TrainingAssistantViewDelegate {
     
     func startPreparingCountdown() {
         
-        delegate?.fakeRecordingForPermission()
+        delegate?.startRecording()
         
         preparingTime = Time.trainingPrepare
         
