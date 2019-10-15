@@ -40,7 +40,7 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
 Embed YouTube videos with `YTPlayerView` in `youtube-ios-player-helper` library.
 
 ### Training
-Training
+
 > Handle basketball to touch the pumping target node on the screen.<br>
 > Get points as many as you can within the time limit.
 
