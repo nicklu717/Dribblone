@@ -12,13 +12,10 @@ extension CGRect {
     
     var center: CGPoint {
         
-        get {
-            
-            let centerX = origin.x + (width / 2)
-            
-            let centerY = origin.y + (height / 2)
-            
-            return CGPoint(x: centerX, y: centerY)
-        }
+        let centerX = origin.x + (width / 2)
+        
+        let centerY = origin.y + (height / 2)
+        
+        return CGPoint(x: centerX, y: centerY)
     }
 }
