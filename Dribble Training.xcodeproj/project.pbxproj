@@ -25,6 +25,7 @@
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
+		5A6261852355FA9C00CCF811 /* DribbloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6261842355FA9C00CCF811 /* DribbloneTests.swift */; };
 		5A64C983234B127D00979F9E /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64C981234B127D00979F9E /* TrainingViewController.swift */; };
 		5A64C984234B127D00979F9E /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A64C982234B127D00979F9E /* Training.storyboard */; };
 		5A64DF4A2326462100562001 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF492326462100562001 /* ResultTableViewCell.swift */; };
@@ -79,6 +80,16 @@
 		FEC79306F0EDC8C7F409909D /* Pods_Dribble_Training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5A6261872355FA9C00CCF811 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AD862A3231913C80036EFFF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD862AA231913C80036EFFF;
+			remoteInfo = "Dribble Training";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5A01D5A123434942006A2445 /* PumpingTargetPoint.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = PumpingTargetPoint.atlas; path = ../../../../PumpingTargetPoint.atlas; sourceTree = "<group>"; };
 		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
@@ -99,6 +110,9 @@
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5A6261822355FA9C00CCF811 /* DribbloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DribbloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6261842355FA9C00CCF811 /* DribbloneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DribbloneTests.swift; sourceTree = "<group>"; };
+		5A6261862355FA9C00CCF811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A64C981234B127D00979F9E /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		5A64C982234B127D00979F9E /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
 		5A64DF492326462100562001 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -158,6 +172,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5A62617F2355FA9C00CCF811 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AD862A8231913C80036EFFF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,6 +265,15 @@
 				5A3DF7012337AB0900E648AC /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		5A6261832355FA9C00CCF811 /* DribbloneTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A6261842355FA9C00CCF811 /* DribbloneTests.swift */,
+				5A6261862355FA9C00CCF811 /* Info.plist */,
+			);
+			path = DribbloneTests;
 			sourceTree = "<group>";
 		};
 		5A6BA14C232E2B8E00E2FB48 /* Register */ = {
@@ -345,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD862AD231913C80036EFFF /* Dribble Training */,
+				5A6261832355FA9C00CCF811 /* DribbloneTests */,
 				5AD862AC231913C80036EFFF /* Products */,
 				F6E5DEE7119D1E3E274C157A /* Pods */,
 				154457D281359147B0F90584 /* Frameworks */,
@@ -355,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD862AB231913C80036EFFF /* Dribblone.app */,
+				5A6261822355FA9C00CCF811 /* DribbloneTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -478,6 +510,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5A6261812355FA9C00CCF811 /* DribbloneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A62618B2355FA9C00CCF811 /* Build configuration list for PBXNativeTarget "DribbloneTests" */;
+			buildPhases = (
+				5A62617E2355FA9C00CCF811 /* Sources */,
+				5A62617F2355FA9C00CCF811 /* Frameworks */,
+				5A6261802355FA9C00CCF811 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A6261882355FA9C00CCF811 /* PBXTargetDependency */,
+			);
+			name = DribbloneTests;
+			productName = DribbloneTests;
+			productReference = 5A6261822355FA9C00CCF811 /* DribbloneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5AD862AA231913C80036EFFF /* Dribble Training */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AD862BD231913CB0036EFFF /* Build configuration list for PBXNativeTarget "Dribble Training" */;
@@ -505,10 +555,14 @@
 		5AD862A3231913C80036EFFF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "陸瑋恩";
 				TargetAttributes = {
+					5A6261812355FA9C00CCF811 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 5AD862AA231913C80036EFFF;
+					};
 					5AD862AA231913C80036EFFF = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -528,11 +582,19 @@
 			projectRoot = "";
 			targets = (
 				5AD862AA231913C80036EFFF /* Dribble Training */,
+				5A6261812355FA9C00CCF811 /* DribbloneTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5A6261802355FA9C00CCF811 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AD862A9231913C80036EFFF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -636,6 +698,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5A62617E2355FA9C00CCF811 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A6261852355FA9C00CCF811 /* DribbloneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AD862A7231913C80036EFFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -698,6 +768,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5A6261882355FA9C00CCF811 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD862AA231913C80036EFFF /* Dribble Training */;
+			targetProxy = 5A6261872355FA9C00CCF811 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -710,6 +788,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5A6261892355FA9C00CCF811 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EQSUGEJF3Q;
+				INFOPLIST_FILE = DribbloneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wein7.DribbloneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dribblone.app/Dribblone";
+			};
+			name = Debug;
+		};
+		5A62618A2355FA9C00CCF811 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EQSUGEJF3Q;
+				INFOPLIST_FILE = DribbloneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wein7.DribbloneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dribblone.app/Dribblone";
+			};
+			name = Release;
+		};
 		5AD862BB231913CB0036EFFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -877,6 +995,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5A62618B2355FA9C00CCF811 /* Build configuration list for PBXNativeTarget "DribbloneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A6261892355FA9C00CCF811 /* Debug */,
+				5A62618A2355FA9C00CCF811 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5AD862A6231913C80036EFFF /* Build configuration list for PBXProject "Dribble Training" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
