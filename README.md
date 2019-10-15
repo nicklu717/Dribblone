@@ -17,7 +17,7 @@ Play training videos by `AVPlayerViewController` in AVKit.
 
 > Selecting a mode of dribbling that you want to drill in.
 
-![](https://i.imgur.com/p3i8QFs.gif)
+![](https://github.com/nicklu717/Dribblone/blob/develop/Screen%20Shots/TrainingMenu.gif)
 
 Enable fade-in animation for cells when scrolling the table view with `UITableViewDelegate` method:
 
@@ -44,7 +44,7 @@ Training
 > Handle basketball to touch the pumping target node on the screen.<br>
 > Get points as many as you can within the time limit.
 
-![](https://i.imgur.com/HsJUGFE.gif)
+![](https://github.com/nicklu717/Dribblone/blob/develop/Screen%20Shots/Training.gif)
 
 Setup `AVCaptureSession` and embed captured image in `AVCaptureVideoPreviewLayer`:
 
