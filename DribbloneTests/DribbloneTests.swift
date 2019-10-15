@@ -20,4 +20,13 @@ class DribbloneTests: XCTestCase {
         
         super.tearDown()
     }
+    
+    func testDateConvertToStringInResultDisplay() {
+        
+        let date = Date(timeIntervalSince1970: 1571153787)
+        
+        let dateString = date.string(format: .resultDisplay)
+        
+        XCTAssertEqual(dateString, "Oct-15 23:36")
+    }
 }
