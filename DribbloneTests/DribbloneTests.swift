@@ -29,4 +29,11 @@ class DribbloneTests: XCTestCase {
         
         XCTAssertEqual(dateString, "Oct-15 23:36")
     }
+    
+    func testCalculationOfCGRectCenter() {
+        
+        let rect = CGRect(x: 0, y: 0, width: 100, height: 200)
+        
+        XCTAssertEqual(rect.center, CGPoint(x: 50, y: 100))
+    }
 }
