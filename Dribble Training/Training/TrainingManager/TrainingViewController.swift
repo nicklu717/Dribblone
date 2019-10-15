@@ -99,7 +99,7 @@ extension TrainingViewController: BallTrackerViewControllerDelegate {
 
 extension TrainingViewController: TrainingAssistantViewControllerDelegate {
     
-    func fakeRecordingForPermission() {
+    func startRecording() {
         
         screenRecorder.startRecording { error in
             
@@ -112,7 +112,16 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
         }
     }
     
-    func startRecording() {
+    func restartRecording() {
+        
+        if screenRecorder.isRecording {
+            
+            cancelRecording()
+            
+            restartRecording()
+            
+            return
+        }
         
         screenRecorder.startRecording { error in
             
