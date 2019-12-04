@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A01D5A223434942006A2445 /* PumpingTargetPoint.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5A01D5A123434942006A2445 /* PumpingTargetPoint.atlas */; };
 		5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */; };
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A30C2FF233A6B43005D711F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C2FE233A6B43005D711F /* TextField.swift */; };
@@ -22,6 +21,7 @@
 		5A5618132345A89A004B66A5 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5618122345A89A004B66A5 /* Instruction.storyboard */; };
 		5A5618152345A9E1004B66A5 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5618142345A9E1004B66A5 /* InstructionViewController.swift */; };
 		5A5618172345A9FA004B66A5 /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5618162345A9FA004B66A5 /* InstructionView.swift */; };
+		5A5A0F5A2397381F00721CF1 /* PumpingTargetPoint.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A0F592397381F00721CF1 /* PumpingTargetPoint.atlas */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
@@ -80,7 +80,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A01D5A123434942006A2445 /* PumpingTargetPoint.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = PumpingTargetPoint.atlas; path = ../../../../PumpingTargetPoint.atlas; sourceTree = "<group>"; };
 		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A30C2FE233A6B43005D711F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		5A5618122345A89A004B66A5 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		5A5618142345A9E1004B66A5 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		5A5618162345A9FA004B66A5 /* InstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
+		5A5A0F592397381F00721CF1 /* PumpingTargetPoint.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PumpingTargetPoint.atlas; sourceTree = "<group>"; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD862B5231913CB0036EFFF /* Assets.xcassets */,
-				5A01D5A123434942006A2445 /* PumpingTargetPoint.atlas */,
+				5A5A0F592397381F00721CF1 /* PumpingTargetPoint.atlas */,
 				5AD862BA231913CB0036EFFF /* Info.plist */,
 				5A6678442329F9F1006F69DA /* GoogleService-Info.plist */,
 				5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */,
@@ -543,13 +543,13 @@
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */,
 				5A64C984234B127D00979F9E /* Training.storyboard in Resources */,
-				5A01D5A223434942006A2445 /* PumpingTargetPoint.atlas in Resources */,
 				5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5A64DF4C2326463000562001 /* ResultTableViewCell.xib in Resources */,
 				5A6D2DB72343882100E83E0E /* ResultCollectionViewCell.xib in Resources */,
 				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
 				5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */,
+				5A5A0F5A2397381F00721CF1 /* PumpingTargetPoint.atlas in Resources */,
 				5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */,
 				5A5618132345A89A004B66A5 /* Instruction.storyboard in Resources */,
 			);
