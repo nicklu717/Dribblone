@@ -11,6 +11,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        
         return .portrait
     }
     
@@ -27,7 +28,7 @@ class TabBarController: UITabBarController {
         setupTabBar()
     }
     
-    // MARK: - Private Methed
+    // MARK: - Private Method
     
     private func setupTabBar() {
         
@@ -35,18 +36,14 @@ class TabBarController: UITabBarController {
         
         for tab in tabs {
             
-            guard let viewController = tab.controller()
-                else {
-                    print("Initial View Controller Not Exist")
-                    return
-            }
+            guard let viewController = tab.controller() else { continue }
             
             addChild(viewController)
         }
         
         tabBar.isTranslucent = false
         
-        tabBar.tintColor = .brown3
+        tabBar.tintColor = .themeMediumDark
     }
     
     private enum Tab {
@@ -59,7 +56,7 @@ class TabBarController: UITabBarController {
         
         func controller() -> UIViewController? {
             
-            var storyboard: UIStoryboard?
+            var storyboard: UIStoryboard!
             
             switch self {
                 
@@ -70,11 +67,11 @@ class TabBarController: UITabBarController {
             case .profile: storyboard = .profile
             }
             
-            let controller = storyboard?.instantiateInitialViewController()
+            let viewController = storyboard.instantiateInitialViewController()
             
-            controller?.tabBarItem = tabBarItem()
+            viewController?.tabBarItem = tabBarItem()
             
-            return controller
+            return viewController
         }
         
         private func tabBarItem() -> UITabBarItem {
@@ -94,7 +91,9 @@ class TabBarController: UITabBarController {
             
             tabBarItem.image = UIImage.asset(imageAsset)
             
-            tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
+            let itemOffset: CGFloat = 5.5
+            
+            tabBarItem.imageInsets = UIEdgeInsets(top: itemOffset, left: 0, bottom: -itemOffset, right: 0)
             
             return tabBarItem
         }
@@ -106,11 +105,12 @@ extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
                           didSelect viewController: UIViewController) {
         
-        if
-            let navigationController = viewController as? UINavigationController,
-            let profileViewController = navigationController.viewControllers.first as? ProfileViewController {
+        guard let navigationController = viewController as? UINavigationController else { return }
+        
+        let rootViewController = navigationController.viewControllers.first
+        
+        guard let profileViewController = rootViewController as? ProfileViewController else { return }
             
-            profileViewController.member = AuthManager.shared.currentUser
-        }
+        profileViewController.member = AuthManager.shared.currentUser
     }
 }

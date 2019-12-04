@@ -13,9 +13,8 @@ class TrainingMenuViewController: UIViewController {
     // MARK: - Property Declaration
     
     @IBOutlet var trainingMenuView: TrainingMenuView! {
-        didSet {
-            trainingMenuView.delegate = self
-        }
+        
+        didSet { trainingMenuView.delegate = self }
     }
     
     private var instructionPage: InstructionViewController!
@@ -33,13 +32,13 @@ class TrainingMenuViewController: UIViewController {
     
     private func setupInstructionPage() {
         
-        let instructionStoryboard = UIStoryboard.instruction
+        let viewController = UIStoryboard.instruction.instantiateInitialViewController()
         
-        let viewController = instructionStoryboard.instantiateInitialViewController()
-        
-        instructionPage = viewController as? InstructionViewController
+        guard let instructionPage = viewController as? InstructionViewController else { return }
         
         instructionPage.loadViewIfNeeded()
+        
+        self.instructionPage = instructionPage
     }
 }
 
@@ -52,12 +51,9 @@ extension TrainingMenuViewController: TrainingMenuViewDelegate {
     
     func trainingCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         
-        guard let modeCell = tableView.dequeueReusableCell(withIdentifier: TrainingMenuTableViewCell.id,
-                                                           for: indexPath) as? TrainingMenuTableViewCell
-            else {
-                print("Training Menu Table View Cell Not Exist")
-                return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: TrainingMenuTableViewCell.id, for: indexPath)
+        
+        guard let modeCell = cell as? TrainingMenuTableViewCell else { return cell }
         
         let mode = trainingModes[indexPath.row]
         

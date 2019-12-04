@@ -13,12 +13,15 @@ class ResultTableViewCell: UITableViewCell {
     @IBOutlet var profileImageView: UIImageView!
     
     @IBOutlet var idLabel: UILabel!
+    
     @IBOutlet var dateLabel: UILabel!
+    
     @IBOutlet var modeLabel: UILabel!
     
     @IBOutlet var pointsLabel: UILabel!
     
     @IBOutlet var videoView: UIImageView!
+    
     @IBOutlet var playVideoButton: UIButton!
     
     var videoURL: URL?
@@ -48,11 +51,11 @@ class ResultTableViewCell: UITableViewCell {
         
         if !isVideoSet {
             
-            guard let url = videoURL
-                else {
-                    print("Invalid Video URL")
-                    isVideoAvailable = false
-                    return
+            guard let url = videoURL else {
+                
+                isVideoAvailable = false
+                
+                return
             }
             
             setupAVPlayer(url: url)
@@ -97,16 +100,19 @@ class ResultTableViewCell: UITableViewCell {
         if isVideoAvailable {
             
             avPlayerLayer.player = nil
+            
             isVideoSet = false
             
             playVideoButton.isHidden = false
             
             playVideoButton.setTitle(nil, for: .normal)
+            
             playVideoButton.setImage(UIImage.asset(.play), for: .normal)
             
         } else {
             
             playVideoButton.setTitle("Video Not Available", for: .normal)
+            
             playVideoButton.setImage(nil, for: .normal)
         }
     }

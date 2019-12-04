@@ -14,8 +14,7 @@ protocol PostWallViewDelegate: AnyObject {
     
     func numberOfItemsInSection(_ section: Int) -> Int
     
-    func cellForItemAt(_ indexPath: IndexPath,
-                       for collectionView: UICollectionView) -> UICollectionViewCell
+    func cellForItemAt(_ indexPath: IndexPath, for collectionView: UICollectionView) -> UICollectionViewCell
 }
 
 class PostWallView: UIView {
@@ -27,9 +26,8 @@ class PostWallView: UIView {
     @IBOutlet var videoView: UIView!
     
     @IBOutlet var collectionView: UICollectionView! {
-        didSet {
-            setupCollectionView()
-        }
+        
+        didSet { setupCollectionView() }
     }
     
     // MARK: - Instance Method

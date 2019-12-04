@@ -26,9 +26,11 @@ class TrainingMenuView: UIView {
     @IBOutlet var tableView: UITableView! {
         
         didSet {
+            
             tableView.registerCellWithNib(id: TrainingMenuTableViewCell.id)
             
             tableView.dataSource = self
+            
             tableView.delegate = self
         }
     }

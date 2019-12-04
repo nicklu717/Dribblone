@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A01D5A223434942006A2445 /* PumpingTargetPoint.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5A01D5A123434942006A2445 /* PumpingTargetPoint.atlas */; };
 		5A0A92F4231EB83900B5C977 /* TrainingAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */; };
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A30C2FF233A6B43005D711F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C2FE233A6B43005D711F /* TextField.swift */; };
 		5A30C303233A7912005D711F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C302233A7912005D711F /* NavigationController.swift */; };
+		5A365DC5234A389300A4EF4F /* SpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A365DC4234A389300A4EF4F /* SpriteManager.swift */; };
 		5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF6FF2336631F00E648AC /* KeychainManager.swift */; };
 		5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF7012337AB0900E648AC /* MainViewController.swift */; };
 		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
@@ -21,10 +21,12 @@
 		5A5618132345A89A004B66A5 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5618122345A89A004B66A5 /* Instruction.storyboard */; };
 		5A5618152345A9E1004B66A5 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5618142345A9E1004B66A5 /* InstructionViewController.swift */; };
 		5A5618172345A9FA004B66A5 /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5618162345A9FA004B66A5 /* InstructionView.swift */; };
+		5A5A0F5A2397381F00721CF1 /* PumpingTargetPoint.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A0F592397381F00721CF1 /* PumpingTargetPoint.atlas */; };
 		5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */; };
 		5A5AB15723362C5600A3BD04 /* PostWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AB15623362C5600A3BD04 /* PostWallView.swift */; };
 		5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F299E233B00D40047E8FA /* Main.storyboard */; };
-		5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5F29A0233B01C80047E8FA /* TabBar.storyboard */; };
+		5A64C983234B127D00979F9E /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64C981234B127D00979F9E /* TrainingViewController.swift */; };
+		5A64C984234B127D00979F9E /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A64C982234B127D00979F9E /* Training.storyboard */; };
 		5A64DF4A2326462100562001 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64DF492326462100562001 /* ResultTableViewCell.swift */; };
 		5A64DF4C2326463000562001 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A64DF4B2326463000562001 /* ResultTableViewCell.xib */; };
 		5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6678442329F9F1006F69DA /* GoogleService-Info.plist */; };
@@ -44,6 +46,8 @@
 		5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */; };
 		5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A88EC7E23278E9000BD23D4 /* Profile.storyboard */; };
 		5A88EC872327A71C00BD23D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */; };
+		5A8C93102348D647004F8187 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8C930F2348D647004F8187 /* Constant.swift */; };
+		5A8C93122348DD57004F8187 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8C93112348DD57004F8187 /* String+Extension.swift */; };
 		5A93AB9C2339CFBC00358CCD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */; };
 		5A93ABA2233A209300358CCD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABA1233A209300358CCD /* SettingViewController.swift */; };
 		5A93ABA4233A20A800358CCD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A93ABA3233A20A800358CCD /* SettingView.swift */; };
@@ -60,9 +64,7 @@
 		5AD862AF231913C80036EFFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862AE231913C80036EFFF /* AppDelegate.swift */; };
 		5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B5231913CB0036EFFF /* Assets.xcassets */; };
 		5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862B7231913CB0036EFFF /* LaunchScreen.storyboard */; };
-		5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C0231915C30036EFFF /* TrainingViewController.swift */; };
 		5AD862C7231917A10036EFFF /* BallTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD862C6231917A10036EFFF /* BallTrackerView.swift */; };
-		5AD862C9231919F70036EFFF /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD862C8231919F70036EFFF /* Training.storyboard */; };
 		5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */; };
 		5AD91EF22324E9AD000E2BB4 /* TrainingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */; };
 		5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */; };
@@ -78,11 +80,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A01D5A123434942006A2445 /* PumpingTargetPoint.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = PumpingTargetPoint.atlas; path = ../../../../PumpingTargetPoint.atlas; sourceTree = "<group>"; };
 		5A0A92F3231EB83900B5C977 /* TrainingAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantView.swift; sourceTree = "<group>"; };
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A30C2FE233A6B43005D711F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		5A30C302233A7912005D711F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		5A365DC4234A389300A4EF4F /* SpriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteManager.swift; sourceTree = "<group>"; };
 		5A3DF6FF2336631F00E648AC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		5A3DF7012337AB0900E648AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5A4359082338A8A10055190A /* MJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefresh.swift; sourceTree = "<group>"; };
@@ -93,10 +95,12 @@
 		5A5618122345A89A004B66A5 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		5A5618142345A9E1004B66A5 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		5A5618162345A9FA004B66A5 /* InstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
+		5A5A0F592397381F00721CF1 /* PumpingTargetPoint.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PumpingTargetPoint.atlas; sourceTree = "<group>"; };
 		5A5AB15423362C4800A3BD04 /* PostWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallViewController.swift; sourceTree = "<group>"; };
 		5A5AB15623362C5600A3BD04 /* PostWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWallView.swift; sourceTree = "<group>"; };
 		5A5F299E233B00D40047E8FA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5A5F29A0233B01C80047E8FA /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		5A64C981234B127D00979F9E /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		5A64C982234B127D00979F9E /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
 		5A64DF492326462100562001 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		5A64DF4B2326463000562001 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		5A6678442329F9F1006F69DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 		5A88EC7C23278E8400BD23D4 /* PostWall.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostWall.storyboard; sourceTree = "<group>"; };
 		5A88EC7E23278E9000BD23D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		5A8C930F2348D647004F8187 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		5A8C93112348DD57004F8187 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5A93ABA1233A209300358CCD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		5A93ABA3233A20A800358CCD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -134,9 +140,7 @@
 		5AD862B5231913CB0036EFFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD862B8231913CB0036EFFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD862BA231913CB0036EFFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AD862C0231915C30036EFFF /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		5AD862C6231917A10036EFFF /* BallTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallTrackerView.swift; sourceTree = "<group>"; };
-		5AD862C8231919F70036EFFF /* Training.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
 		5AD91EEF2324E9A1000E2BB4 /* TrainingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuViewController.swift; sourceTree = "<group>"; };
 		5AD91EF12324E9AD000E2BB4 /* TrainingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuView.swift; sourceTree = "<group>"; };
 		5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingMenu.storyboard; sourceTree = "<group>"; };
@@ -175,6 +179,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5A365DC6234A38A500A4EF4F /* KitManager */ = {
+			isa = PBXGroup;
+			children = (
+				5A3DF6FF2336631F00E648AC /* KeychainManager.swift */,
+				5ADE95532340F997000608E1 /* PhotoManager.swift */,
+				5A365DC4234A389300A4EF4F /* SpriteManager.swift */,
+			);
+			path = KitManager;
+			sourceTree = "<group>";
+		};
 		5A4359072338A8770055190A /* ThirdPartyWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,8 +202,8 @@
 		5A4E2154232238F400F91012 /* TrainingManager */ = {
 			isa = PBXGroup;
 			children = (
-				5AD862C8231919F70036EFFF /* Training.storyboard */,
-				5AD862C0231915C30036EFFF /* TrainingViewController.swift */,
+				5A64C982234B127D00979F9E /* Training.storyboard */,
+				5A64C981234B127D00979F9E /* TrainingViewController.swift */,
 			);
 			path = TrainingManager;
 			sourceTree = "<group>";
@@ -291,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */,
+				5A8C93112348DD57004F8187 /* String+Extension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -311,7 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				5A6BA14A232E24F700E2FB48 /* AuthManager.swift */,
-				5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */,
 				5ACBCAF1232A229C007B0E3B /* FirestoreManager.swift */,
 				5AC1C90D2330E8F7005F4AA8 /* StorageManager.swift */,
 			);
@@ -380,7 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD862B5231913CB0036EFFF /* Assets.xcassets */,
-				5A01D5A123434942006A2445 /* PumpingTargetPoint.atlas */,
+				5A5A0F592397381F00721CF1 /* PumpingTargetPoint.atlas */,
 				5AD862BA231913CB0036EFFF /* Info.plist */,
 				5A6678442329F9F1006F69DA /* GoogleService-Info.plist */,
 				5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */,
@@ -435,9 +449,10 @@
 			isa = PBXGroup;
 			children = (
 				5AD862AE231913C80036EFFF /* AppDelegate.swift */,
-				5A5F29A0233B01C80047E8FA /* TabBar.storyboard */,
 				5A88EC762327882F00BD23D4 /* TabBarController.swift */,
 				5A30C302233A7912005D711F /* NavigationController.swift */,
+				5A365DC6234A38A500A4EF4F /* KitManager */,
+				5ACBCAF0232A2272007B0E3B /* Firebase */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -445,9 +460,8 @@
 		5AF65FA52328C2ED008DB713 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5A3DF6FF2336631F00E648AC /* KeychainManager.swift */,
-				5ADE95532340F997000608E1 /* PhotoManager.swift */,
-				5ACBCAF0232A2272007B0E3B /* Firebase */,
+				5A8C930F2348D647004F8187 /* Constant.swift */,
+				5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -525,18 +539,17 @@
 			files = (
 				5A93ABAA233A2F3300358CCD /* SettingTableViewCell.xib in Resources */,
 				5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */,
-				5AD862C9231919F70036EFFF /* Training.storyboard in Resources */,
 				5A6BA14E232E2C0700E2FB48 /* Register.storyboard in Resources */,
 				5AD862B9231913CB0036EFFF /* LaunchScreen.storyboard in Resources */,
 				5A6678452329F9F1006F69DA /* GoogleService-Info.plist in Resources */,
-				5A01D5A223434942006A2445 /* PumpingTargetPoint.atlas in Resources */,
+				5A64C984234B127D00979F9E /* Training.storyboard in Resources */,
 				5A5F299F233B00D40047E8FA /* Main.storyboard in Resources */,
 				5AD862B6231913CB0036EFFF /* Assets.xcassets in Resources */,
 				5A64DF4C2326463000562001 /* ResultTableViewCell.xib in Resources */,
 				5A6D2DB72343882100E83E0E /* ResultCollectionViewCell.xib in Resources */,
 				5A88EC7F23278E9000BD23D4 /* Profile.storyboard in Resources */,
-				5A5F29A1233B01C80047E8FA /* TabBar.storyboard in Resources */,
 				5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */,
+				5A5A0F5A2397381F00721CF1 /* PumpingTargetPoint.atlas in Resources */,
 				5A88EC7D23278E8400BD23D4 /* PostWall.storyboard in Resources */,
 				5A5618132345A89A004B66A5 /* Instruction.storyboard in Resources */,
 			);
@@ -627,9 +640,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A64C983234B127D00979F9E /* TrainingViewController.swift in Sources */,
 				5ADE95542340F997000608E1 /* PhotoManager.swift in Sources */,
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
-				5AD862C1231915C30036EFFF /* TrainingViewController.swift in Sources */,
 				5A30C303233A7912005D711F /* NavigationController.swift in Sources */,
 				5A30C2FF233A6B43005D711F /* TextField.swift in Sources */,
 				5AC1C90E2330E8F7005F4AA8 /* StorageManager.swift in Sources */,
@@ -657,11 +670,14 @@
 				5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */,
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
+				5A365DC5234A389300A4EF4F /* SpriteManager.swift in Sources */,
 				5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */,
 				5ADE95522340F830000608E1 /* UIViewController+Extension.swift in Sources */,
+				5A8C93122348DD57004F8187 /* String+Extension.swift in Sources */,
 				5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
+				5A8C93102348D647004F8187 /* Constant.swift in Sources */,
 				5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */,
 				5AD3F549233DD7D800D5C5CB /* PrivacyViewController.swift in Sources */,
 				5A6D2DBB23439DA900E83E0E /* UICollectionView+Extension.swift in Sources */,
