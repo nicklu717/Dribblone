@@ -1,3 +1,4 @@
 *.xcuserstate
 *.xcbkptlist
 GoogleService-Info.plist
+*.DS_Store
