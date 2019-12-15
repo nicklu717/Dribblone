@@ -842,7 +842,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wein7.Dribble-Training";
 				PRODUCT_NAME = Dribblone;
 				SWIFT_VERSION = 5.0;
@@ -866,7 +866,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wein7.Dribble-Training";
 				PRODUCT_NAME = Dribblone;
 				SWIFT_VERSION = 5.0;
