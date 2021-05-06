@@ -96,7 +96,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                     
                 case .success(let uid):
                     
-                    self.logInSuccess(uid: uid)
+                    self.logInSuccess(userUID: uid)
                     
                 case .failure(let error):
                     
@@ -142,9 +142,9 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         registerView.appleSignInView.addSubview(appleSignInButton)
     }
     
-    private func logInSuccess(uid: UID) {
+    private func logInSuccess(userUID: UID) {
         
-        KeychainManager.shared.uid = uid
+        KeychainManager.default.userUID = userUID
         
         logInCompletion?()
     }
@@ -227,7 +227,7 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                     
                     if let member = member {
                         
-                        self.logInSuccess(uid: member.uid)
+                        self.logInSuccess(userUID: member.uid)
                         
                         return
                     }
@@ -254,7 +254,7 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                         id: id,
                         completion: {
                             
-                            self.logInSuccess(uid: uid)
+                            self.logInSuccess(userUID: uid)
                     })
                     
                 case .failure(let error):

@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
         
         dismiss(animated: true, completion: nil)
         
-        guard let uid = KeychainManager.shared.uid else {
+        guard let userUID = KeychainManager.default.userUID else {
                 
             setupRegisterPage()
             
@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
             return
         }
         
-        welcomeUser(withUID: uid)
+        welcomeUser(withUID: userUID)
     }
     
     // MARK: - Private Method

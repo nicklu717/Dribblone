@@ -10,19 +10,29 @@ import KeychainAccess
 
 class KeychainManager {
     
-    static let shared = KeychainManager()
+    static let `default` = KeychainManager(keychain: Keychain(service: Bundle.main.bundleIdentifier!))
     
-    private let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+    private let keychain: Keychain
     
-    var uid: String? {
-        
-        get { return keychain[KeyName.userUID] }
-        
-        set { keychain[KeyName.userUID] = newValue }
+    init(keychain: Keychain) {
+        self.keychain = keychain
     }
     
-    private struct KeyName {
-        
-        static let userUID = "user_uid"
+    var userUID: String? {
+        get { keychain[.userUID] }
+        set { keychain[.userUID] = newValue }
+    }
+}
+
+private extension KeychainManager {
+    enum Key: String {
+        case userUID
+    }
+}
+
+private extension Keychain {
+    subscript(key: KeychainManager.Key) -> String? {
+        get { self[key.rawValue] }
+        set { self[key.rawValue] = newValue }
     }
 }

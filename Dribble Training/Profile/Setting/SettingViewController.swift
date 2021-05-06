@@ -83,7 +83,7 @@ extension SettingViewController: UITableViewDelegate {
             
             guard let mainPage = appDelegate.window?.rootViewController as? MainViewController else { return }
             
-            KeychainManager.shared.uid = nil
+            KeychainManager.default.userUID = nil
             
             AuthManager.shared.currentUser = nil
             
