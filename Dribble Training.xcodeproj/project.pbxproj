@@ -70,7 +70,7 @@
 		5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */; };
 		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
 		5ADE95522340F830000608E1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE95512340F830000608E1 /* UIViewController+Extension.swift */; };
-		5ADE95542340F997000608E1 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE95532340F997000608E1 /* PhotoManager.swift */; };
+		5ADE95542340F997000608E1 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE95532340F997000608E1 /* PhotosManager.swift */; };
 		5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */; };
 		5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */; };
 		5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F7233B5D4A004E46FC /* Kingfisher.swift */; };
@@ -146,7 +146,7 @@
 		5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingMenu.storyboard; sourceTree = "<group>"; };
 		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		5ADE95512340F830000608E1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		5ADE95532340F997000608E1 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		5ADE95532340F997000608E1 /* PhotosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
 		5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingMenuTableViewCell.xib; sourceTree = "<group>"; };
 		5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuTableViewCell.swift; sourceTree = "<group>"; };
 		5AE777F7233B5D4A004E46FC /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				5A3DF6FF2336631F00E648AC /* KeychainManager.swift */,
-				5ADE95532340F997000608E1 /* PhotoManager.swift */,
+				5ADE95532340F997000608E1 /* PhotosManager.swift */,
 				5A365DC4234A389300A4EF4F /* SpriteManager.swift */,
 			);
 			path = KitManager;
@@ -641,7 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A64C983234B127D00979F9E /* TrainingViewController.swift in Sources */,
-				5ADE95542340F997000608E1 /* PhotoManager.swift in Sources */,
+				5ADE95542340F997000608E1 /* PhotosManager.swift in Sources */,
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				5A30C303233A7912005D711F /* NavigationController.swift in Sources */,
 				5A30C2FF233A6B43005D711F /* TextField.swift in Sources */,

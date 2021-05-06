@@ -199,7 +199,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
             return
         }
         
-        guard let videoResource = PhotoManager.shared.fetchResource(for: .video) else {
+        guard let videoResource = PhotosManager.default.fetchResource(for: .video) else {
                 
                 presentingViewController?.dismiss(animated: true)
                 
@@ -212,7 +212,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
         
         temporaryURL.appendPathExtension("mp4")
         
-        PhotoManager.shared.writeData(to: temporaryURL, resource: videoResource) {
+        PhotosManager.default.writeData(to: temporaryURL, resource: videoResource) {
             
             StorageManager.shared.uploadVideo(
                 fileName: videoResource.originalFilename,
