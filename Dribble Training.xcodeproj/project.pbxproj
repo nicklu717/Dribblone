@@ -11,7 +11,6 @@
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A30C2FF233A6B43005D711F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C2FE233A6B43005D711F /* TextField.swift */; };
 		5A30C303233A7912005D711F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C302233A7912005D711F /* NavigationController.swift */; };
-		5A365DC5234A389300A4EF4F /* SpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A365DC4234A389300A4EF4F /* SpriteManager.swift */; };
 		5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF6FF2336631F00E648AC /* KeychainManager.swift */; };
 		5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF7012337AB0900E648AC /* MainViewController.swift */; };
 		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
@@ -84,7 +83,6 @@
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A30C2FE233A6B43005D711F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		5A30C302233A7912005D711F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		5A365DC4234A389300A4EF4F /* SpriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteManager.swift; sourceTree = "<group>"; };
 		5A3DF6FF2336631F00E648AC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		5A3DF7012337AB0900E648AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5A4359082338A8A10055190A /* MJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefresh.swift; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 			children = (
 				5A3DF6FF2336631F00E648AC /* KeychainManager.swift */,
 				5ADE95532340F997000608E1 /* PhotosManager.swift */,
-				5A365DC4234A389300A4EF4F /* SpriteManager.swift */,
 			);
 			path = KitManager;
 			sourceTree = "<group>";
@@ -670,7 +667,6 @@
 				5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */,
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
-				5A365DC5234A389300A4EF4F /* SpriteManager.swift in Sources */,
 				5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */,
 				5ADE95522340F830000608E1 /* UIViewController+Extension.swift in Sources */,
 				5A8C93122348DD57004F8187 /* String+Extension.swift in Sources */,
