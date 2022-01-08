@@ -49,6 +49,7 @@ class PhotosManager {
 }
 
 private extension NSSortDescriptor {
+    
     enum SortKey: String {
         case creationDate
     }

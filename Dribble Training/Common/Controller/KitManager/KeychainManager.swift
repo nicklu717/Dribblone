@@ -25,12 +25,14 @@ class KeychainManager {
 }
 
 private extension KeychainManager {
+    
     enum Key: String {
         case userUID
     }
 }
 
 private extension Keychain {
+    
     subscript(key: KeychainManager.Key) -> String? {
         get { self[key.rawValue] }
         set { self[key.rawValue] = newValue }

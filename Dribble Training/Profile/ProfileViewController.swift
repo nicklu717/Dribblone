@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController {
     
     func fetchTrainingResult() {
         
-        FirestoreManager.shared.fetchTrainingResult(for: member) { result in
+        FirestoreManager.default.fetchTrainingResult(for: member) { result in
             
             switch result {
                 
@@ -158,7 +158,7 @@ extension ProfileViewController: ProfileViewDelegate {
     
     func followUser() {
         
-        FirestoreManager.shared.follow(member: member)
+        FirestoreManager.default.follow(member: member)
         
         AuthManager.default.currentUser?.followings.append(member.id)
         
@@ -167,7 +167,7 @@ extension ProfileViewController: ProfileViewDelegate {
     
     func unfollowUser() {
         
-        FirestoreManager.shared.unfollow(member: member)
+        FirestoreManager.default.unfollow(member: member)
         
         var newFollowings: [ID] = []
         
@@ -190,7 +190,7 @@ extension ProfileViewController: ProfileViewDelegate {
     
     private func blockUserHandler() {
         
-        FirestoreManager.shared.block(member: member)
+        FirestoreManager.default.block(member: member)
         
         AuthManager.default.currentUser?.blockList.append(member.id)
         

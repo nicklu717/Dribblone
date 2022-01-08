@@ -41,7 +41,7 @@ class PostWallViewController: UIViewController {
     
     func fetchTrainingResult() {
         
-        FirestoreManager.shared.fetchTrainingResult { result in
+        FirestoreManager.default.fetchTrainingResult { result in
             
             switch result {
                 
@@ -137,7 +137,7 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
             if id == currentUser.id { return }
         }
         
-        FirestoreManager.shared.fetchMemberData(forID: id) { result in
+        FirestoreManager.default.fetchMemberData(forID: id) { result in
 
             switch result {
 

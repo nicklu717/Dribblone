@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
     
     private func fetchUserData(for uid: UID, completion: (() -> Void)?) {
         
-        FirestoreManager.shared.fetchMemberData(forUID: uid) { (result) in
+        FirestoreManager.default.fetchMemberData(forUID: uid) { (result) in
             
             switch result {
                 

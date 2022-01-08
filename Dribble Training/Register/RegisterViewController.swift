@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
             return
         }
         
-        FirestoreManager.shared.checkAvailable(for: id) { (isAvailable) in
+        FirestoreManager.default.checkAvailable(for: id) { (isAvailable) in
             
             if isAvailable {
                 
@@ -59,7 +59,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
                             
                         case .success(let uid):
                             
-                            FirestoreManager.shared.createMember(
+                            FirestoreManager.default.createMember(
                                 uid: uid,
                                 id: id,
                                 completion: {
@@ -219,7 +219,7 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
             
             let uid = credential.user
             
-            FirestoreManager.shared.fetchMemberData(forUID: uid) { result in
+            FirestoreManager.default.fetchMemberData(forUID: uid) { result in
                 
                 switch result {
                     
@@ -249,7 +249,7 @@ extension RegisterViewController: ASAuthorizationControllerDelegate {
                         id = uid[firstDot..<lastDot].dropFirst(1).description
                     }
                     
-                    FirestoreManager.shared.createMember(
+                    FirestoreManager.default.createMember(
                         uid: uid,
                         id: id,
                         completion: {
