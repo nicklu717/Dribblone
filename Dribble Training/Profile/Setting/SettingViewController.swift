@@ -85,7 +85,7 @@ extension SettingViewController: UITableViewDelegate {
             
             KeychainManager.default.userUID = nil
             
-            AuthManager.shared.currentUser = nil
+            AuthManager.default.currentUser = nil
             
             mainPage.dismiss(animated: true, completion: mainPage.checkUID)
         }

@@ -133,7 +133,7 @@ extension TrainingViewController: TrainingAssistantViewControllerDelegate {
             }
         }
         
-        guard let currentUser = AuthManager.shared.currentUser else { return }
+        guard let currentUser = AuthManager.default.currentUser else { return }
         
         let date = Date().timeIntervalSince1970
         
@@ -192,7 +192,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
             return
         }
         
-        guard let currentUser = AuthManager.shared.currentUser else {
+        guard let currentUser = AuthManager.default.currentUser else {
                 
             presentingViewController?.dismiss(animated: true)
         

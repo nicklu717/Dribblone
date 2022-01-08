@@ -77,7 +77,7 @@ class MainViewController: UIViewController {
                 
             case .success(let member):
                 
-                AuthManager.shared.currentUser = member
+                AuthManager.default.currentUser = member
                 
             case .failure(let error):
                 

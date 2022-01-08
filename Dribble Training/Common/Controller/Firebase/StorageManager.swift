@@ -42,7 +42,7 @@ class StorageManager {
                           image: UIImage,
                           completion: @escaping (Result<URL, Error>) -> Void) {
         
-        guard let currentUser = AuthManager.shared.currentUser else { return }
+        guard let currentUser = AuthManager.default.currentUser else { return }
         
         guard let data = image.jpegData(compressionQuality: 0.3) else { return }
         
@@ -78,7 +78,7 @@ class StorageManager {
     
     func removeScreenShot(fileName: String) {
         
-        guard let currentUser = AuthManager.shared.currentUser else { return }
+        guard let currentUser = AuthManager.default.currentUser else { return }
         
         let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
             
@@ -95,7 +95,7 @@ class StorageManager {
                      url: URL,
                      completion: @escaping (Result<URL, Error>) -> Void) {
         
-        guard let currentUser = AuthManager.shared.currentUser else { return }
+        guard let currentUser = AuthManager.default.currentUser else { return }
         
         let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
         

@@ -111,6 +111,6 @@ extension TabBarController: UITabBarControllerDelegate {
         
         guard let profileViewController = rootViewController as? ProfileViewController else { return }
             
-        profileViewController.member = AuthManager.shared.currentUser
+        profileViewController.member = AuthManager.default.currentUser
     }
 }

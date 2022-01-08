@@ -49,7 +49,7 @@ class PostWallViewController: UIViewController {
                 
                 var filteredTrainingResults: [TrainingResult] = []
                 
-                if let currentUser = AuthManager.shared.currentUser {
+                if let currentUser = AuthManager.default.currentUser {
                 
                     let blockList = currentUser.blockList
                         
@@ -132,7 +132,7 @@ extension PostWallViewController: ResultCollectionViewCellDelegate {
     
     func showProfile(for id: ID) {
         
-        if let currentUser = AuthManager.shared.currentUser {
+        if let currentUser = AuthManager.default.currentUser {
             
             if id == currentUser.id { return }
         }

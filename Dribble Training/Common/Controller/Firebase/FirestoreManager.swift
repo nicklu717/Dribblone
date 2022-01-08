@@ -121,7 +121,7 @@ class FirestoreManager {
     
     func block(member: Member) {
         
-        guard let currentUser = AuthManager.shared.currentUser else { return }
+        guard let currentUser = AuthManager.default.currentUser else { return }
         
         let currentUserReference = firestore.collection(CollectionKey.member).document(currentUser.uid)
         
@@ -144,7 +144,7 @@ class FirestoreManager {
     
     func follow(member: Member) {
         
-        guard let currentUser = AuthManager.shared.currentUser else { return }
+        guard let currentUser = AuthManager.default.currentUser else { return }
         
         let currentUserReference = firestore.collection(CollectionKey.member).document(currentUser.uid)
         
@@ -163,7 +163,7 @@ class FirestoreManager {
     
     func unfollow(member: Member) {
         
-        guard let currentUser = AuthManager.shared.currentUser else { return }
+        guard let currentUser = AuthManager.default.currentUser else { return }
         
         let currentUserReference = firestore.collection(CollectionKey.member).document(currentUser.uid)
         

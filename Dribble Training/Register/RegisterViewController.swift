@@ -51,7 +51,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
             
             if isAvailable {
                 
-                AuthManager.shared.signUp(
+                AuthManager.default.signUp(
                     withEmail: email,
                     password: password) { (result) in
                         
@@ -88,7 +88,7 @@ class RegisterViewController: UIViewController, RegisterViewDelegate {
         
         if hasBlank() { return }
         
-        AuthManager.shared.logIn(
+        AuthManager.default.logIn(
             withEmail: email,
             password: password) { result in
                 
