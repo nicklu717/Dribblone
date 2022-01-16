@@ -21,11 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        
         FirebaseApp.configure()
         
         Fabric.with([Crashlytics.self])
-        
         Fabric.sharedSDK().debug = true
         
         IQKeyboardManager.shared.enable = true

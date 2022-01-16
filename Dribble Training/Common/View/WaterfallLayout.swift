@@ -17,80 +17,56 @@ class WaterfallLayout: UICollectionViewLayout {
     
     var contentHeight: CGFloat = 0
     var contentWidth: CGFloat {
-        
         guard let collectionView = collectionView else { return 0 }
-        
         let inset = collectionView.contentInset
-        
         return collectionView.bounds.width - (inset.left + inset.right)
     }
     
     private struct Height {
-        
         static let lowerBound: CGFloat = 200
         static let upperBound: CGFloat = 450
     }
     
     override var collectionViewContentSize: CGSize {
-        
         return CGSize(width: contentWidth, height: contentHeight)
     }
     
     override func prepare() {
-        
         guard let collectionView = collectionView else { return }
-        
         layoutAttributes = []
         
         var xOffsets = [CGFloat]()
-        
         let columnWidth = contentWidth / CGFloat(numberOfColumn)
-        
         for column in 0..<numberOfColumn {
-            
             xOffsets.append(columnWidth * CGFloat(column))
         }
         
         var yOffsets = [CGFloat](repeating: .zero, count: numberOfColumn)
-        
         for section in 0..<collectionView.numberOfSections {
-        
             for index in 0..<collectionView.numberOfItems(inSection: section) {
-                
                 // Calculate Item Frame
-                
                 let itemHeight = CGFloat.random(in: Height.lowerBound...Height.upperBound)
-                
                 let column = index % numberOfColumn
-                
                 let itemFrame = CGRect(x: xOffsets[column], y: yOffsets[column],
                                        width: columnWidth, height: itemHeight)
-                
                 let insetFrame = itemFrame.insetBy(dx: cellPadding, dy: cellPadding)
                 
                 // Add Attribute
-                
                 let indexPath = IndexPath(item: index, section: section)
-                
                 let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-                
                 attribute.frame = insetFrame
-                
                 layoutAttributes.append(attribute)
                 
                 // Update Offset
-                
                 yOffsets[column] += itemHeight
                 
                 // Update Content Height
-                
                 contentHeight = max(contentHeight, itemFrame.maxY)
             }
         }
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
         return layoutAttributes
     }
 }

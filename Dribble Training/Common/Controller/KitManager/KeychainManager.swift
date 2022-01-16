@@ -27,7 +27,7 @@ class KeychainManager {
 private extension KeychainManager {
     
     enum Key: String {
-        case userUID = "userUID"
+        case userUID
     }
 }
 

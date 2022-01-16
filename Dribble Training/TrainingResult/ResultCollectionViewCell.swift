@@ -9,9 +9,7 @@
 import UIKit
 
 protocol ResultCollectionViewCellDelegate: AnyObject {
-    
     func showProfile(for id: ID)
-    
     func playVideo(with url: URL?) -> Bool
 }
 
@@ -20,13 +18,9 @@ class ResultCollectionViewCell: UICollectionViewCell {
     weak var delegate: ResultCollectionViewCellDelegate?
     
     @IBOutlet var profileImageView: UIImageView!
-    
     @IBOutlet var idButton: UIButton!
-    
     @IBOutlet var pointsLabel: UILabel!
-    
     @IBOutlet var modeLabel: UILabel!
-    
     @IBOutlet var screenShotImageView: UIImageView!
     
     var videoURL: URL?
@@ -34,25 +28,18 @@ class ResultCollectionViewCell: UICollectionViewCell {
     var isVideoAvailable: Bool = true
     
     override func prepareForReuse() {
-        
         super.prepareForReuse()
-        
         profileImageView.image = UIImage.asset(.profile)
-        
         screenShotImageView.image = nil
     }
     
     @IBAction func showMemberProfile(_ button: UIButton) {
-        
         let id = button.titleLabel?.text ?? .empty
-        
         delegate?.showProfile(for: id)
     }
     
     @IBAction func playVideo() {
-        
         guard let delegate = delegate else { return }
-        
         isVideoAvailable = delegate.playVideo(with: videoURL)
     }
 }

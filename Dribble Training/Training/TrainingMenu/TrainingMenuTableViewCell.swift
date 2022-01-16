@@ -11,6 +11,5 @@ import UIKit
 class TrainingMenuTableViewCell: UITableViewCell {
     
     @IBOutlet var modeNameLabel: UILabel!
-    
     @IBOutlet var backgroundImageView: UIImageView!
 }

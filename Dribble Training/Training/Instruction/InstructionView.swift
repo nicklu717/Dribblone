@@ -10,24 +10,17 @@ import UIKit
 import youtube_ios_player_helper
 
 protocol InstructionViewDelegate: AnyObject {
-    
     func startTraining()
-    
     func dismiss()
 }
 
 class InstructionView: UIView {
     
     // MARK: - Property
-    
     weak var delegate: InstructionViewDelegate?
-    
     @IBOutlet var dismissButton: UIButton! {
-        
         didSet {
-            
             let inset: CGFloat = 5
-            
             dismissButton.imageEdgeInsets = UIEdgeInsets(top: inset, left: inset,
                                                          bottom: inset, right: inset)
         }
@@ -39,25 +32,18 @@ class InstructionView: UIView {
     @IBOutlet var descriptionLabel: UILabel!
     
     // MARK: - Instance Method
-    
     func setupVideoPlayerView(withID id: String) {
-        
         videoPlayerView.load(withVideoId: id)
-        
         guard let webView = videoPlayerView.webView else { return }
-        
         webView.scalesPageToFit = true
-        
         webView.backgroundColor = .black
     }
     
     @IBAction func startTraining() {
-        
         delegate?.startTraining()
     }
     
     @IBAction func dismiss() {
-        
         delegate?.dismiss()
     }
 }

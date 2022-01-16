@@ -47,7 +47,7 @@ class PhotosManager {
 private extension NSSortDescriptor {
     
     enum SortKey: String {
-        case creationDate = "creationDate"
+        case creationDate
     }
     
     convenience init(key: SortKey, ascending: Bool, selector: Selector? = nil) {

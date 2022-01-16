@@ -11,7 +11,6 @@ import UIKit
 extension UIViewController {
     
     static var id: String {
-        
         return String(describing: self.self)
     }
 }
