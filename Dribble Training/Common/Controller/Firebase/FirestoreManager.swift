@@ -37,7 +37,7 @@ class FirestoreManager {
     
     func fetchMemberData(forID id: ID,
                          completion: @escaping (Result<Member?, Error>) -> Void) {
-        let reference = firestore.collection(.member).whereField(MemberKey.id, isEqualTo: id)
+        let reference = firestore.collection(.member).whereField(MemberKey.id.rawValue, isEqualTo: id)
         reference.getDocuments { (documentSnapshot, error) in
             if let error = error {
                 completion(.failure(error))
@@ -55,9 +55,9 @@ class FirestoreManager {
                              completion: @escaping (Result<[TrainingResult], Error>) -> Void) {
         var reference: Query = firestore.collection(.trainingResults)
         if let member = member {
-            reference = reference.whereField(TrainingResultsKey.id, isEqualTo: member.id)
+            reference = reference.whereField(TrainingResultsKey.id.rawValue, isEqualTo: member.id)
         }
-        reference = reference.order(by: TrainingResultsKey.date, descending: true)
+        reference = reference.order(by: TrainingResultsKey.date.rawValue, descending: true)
         reference.getDocuments { (querySnapshot, error) in
             guard let querySnapshot = querySnapshot else {
                 if let error = error {
@@ -77,7 +77,7 @@ class FirestoreManager {
     }
     
     func checkAvailable(for id: ID, completion: @escaping (Bool) -> Void) {
-        let reference = firestore.collection(.member).whereField(MemberKey.id, isEqualTo: id)
+        let reference = firestore.collection(.member).whereField(MemberKey.id.rawValue, isEqualTo: id)
         reference.getDocuments { (querySnapshot, error) in
             if let error = error {
                 print(error)
@@ -186,40 +186,14 @@ class FirestoreManager {
             return nil
         }
     }
-    
-    private struct MemberKey {
-        static let uid = "uid"
-        static let id = "id"
-        static let displayName = "display_name"
-        static let followers = "followers"
-        static let followings = "followings"
-        static let blockList = "block_list"
-        static let trainingResults = "training_results"
-        static let picture = "picture"
-    }
-    
-    private struct TrainingResultsKey {
-        static let id = "id"
-        static let date = "date"
-        static let mode = "mode"
-        static let points = "points"
-        static let videoURL = "video_url"
-    }
 }
 
-extension Firestore {
+private extension FirestoreManager {
     
     enum CollectionKey: String {
-        case member
+        case member = "member"
         case trainingResults = "training_results"
     }
-    
-    func collection(_ collectionKey: CollectionKey) -> CollectionReference {
-        return collection(collectionKey.rawValue)
-    }
-}
-
-extension DocumentReference {
     
     enum MemberKey: String {
         case uid = "uid"
@@ -232,7 +206,25 @@ extension DocumentReference {
         case picture = "picture"
     }
     
-    func updateMemberData(_ fields: [MemberKey: FieldValue], completion: ((Error?) -> Void)? = nil) {
+    enum TrainingResultsKey: String {
+        case id = "id"
+        case date = "date"
+        case mode = "mode"
+        case points = "points"
+        case videoURL = "video_url"
+    }
+}
+
+private extension Firestore {
+    
+    func collection(_ collectionKey: FirestoreManager.CollectionKey) -> CollectionReference {
+        return collection(collectionKey.rawValue)
+    }
+}
+
+private extension DocumentReference {
+    
+    func updateMemberData(_ fields: [FirestoreManager.MemberKey: FieldValue], completion: ((Error?) -> Void)? = nil) {
         var processedFields: [AnyHashable: Any] = [:]
         fields.forEach { memberKey, fieldValue in
             processedFields[memberKey.rawValue] = fieldValue

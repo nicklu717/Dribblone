@@ -42,16 +42,12 @@ class PhotosManager {
             completion?()
         }
     }
-    
-    private enum SortKey {
-        static let creationDate = "creationDate"
-    }
 }
 
 private extension NSSortDescriptor {
     
     enum SortKey: String {
-        case creationDate
+        case creationDate = "creationDate"
     }
     
     convenience init(key: SortKey, ascending: Bool, selector: Selector? = nil) {

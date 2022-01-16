@@ -88,14 +88,14 @@ class StorageManager {
     }
 }
 
-extension StorageReference {
+private extension StorageReference {
     
     func trainingVideoReference(forUserID userID: ID, fileName: String) -> StorageReference {
         return child(userID).child("training_video").child(fileName)
     }
 }
 
-extension StorageMetadata {
+private extension StorageMetadata {
     
     enum ContentType: String {
         case jpeg = "image/jpeg"
