@@ -10,29 +10,21 @@ import FirebaseStorage
 
 class StorageManager {
     
-    static let shared = StorageManager()
+    static let `default` = StorageManager(storage: .storage())
     
-    // MARK: - Property Declaration
+    private let storageReference: StorageReference
     
-    private let storageReference = Storage.storage().reference()
-    
-    private let pictureName = "profile.jpeg"
-    
-    // MARK: - Instance Method
+    init(storage: Storage) {
+        self.storageReference = storage.reference()
+    }
     
     func getProfilePicture(forID id: ID, completion: @escaping (Result<URL, Error>) -> Void) {
-        
-        let reference = storageReference.child(id).child(pictureName)
-            
+        let reference = storageReference.child(id).child("profile.jpeg")
         reference.downloadURL { (url, error) in
-                
             if let error = error {
-                
                 completion(.failure(error))
             }
-            
             if let url = url {
-                
                 completion(.success(url))
             }
         }
@@ -41,35 +33,21 @@ class StorageManager {
     func uploadScreenShot(fileName: String,
                           image: UIImage,
                           completion: @escaping (Result<URL, Error>) -> Void) {
-        
         guard let currentUser = AuthManager.default.currentUser else { return }
-        
         guard let data = image.jpegData(compressionQuality: 0.3) else { return }
-        
-        let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
-        
+        let reference = storageReference.trainingVideoReference(forUserID: currentUser.id, fileName: fileName)
         let metadata = StorageMetadata()
-        
-        metadata.contentType = ContentType.jpeg
-        
+        metadata.set(contentType: .jpeg)
         reference.putData(data, metadata: metadata) { (_, error) in
-            
             if let error = error {
-                
                 completion(.failure(error))
-                
                 return
             }
-            
             reference.downloadURL { (url, error) in
-                
                 if let error = error {
-                    
                     completion(.failure(error))
                 }
-                
                 if let url = url {
-                    
                     completion(.success(url))
                 }
             }
@@ -77,15 +55,10 @@ class StorageManager {
     }
     
     func removeScreenShot(fileName: String) {
-        
         guard let currentUser = AuthManager.default.currentUser else { return }
-        
-        let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
-            
+        let reference = storageReference.trainingVideoReference(forUserID: currentUser.id, fileName: fileName)
         reference.delete { (error) in
-                
             if let error = error {
-                
                 print(error)
             }
         }
@@ -94,48 +67,42 @@ class StorageManager {
     func uploadVideo(fileName: String,
                      url: URL,
                      completion: @escaping (Result<URL, Error>) -> Void) {
-        
         guard let currentUser = AuthManager.default.currentUser else { return }
-        
-        let reference = storageReference.child(currentUser.id).child(Folder.trainingVideo).child(fileName)
-        
+        let reference = storageReference.trainingVideoReference(forUserID: currentUser.id, fileName: fileName)
         let metadata = StorageMetadata()
-        
-        metadata.contentType = ContentType.mp4
-        
+        metadata.set(contentType: .mp4)
         reference.putFile(from: url, metadata: metadata) { (_, error) in
-                
             if let error = error {
-                
                 completion(.failure(error))
-                
                 return
             }
-            
             reference.downloadURL(completion: { (url, error) in
-                
                 if let error = error {
-                    
                     completion(.failure(error))
                 }
-                
                 if let url = url {
-                    
                     completion(.success(url))
                 }
             })
         }
     }
+}
+
+extension StorageReference {
     
-    private struct Folder {
-        
-        static let trainingVideo = "training_video"
+    func trainingVideoReference(forUserID userID: ID, fileName: String) -> StorageReference {
+        return child(userID).child("training_video").child(fileName)
     }
+}
+
+extension StorageMetadata {
     
-    private struct ContentType {
-        
-        static let jpeg = "image/jpeg"
-        
-        static let mp4 = "video/mp4"
+    enum ContentType: String {
+        case jpeg = "image/jpeg"
+        case mp4 = "video/mp4"
+    }
+
+    func set(contentType: ContentType) {
+        self.contentType = contentType.rawValue
     }
 }

@@ -133,7 +133,7 @@ extension ProfileViewController: ProfileViewDelegate {
         
         resultCell.videoURL = URL(string: result.videoURL)
         
-        StorageManager.shared.getProfilePicture(forID: result.id) { result in
+        StorageManager.default.getProfilePicture(forID: result.id) { result in
             
             switch result {
                 

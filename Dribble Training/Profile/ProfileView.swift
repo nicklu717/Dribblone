@@ -48,7 +48,7 @@ class ProfileView: UIView {
     
     func setupProfile(for member: Member) {
         
-        StorageManager.shared.getProfilePicture(forID: member.id) { result in
+        StorageManager.default.getProfilePicture(forID: member.id) { result in
             
             switch result {
                 

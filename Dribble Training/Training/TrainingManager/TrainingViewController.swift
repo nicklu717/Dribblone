@@ -71,7 +71,7 @@ class TrainingViewController: UIViewController {
         
         let fileName = String(format: "%.0d", trainingResult.date)
         
-        StorageManager.shared.uploadScreenShot(
+        StorageManager.default.uploadScreenShot(
             fileName: fileName,
             image: image) { (result) in
 
@@ -185,7 +185,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
             
             let fileName = String(format: "%.0d", trainingResult.date)
             
-            StorageManager.shared.removeScreenShot(fileName: fileName)
+            StorageManager.default.removeScreenShot(fileName: fileName)
             
             presentingViewController?.dismiss(animated: true)
             
@@ -214,7 +214,7 @@ extension TrainingViewController: RPPreviewViewControllerDelegate {
         
         PhotosManager.default.writeData(to: temporaryURL, resource: videoResource) {
             
-            StorageManager.shared.uploadVideo(
+            StorageManager.default.uploadVideo(
                 fileName: videoResource.originalFilename,
                 url: temporaryURL,
                 completion: { result in
