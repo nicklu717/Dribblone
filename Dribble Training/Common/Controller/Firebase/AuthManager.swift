@@ -10,25 +10,25 @@ import FirebaseAuth
 
 class AuthManager {
     
-    static let shared = AuthManager()
+    static let `default` = AuthManager(auth: .auth())
     
-    private let auth = Auth.auth()
+    private let auth: Auth
     
     var currentUser: Member?
+    
+    init(auth: Auth) {
+        self.auth = auth
+    }
     
     func signUp(withEmail email: String,
                 password: String,
                 completion: @escaping (Result<UID, Error>) -> Void) {
-        
         auth.createUser(withEmail: email, password: password) { (authDataResult, error) in
-                
             if let error = error {
-                
                 completion(.failure(error))
             }
             
             if let authDataResult = authDataResult {
-                
                 completion(.success(authDataResult.user.uid))
             }
         }
@@ -37,16 +37,11 @@ class AuthManager {
     func logIn(withEmail email: String,
                password: String,
                completion: @escaping (Result<UID, Error>) -> Void) {
-        
         auth.signIn(withEmail: email, password: password) { (authDataResult, error) in
-                
             if let error = error {
-                
                 completion(.failure(error))
             }
-            
             if let authDataResult = authDataResult {
-                
                 completion(.success(authDataResult.user.uid))
             }
         }

@@ -11,11 +11,10 @@
 		5A0F35CE2321296B00EFB13F /* TrainingAssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */; };
 		5A30C2FF233A6B43005D711F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C2FE233A6B43005D711F /* TextField.swift */; };
 		5A30C303233A7912005D711F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30C302233A7912005D711F /* NavigationController.swift */; };
-		5A365DC5234A389300A4EF4F /* SpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A365DC4234A389300A4EF4F /* SpriteManager.swift */; };
 		5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF6FF2336631F00E648AC /* KeychainManager.swift */; };
 		5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF7012337AB0900E648AC /* MainViewController.swift */; };
-		5A4359092338A8A10055190A /* MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* MJRefresh.swift */; };
-		5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590A2338CB1E0055190A /* SCLAlertView.swift */; };
+		5A4359092338A8A10055190A /* UIScrollView+MJRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4359082338A8A10055190A /* UIScrollView+MJRefresh.swift */; };
+		5A43590B2338CB1E0055190A /* UIViewController+SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590A2338CB1E0055190A /* UIViewController+SCLAlertView.swift */; };
 		5A43590D2339236A0055190A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43590C2339236A0055190A /* UIView+Extension.swift */; };
 		5A4B0164233D0C7A0067ADBB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4B0163233D0C7A0067ADBB /* WebKit.framework */; };
 		5A5618132345A89A004B66A5 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5618122345A89A004B66A5 /* Instruction.storyboard */; };
@@ -70,10 +69,10 @@
 		5AD91EF42324E9C9000E2BB4 /* TrainingMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */; };
 		5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */; };
 		5ADE95522340F830000608E1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE95512340F830000608E1 /* UIViewController+Extension.swift */; };
-		5ADE95542340F997000608E1 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE95532340F997000608E1 /* PhotoManager.swift */; };
+		5ADE95542340F997000608E1 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE95532340F997000608E1 /* PhotosManager.swift */; };
 		5AE777F4233B333C004E46FC /* TrainingMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */; };
 		5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */; };
-		5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F7233B5D4A004E46FC /* Kingfisher.swift */; };
+		5AE777F8233B5D4A004E46FC /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE777F7233B5D4A004E46FC /* UIImageView+Kingfisher.swift */; };
 		5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */; };
 		5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */; };
 		FEC79306F0EDC8C7F409909D /* Pods_Dribble_Training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BAD80FFF6DA777DC9FB63E /* Pods_Dribble_Training.framework */; };
@@ -84,11 +83,10 @@
 		5A0F35CD2321296B00EFB13F /* TrainingAssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAssistantViewController.swift; sourceTree = "<group>"; };
 		5A30C2FE233A6B43005D711F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		5A30C302233A7912005D711F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		5A365DC4234A389300A4EF4F /* SpriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteManager.swift; sourceTree = "<group>"; };
 		5A3DF6FF2336631F00E648AC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		5A3DF7012337AB0900E648AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		5A4359082338A8A10055190A /* MJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefresh.swift; sourceTree = "<group>"; };
-		5A43590A2338CB1E0055190A /* SCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		5A4359082338A8A10055190A /* UIScrollView+MJRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+MJRefresh.swift"; sourceTree = "<group>"; };
+		5A43590A2338CB1E0055190A /* UIViewController+SCLAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SCLAlertView.swift"; sourceTree = "<group>"; };
 		5A43590C2339236A0055190A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5A4B0162233CB8D60067ADBB /* Dribble Training.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dribble Training.entitlements"; sourceTree = "<group>"; };
 		5A4B0163233D0C7A0067ADBB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -146,10 +144,10 @@
 		5AD91EF32324E9C9000E2BB4 /* TrainingMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingMenu.storyboard; sourceTree = "<group>"; };
 		5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		5ADE95512340F830000608E1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		5ADE95532340F997000608E1 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		5ADE95532340F997000608E1 /* PhotosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
 		5AE777F3233B333C004E46FC /* TrainingMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingMenuTableViewCell.xib; sourceTree = "<group>"; };
 		5AE777F5233B3370004E46FC /* TrainingMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMenuTableViewCell.swift; sourceTree = "<group>"; };
-		5AE777F7233B5D4A004E46FC /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
+		5AE777F7233B5D4A004E46FC /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		5AE9A1D9233259D800DA83A9 /* FirestoreStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreStructure.swift; sourceTree = "<group>"; };
 		5AE9A1DB23325E3600DA83A9 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		66A171F80630C1F8354FD801 /* Pods-Dribble Training.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dribble Training.debug.xcconfig"; path = "Target Support Files/Pods-Dribble Training/Pods-Dribble Training.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,20 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				5A3DF6FF2336631F00E648AC /* KeychainManager.swift */,
-				5ADE95532340F997000608E1 /* PhotoManager.swift */,
-				5A365DC4234A389300A4EF4F /* SpriteManager.swift */,
+				5ADE95532340F997000608E1 /* PhotosManager.swift */,
 			);
 			path = KitManager;
-			sourceTree = "<group>";
-		};
-		5A4359072338A8770055190A /* ThirdPartyWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				5A4359082338A8A10055190A /* MJRefresh.swift */,
-				5A43590A2338CB1E0055190A /* SCLAlertView.swift */,
-				5AE777F7233B5D4A004E46FC /* Kingfisher.swift */,
-			);
-			path = ThirdPartyWrapper;
 			sourceTree = "<group>";
 		};
 		5A4E2154232238F400F91012 /* TrainingManager */ = {
@@ -292,9 +279,12 @@
 			children = (
 				5AD91EF52324EAE1000E2BB4 /* UIStoryboard+Extension.swift */,
 				5ADE95512340F830000608E1 /* UIViewController+Extension.swift */,
+				5A43590A2338CB1E0055190A /* UIViewController+SCLAlertView.swift */,
 				5A43590C2339236A0055190A /* UIView+Extension.swift */,
+				5A4359082338A8A10055190A /* UIScrollView+MJRefresh.swift */,
 				5A93ABAD233A347E00358CCD /* UITableView+Extension.swift */,
 				5A6D2DBA23439DA900E83E0E /* UICollectionView+Extension.swift */,
+				5AE777F7233B5D4A004E46FC /* UIImageView+Kingfisher.swift */,
 				5A88EC862327A71C00BD23D4 /* UIImage+Extension.swift */,
 				5A93AB9B2339CFBC00358CCD /* UIColor+Extension.swift */,
 			);
@@ -362,7 +352,6 @@
 		5AD862AD231913C80036EFFF /* Dribble Training */ = {
 			isa = PBXGroup;
 			children = (
-				5A4359072338A8770055190A /* ThirdPartyWrapper */,
 				5AD862CA231920B80036EFFF /* Resource */,
 				5A7E901C231FA21500EE0BEF /* Extension */,
 				5AD862CB231920D40036EFFF /* Common */,
@@ -641,7 +630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A64C983234B127D00979F9E /* TrainingViewController.swift in Sources */,
-				5ADE95542340F997000608E1 /* PhotoManager.swift in Sources */,
+				5ADE95542340F997000608E1 /* PhotosManager.swift in Sources */,
 				5AB04045231CEEB3000C5D48 /* MobileNetV2_SSDLite.mlmodel in Sources */,
 				5A30C303233A7912005D711F /* NavigationController.swift in Sources */,
 				5A30C2FF233A6B43005D711F /* TextField.swift in Sources */,
@@ -663,18 +652,17 @@
 				5A7E9020231FEF3700EE0BEF /* TrainingSetting.swift in Sources */,
 				5A93ABB0233A380A00358CCD /* Setting.swift in Sources */,
 				5AE9A1DC23325E3600DA83A9 /* Date+Extension.swift in Sources */,
-				5A4359092338A8A10055190A /* MJRefresh.swift in Sources */,
+				5A4359092338A8A10055190A /* UIScrollView+MJRefresh.swift in Sources */,
 				5A88EC772327882F00BD23D4 /* TabBarController.swift in Sources */,
 				5A3DF7022337AB0900E648AC /* MainViewController.swift in Sources */,
 				5A64DF4A2326462100562001 /* ResultTableViewCell.swift in Sources */,
 				5AD91EF02324E9A1000E2BB4 /* TrainingMenuViewController.swift in Sources */,
 				5A3DF7002336631F00E648AC /* KeychainManager.swift in Sources */,
 				5A93ABA8233A2F1F00358CCD /* SettingTableViewCell.swift in Sources */,
-				5A365DC5234A389300A4EF4F /* SpriteManager.swift in Sources */,
 				5AD3F54B233DD86000D5C5CB /* PrivacyView.swift in Sources */,
 				5ADE95522340F830000608E1 /* UIViewController+Extension.swift in Sources */,
 				5A8C93122348DD57004F8187 /* String+Extension.swift in Sources */,
-				5AE777F8233B5D4A004E46FC /* Kingfisher.swift in Sources */,
+				5AE777F8233B5D4A004E46FC /* UIImageView+Kingfisher.swift in Sources */,
 				5AE9A1DA233259D800DA83A9 /* FirestoreStructure.swift in Sources */,
 				5A5AB15523362C4800A3BD04 /* PostWallViewController.swift in Sources */,
 				5A8C93102348D647004F8187 /* Constant.swift in Sources */,
@@ -688,7 +676,7 @@
 				5A7FDAF42322505C000DB0DE /* BallTrackerViewController.swift in Sources */,
 				5A6EF2772328F624005359C8 /* ProfileView.swift in Sources */,
 				5A6BA154232E2D3200E2FB48 /* RegisterView.swift in Sources */,
-				5A43590B2338CB1E0055190A /* SCLAlertView.swift in Sources */,
+				5A43590B2338CB1E0055190A /* UIViewController+SCLAlertView.swift in Sources */,
 				5AD91EF62324EAE1000E2BB4 /* UIStoryboard+Extension.swift in Sources */,
 				5AE777F6233B3370004E46FC /* TrainingMenuTableViewCell.swift in Sources */,
 				5A93ABA2233A209300358CCD /* SettingViewController.swift in Sources */,

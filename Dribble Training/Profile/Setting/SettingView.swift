@@ -13,11 +13,8 @@ protocol SettingViewDelegate: UITableViewDataSource, UITableViewDelegate {}
 class SettingView: UIView {
     
     weak var delegate: SettingViewDelegate? {
-        
         didSet {
-        
             tableView.dataSource = delegate
-            
             tableView.delegate = delegate
         }
     }

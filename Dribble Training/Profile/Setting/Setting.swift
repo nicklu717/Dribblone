@@ -9,8 +9,6 @@
 import Foundation
 
 enum Setting: String {
-    
     case privacyPolicy = "Privacy Policy"
-    
     case logOut = "Log Out"
 }
